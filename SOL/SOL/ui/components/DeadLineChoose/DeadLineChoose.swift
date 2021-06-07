@@ -12,10 +12,7 @@ struct DeadLineChoose: View {
     
     var body: some View {
         ZStack{
-            Rectangle()
-                .frame(width: .infinity, height: .infinity, alignment: .center)
-                .foregroundColor(Color(CGColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5)))
-                .ignoresSafeArea()
+           
             
             VStack{
                 Spacer()

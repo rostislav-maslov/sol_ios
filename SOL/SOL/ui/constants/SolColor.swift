@@ -26,12 +26,21 @@ struct ColorsVar {
     var textField: TextFieldColors
     var button: ButtonColors
     var screen: ScreenColors
+    var addTask: AddTask
 }
 
 struct ButtonColors {
     var background: Color
     var backgroundLoading: Color
     var font: Color
+}
+
+struct AddTask{
+    var placeholderBackground: Color
+    var placeholderTextDefault: Color
+    var placeholderTextFill: Color
+    
+    var addTaskBackground: Color
 }
 
 class SolColor{
@@ -57,7 +66,14 @@ class SolColor{
                 font: Color(CGColor(red: 243/255, green: 244/255, blue: 256/255, alpha: 1))
             ),
             
-            screen: ScreenColors(background: Color(CGColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)))
+            screen: ScreenColors(background: Color(CGColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1))),
+            
+            addTask: AddTask(
+                placeholderBackground: Color(CGColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.8)),
+                placeholderTextDefault: Color(CGColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.7)),
+                placeholderTextFill: .white,
+                addTaskBackground: Color(CGColor(red: 202/255, green: 206/255, blue: 212/255, alpha: 1.0))
+            )
         )
         return colors
     }
