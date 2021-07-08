@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,9 @@
 		4F0B5C9B2649962D0026FDD0 /* AddTaskComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B5C9A2649962D0026FDD0 /* AddTaskComponent.swift */; };
 		4F0B5C9E264ADE710026FDD0 /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B5C9D264ADE710026FDD0 /* KeyboardResponder.swift */; };
 		4F0B5CA1264AFB710026FDD0 /* SpacesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B5CA0264AFB710026FDD0 /* SpacesScene.swift */; };
+		4F0F318B26714D1C00C67852 /* ChooseDeadlineComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0F318A26714D1C00C67852 /* ChooseDeadlineComponent.swift */; };
+		4F21D394266F3D2600459112 /* ChooseEventTimeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21D393266F3D2600459112 /* ChooseEventTimeComponent.swift */; };
+		4F21D39A266F458600459112 /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 4F21D399266F458600459112 /* ElegantCalendar */; };
 		4F2B5DA62668AB4F005BE636 /* PlaceholderTaskComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B5DA52668AB4F005BE636 /* PlaceholderTaskComponent.swift */; };
 		4F2B5DA92668B1FE005BE636 /* BackgroundForModalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B5DA82668B1FE005BE636 /* BackgroundForModalComponent.swift */; };
 		4F2B5DAC2668B2CC005BE636 /* AddTaskModalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B5DAB2668B2CC005BE636 /* AddTaskModalComponent.swift */; };
@@ -40,7 +43,7 @@
 		4F87F7B62658F2470094C946 /* TLIconComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F87F7B52658F2470094C946 /* TLIconComponent.swift */; };
 		4F87F7B82658F2B70094C946 /* SolFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F87F7B72658F2B70094C946 /* SolFonts.swift */; };
 		4F87F7BB2658F7F20094C946 /* TLItemComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F87F7BA2658F7F20094C946 /* TLItemComponent.swift */; };
-		4F9307D0265E15CD00204881 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9307CF265E15CD00204881 /* AuthService.swift */; };
+		4F9307D0265E15CD00204881 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9307CF265E15CD00204881 /* AuthAPI.swift */; };
 		4F9307D5265E184000204881 /* SignUpEmailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9307D4265E184000204881 /* SignUpEmailRequest.swift */; };
 		4F9307D7265E188800204881 /* SignUpEmailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9307D6265E188800204881 /* SignUpEmailResponse.swift */; };
 		4F9307DB265E18B700204881 /* BaseApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9307DA265E18B700204881 /* BaseApiResponse.swift */; };
@@ -60,9 +63,20 @@
 		4FA0F6F726487DE900CECF24 /* IconComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0F6F626487DE900CECF24 /* IconComponent.swift */; };
 		4FA0F6FA2648806400CECF24 /* StoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0F6F92648806400CECF24 /* StoryComponent.swift */; };
 		4FA0F6FD264885CD00CECF24 /* StoriesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0F6FC264885CD00CECF24 /* StoriesComponent.swift */; };
+		4FA5B46A2692E1000031093A /* LoginByEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA5B4692692E1000031093A /* LoginByEmailViewModel.swift */; };
+		4FA828A82696C83500540CFF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828A72696C83500540CFF /* TokenStore.swift */; };
+		4FA828AA2696C92D00540CFF /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828A92696C92D00540CFF /* UserStore.swift */; };
+		4FA828AF2696CB6400540CFF /* SolPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828AE2696CB6400540CFF /* SolPublisher.swift */; };
+		4FA828B62696CE9100540CFF /* AppLoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828B52696CE9100540CFF /* AppLoadingViewModel.swift */; };
+		4FA828BC2696E2BA00540CFF /* WarmUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828BB2696E2BA00540CFF /* WarmUpUseCase.swift */; };
+		4FA828BE2696E82400540CFF /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828BD2696E82400540CFF /* AuthState.swift */; };
+		4FA828C32696E84E00540CFF /* UseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828C22696E84E00540CFF /* UseCaseProtocol.swift */; };
+		4FA828C62696E86500540CFF /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828C52696E86500540CFF /* UseCase.swift */; };
+		4FA828C82696E89500540CFF /* ReceiveReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828C72696E89500540CFF /* ReceiveReponse.swift */; };
+		4FAD3EEF269424E40078288F /* AlwaysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD3EEE269424E40078288F /* AlwaysTest.swift */; };
 		4FB2C146266B34B10008CCDA /* TaskFieldButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB2C145266B34B10008CCDA /* TaskFieldButtonComponent.swift */; };
 		4FD2E31A265F6BD2007A20C6 /* TextFieldLoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E319265F6BD2007A20C6 /* TextFieldLoginComponent.swift */; };
-		4FD2E31D265F7339007A20C6 /* TitleLoginByEmailComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E31C265F7339007A20C6 /* TitleLoginByEmailComponent.swift */; };
+		4FD2E31D265F7339007A20C6 /* TitleLoginByEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E31C265F7339007A20C6 /* TitleLoginByEmailView.swift */; };
 		4FD2E320265F74B7007A20C6 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E31F265F74B7007A20C6 /* ButtonComponent.swift */; };
 		4FD2E322265F7BF3007A20C6 /* SolDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E321265F7BF3007A20C6 /* SolDataProvider.swift */; };
 		4FD2E32C265F7F97007A20C6 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E32B265F7F97007A20C6 /* UserProvider.swift */; };
@@ -71,17 +85,15 @@
 		4FD2E336265F94EF007A20C6 /* TokenEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E335265F94EF007A20C6 /* TokenEntity.swift */; };
 		4FE38CE92662CDAD0011E203 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE38CE82662CDAD0011E203 /* Error.swift */; };
 		4FE38CEB266397140011E203 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE38CEA266397140011E203 /* ViewState.swift */; };
-		4FE38CF22663B8320011E203 /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE38CF12663B8320011E203 /* UserDefaultService.swift */; };
+		4FE38CF22663B8320011E203 /* DefaultStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE38CF12663B8320011E203 /* DefaultStore.swift */; };
 		4FE38CF42663CBB90011E203 /* RefreshTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE38CF32663CBB90011E203 /* RefreshTokenRequest.swift */; };
 		4FE38CF72663CF580011E203 /* WarmUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE38CF62663CF580011E203 /* WarmUpScreen.swift */; };
 		4FE38CFB2663EC190011E203 /* HeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE38CFA2663EC190011E203 /* HeaderComponent.swift */; };
 		4FE38CFF2664123C0011E203 /* AddSpaceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE38CFE2664123C0011E203 /* AddSpaceScreen.swift */; };
 		4FE38D02266413BD0011E203 /* IconFieldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE38D01266413BD0011E203 /* IconFieldComponent.swift */; };
-		4FFC218E2631222800198E4B /* RouteUIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFC218D2631222800198E4B /* RouteUIScreen.swift */; };
+		4FFC218E2631222800198E4B /* AppLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFC218D2631222800198E4B /* AppLoadingView.swift */; };
 		4FFC2196263123A600198E4B /* LoginUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFC2195263123A600198E4B /* LoginUIView.swift */; };
-		4FFC219C263123E500198E4B /* ScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFC219B263123E500198E4B /* ScreenState.swift */; };
-		4FFC21A626312E1400198E4B /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFC21A526312E1400198E4B /* AuthState.swift */; };
-		4FFC21AB2637B5F500198E4B /* LoginByEmailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFC21AA2637B5F500198E4B /* LoginByEmailScreen.swift */; };
+		4FFC21AB2637B5F500198E4B /* LoginByEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFC21AA2637B5F500198E4B /* LoginByEmailView.swift */; };
 		D2367AFF0C140F61AA29073D /* Pods_SOL_SOLUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B6C87DAB321D7DA773F0A7 /* Pods_SOL_SOLUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +128,8 @@
 		4F0B5C9A2649962D0026FDD0 /* AddTaskComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskComponent.swift; sourceTree = "<group>"; };
 		4F0B5C9D264ADE710026FDD0 /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
 		4F0B5CA0264AFB710026FDD0 /* SpacesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesScene.swift; sourceTree = "<group>"; };
+		4F0F318A26714D1C00C67852 /* ChooseDeadlineComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDeadlineComponent.swift; sourceTree = "<group>"; };
+		4F21D393266F3D2600459112 /* ChooseEventTimeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseEventTimeComponent.swift; sourceTree = "<group>"; };
 		4F2B5DA52668AB4F005BE636 /* PlaceholderTaskComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTaskComponent.swift; sourceTree = "<group>"; };
 		4F2B5DA82668B1FE005BE636 /* BackgroundForModalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundForModalComponent.swift; sourceTree = "<group>"; };
 		4F2B5DAB2668B2CC005BE636 /* AddTaskModalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskModalComponent.swift; sourceTree = "<group>"; };
@@ -138,7 +152,7 @@
 		4F87F7B52658F2470094C946 /* TLIconComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLIconComponent.swift; sourceTree = "<group>"; };
 		4F87F7B72658F2B70094C946 /* SolFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolFonts.swift; sourceTree = "<group>"; };
 		4F87F7BA2658F7F20094C946 /* TLItemComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLItemComponent.swift; sourceTree = "<group>"; };
-		4F9307CF265E15CD00204881 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		4F9307CF265E15CD00204881 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		4F9307D4265E184000204881 /* SignUpEmailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailRequest.swift; sourceTree = "<group>"; };
 		4F9307D6265E188800204881 /* SignUpEmailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailResponse.swift; sourceTree = "<group>"; };
 		4F9307DA265E18B700204881 /* BaseApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiResponse.swift; sourceTree = "<group>"; };
@@ -164,9 +178,20 @@
 		4FA0F6F626487DE900CECF24 /* IconComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconComponent.swift; sourceTree = "<group>"; };
 		4FA0F6F92648806400CECF24 /* StoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryComponent.swift; sourceTree = "<group>"; };
 		4FA0F6FC264885CD00CECF24 /* StoriesComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesComponent.swift; sourceTree = "<group>"; };
+		4FA5B4692692E1000031093A /* LoginByEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginByEmailViewModel.swift; sourceTree = "<group>"; };
+		4FA828A72696C83500540CFF /* TokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStore.swift; sourceTree = "<group>"; };
+		4FA828A92696C92D00540CFF /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
+		4FA828AE2696CB6400540CFF /* SolPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolPublisher.swift; sourceTree = "<group>"; };
+		4FA828B52696CE9100540CFF /* AppLoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLoadingViewModel.swift; sourceTree = "<group>"; };
+		4FA828BB2696E2BA00540CFF /* WarmUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpUseCase.swift; sourceTree = "<group>"; };
+		4FA828BD2696E82400540CFF /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
+		4FA828C22696E84E00540CFF /* UseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProtocol.swift; sourceTree = "<group>"; };
+		4FA828C52696E86500540CFF /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
+		4FA828C72696E89500540CFF /* ReceiveReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveReponse.swift; sourceTree = "<group>"; };
+		4FAD3EEE269424E40078288F /* AlwaysTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlwaysTest.swift; sourceTree = "<group>"; };
 		4FB2C145266B34B10008CCDA /* TaskFieldButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFieldButtonComponent.swift; sourceTree = "<group>"; };
 		4FD2E319265F6BD2007A20C6 /* TextFieldLoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldLoginComponent.swift; sourceTree = "<group>"; };
-		4FD2E31C265F7339007A20C6 /* TitleLoginByEmailComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLoginByEmailComponent.swift; sourceTree = "<group>"; };
+		4FD2E31C265F7339007A20C6 /* TitleLoginByEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLoginByEmailView.swift; sourceTree = "<group>"; };
 		4FD2E31F265F74B7007A20C6 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		4FD2E321265F7BF3007A20C6 /* SolDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolDataProvider.swift; sourceTree = "<group>"; };
 		4FD2E32B265F7F97007A20C6 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
@@ -175,17 +200,15 @@
 		4FD2E335265F94EF007A20C6 /* TokenEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenEntity.swift; sourceTree = "<group>"; };
 		4FE38CE82662CDAD0011E203 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		4FE38CEA266397140011E203 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
-		4FE38CF12663B8320011E203 /* UserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultService.swift; sourceTree = "<group>"; };
+		4FE38CF12663B8320011E203 /* DefaultStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStore.swift; sourceTree = "<group>"; };
 		4FE38CF32663CBB90011E203 /* RefreshTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenRequest.swift; sourceTree = "<group>"; };
 		4FE38CF62663CF580011E203 /* WarmUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpScreen.swift; sourceTree = "<group>"; };
 		4FE38CFA2663EC190011E203 /* HeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderComponent.swift; sourceTree = "<group>"; };
 		4FE38CFE2664123C0011E203 /* AddSpaceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpaceScreen.swift; sourceTree = "<group>"; };
 		4FE38D01266413BD0011E203 /* IconFieldComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFieldComponent.swift; sourceTree = "<group>"; };
-		4FFC218D2631222800198E4B /* RouteUIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteUIScreen.swift; sourceTree = "<group>"; };
+		4FFC218D2631222800198E4B /* AppLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLoadingView.swift; sourceTree = "<group>"; };
 		4FFC2195263123A600198E4B /* LoginUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUIView.swift; sourceTree = "<group>"; };
-		4FFC219B263123E500198E4B /* ScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenState.swift; sourceTree = "<group>"; };
-		4FFC21A526312E1400198E4B /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
-		4FFC21AA2637B5F500198E4B /* LoginByEmailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginByEmailScreen.swift; sourceTree = "<group>"; };
+		4FFC21AA2637B5F500198E4B /* LoginByEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginByEmailView.swift; sourceTree = "<group>"; };
 		5F5AD670EFE9C003912E494C /* Pods-SOL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOL.release.xcconfig"; path = "Target Support Files/Pods-SOL/Pods-SOL.release.xcconfig"; sourceTree = "<group>"; };
 		92B6C87DAB321D7DA773F0A7 /* Pods_SOL_SOLUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOL_SOLUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FF00C2D917786245CB4C04 /* Pods-SOLTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOLTests.release.xcconfig"; path = "Target Support Files/Pods-SOLTests/Pods-SOLTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F83DF2D18AD6EAB55EF844 /* Pods_SOL.framework in Frameworks */,
+				4F21D39A266F458600459112 /* ElegantCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +320,22 @@
 				4F0B5C9D264ADE710026FDD0 /* KeyboardResponder.swift */,
 			);
 			path = keyboard;
+			sourceTree = "<group>";
+		};
+		4F0F318926714CF100C67852 /* ChooseDeadLineComponent */ = {
+			isa = PBXGroup;
+			children = (
+				4F0F318A26714D1C00C67852 /* ChooseDeadlineComponent.swift */,
+			);
+			path = ChooseDeadLineComponent;
+			sourceTree = "<group>";
+		};
+		4F21D392266F3D0400459112 /* ChooseEventTimeComponent */ = {
+			isa = PBXGroup;
+			children = (
+				4F21D393266F3D2600459112 /* ChooseEventTimeComponent.swift */,
+			);
+			path = ChooseEventTimeComponent;
 			sourceTree = "<group>";
 		};
 		4F2B5DA32668AB25005BE636 /* subComponents */ = {
@@ -423,8 +463,6 @@
 		4F87F79F2658E9BB0094C946 /* constants */ = {
 			isa = PBXGroup;
 			children = (
-				4F87F7A02658E9D10094C946 /* SolColor.swift */,
-				4F87F7B72658F2B70094C946 /* SolFonts.swift */,
 				4FE38CEA266397140011E203 /* ViewState.swift */,
 			);
 			path = constants;
@@ -500,14 +538,14 @@
 			path = TLItemComonent;
 			sourceTree = "<group>";
 		};
-		4F9307CE265E158700204881 /* service */ = {
+		4F9307CE265E158700204881 /* api */ = {
 			isa = PBXGroup;
 			children = (
 				4F6F05A826660D6C0074B9D8 /* space */,
 				4F9307D8265E18A500204881 /* base */,
 				4F9307D1265E17CA00204881 /* auth */,
 			);
-			path = service;
+			path = api;
 			sourceTree = "<group>";
 		};
 		4F9307D1265E17CA00204881 /* auth */ = {
@@ -534,7 +572,7 @@
 		4F9307D3265E17DD00204881 /* service */ = {
 			isa = PBXGroup;
 			children = (
-				4F9307CF265E15CD00204881 /* AuthService.swift */,
+				4F9307CF265E15CD00204881 /* AuthAPI.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -580,7 +618,6 @@
 			children = (
 				4F9307E3265E1A4500204881 /* SolApiService.swift */,
 				4F9307EC265E24CD00204881 /* RequestService.swift */,
-				4FE38CF12663B8320011E203 /* UserDefaultService.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -626,8 +663,10 @@
 		4F9E8986262E73BF002F2B1B /* SOL */ = {
 			isa = PBXGroup;
 			children = (
-				4F9307CE265E158700204881 /* service */,
-				4FFC21A426312DFA00198E4B /* data */,
+				4FA828AC2696CAB000540CFF /* publishers */,
+				4FA828A62696C82500540CFF /* store */,
+				4F9307CE265E158700204881 /* api */,
+				4FFC21A426312DFA00198E4B /* domain */,
 				4FFC21A326312DEE00198E4B /* ui */,
 				4F9E8987262E73BF002F2B1B /* SOLApp.swift */,
 				4F9E8989262E73BF002F2B1B /* ContentView.swift */,
@@ -652,6 +691,7 @@
 			children = (
 				4F9E8999262E73C3002F2B1B /* SOLTests.swift */,
 				4F9E899B262E73C3002F2B1B /* Info.plist */,
+				4FAD3EEE269424E40078288F /* AlwaysTest.swift */,
 			);
 			path = SOLTests;
 			sourceTree = "<group>";
@@ -668,6 +708,8 @@
 		4FA0F6F126487D6700CECF24 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				4F0F318926714CF100C67852 /* ChooseDeadLineComponent */,
+				4F21D392266F3D0400459112 /* ChooseEventTimeComponent */,
 				4FB2C144266B34880008CCDA /* TaskFieldButtonComponent */,
 				4F2B5DA72668B1E6005BE636 /* BackgroundForModalComponent */,
 				4FE38D00266413A00011E203 /* IconFieldComponent */,
@@ -713,6 +755,188 @@
 			path = StoriesComponent;
 			sourceTree = "<group>";
 		};
+		4FA5B4632692E00E0031093A /* needRefactor */ = {
+			isa = PBXGroup;
+			children = (
+				4FE38CE72662912C0011E203 /* screens */,
+				4FA0F6F126487D6700CECF24 /* components */,
+				4F87F79F2658E9BB0094C946 /* constants */,
+			);
+			path = needRefactor;
+			sourceTree = "<group>";
+		};
+		4FA5B4642692E0210031093A /* base */ = {
+			isa = PBXGroup;
+			children = (
+				4FA5B4662692E04E0031093A /* fonts */,
+				4FA5B4652692E0490031093A /* colors */,
+				4F42793F2637C06100D71B2D /* extentions */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		4FA5B4652692E0490031093A /* colors */ = {
+			isa = PBXGroup;
+			children = (
+				4F87F7A02658E9D10094C946 /* SolColor.swift */,
+			);
+			path = colors;
+			sourceTree = "<group>";
+		};
+		4FA5B4662692E04E0031093A /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4F87F7B72658F2B70094C946 /* SolFonts.swift */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		4FA5B4672692E0AB0031093A /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4FD2E31C265F7339007A20C6 /* TitleLoginByEmailView.swift */,
+				4FFC21AA2637B5F500198E4B /* LoginByEmailView.swift */,
+				4FFC2195263123A600198E4B /* LoginUIView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4FA5B4682692E0AF0031093A /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4FA5B4692692E1000031093A /* LoginByEmailViewModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4FA828A62696C82500540CFF /* store */ = {
+			isa = PBXGroup;
+			children = (
+				4FA828AB2696C9C600540CFF /* defaults */,
+			);
+			path = store;
+			sourceTree = "<group>";
+		};
+		4FA828AB2696C9C600540CFF /* defaults */ = {
+			isa = PBXGroup;
+			children = (
+				4FA828A72696C83500540CFF /* TokenStore.swift */,
+				4FE38CF12663B8320011E203 /* DefaultStore.swift */,
+				4FA828A92696C92D00540CFF /* UserStore.swift */,
+			);
+			path = defaults;
+			sourceTree = "<group>";
+		};
+		4FA828AC2696CAB000540CFF /* publishers */ = {
+			isa = PBXGroup;
+			children = (
+				4FA828AD2696CABF00540CFF /* base */,
+			);
+			path = publishers;
+			sourceTree = "<group>";
+		};
+		4FA828AD2696CABF00540CFF /* base */ = {
+			isa = PBXGroup;
+			children = (
+				4FA828AE2696CB6400540CFF /* SolPublisher.swift */,
+				4FA828C72696E89500540CFF /* ReceiveReponse.swift */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		4FA828B22696CE4900540CFF /* appLoading */ = {
+			isa = PBXGroup;
+			children = (
+				4FA828B32696CE5400540CFF /* model */,
+				4FA828B42696CE5800540CFF /* view */,
+			);
+			path = appLoading;
+			sourceTree = "<group>";
+		};
+		4FA828B32696CE5400540CFF /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4FA828B52696CE9100540CFF /* AppLoadingViewModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4FA828B42696CE5800540CFF /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4FFC218D2631222800198E4B /* AppLoadingView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4FA828B72696E27300540CFF /* needRefuctor */ = {
+			isa = PBXGroup;
+			children = (
+				4FAD3EEB2694228F0078288F /* testing */,
+				4FD2E327265F7DCB007A20C6 /* providers */,
+				4FD2E326265F7DBE007A20C6 /* entities */,
+				4FD2E321265F7BF3007A20C6 /* SolDataProvider.swift */,
+			);
+			path = needRefuctor;
+			sourceTree = "<group>";
+		};
+		4FA828B82696E29300540CFF /* user */ = {
+			isa = PBXGroup;
+			children = (
+				4FA828BA2696E2A200540CFF /* entity */,
+				4FA828B92696E29A00540CFF /* useCase */,
+			);
+			path = user;
+			sourceTree = "<group>";
+		};
+		4FA828B92696E29A00540CFF /* useCase */ = {
+			isa = PBXGroup;
+			children = (
+				4FA828BB2696E2BA00540CFF /* WarmUpUseCase.swift */,
+			);
+			path = useCase;
+			sourceTree = "<group>";
+		};
+		4FA828BA2696E2A200540CFF /* entity */ = {
+			isa = PBXGroup;
+			children = (
+				4FA828BD2696E82400540CFF /* AuthState.swift */,
+			);
+			path = entity;
+			sourceTree = "<group>";
+		};
+		4FA828BF2696E83600540CFF /* base */ = {
+			isa = PBXGroup;
+			children = (
+				4FA828C12696E84200540CFF /* entity */,
+				4FA828C02696E83C00540CFF /* useCase */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		4FA828C02696E83C00540CFF /* useCase */ = {
+			isa = PBXGroup;
+			children = (
+				4FA828C22696E84E00540CFF /* UseCaseProtocol.swift */,
+				4FA828C52696E86500540CFF /* UseCase.swift */,
+			);
+			path = useCase;
+			sourceTree = "<group>";
+		};
+		4FA828C12696E84200540CFF /* entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = entity;
+			sourceTree = "<group>";
+		};
+		4FAD3EEB2694228F0078288F /* testing */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = testing;
+			sourceTree = "<group>";
+		};
 		4FB2C144266B34880008CCDA /* TaskFieldButtonComponent */ = {
 			isa = PBXGroup;
 			children = (
@@ -727,14 +951,6 @@
 				4FD2E319265F6BD2007A20C6 /* TextFieldLoginComponent.swift */,
 			);
 			path = TextFieldLoginComponent;
-			sourceTree = "<group>";
-		};
-		4FD2E31B265F731D007A20C6 /* components */ = {
-			isa = PBXGroup;
-			children = (
-				4FD2E31C265F7339007A20C6 /* TitleLoginByEmailComponent.swift */,
-			);
-			path = components;
 			sourceTree = "<group>";
 		};
 		4FD2E31E265F74A3007A20C6 /* ButtonComponent */ = {
@@ -779,8 +995,6 @@
 				4FE38CFC2663F1AF0011E203 /* routes */,
 				4FE38CF82663DB4B0011E203 /* spaces */,
 				4FE38CF52663CF450011E203 /* warmUp */,
-				4FFC219B263123E500198E4B /* ScreenState.swift */,
-				4FFC219A263123AE00198E4B /* login */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -796,7 +1010,6 @@
 		4FE38CED2663B32C0011E203 /* auth */ = {
 			isa = PBXGroup;
 			children = (
-				4FFC21A526312E1400198E4B /* AuthState.swift */,
 				4FD2E335265F94EF007A20C6 /* TokenEntity.swift */,
 			);
 			path = auth;
@@ -829,7 +1042,6 @@
 		4FE38CFC2663F1AF0011E203 /* routes */ = {
 			isa = PBXGroup;
 			children = (
-				4FFC218D2631222800198E4B /* RouteUIScreen.swift */,
 			);
 			path = routes;
 			sourceTree = "<group>";
@@ -853,9 +1065,8 @@
 		4FFC219A263123AE00198E4B /* login */ = {
 			isa = PBXGroup;
 			children = (
-				4FD2E31B265F731D007A20C6 /* components */,
-				4FFC2195263123A600198E4B /* LoginUIView.swift */,
-				4FFC21AA2637B5F500198E4B /* LoginByEmailScreen.swift */,
+				4FA5B4682692E0AF0031093A /* model */,
+				4FA5B4672692E0AB0031093A /* view */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -863,22 +1074,22 @@
 		4FFC21A326312DEE00198E4B /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				4FE38CE72662912C0011E203 /* screens */,
-				4FA0F6F126487D6700CECF24 /* components */,
-				4F87F79F2658E9BB0094C946 /* constants */,
-				4F42793F2637C06100D71B2D /* extentions */,
+				4FA828B22696CE4900540CFF /* appLoading */,
+				4FFC219A263123AE00198E4B /* login */,
+				4FA5B4642692E0210031093A /* base */,
+				4FA5B4632692E00E0031093A /* needRefactor */,
 			);
 			path = ui;
 			sourceTree = "<group>";
 		};
-		4FFC21A426312DFA00198E4B /* data */ = {
+		4FFC21A426312DFA00198E4B /* domain */ = {
 			isa = PBXGroup;
 			children = (
-				4FD2E327265F7DCB007A20C6 /* providers */,
-				4FD2E326265F7DBE007A20C6 /* entities */,
-				4FD2E321265F7BF3007A20C6 /* SolDataProvider.swift */,
+				4FA828BF2696E83600540CFF /* base */,
+				4FA828B82696E29300540CFF /* user */,
+				4FA828B72696E27300540CFF /* needRefuctor */,
 			);
-			path = data;
+			path = domain;
 			sourceTree = "<group>";
 		};
 		82BBB8DF5763964FF7D187AE /* Frameworks */ = {
@@ -909,6 +1120,9 @@
 			dependencies = (
 			);
 			name = SOL;
+			packageProductDependencies = (
+				4F21D399266F458600459112 /* ElegantCalendar */,
+			);
 			productName = SOL;
 			productReference = 4F9E8984262E73BF002F2B1B /* SOL.app */;
 			productType = "com.apple.product-type.application";
@@ -983,6 +1197,9 @@
 				Base,
 			);
 			mainGroup = 4F9E897B262E73BF002F2B1B;
+			packageReferences = (
+				4F21D398266F458600459112 /* XCRemoteSwiftPackageReference "ElegantCalendar" */,
+			);
 			productRefGroup = 4F9E8985262E73BF002F2B1B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1131,53 +1348,61 @@
 				4FFC2196263123A600198E4B /* LoginUIView.swift in Sources */,
 				4F9307E4265E1A4500204881 /* SolApiService.swift in Sources */,
 				4F0B5CA1264AFB710026FDD0 /* SpacesScene.swift in Sources */,
+				4FA828C62696E86500540CFF /* UseCase.swift in Sources */,
 				4FE38CFB2663EC190011E203 /* HeaderComponent.swift in Sources */,
 				4F9307D5265E184000204881 /* SignUpEmailRequest.swift in Sources */,
 				4F9307E0265E19B500204881 /* BaseApiErrorResponse.swift in Sources */,
 				4F87F7BB2658F7F20094C946 /* TLItemComponent.swift in Sources */,
 				4F87F7AF2658F1810094C946 /* TLTitleComponent.swift in Sources */,
 				4F87F7A32658EFA90094C946 /* TaskLineColors.swift in Sources */,
-				4FFC21AB2637B5F500198E4B /* LoginByEmailScreen.swift in Sources */,
+				4FFC21AB2637B5F500198E4B /* LoginByEmailView.swift in Sources */,
 				4FA0F6F426487D9000CECF24 /* TaskTitleComponent.swift in Sources */,
 				4FD2E32E265F864A007A20C6 /* SolUserEntity.swift in Sources */,
-				4FFC219C263123E500198E4B /* ScreenState.swift in Sources */,
 				4F0B5C9526498AEF0026FDD0 /* SpaceItemComponent.swift in Sources */,
+				4FA828BC2696E2BA00540CFF /* WarmUpUseCase.swift in Sources */,
+				4FA5B46A2692E1000031093A /* LoginByEmailViewModel.swift in Sources */,
 				4FD2E32C265F7F97007A20C6 /* UserProvider.swift in Sources */,
 				4F01BEAD264EE68500AAAA39 /* CornerRadius.swift in Sources */,
 				4F6F05B326660DF10074B9D8 /* SpaceService.swift in Sources */,
 				4FD2E334265F8D10007A20C6 /* ISolDataProvider.swift in Sources */,
 				4F6F05AE26660D970074B9D8 /* SpaceCreateRequest.swift in Sources */,
-				4FFC218E2631222800198E4B /* RouteUIScreen.swift in Sources */,
+				4FFC218E2631222800198E4B /* AppLoadingView.swift in Sources */,
 				4F87F79E2658106B0094C946 /* TaskLineComponent.swift in Sources */,
 				4F87F7AB2658F1670094C946 /* TLCheckBoxComponent.swift in Sources */,
 				4F87F7B62658F2470094C946 /* TLIconComponent.swift in Sources */,
 				4F9307DE265E197100204881 /* ApiResponseProtocol.swift in Sources */,
 				4F4279422637C08500D71B2D /* NavigationBarColor.swift in Sources */,
 				4F9E898A262E73BF002F2B1B /* ContentView.swift in Sources */,
-				4FE38CF22663B8320011E203 /* UserDefaultService.swift in Sources */,
+				4FE38CF22663B8320011E203 /* DefaultStore.swift in Sources */,
 				4F9E8988262E73BF002F2B1B /* SOLApp.swift in Sources */,
 				4F87F7A12658E9D10094C946 /* SolColor.swift in Sources */,
 				4F0B5C8E2649780B0026FDD0 /* CompandComponent.swift in Sources */,
+				4FA828C32696E84E00540CFF /* UseCaseProtocol.swift in Sources */,
 				4FB2C146266B34B10008CCDA /* TaskFieldButtonComponent.swift in Sources */,
 				4F87F7B82658F2B70094C946 /* SolFonts.swift in Sources */,
 				4FE38CF42663CBB90011E203 /* RefreshTokenRequest.swift in Sources */,
 				4F9307ED265E24CD00204881 /* RequestService.swift in Sources */,
 				4F069313262EE16C00D3E924 /* ActivityView.swift in Sources */,
 				4F2B5DA62668AB4F005BE636 /* PlaceholderTaskComponent.swift in Sources */,
+				4FA828A82696C83500540CFF /* TokenStore.swift in Sources */,
 				4FD2E31A265F6BD2007A20C6 /* TextFieldLoginComponent.swift in Sources */,
 				4FA0F6F726487DE900CECF24 /* IconComponent.swift in Sources */,
 				4F0B5C9E264ADE710026FDD0 /* KeyboardResponder.swift in Sources */,
-				4FD2E31D265F7339007A20C6 /* TitleLoginByEmailComponent.swift in Sources */,
+				4FD2E31D265F7339007A20C6 /* TitleLoginByEmailView.swift in Sources */,
 				4FE38CFF2664123C0011E203 /* AddSpaceScreen.swift in Sources */,
 				4FE38CE92662CDAD0011E203 /* Error.swift in Sources */,
+				4FA828C82696E89500540CFF /* ReceiveReponse.swift in Sources */,
+				4F0F318B26714D1C00C67852 /* ChooseDeadlineComponent.swift in Sources */,
 				4F0B5C92264988060026FDD0 /* CommandMenuComponent.swift in Sources */,
 				4F6F05B526660E530074B9D8 /* SpaceResponse.swift in Sources */,
 				4FD2E322265F7BF3007A20C6 /* SolDataProvider.swift in Sources */,
+				4FA828BE2696E82400540CFF /* AuthState.swift in Sources */,
 				4FA0F6FD264885CD00CECF24 /* StoriesComponent.swift in Sources */,
 				4F6F05A726660D150074B9D8 /* SpaceProvider.swift in Sources */,
 				4F2B5DAC2668B2CC005BE636 /* AddTaskModalComponent.swift in Sources */,
+				4FA828B62696CE9100540CFF /* AppLoadingViewModel.swift in Sources */,
 				4F87F79B265804870094C946 /* DeadLineChoose.swift in Sources */,
-				4F9307D0265E15CD00204881 /* AuthService.swift in Sources */,
+				4F9307D0265E15CD00204881 /* AuthAPI.swift in Sources */,
 				4FE38D02266413BD0011E203 /* IconFieldComponent.swift in Sources */,
 				4FE38CF72663CF580011E203 /* WarmUpScreen.swift in Sources */,
 				4F9307D7265E188800204881 /* SignUpEmailResponse.swift in Sources */,
@@ -1187,13 +1412,15 @@
 				4F87F7AD2658F1750094C946 /* TLSpaceComponent.swift in Sources */,
 				4F6F05B726660E710074B9D8 /* IconResponse.swift in Sources */,
 				4F6F05B026660DC20074B9D8 /* SpaceRoutes.swift in Sources */,
-				4FFC21A626312E1400198E4B /* AuthState.swift in Sources */,
 				4FE38CEB266397140011E203 /* ViewState.swift in Sources */,
 				4FD2E336265F94EF007A20C6 /* TokenEntity.swift in Sources */,
+				4FA828AA2696C92D00540CFF /* UserStore.swift in Sources */,
 				4F9307EA265E1DAE00204881 /* AuthRoutes.swift in Sources */,
 				4F87F7B12658F18B0094C946 /* TLDeadlineComponent.swift in Sources */,
 				4F9307DB265E18B700204881 /* BaseApiResponse.swift in Sources */,
+				4FA828AF2696CB6400540CFF /* SolPublisher.swift in Sources */,
 				4F0B5C9B2649962D0026FDD0 /* AddTaskComponent.swift in Sources */,
+				4F21D394266F3D2600459112 /* ChooseEventTimeComponent.swift in Sources */,
 				4F87F7B32658F1940094C946 /* TLSubtaskButtonComponent.swift in Sources */,
 				4FA0F6FA2648806400CECF24 /* StoryComponent.swift in Sources */,
 				4F2B5DA92668B1FE005BE636 /* BackgroundForModalComponent.swift in Sources */,
@@ -1204,6 +1431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FAD3EEF269424E40078288F /* AlwaysTest.swift in Sources */,
 				4F9E899A262E73C3002F2B1B /* SOLTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1401,6 +1629,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2S5H4G5S36;
 				INFOPLIST_FILE = SOLTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1423,6 +1652,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2S5H4G5S36;
 				INFOPLIST_FILE = SOLTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1518,6 +1748,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4F21D398266F458600459112 /* XCRemoteSwiftPackageReference "ElegantCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ThasianX/ElegantCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4F21D399266F458600459112 /* ElegantCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F21D398266F458600459112 /* XCRemoteSwiftPackageReference "ElegantCalendar" */;
+			productName = ElegantCalendar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4F9E897C262E73BF002F2B1B /* Project object */;
 }

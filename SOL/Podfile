@@ -9,6 +9,9 @@ target 'SOL' do
   pod "SwiftUIRefresh"
   pod 'ToastUI'
   pod 'ISEmojiView'
+  pod 'CalendarKit'
+  
+  
 
   target 'SOLTests' do
     inherit! :search_paths
