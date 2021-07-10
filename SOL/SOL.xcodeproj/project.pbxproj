@@ -73,16 +73,16 @@
 		4FA828C32696E84E00540CFF /* UseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828C22696E84E00540CFF /* UseCaseProtocol.swift */; };
 		4FA828C62696E86500540CFF /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828C52696E86500540CFF /* UseCase.swift */; };
 		4FA828C82696E89500540CFF /* ReceiveReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828C72696E89500540CFF /* ReceiveReponse.swift */; };
+		4FA828CC26999EBC00540CFF /* SignUpByEmailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828CB26999EBC00540CFF /* SignUpByEmailUseCase.swift */; };
+		4FA828CF26999ED800540CFF /* UserPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828CE26999ED800540CFF /* UserPort.swift */; };
+		4FA828D32699A02800540CFF /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828D22699A02800540CFF /* UserEntity.swift */; };
 		4FAD3EEF269424E40078288F /* AlwaysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD3EEE269424E40078288F /* AlwaysTest.swift */; };
 		4FB2C146266B34B10008CCDA /* TaskFieldButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB2C145266B34B10008CCDA /* TaskFieldButtonComponent.swift */; };
 		4FD2E31A265F6BD2007A20C6 /* TextFieldLoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E319265F6BD2007A20C6 /* TextFieldLoginComponent.swift */; };
 		4FD2E31D265F7339007A20C6 /* TitleLoginByEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E31C265F7339007A20C6 /* TitleLoginByEmailView.swift */; };
 		4FD2E320265F74B7007A20C6 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E31F265F74B7007A20C6 /* ButtonComponent.swift */; };
 		4FD2E322265F7BF3007A20C6 /* SolDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E321265F7BF3007A20C6 /* SolDataProvider.swift */; };
-		4FD2E32C265F7F97007A20C6 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E32B265F7F97007A20C6 /* UserProvider.swift */; };
-		4FD2E32E265F864A007A20C6 /* SolUserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E32D265F864A007A20C6 /* SolUserEntity.swift */; };
 		4FD2E334265F8D10007A20C6 /* ISolDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E333265F8D10007A20C6 /* ISolDataProvider.swift */; };
-		4FD2E336265F94EF007A20C6 /* TokenEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E335265F94EF007A20C6 /* TokenEntity.swift */; };
 		4FE38CE92662CDAD0011E203 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE38CE82662CDAD0011E203 /* Error.swift */; };
 		4FE38CEB266397140011E203 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE38CEA266397140011E203 /* ViewState.swift */; };
 		4FE38CF22663B8320011E203 /* DefaultStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE38CF12663B8320011E203 /* DefaultStore.swift */; };
@@ -188,16 +188,16 @@
 		4FA828C22696E84E00540CFF /* UseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProtocol.swift; sourceTree = "<group>"; };
 		4FA828C52696E86500540CFF /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		4FA828C72696E89500540CFF /* ReceiveReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveReponse.swift; sourceTree = "<group>"; };
+		4FA828CB26999EBC00540CFF /* SignUpByEmailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpByEmailUseCase.swift; sourceTree = "<group>"; };
+		4FA828CE26999ED800540CFF /* UserPort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPort.swift; sourceTree = "<group>"; };
+		4FA828D22699A02800540CFF /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		4FAD3EEE269424E40078288F /* AlwaysTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlwaysTest.swift; sourceTree = "<group>"; };
 		4FB2C145266B34B10008CCDA /* TaskFieldButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFieldButtonComponent.swift; sourceTree = "<group>"; };
 		4FD2E319265F6BD2007A20C6 /* TextFieldLoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldLoginComponent.swift; sourceTree = "<group>"; };
 		4FD2E31C265F7339007A20C6 /* TitleLoginByEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLoginByEmailView.swift; sourceTree = "<group>"; };
 		4FD2E31F265F74B7007A20C6 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		4FD2E321265F7BF3007A20C6 /* SolDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolDataProvider.swift; sourceTree = "<group>"; };
-		4FD2E32B265F7F97007A20C6 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
-		4FD2E32D265F864A007A20C6 /* SolUserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolUserEntity.swift; sourceTree = "<group>"; };
 		4FD2E333265F8D10007A20C6 /* ISolDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISolDataProvider.swift; sourceTree = "<group>"; };
-		4FD2E335265F94EF007A20C6 /* TokenEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenEntity.swift; sourceTree = "<group>"; };
 		4FE38CE82662CDAD0011E203 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		4FE38CEA266397140011E203 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		4FE38CF12663B8320011E203 /* DefaultStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStore.swift; sourceTree = "<group>"; };
@@ -663,10 +663,8 @@
 		4F9E8986262E73BF002F2B1B /* SOL */ = {
 			isa = PBXGroup;
 			children = (
-				4FA828AC2696CAB000540CFF /* publishers */,
-				4FA828A62696C82500540CFF /* store */,
-				4F9307CE265E158700204881 /* api */,
 				4FFC21A426312DFA00198E4B /* domain */,
+				4FA828C92696EB9600540CFF /* infrastructure */,
 				4FFC21A326312DEE00198E4B /* ui */,
 				4F9E8987262E73BF002F2B1B /* SOLApp.swift */,
 				4F9E8989262E73BF002F2B1B /* ContentView.swift */,
@@ -768,6 +766,7 @@
 		4FA5B4642692E0210031093A /* base */ = {
 			isa = PBXGroup;
 			children = (
+				4FA828AC2696CAB000540CFF /* publishers */,
 				4FA5B4662692E04E0031093A /* fonts */,
 				4FA5B4652692E0490031093A /* colors */,
 				4F42793F2637C06100D71B2D /* extentions */,
@@ -874,7 +873,6 @@
 			children = (
 				4FAD3EEB2694228F0078288F /* testing */,
 				4FD2E327265F7DCB007A20C6 /* providers */,
-				4FD2E326265F7DBE007A20C6 /* entities */,
 				4FD2E321265F7BF3007A20C6 /* SolDataProvider.swift */,
 			);
 			path = needRefuctor;
@@ -883,6 +881,7 @@
 		4FA828B82696E29300540CFF /* user */ = {
 			isa = PBXGroup;
 			children = (
+				4FA828CD26999EC600540CFF /* port */,
 				4FA828BA2696E2A200540CFF /* entity */,
 				4FA828B92696E29A00540CFF /* useCase */,
 			);
@@ -893,6 +892,7 @@
 			isa = PBXGroup;
 			children = (
 				4FA828BB2696E2BA00540CFF /* WarmUpUseCase.swift */,
+				4FA828CB26999EBC00540CFF /* SignUpByEmailUseCase.swift */,
 			);
 			path = useCase;
 			sourceTree = "<group>";
@@ -901,6 +901,7 @@
 			isa = PBXGroup;
 			children = (
 				4FA828BD2696E82400540CFF /* AuthState.swift */,
+				4FA828D22699A02800540CFF /* UserEntity.swift */,
 			);
 			path = entity;
 			sourceTree = "<group>";
@@ -928,6 +929,30 @@
 			children = (
 			);
 			path = entity;
+			sourceTree = "<group>";
+		};
+		4FA828C92696EB9600540CFF /* infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				4FA828A62696C82500540CFF /* store */,
+				4F9307CE265E158700204881 /* api */,
+			);
+			path = infrastructure;
+			sourceTree = "<group>";
+		};
+		4FA828CA2696ECC500540CFF /* addTask */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = addTask;
+			sourceTree = "<group>";
+		};
+		4FA828CD26999EC600540CFF /* port */ = {
+			isa = PBXGroup;
+			children = (
+				4FA828CE26999ED800540CFF /* UserPort.swift */,
+			);
+			path = port;
 			sourceTree = "<group>";
 		};
 		4FAD3EEB2694228F0078288F /* testing */ = {
@@ -961,15 +986,6 @@
 			path = ButtonComponent;
 			sourceTree = "<group>";
 		};
-		4FD2E326265F7DBE007A20C6 /* entities */ = {
-			isa = PBXGroup;
-			children = (
-				4FE38CED2663B32C0011E203 /* auth */,
-				4FE38CEC2663B3260011E203 /* user */,
-			);
-			path = entities;
-			sourceTree = "<group>";
-		};
 		4FD2E327265F7DCB007A20C6 /* providers */ = {
 			isa = PBXGroup;
 			children = (
@@ -983,7 +999,6 @@
 		4FD2E328265F7DE8007A20C6 /* user */ = {
 			isa = PBXGroup;
 			children = (
-				4FD2E32B265F7F97007A20C6 /* UserProvider.swift */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -997,22 +1012,6 @@
 				4FE38CF52663CF450011E203 /* warmUp */,
 			);
 			path = screens;
-			sourceTree = "<group>";
-		};
-		4FE38CEC2663B3260011E203 /* user */ = {
-			isa = PBXGroup;
-			children = (
-				4FD2E32D265F864A007A20C6 /* SolUserEntity.swift */,
-			);
-			path = user;
-			sourceTree = "<group>";
-		};
-		4FE38CED2663B32C0011E203 /* auth */ = {
-			isa = PBXGroup;
-			children = (
-				4FD2E335265F94EF007A20C6 /* TokenEntity.swift */,
-			);
-			path = auth;
 			sourceTree = "<group>";
 		};
 		4FE38CF52663CF450011E203 /* warmUp */ = {
@@ -1074,6 +1073,7 @@
 		4FFC21A326312DEE00198E4B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				4FA828CA2696ECC500540CFF /* addTask */,
 				4FA828B22696CE4900540CFF /* appLoading */,
 				4FFC219A263123AE00198E4B /* login */,
 				4FA5B4642692E0210031093A /* base */,
@@ -1353,21 +1353,21 @@
 				4F9307D5265E184000204881 /* SignUpEmailRequest.swift in Sources */,
 				4F9307E0265E19B500204881 /* BaseApiErrorResponse.swift in Sources */,
 				4F87F7BB2658F7F20094C946 /* TLItemComponent.swift in Sources */,
+				4FA828CF26999ED800540CFF /* UserPort.swift in Sources */,
 				4F87F7AF2658F1810094C946 /* TLTitleComponent.swift in Sources */,
 				4F87F7A32658EFA90094C946 /* TaskLineColors.swift in Sources */,
 				4FFC21AB2637B5F500198E4B /* LoginByEmailView.swift in Sources */,
 				4FA0F6F426487D9000CECF24 /* TaskTitleComponent.swift in Sources */,
-				4FD2E32E265F864A007A20C6 /* SolUserEntity.swift in Sources */,
 				4F0B5C9526498AEF0026FDD0 /* SpaceItemComponent.swift in Sources */,
 				4FA828BC2696E2BA00540CFF /* WarmUpUseCase.swift in Sources */,
 				4FA5B46A2692E1000031093A /* LoginByEmailViewModel.swift in Sources */,
-				4FD2E32C265F7F97007A20C6 /* UserProvider.swift in Sources */,
 				4F01BEAD264EE68500AAAA39 /* CornerRadius.swift in Sources */,
 				4F6F05B326660DF10074B9D8 /* SpaceService.swift in Sources */,
 				4FD2E334265F8D10007A20C6 /* ISolDataProvider.swift in Sources */,
 				4F6F05AE26660D970074B9D8 /* SpaceCreateRequest.swift in Sources */,
 				4FFC218E2631222800198E4B /* AppLoadingView.swift in Sources */,
 				4F87F79E2658106B0094C946 /* TaskLineComponent.swift in Sources */,
+				4FA828CC26999EBC00540CFF /* SignUpByEmailUseCase.swift in Sources */,
 				4F87F7AB2658F1670094C946 /* TLCheckBoxComponent.swift in Sources */,
 				4F87F7B62658F2470094C946 /* TLIconComponent.swift in Sources */,
 				4F9307DE265E197100204881 /* ApiResponseProtocol.swift in Sources */,
@@ -1385,6 +1385,7 @@
 				4F069313262EE16C00D3E924 /* ActivityView.swift in Sources */,
 				4F2B5DA62668AB4F005BE636 /* PlaceholderTaskComponent.swift in Sources */,
 				4FA828A82696C83500540CFF /* TokenStore.swift in Sources */,
+				4FA828D32699A02800540CFF /* UserEntity.swift in Sources */,
 				4FD2E31A265F6BD2007A20C6 /* TextFieldLoginComponent.swift in Sources */,
 				4FA0F6F726487DE900CECF24 /* IconComponent.swift in Sources */,
 				4F0B5C9E264ADE710026FDD0 /* KeyboardResponder.swift in Sources */,
@@ -1413,7 +1414,6 @@
 				4F6F05B726660E710074B9D8 /* IconResponse.swift in Sources */,
 				4F6F05B026660DC20074B9D8 /* SpaceRoutes.swift in Sources */,
 				4FE38CEB266397140011E203 /* ViewState.swift in Sources */,
-				4FD2E336265F94EF007A20C6 /* TokenEntity.swift in Sources */,
 				4FA828AA2696C92D00540CFF /* UserStore.swift in Sources */,
 				4F9307EA265E1DAE00204881 /* AuthRoutes.swift in Sources */,
 				4F87F7B12658F18B0094C946 /* TLDeadlineComponent.swift in Sources */,

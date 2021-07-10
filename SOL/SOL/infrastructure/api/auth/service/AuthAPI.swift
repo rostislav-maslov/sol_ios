@@ -8,7 +8,7 @@
 import Foundation
 
 
-class AuthAPI: RequestService, WarmUpUseCasePort {    
+class AuthAPI: RequestService, UserRepositoryPort {    
     
     func signUp(_ request: SignUpEmailRequest, responseFunc: @escaping ApiResponseProtocol<SignUpEmailResponse>) {
         self.requestJson(url: AuthRoutes.SIGN_UP_EMAIL, method: "POST", request: request, responseFunc: responseFunc)

@@ -7,14 +7,11 @@
 
 import Foundation
 
-protocol WarmUpUseCasePort{
-    func refreshToken(_ request: RefreshTokenRequest, responseFunc: @escaping ApiResponseProtocol<SignUpEmailResponse>)
-}
 
 public class WarmUpUseCase: UseCase<AuthState, Bool>{
-    let port: WarmUpUseCasePort!
+    let port: UserRepositoryPort!
     
-    init(port: WarmUpUseCasePort) {
+    init(port: UserRepositoryPort) {
         self.port = port
     }
     
@@ -40,7 +37,8 @@ public class WarmUpUseCase: UseCase<AuthState, Bool>{
         
         self.port.refreshToken(request) {  (response: BaseApiResponse<SignUpEmailResponse>?, errorResponse: BaseApiErrorResponse?, success: Bool) in
             if response != nil {
-                var solUser = SolUserEntity(id: response!.result.id, username: response!.result.username)
+                
+                var solUser:UserEntity = UserEntity( response!.result.id,  response!.result.username)
                 
                 DefaultStore.store.token.setAccessToken(response!.result.accessToken)
                 DefaultStore.store.token.setRefreshToken(response!.result.refreshToken)

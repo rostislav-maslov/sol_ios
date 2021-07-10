@@ -13,9 +13,9 @@ class ZContainerViewModel: ObservableObject {
     @Published var spaces: [SpaceResponse] = []
 }
 
-struct SpacesScene: View, SolDataObservable {
+struct SpacesScene: View {
     @ObservedObject var viewModel = ZContainerViewModel()
-    var solData: SolDataProvider = SolDataProvider.shared()
+    
     
     func onAddSpacesTouch () -> Void {
         self.viewModel.showAddSpaceSheet = true
@@ -26,13 +26,13 @@ struct SpacesScene: View, SolDataObservable {
     }
     
     func updateSpaces() -> Void {
-        solData.space?.updateSpaces()
+    
     }
     
     func dataUpdated() {
         DispatchQueue.main.async {
             self.viewModel.spaces = []
-            self.viewModel.spaces = solData.space!.spaces
+    //        self.viewModel.spaces = solData.space!.spaces
         }        
     }
     
@@ -51,9 +51,9 @@ struct SpacesScene: View, SolDataObservable {
                     .frame(width: 1, height: 41+16, alignment: .center)
                 VStack{
                     HeaderComponent(value: "username") {
-                        SolDataProvider.shared().user?.logout {
-                            self.viewModel.goToLogout = true
-                        }
+//                        SolDataProvider.shared().user?.logout {
+//                            self.viewModel.goToLogout = true
+//                        }
                     }
                     StoriesComponent()
                     Spacer()
@@ -87,7 +87,7 @@ struct SpacesScene: View, SolDataObservable {
                     }) {
                         AddSpaceScreen {
                             viewModel.showAddSpaceSheet = false
-                            solData.space?.updateSpaces()
+                    //        solData.space?.updateSpaces()
                         }
                         
                     }
@@ -103,11 +103,11 @@ struct SpacesScene: View, SolDataObservable {
         .navigationBarHidden(true)
         .preferredColorScheme(.light)
         .onAppear(perform: {
-            solData.listen(self)
-            solData.space?.updateSpaces()
+           // solData.listen(self)
+          //  solData.space?.updateSpaces()
         })
         .onDisappear(perform: {
-            solData.stopListen(self)
+            //solData.stopListen(self)
         })
     }
 }

@@ -12,33 +12,30 @@ class LoginByEmailViewModel: ObservableObject {
     @Published var state: ViewState = .NORMAL
     @Published var email: String = ""
     @Published var password: String = ""
-    @Published var navigateToController: Bool = false
-    let data: SolDataProvider = SolDataProvider.shared()
+    @Published var navigateToSpace: Bool = false
     
-    func dataUpdated() {
-        DispatchQueue.main.async {
-            if self.data.user?.state == .LOGGED {
-                self.state = .NORMAL
-                self.navigateToController = true
-            } else {
-                self.state = .ERROR
-            }
-        }
-    }
+    private var disposables = Set<AnyCancellable>()
+    private let port:UserRepositoryPort = SolApiService.api().auth
     
-    func observableKey() -> String {
-        return "LoginByEmailScreen"
-    }
-    
-    func onSubmitTouch() -> Void {
+    func signUp() -> Void {
         if self.state != .LOADING {
             self.state = .LOADING
-            self.data.user?.signUp(
-                email: self.email,
-                password: self.password,
-                error: {
-                })
+            
+            SolPublisher<UserEntity, Bool>(useCase: SignUpByEmailUseCase(self.port, SignUpByEmailUseCase.Input.init(email: email, password: password)))
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] result in
+                    if(result.success != nil) {
+                        // self?.state = .NORMAL
+                        self?.navigateToSpace = true
+                    } else {
+                        self?.state = .ERROR
+                        self?.navigateToSpace = false
+                    }
+                    
+                }
+                .store(in: &disposables)
         }
     }
+    
     
 }

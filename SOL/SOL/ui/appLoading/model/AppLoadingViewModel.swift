@@ -13,10 +13,10 @@ class AppLoadingViewModel: ObservableObject, Identifiable {
     @Published var goToSpaces = false
 
     private var disposables = Set<AnyCancellable>()    
-    private let warmUpPort:WarmUpUseCasePort = SolApiService.api().auth
+    private let port:UserRepositoryPort = SolApiService.api().auth
     
     func refresh(){
-        SolPublisher<AuthState, Bool>(useCase: WarmUpUseCase(port: self.warmUpPort))
+        SolPublisher<AuthState, Bool>(useCase: WarmUpUseCase(port: self.port))
             .receive(on: DispatchQueue.main)
             .sink { [weak self] status in
                 if(status.success == AuthState.UNLOGGED) {

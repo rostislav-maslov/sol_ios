@@ -17,7 +17,7 @@ struct AddSpaceScreen: View {
     @ObservedObject var viewModel = AddSpaceViewModel()
     @State var createSpace: ViewState = ViewState.NORMAL
     let spaceAdded: () -> Void
-    var solData: SolDataProvider = SolDataProvider.shared()
+    
     
     var body: some View {
         ZStack {
@@ -36,9 +36,9 @@ struct AddSpaceScreen: View {
                 }
                 Spacer().frame(width: 0, height: 16, alignment: .center)
                 ButtonComponent(title: "Create", state: $createSpace) {
-                    solData.space?.create(title: self.viewModel.title, icon: self.viewModel.emoji, callback: {
-                        self.spaceAdded()
-                    })
+//                    solData.space?.create(title: self.viewModel.title, icon: self.viewModel.emoji, callback: {
+//                        self.spaceAdded()
+//                    })
                 }
             }.padding()
         }
