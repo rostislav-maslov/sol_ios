@@ -96,7 +96,7 @@ struct SpacesScene: View {
             }
             .background(SolColor.colors().screen.background)
             .ignoresSafeArea(.all)
-            AddTaskComponent()
+            AddTaskRootView()
         }
         .preferredColorScheme(.light)
         .navigationBarBackButtonHidden(true)

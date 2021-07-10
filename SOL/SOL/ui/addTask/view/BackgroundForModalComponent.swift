@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BackgroundForModalComponent: View {
+struct BackgroundView: View {
     var didTouch: () -> Void
     var body: some View {
         Button(action: didTouch, label: {
@@ -20,10 +20,3 @@ struct BackgroundForModalComponent: View {
     }
 }
 
-struct BackgroundForModalComponent_Previews: PreviewProvider {
-    static var previews: some View {
-        BackgroundForModalComponent {
-            
-        }
-    }
-}

@@ -7,12 +7,9 @@
 
 import Foundation
 
-class SpaceProvider: ISolDataProvider {
+class SpaceProvider {
     var spaces: [SpaceResponse] = []
         
-    override init() {
-//        super.init(updated:updated)
-    }
 
     func updateSpaces() -> Void {
         SolApiService.api().space.mySpaces { (response: BaseApiResponse<[SpaceResponse]>?, error: BaseApiErrorResponse?, success: Bool) in
