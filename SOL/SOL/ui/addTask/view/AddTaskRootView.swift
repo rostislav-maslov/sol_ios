@@ -68,7 +68,7 @@ struct AddTaskRootView: View {
                                 //                                    }).colorScheme(ColorScheme.light)
                             }
                             if self.model.state == AddTaskState.PLANNING{
-                                ChooseEventTimeComponent().colorScheme(ColorScheme.light)
+                                ChooseEventTimeComponent(model: model).colorScheme(ColorScheme.light)
                             }
                         }
                     }

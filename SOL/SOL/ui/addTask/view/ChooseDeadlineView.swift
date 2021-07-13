@@ -8,7 +8,6 @@
 import SwiftUI
 
 import SwiftUI
-import CalendarKit
 import EventKit
 import EventKitUI
 import UIKit
@@ -31,7 +30,7 @@ struct ChooseDeadlineView: View {
             
             Spacer().frame(width: 0, height: 0, alignment: .center)
             
-            ChooseEventTimeCoordinator(eventDates: $eventDates)
+            //ChooseEventTimeCoordinator(eventDates: $eventDates)
             
             Spacer().frame(width: 0, height: 0, alignment: .center)
         }.background(SolColor.colors().addTask.addTaskBackground)

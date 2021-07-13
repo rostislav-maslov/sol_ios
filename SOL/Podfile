@@ -11,8 +11,6 @@ target 'SOL' do
   pod 'ISEmojiView'
   pod 'CalendarKit'
   
-  
-
   target 'SOLTests' do
     inherit! :search_paths
     # Pods for testing
