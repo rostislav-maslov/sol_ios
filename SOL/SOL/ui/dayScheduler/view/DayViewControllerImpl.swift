@@ -12,22 +12,18 @@ import CalendarKit
 
 public protocol DayViewControllerProtocol {
     func newEventTitle() -> String
-    func eventsForDate() -> [String]
+    func eventsForDate(_ date: Date) -> [EventDescriptor]
     func newEventColor() -> UIColor
-    func newEventCreated(eventDescriptor: EventDescriptor) -> Void
+    func createEvent(eventDescriptor: EventDescriptor) -> Void
+    func updateEvent(eventDescriptor: EventDescriptor) -> Void
 }
 
 class DayViewControllerImpl: DayViewController {
-        
-    
     var eventDelegate: DayViewControllerProtocol?
     var generatedEvents = [EventDescriptor]()
     var alreadyGeneratedSet = Set<Date>()
-    
-   
-    
+           
     private var createdEvent: EventDescriptor?
-
     
     private lazy var rangeFormatter: DateIntervalFormatter = {
         let fmt = DateIntervalFormatter()
@@ -54,16 +50,15 @@ class DayViewControllerImpl: DayViewController {
     
     // MARK: EventDataSource
     
+    
     override func eventsForDate(_ date: Date) -> [EventDescriptor] {
-        if !alreadyGeneratedSet.contains(date) {
-            alreadyGeneratedSet.insert(date)
-            //generatedEvents.append(contentsOf: generateEventsForDate(date))
-        }
-        return generatedEvents
+//        if !alreadyGeneratedSet.contains(date) {
+//            alreadyGeneratedSet.insert(date)
+//            //generatedEvents.append(contentsOf: generateEventsForDate(date))
+//        }
+        return self.eventDelegate!.eventsForDate(date)
     }
-    
-   
-    
+           
     // MARK: DayViewDelegate
     
     override func dayViewDidSelectEventView(_ eventView: EventView) {
@@ -132,14 +127,15 @@ class DayViewControllerImpl: DayViewController {
         print("did finish editing \(event)")
         print("new startDate: \(event.startDate) new endDate: \(event.endDate)")
         
-        if let _ = event.editedEvent {
+        if let _ = event.editedEvent as? CalendarKit.Event {
+            eventDelegate?.updateEvent(eventDescriptor: event)
             event.commitEditing()
         }
         
         if let createdEvent = createdEvent {
             createdEvent.editedEvent = nil
             generatedEvents.append(createdEvent)
-            self.eventDelegate?.newEventCreated(eventDescriptor: createdEvent)
+            self.eventDelegate?.createEvent(eventDescriptor: createdEvent)
             self.createdEvent = nil
             endEventEditing()
         }

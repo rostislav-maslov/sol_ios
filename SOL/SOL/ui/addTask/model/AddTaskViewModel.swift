@@ -11,7 +11,31 @@ public class AddTaskViewModel: ObservableObject {
     @Published var state: AddTaskState = AddTaskState.PLACEHOLDER
     @Published var task: TaskEntity = TaskEntity()
     @Published var sheets: SheetsState = SheetsState()
-            
+       
+    public func removeTimeSlot(startDate: Date) {
+        task.slots.removeAll { (check: SlotEntity) in
+            return check.startDate == startDate
+        }
+    }
+    
+    public func addTimeSlot(startDate: Date, endDate: Date) {
+        let slot:SlotEntity = SlotEntity()
+        slot.startDate = startDate
+        slot.endDate = endDate
+        
+        task.slots.append(slot)
+    }
+    
+    
+    public func changeTimeSlot(id: String, newStartDate: Date, newEndDate: Date){
+        for slot in task.slots {
+            if slot.id == id {
+                slot.endDate = newEndDate
+                slot.startDate = newStartDate
+            }
+        }
+    }
+    
     private func goToState(_ newState: AddTaskState) {
         if newState == .TEXT && state != newState {
             state = .TEXT

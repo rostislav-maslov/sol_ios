@@ -83,6 +83,7 @@
 		4FA828E02699C03700540CFF /* TaskEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828DF2699C03700540CFF /* TaskEntity.swift */; };
 		4FAD3EEF269424E40078288F /* AlwaysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD3EEE269424E40078288F /* AlwaysTest.swift */; };
 		4FB2C146266B34B10008CCDA /* TaskFieldButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB2C145266B34B10008CCDA /* TaskFieldButtonComponent.swift */; };
+		4FC14AD7269DEF6000127B8D /* SlotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC14AD6269DEF6000127B8D /* SlotEntity.swift */; };
 		4FC973052699FCB5008509F6 /* DayViewControllerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC973042699FCB5008509F6 /* DayViewControllerImpl.swift */; };
 		4FD2E31A265F6BD2007A20C6 /* TextFieldLoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E319265F6BD2007A20C6 /* TextFieldLoginComponent.swift */; };
 		4FD2E31D265F7339007A20C6 /* TitleLoginByEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E31C265F7339007A20C6 /* TitleLoginByEmailView.swift */; };
@@ -202,6 +203,7 @@
 		4FA828DF2699C03700540CFF /* TaskEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEntity.swift; sourceTree = "<group>"; };
 		4FAD3EEE269424E40078288F /* AlwaysTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlwaysTest.swift; sourceTree = "<group>"; };
 		4FB2C145266B34B10008CCDA /* TaskFieldButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFieldButtonComponent.swift; sourceTree = "<group>"; };
+		4FC14AD6269DEF6000127B8D /* SlotEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotEntity.swift; sourceTree = "<group>"; };
 		4FC973042699FCB5008509F6 /* DayViewControllerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewControllerImpl.swift; sourceTree = "<group>"; };
 		4FD2E319265F6BD2007A20C6 /* TextFieldLoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldLoginComponent.swift; sourceTree = "<group>"; };
 		4FD2E31C265F7339007A20C6 /* TitleLoginByEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLoginByEmailView.swift; sourceTree = "<group>"; };
@@ -968,6 +970,7 @@
 			isa = PBXGroup;
 			children = (
 				4FA828DF2699C03700540CFF /* TaskEntity.swift */,
+				4FC14AD6269DEF6000127B8D /* SlotEntity.swift */,
 			);
 			path = entity;
 			sourceTree = "<group>";
@@ -1399,6 +1402,7 @@
 				4FA828CC26999EBC00540CFF /* SignUpByEmailUseCase.swift in Sources */,
 				4F87F7AB2658F1670094C946 /* TLCheckBoxComponent.swift in Sources */,
 				4FC973052699FCB5008509F6 /* DayViewControllerImpl.swift in Sources */,
+				4FC14AD7269DEF6000127B8D /* SlotEntity.swift in Sources */,
 				4F87F7B62658F2470094C946 /* TLIconComponent.swift in Sources */,
 				4F9307DE265E197100204881 /* ApiResponseProtocol.swift in Sources */,
 				4F4279422637C08500D71B2D /* NavigationBarColor.swift in Sources */,
