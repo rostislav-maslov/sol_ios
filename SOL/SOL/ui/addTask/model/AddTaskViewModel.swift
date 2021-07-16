@@ -11,7 +11,8 @@ public class AddTaskViewModel: ObservableObject {
     @Published var state: AddTaskState = AddTaskState.PLACEHOLDER
     @Published var task: TaskEntity = TaskEntity()
     @Published var sheets: SheetsState = SheetsState()
-       
+    @Published var buttonState: ButtonState = ButtonState()
+    
     public func removeTimeSlot(startDate: Date) {
         task.slots.removeAll { (check: SlotEntity) in
             return check.startDate == startDate
@@ -90,8 +91,23 @@ public class AddTaskViewModel: ObservableObject {
 }
 
 extension AddTaskViewModel{
+    func submit(){
+        self.state = AddTaskState.PLACEHOLDER
+        self.task = TaskEntity()
+        self.sheets = SheetsState()
+        self.buttonState = ButtonState()
+    }
+}
+
+extension AddTaskViewModel{
     func goToText() {
         goToState(.TEXT)
+     
+        self.buttonState.hasSlots = self.task.slots.count > 0
+        self.buttonState.hasNotification = false
+        self.buttonState.hasDeadline = false
+        self.buttonState.hasRepeat = false
+        self.buttonState.submitButtonActive = self.task.title.count > 0
     }
     
     func goToNotification() {
@@ -115,5 +131,15 @@ extension AddTaskViewModel{
     public class SheetsState{
         var planning:Bool = false
         var deadline:Bool = false
+    }
+}
+
+extension AddTaskViewModel {
+    public class ButtonState {
+        var hasSlots: Bool = false
+        var hasNotification: Bool = false
+        var hasDeadline: Bool = false
+        var hasRepeat: Bool = false
+        var submitButtonActive: Bool = false
     }
 }

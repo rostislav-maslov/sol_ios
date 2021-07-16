@@ -17,17 +17,16 @@ struct TaskFieldButtonComponent: View {
         Button(action: didTouch) {
             ZStack{
                 HStack{
-                    
                     Image(imageName)
                         .resizable()
                         .renderingMode(.template)
-                        .foregroundColor(SolColor.colors().addTask.taskButtonsColor)
+                        .foregroundColor(
+                            choosed ?
+                                SolColor.colors().addTask.taskButtonActiveColor :
+                                SolColor.colors().addTask.taskButtonDefaultColor
+                        )
                         .scaledToFit()
                         .frame(width: 20, height: 20, alignment: .center)
-                    
-                    
-                 
-                        
                 }
                 .padding(0)
                 

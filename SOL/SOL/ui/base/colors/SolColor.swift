@@ -40,7 +40,8 @@ struct AddTask{
     var placeholderTextDefault: Color
     var placeholderTextFill: Color
     var addTaskBackground: Color
-    var taskButtonsColor: Color
+    var taskButtonDefaultColor: Color
+    var taskButtonActiveColor: Color
 }
 
 class SolColor{
@@ -73,8 +74,8 @@ class SolColor{
                 placeholderTextDefault: Color(CGColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.7)),
                 placeholderTextFill: .white,
                 addTaskBackground: Color(CGColor(red: 239/255, green: 239/255, blue: 239/255, alpha: 1.0)),
-                taskButtonsColor: Color(CGColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1.0))
-
+                taskButtonDefaultColor: Color(CGColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1.0)),
+                taskButtonActiveColor: Color(CGColor(red: 68/255, green: 68/255, blue: 68/255, alpha: 1.0))                
             )
         )
         return colors

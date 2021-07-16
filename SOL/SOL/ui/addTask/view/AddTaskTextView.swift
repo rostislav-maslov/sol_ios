@@ -21,23 +21,24 @@ struct AddTaskTextView: View {
                 Spacer().frame(width: 0, height: 8, alignment: .center)
                 HStack{
                     Spacer().frame(width: 16, height: 8, alignment: .center)
+                    
                     iconChose
                     Spacer().frame(width: 36, height: 8, alignment: .center)
+                    
                     buttonsLine
                     Spacer()
                     
                     submitButton
                     Spacer().frame(width: 16, height:0, alignment: .center)
-                    
                 }
                 .frame(width: .infinity, height: 30, alignment: .center)
+                
                 Spacer().frame(width: 0.0, height: 8.0, alignment: .center)
                 
             }
         }
         .onAppear(perform: {
             print("AddTaskTextView - did appear")
-            
         })
     }
 }
@@ -53,10 +54,10 @@ extension AddTaskTextView{
 
 extension AddTaskTextView{
     enum Field {
-           case firstName
-           case lastName
-           case emailAddress
-       }
+        case firstName
+        case lastName
+        case emailAddress
+    }
     
     var titleField: some View {
         HStack{
@@ -81,9 +82,9 @@ extension AddTaskTextView{
     var buttonsLine: some View {
         HStack {
             TaskFieldButtonComponent(
-                imageName: "days",
+                imageName: "ic_calendar",
                 title: "planning",
-                choosed: false,
+                choosed: model.buttonState.hasSlots,
                 didTouch: model.goToPlanning
             )
             Spacer().frame(width: 24, height: 0, alignment: .center)
@@ -91,7 +92,7 @@ extension AddTaskTextView{
             TaskFieldButtonComponent(
                 imageName: "notification",
                 title: "notification",
-                choosed: false,
+                choosed: model.buttonState.hasNotification,
                 didTouch: model.goToNotification
             )
             Spacer().frame(width: 24, height: 0, alignment: .center)
@@ -99,7 +100,7 @@ extension AddTaskTextView{
             TaskFieldButtonComponent(
                 imageName: "deadline",
                 title: "Deadline",
-                choosed: false,
+                choosed: model.buttonState.hasDeadline,
                 didTouch:model.goToDeadline
             )
             Spacer().frame(width: 24, height: 0, alignment: .center)
@@ -107,7 +108,7 @@ extension AddTaskTextView{
             TaskFieldButtonComponent(
                 imageName: "repeat",
                 title: "repeat",
-                choosed: false,
+                choosed: model.buttonState.hasRepeat,
                 didTouch: model.goToRepeat
             )
         }
@@ -115,11 +116,16 @@ extension AddTaskTextView{
 }
 
 extension AddTaskTextView{
+        
     var submitButton: some View {
-        Image("add_task_submit")
-            .background(SolColor.colors().addTask.taskButtonsColor)
-            .cornerRadius(12.0)
-            .frame(width: 16, height: 16, alignment: .center)
+        Button(action: {
+            model.submit()
+        }, label: {
+            Image("add_task_submit")
+                .background(model.task.title.count > 0 ? SolColor.colors().addTask.taskButtonActiveColor : SolColor.colors().addTask.taskButtonDefaultColor)
+                .cornerRadius(12.0)
+                .frame(width: 16, height: 16, alignment: .center)
+        }).disabled(model.task.title.count == 0)
     }
 }
 
