@@ -13,6 +13,10 @@ public class AddTaskViewModel: ObservableObject {
     @Published var sheets: SheetsState = SheetsState()
     @Published var buttonState: ButtonState = ButtonState()
     
+    init(){
+        print("init")
+    }
+    
     public func removeTimeSlot(startDate: Date) {
         task.slots.removeAll { (check: SlotEntity) in
             return check.startDate == startDate

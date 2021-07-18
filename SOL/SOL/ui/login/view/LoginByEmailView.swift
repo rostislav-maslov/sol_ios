@@ -20,7 +20,7 @@ struct LoginByEmailView: View {
     var body: some View {
         
             ZStack {
-                NavigationLink(destination: SpacesScene(), isActive: $viewModel.navigateToSpace) {}
+                NavigationLink(destination: SpacesView(), isActive: $viewModel.navigateToSpace) {}
                 
                 SolColor.colors().screen.background.edgesIgnoringSafeArea(.all)
                 VStack(alignment: .leading) {

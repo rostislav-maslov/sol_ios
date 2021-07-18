@@ -24,9 +24,9 @@ func textFieldBackground(_ kr: KeyboardResponder) -> Color{
 }
 
 struct AddTaskRootView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var model:AddTaskViewModel = AddTaskViewModel()
     //@ObservedObject var kr = KeyboardResponder()
-    
     
     var body: some View {
         ZStack{
@@ -77,7 +77,9 @@ struct AddTaskRootView: View {
                 
                 EmptyView().sheet(
                     isPresented: $model.sheets.deadline,
-                    onDismiss: model.goToText,
+                    onDismiss: {
+                        model.goToText()                        
+                    },
                     content: {
                         ChooseDeadlineView().colorScheme(.light)
                     })

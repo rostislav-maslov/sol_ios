@@ -27,6 +27,7 @@ struct ColorsVar {
     var button: ButtonColors
     var screen: ScreenColors
     var addTask: AddTask
+    var checkBox: CheckBox
 }
 
 struct ButtonColors {
@@ -42,6 +43,11 @@ struct AddTask{
     var addTaskBackground: Color
     var taskButtonDefaultColor: Color
     var taskButtonActiveColor: Color
+}
+
+struct CheckBox{
+    var undoneBackground: Color
+    var doneBackground: Color
 }
 
 class SolColor{
@@ -75,7 +81,12 @@ class SolColor{
                 placeholderTextFill: .white,
                 addTaskBackground: Color(CGColor(red: 239/255, green: 239/255, blue: 239/255, alpha: 1.0)),
                 taskButtonDefaultColor: Color(CGColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1.0)),
-                taskButtonActiveColor: Color(CGColor(red: 68/255, green: 68/255, blue: 68/255, alpha: 1.0))                
+                taskButtonActiveColor: Color(CGColor(red: 68/255, green: 68/255, blue: 68/255, alpha: 1.0))
+            ),
+            
+            checkBox: CheckBox(
+                undoneBackground: Color(CGColor(red: 68/255, green: 68/255, blue: 68/255, alpha: 1.0)),
+                doneBackground: Color(CGColor(red: 68/255, green: 68/255, blue: 68/255, alpha: 0.5))
             )
         )
         return colors

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SpaceItemComponent: View {
+struct SpaceItemView: View {
     var icon: String
     var title: String
     var body: some View {
@@ -17,11 +17,13 @@ struct SpaceItemComponent: View {
                 Spacer()
                     .frame(width: 19, height: 1, alignment: .center)
                 Text(icon)
-                    .font(.system(size: 16))
+                    .font(SolFonts.font(size: 20, weight: Font.Weight.medium, color: Color.black))
                 Spacer()
                     .frame(width: 6, height: 1, alignment: .center)
                 Text(title)
-                    .font(.system(size: 16))
+                    .font(
+                        SolFonts.font(size: 16, weight: Font.Weight.medium, color: SolColor.colors().fontColors.normal)
+                    )
                 Spacer()
             }
             Spacer().frame(width: 1, height: 12, alignment: .center)
@@ -31,7 +33,7 @@ struct SpaceItemComponent: View {
 
 struct SpaceItemComponent_Previews: PreviewProvider {
     static var previews: some View {
-        SpaceItemComponent(icon: "🦐", title: "Space name")
+        SpaceItemView(icon: "🦐", title: "Space name")
             .preferredColorScheme(.light)
     }
 }
