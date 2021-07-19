@@ -18,21 +18,21 @@ struct SolNavigationView: View {
                     Spacer().frame(width: 0, height: 1, alignment: .center)
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
-                        Button("StringProtocol") {
-                            
-                        }
-                        Button("StringProtocol") {
-                            
-                        }
-                        Button("StringProtocol") {
-                            
-                        }
-                        Button("StringProtocol") {
-                            
-                        }
-                        Button("StringProtocol") {
-                            
-                        }
+//                        Button("StringProtocol") {
+//                            
+//                        }
+//                        Button("StringProtocol") {
+//                            
+//                        }
+//                        Button("StringProtocol") {
+//                            
+//                        }
+//                        Button("StringProtocol") {
+//                            
+//                        }
+//                        Button("StringProtocol") {
+//                            
+//                        }
                             
                         }
                     }.frame(width: .infinity, height: 44, alignment: .center)

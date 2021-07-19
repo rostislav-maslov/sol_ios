@@ -11,8 +11,7 @@
 		34A76238BCB9842EDF801A97 /* Pods_SOLTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD8ED818060EBD76E28D9D4 /* Pods_SOLTests.framework */; };
 		4F01BEAD264EE68500AAAA39 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01BEAC264EE68500AAAA39 /* CornerRadius.swift */; };
 		4F069313262EE16C00D3E924 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F069312262EE16C00D3E924 /* ActivityView.swift */; };
-		4F0B5C8E2649780B0026FDD0 /* CompandComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B5C8D2649780B0026FDD0 /* CompandComponent.swift */; };
-		4F0B5C92264988060026FDD0 /* CommandMenuComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B5C91264988060026FDD0 /* CommandMenuComponent.swift */; };
+		4F0B5C8E2649780B0026FDD0 /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B5C8D2649780B0026FDD0 /* ActionButtonView.swift */; };
 		4F0B5C9526498AEF0026FDD0 /* SpaceItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B5C9426498AEF0026FDD0 /* SpaceItemView.swift */; };
 		4F0B5C9826498BF80026FDD0 /* SpaceListCompoent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B5C9726498BF80026FDD0 /* SpaceListCompoent.swift */; };
 		4F0B5C9B2649962D0026FDD0 /* AddTaskRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B5C9A2649962D0026FDD0 /* AddTaskRootView.swift */; };
@@ -136,8 +135,7 @@
 		4B81AA0DE1CBCD47D8EA7713 /* Pods-SOL-SOLUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOL-SOLUITests.release.xcconfig"; path = "Target Support Files/Pods-SOL-SOLUITests/Pods-SOL-SOLUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4F01BEAC264EE68500AAAA39 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		4F069312262EE16C00D3E924 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
-		4F0B5C8D2649780B0026FDD0 /* CompandComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompandComponent.swift; sourceTree = "<group>"; };
-		4F0B5C91264988060026FDD0 /* CommandMenuComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandMenuComponent.swift; sourceTree = "<group>"; };
+		4F0B5C8D2649780B0026FDD0 /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
 		4F0B5C9426498AEF0026FDD0 /* SpaceItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceItemView.swift; sourceTree = "<group>"; };
 		4F0B5C9726498BF80026FDD0 /* SpaceListCompoent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceListCompoent.swift; sourceTree = "<group>"; };
 		4F0B5C9A2649962D0026FDD0 /* AddTaskRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskRootView.swift; sourceTree = "<group>"; };
@@ -303,20 +301,13 @@
 			path = textField;
 			sourceTree = "<group>";
 		};
-		4F0B5C8C264977F50026FDD0 /* CompandComponent */ = {
+		4F0B5C8C264977F50026FDD0 /* actionButton */ = {
 			isa = PBXGroup;
 			children = (
-				4F0B5C8D2649780B0026FDD0 /* CompandComponent.swift */,
+				4FCE2EFD26A5468A009B24DA /* model */,
+				4FCE2EFC26A54686009B24DA /* view */,
 			);
-			path = CompandComponent;
-			sourceTree = "<group>";
-		};
-		4F0B5C8F264987D50026FDD0 /* CommandMenuComponent */ = {
-			isa = PBXGroup;
-			children = (
-				4F0B5C91264988060026FDD0 /* CommandMenuComponent.swift */,
-			);
-			path = CommandMenuComponent;
+			path = actionButton;
 			sourceTree = "<group>";
 		};
 		4F0B5C9326498ACC0026FDD0 /* SpaceItemComponent */ = {
@@ -837,8 +828,6 @@
 				4F87F799265804450094C946 /* DeadLineChoose */,
 				4F0B5C9626498BCD0026FDD0 /* SpaceListComponent */,
 				4F0B5C9326498ACC0026FDD0 /* SpaceItemComponent */,
-				4F0B5C8F264987D50026FDD0 /* CommandMenuComponent */,
-				4F0B5C8C264977F50026FDD0 /* CompandComponent */,
 				4FA0F6F82648804C00CECF24 /* StoriesComponent */,
 				4FA0F6F526487DD400CECF24 /* IconComponent */,
 				4FA0F6F226487D7600CECF24 /* tastTitle */,
@@ -1156,6 +1145,21 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		4FCE2EFC26A54686009B24DA /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4F0B5C8D2649780B0026FDD0 /* ActionButtonView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4FCE2EFD26A5468A009B24DA /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		4FD2E318265F6BB4007A20C6 /* TextFieldLoginComponent */ = {
 			isa = PBXGroup;
 			children = (
@@ -1255,6 +1259,7 @@
 				4FC973002699E78E008509F6 /* dayScheduler */,
 				4FA828CA2696ECC500540CFF /* addTask */,
 				4FA828B22696CE4900540CFF /* appLoading */,
+				4F0B5C8C264977F50026FDD0 /* actionButton */,
 				4FFC219A263123AE00198E4B /* login */,
 				4FA5B4632692E00E0031093A /* needRefactor */,
 			);
@@ -1565,7 +1570,7 @@
 				4FE38CF22663B8320011E203 /* DefaultStore.swift in Sources */,
 				4F9E8988262E73BF002F2B1B /* SOLApp.swift in Sources */,
 				4F87F7A12658E9D10094C946 /* SolColor.swift in Sources */,
-				4F0B5C8E2649780B0026FDD0 /* CompandComponent.swift in Sources */,
+				4F0B5C8E2649780B0026FDD0 /* ActionButtonView.swift in Sources */,
 				4FA828C32696E84E00540CFF /* UseCaseProtocol.swift in Sources */,
 				4F6B98EC269D619700B0FFC9 /* DaySchedulerView.swift in Sources */,
 				4F61FD6526A16C2B00D83F2D /* IconEntity.swift in Sources */,
@@ -1588,7 +1593,6 @@
 				4FA828C82696E89500540CFF /* ReceiveReponse.swift in Sources */,
 				4F61FD7C26A363CD00D83F2D /* SettingButton.swift in Sources */,
 				4F0F318B26714D1C00C67852 /* ChooseDeadlineView.swift in Sources */,
-				4F0B5C92264988060026FDD0 /* CommandMenuComponent.swift in Sources */,
 				4F6F05B526660E530074B9D8 /* SpaceResponse.swift in Sources */,
 				4FA828BE2696E82400540CFF /* AuthState.swift in Sources */,
 				4FA0F6FD264885CD00CECF24 /* StoriesComponent.swift in Sources */,

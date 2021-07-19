@@ -38,7 +38,7 @@ extension SpacesView{
             TaskTitleComponent(icon: "🤘", title: "Your SOL", showAddButton: false, addButtonDidTouch: nil)
             Spacer()
                 .frame(width: 1, height: 16, alignment: .center)
-            CommandMenuComponent()
+            actionButtons
             Spacer()
                 .frame(width: 1, height: 16, alignment: .center)
             TaskTitleComponent(icon: "🧑‍🚀", title: "Spaces", showAddButton: true) {
@@ -46,6 +46,46 @@ extension SpacesView{
             }
             Spacer().frame(width: 1, height: 16, alignment: .center)
             
+        }
+    }
+}
+
+extension SpacesView {
+    var actionButtons: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+                VStack {
+                    Spacer()
+                        .frame(width: 5, height: 10, alignment: .center)
+                }
+                VStack {
+                    ActionButtonView(
+                        title: "Done",
+                        titleColor: SolColor.colors().actionButton.taskDone,
+                        icon: "ic_check_done",
+                        iconColor: SolColor.colors().actionButton.taskDone,
+                        iconWidth: 14,
+                        iconHeight: 14,
+                        iconVerticalSpace: 4,
+                        subTitle: "Go back to work"
+                    )
+                    ActionButtonView(
+                        title: "Done",
+                        titleColor: SolColor.colors().actionButton.taskDone,
+                        icon: "ic_check_done",
+                        iconColor: SolColor.colors().actionButton.taskDone,
+                        iconWidth: 14,
+                        iconHeight: 14,
+                        iconVerticalSpace: 4,
+                        subTitle: "Go back to work"
+                    )
+                }                               
+                VStack {
+                    Spacer()
+                        .frame(width: 10, height: 10, alignment: .center)
+                }
+                
+            }
         }
     }
 }

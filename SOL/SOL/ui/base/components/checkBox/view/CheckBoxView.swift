@@ -15,7 +15,7 @@ public enum CheckBoxSize {
 struct CheckBoxView: View {
     
     @State var size:CheckBoxSize
-    @State var done: Bool
+    @Binding var done: Bool
     
     var body: some View {
         
@@ -33,9 +33,9 @@ struct CheckBoxView: View {
         
     }
     
-    public init(size:CheckBoxSize, done: Bool){
+    public init(size:CheckBoxSize, done: Binding<Bool>){
         self.size = size
-        self.done = done
+        self._done = done
     }
     
 }
@@ -78,6 +78,12 @@ extension CheckBoxView {
 
 struct CheckBoxView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckBoxView(size: .BIG, done: true)
+        CheckBoxView(size: .BIG, done: Binding<Bool>(get: {
+            return true
+            
+        }, set: { ssss in
+            
+        })
+        )
     }
 }

@@ -22,7 +22,7 @@ struct SpaceListCompoent: View {
             TaskTitleComponent(icon: "", title: "dd", showAddButton: false)
             Spacer()
                 .frame(width: 1, height: 16, alignment: .center)
-            CommandMenuComponent()
+            //CommandMenuComponent()
             Spacer()
                 .frame(width: 1, height: 16, alignment: .center)
             TaskTitleComponent(icon: "", title: "df", showAddButton: false)

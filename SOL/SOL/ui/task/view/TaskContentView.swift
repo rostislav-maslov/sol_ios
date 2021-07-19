@@ -11,6 +11,13 @@ import NavigationStack
 struct TaskContentView: View {
     @State private var favoriteColor = 0
     @EnvironmentObject private var navigationStack: NavigationStack
+
+    @State var actionToggle:Bool = false
+    @State var actionRepeat:Bool = false
+    @State var actionNotification = false
+    @State var actionPlanning = false
+    @State var actionDeadline = false
+    @State var actionDone = false
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -18,7 +25,7 @@ struct TaskContentView: View {
             actionsTitle
             actionsButton
             picker
-
+            
         }
         .background(SolColor.colors().screen.background)
         .ignoresSafeArea(.all)
@@ -51,14 +58,14 @@ extension TaskContentView {
                 Text("Photo").tag(3)
             }
             .pickerStyle(SegmentedPickerStyle())
-                        HStack{
-                            PushView(
-                                destination: TaskView(),
-                                label: {            
-                                    Text("sdfsd")
-                                }).buttonStyle(PlainButtonStyle())
-            
-                        }.frame(height: 100)
+            HStack{
+                PushView(
+                    destination: TaskView(),
+                    label: {
+                        Text("sdfsd")
+                    }).buttonStyle(PlainButtonStyle())
+                
+            }.frame(height: 100)
             Spacer().frame(width: 12, height: 1, alignment: .center)
         }
         
@@ -76,10 +83,225 @@ extension TaskContentView {
 }
 
 extension TaskContentView {
+    var actionToggleView: some View {
+        VStack{
+            if (actionToggle == false){
+                ActionButtonView(
+                    title: "Toggle",
+                    titleColor: SolColor.colors().checkBox.undoneBackground,
+                    icon: "ic_arrow-tab",
+                    iconColor: SolColor.colors().checkBox.undoneBackground,
+                    iconWidth: 16,
+                    iconHeight: 16,
+                    iconVerticalSpace: 4,
+                    subTitle: "Show all subtask") {
+                    self.actionToggle = !self.actionToggle
+                }
+            }else {
+                ActionButtonView(
+                    title: "Toggle",
+                    titleColor: SolColor.colors().checkBox.undoneBackground,
+                    icon: "ic_arrow-tab",
+                    iconColor: SolColor.colors().checkBox.undoneBackground,
+                    iconWidth: 14,
+                    iconHeight: 14,
+                    iconVerticalSpace: 4,
+                    subTitle: "Hide all subtask"){
+                    self.actionToggle = !self.actionToggle
+                }
+            }
+        }
+    }
+    
+    var repeatActionButton: some View {
+        VStack{
+            if (actionRepeat == false){
+                ActionButtonView(
+                    title: "Repeat",
+                    titleColor: SolColor.colors().checkBox.undoneBackground,
+                    icon: "repeat",
+                    iconColor: SolColor.colors().checkBox.undoneBackground,
+                    iconWidth: 14,
+                    iconHeight: 14,
+                    iconVerticalSpace: 4,
+                    subTitle: "Every monday"){
+                    self.actionRepeat = !self.actionRepeat
+                }
+                
+            }else {
+                ActionButtonView(
+                    title: "Repeat",
+                    titleColor: SolColor.colors().checkBox.doneBackground,
+                    icon: "repeat",
+                    iconColor: SolColor.colors().checkBox.doneBackground,
+                    iconWidth: 14,
+                    iconHeight: 14,
+                    iconVerticalSpace: 4,
+                    subTitle: "Set repeat"){
+                    self.actionRepeat = !self.actionRepeat
+                }
+            }
+        }
+    }
+    
+    var notificationActionView: some View {
+        VStack{
+            if (actionNotification == false){
+                ActionButtonView(
+                    title: "Notifications",
+                    titleColor: SolColor.colors().checkBox.undoneBackground,
+                    icon: "notification",
+                    iconColor: SolColor.colors().checkBox.undoneBackground,
+                    iconWidth: 14,
+                    iconHeight: 14,
+                    iconVerticalSpace: 4,
+                    subTitle: "01/29/21 01:15PM"){
+                    self.actionNotification = !self.actionNotification
+                }
+                
+            }else {
+                ActionButtonView(
+                    title: "Notifications",
+                    titleColor: SolColor.colors().checkBox.doneBackground,
+                    icon: "notification",
+                    iconColor: SolColor.colors().checkBox.doneBackground,
+                    iconWidth: 14,
+                    iconHeight: 14,
+                    iconVerticalSpace: 4,
+                    subTitle: "Add notifications"){
+                    self.actionNotification = !self.actionNotification
+                }
+            }
+        }
+    }
+    
+    var planningActionView: some View {
+        VStack{
+            if (actionPlanning == false){
+                ActionButtonView(
+                    title: "Planning",
+                    titleColor: SolColor.colors().checkBox.undoneBackground,
+                    icon: "ic_calendar",
+                    iconColor: SolColor.colors().checkBox.undoneBackground,
+                    iconWidth: 14,
+                    iconHeight: 14,
+                    iconVerticalSpace: 4,
+                    subTitle: "Your plan 4h"){
+                    self.actionPlanning = !self.actionPlanning
+                }
+                
+            }else {
+                ActionButtonView(
+                    title: "Planning",
+                    titleColor: SolColor.colors().checkBox.doneBackground,
+                    icon: "ic_calendar",
+                    iconColor: SolColor.colors().checkBox.doneBackground,
+                    iconWidth: 14,
+                    iconHeight: 14,
+                    iconVerticalSpace: 4,
+                    subTitle: "Tap to set time"){
+                    self.actionPlanning = !self.actionPlanning
+                }
+            }
+        }
+    }
+    
+    var deadlineActionView: some View {
+        VStack{
+            if (actionDeadline == false){
+                ActionButtonView(
+                    title: "Deadline",
+                    titleColor: SolColor.colors().checkBox.undoneBackground,
+                    icon: "deadline",
+                    iconColor: SolColor.colors().checkBox.undoneBackground,
+                    iconWidth: 14,
+                    iconHeight: 14,
+                    iconVerticalSpace: 4,
+                    subTitle: "01/18/2021"
+                ){
+                    self.actionDeadline = !self.actionDeadline
+                }
+                
+            }else {
+                ActionButtonView(
+                    title: "Deadline",
+                    titleColor: SolColor.colors().checkBox.doneBackground,
+                    icon: "deadline",
+                    iconColor: SolColor.colors().checkBox.doneBackground,
+                    iconWidth: 14,
+                    iconHeight: 14,
+                    iconVerticalSpace: 4,
+                    subTitle: "Set deadline"
+                ){
+                    self.actionDeadline = !self.actionDeadline
+                }
+            }
+        }
+    }
+    
+    var doneActionView: some View {
+        VStack{
+            if (actionDone == false){
+                ActionButtonView(
+                    title: "Done",
+                    titleColor: SolColor.colors().checkBox.undoneBackground,
+                    icon: "ic_check_undone",
+                    iconColor: SolColor.colors().checkBox.undoneBackground,
+                    iconWidth: 14,
+                    iconHeight: 14,
+                    iconVerticalSpace: 4,
+                    subTitle: "Make task done"
+                ){
+                    self.actionDone = !self.actionDone
+                }
+                
+            }else {
+                ActionButtonView(
+                    title: "Done",
+                    titleColor: SolColor.colors().actionButton.taskDone,
+                    icon: "ic_check_done",
+                    iconColor: SolColor.colors().actionButton.taskDone,
+                    iconWidth: 14,
+                    iconHeight: 14,
+                    iconVerticalSpace: 4,
+                    subTitle: "Go back to work"
+                ){
+                    self.actionDone = !self.actionDone
+                }
+            }
+        }
+    }
+    
     var actionsButton: some View {
         VStack{
             Spacer().frame(width: 1, height: 16, alignment: .center)
-            CommandMenuComponent()
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    VStack {
+                        Spacer()
+                            .frame(width: 5, height: 10, alignment: .center)
+                    }
+                    VStack {
+                        doneActionView
+                        actionToggleView
+                    }
+                    VStack {
+                        planningActionView
+                        notificationActionView
+                    }
+                    
+                    VStack {
+                        repeatActionButton
+                        deadlineActionView
+                    }
+                    
+                    VStack {
+                        Spacer()
+                            .frame(width: 10, height: 10, alignment: .center)
+                    }
+                    
+                }
+            }
             Spacer().frame(width: 1, height: 16, alignment: .center)
         }
     }
@@ -92,7 +314,7 @@ extension TaskContentView {
             Spacer().frame(width: 16, height: 11, alignment: .center)
             VStack{
                 Spacer().frame(width: 0, height: 4, alignment: .center)
-                CheckBoxView(size: .NORMAL, done: true)
+                CheckBoxView(size: .NORMAL, done: $actionDone)
             }
             Spacer().frame(width: 8, height: 1, alignment: .center)
             Text("😂 Сделать суперсложный и супербольшой очет, очень горит.")
@@ -102,7 +324,7 @@ extension TaskContentView {
                         weight: Font.Weight.medium,
                         color: SolColor.colors().checkBox.doneBackground))
                 .foregroundColor(SolColor.colors().checkBox.doneBackground)
-                .strikethrough(true, color: SolColor.colors().checkBox.doneBackground)
+                .strikethrough(self.actionDone, color: SolColor.colors().checkBox.doneBackground)
                 .frame(
                     maxWidth: .infinity,
                     alignment: .leading)
@@ -140,7 +362,10 @@ extension TaskContentView {
     var headerSpacer: some View {
         HStack{
             Spacer()
-                .frame(width: .infinity, height: (41 + 41 + 16), alignment: .center)
+                .frame(
+                    width: .infinity,
+                    height: (41 + 41 + 24),
+                    alignment: .center)
         }
     }
 }
