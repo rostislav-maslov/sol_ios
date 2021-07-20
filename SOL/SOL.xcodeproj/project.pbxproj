@@ -30,7 +30,6 @@
 		4F61FD6B26A1702700D83F2D /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61FD6A26A1702700D83F2D /* TaskView.swift */; };
 		4F61FD6D26A1722C00D83F2D /* TaskContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61FD6C26A1722C00D83F2D /* TaskContentView.swift */; };
 		4F61FD7126A33B5200D83F2D /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61FD7026A33B5200D83F2D /* CheckBoxView.swift */; };
-		4F61FD7426A360BE00D83F2D /* TaskItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61FD7326A360BE00D83F2D /* TaskItemView.swift */; };
 		4F61FD7A26A363C100D83F2D /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61FD7926A363C100D83F2D /* BackButton.swift */; };
 		4F61FD7C26A363CD00D83F2D /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61FD7B26A363CD00D83F2D /* SettingButton.swift */; };
 		4F61FD7E26A363DE00D83F2D /* SolNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61FD7D26A363DE00D83F2D /* SolNavigationView.swift */; };
@@ -94,6 +93,7 @@
 		4FB2C146266B34B10008CCDA /* TaskFieldButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB2C145266B34B10008CCDA /* TaskFieldButtonComponent.swift */; };
 		4FC14AD7269DEF6000127B8D /* SlotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC14AD6269DEF6000127B8D /* SlotEntity.swift */; };
 		4FC973052699FCB5008509F6 /* DayViewControllerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC973042699FCB5008509F6 /* DayViewControllerImpl.swift */; };
+		4FCE2F0426A69F71009B24DA /* TaskItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE2F0326A69F71009B24DA /* TaskItemView.swift */; };
 		4FD2E31A265F6BD2007A20C6 /* TextFieldLoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E319265F6BD2007A20C6 /* TextFieldLoginComponent.swift */; };
 		4FD2E31D265F7339007A20C6 /* TitleLoginByEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E31C265F7339007A20C6 /* TitleLoginByEmailView.swift */; };
 		4FD2E320265F74B7007A20C6 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E31F265F74B7007A20C6 /* ButtonComponent.swift */; };
@@ -153,7 +153,6 @@
 		4F61FD6A26A1702700D83F2D /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		4F61FD6C26A1722C00D83F2D /* TaskContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskContentView.swift; sourceTree = "<group>"; };
 		4F61FD7026A33B5200D83F2D /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
-		4F61FD7326A360BE00D83F2D /* TaskItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemView.swift; sourceTree = "<group>"; };
 		4F61FD7926A363C100D83F2D /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		4F61FD7B26A363CD00D83F2D /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
 		4F61FD7D26A363DE00D83F2D /* SolNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolNavigationView.swift; sourceTree = "<group>"; };
@@ -223,6 +222,7 @@
 		4FB2C145266B34B10008CCDA /* TaskFieldButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFieldButtonComponent.swift; sourceTree = "<group>"; };
 		4FC14AD6269DEF6000127B8D /* SlotEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotEntity.swift; sourceTree = "<group>"; };
 		4FC973042699FCB5008509F6 /* DayViewControllerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewControllerImpl.swift; sourceTree = "<group>"; };
+		4FCE2F0326A69F71009B24DA /* TaskItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemView.swift; sourceTree = "<group>"; };
 		4FD2E319265F6BD2007A20C6 /* TextFieldLoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldLoginComponent.swift; sourceTree = "<group>"; };
 		4FD2E31C265F7339007A20C6 /* TitleLoginByEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLoginByEmailView.swift; sourceTree = "<group>"; };
 		4FD2E31F265F74B7007A20C6 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
@@ -445,7 +445,6 @@
 			children = (
 				4F61FD6A26A1702700D83F2D /* TaskView.swift */,
 				4F61FD6C26A1722C00D83F2D /* TaskContentView.swift */,
-				4F61FD7326A360BE00D83F2D /* TaskItemView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1160,6 +1159,30 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		4FCE2EFE26A69F2F009B24DA /* taskItem */ = {
+			isa = PBXGroup;
+			children = (
+				4FCE2F0026A69F3C009B24DA /* model */,
+				4FCE2EFF26A69F37009B24DA /* view */,
+			);
+			path = taskItem;
+			sourceTree = "<group>";
+		};
+		4FCE2EFF26A69F37009B24DA /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4FCE2F0326A69F71009B24DA /* TaskItemView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4FCE2F0026A69F3C009B24DA /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		4FD2E318265F6BB4007A20C6 /* TextFieldLoginComponent */ = {
 			isa = PBXGroup;
 			children = (
@@ -1253,6 +1276,7 @@
 		4FFC21A326312DEE00198E4B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				4FCE2EFE26A69F2F009B24DA /* taskItem */,
 				4F61FD6626A16FF600D83F2D /* task */,
 				4FA5B4642692E0210031093A /* base */,
 				4F61FD5926A162C700D83F2D /* spaces */,
@@ -1562,9 +1586,9 @@
 				4FC14AD7269DEF6000127B8D /* SlotEntity.swift in Sources */,
 				4F87F7B62658F2470094C946 /* TLIconComponent.swift in Sources */,
 				4F9307DE265E197100204881 /* ApiResponseProtocol.swift in Sources */,
-				4F61FD7426A360BE00D83F2D /* TaskItemView.swift in Sources */,
 				4F61FD7126A33B5200D83F2D /* CheckBoxView.swift in Sources */,
 				4F61FD6B26A1702700D83F2D /* TaskView.swift in Sources */,
+				4FCE2F0426A69F71009B24DA /* TaskItemView.swift in Sources */,
 				4F4279422637C08500D71B2D /* NavigationBarColor.swift in Sources */,
 				4F9E898A262E73BF002F2B1B /* ContentView.swift in Sources */,
 				4FE38CF22663B8320011E203 /* DefaultStore.swift in Sources */,

@@ -11,7 +11,7 @@ import NavigationStack
 struct TaskContentView: View {
     @State private var favoriteColor = 0
     @EnvironmentObject private var navigationStack: NavigationStack
-
+    
     @State var actionToggle:Bool = false
     @State var actionRepeat:Bool = false
     @State var actionNotification = false
@@ -25,7 +25,7 @@ struct TaskContentView: View {
             actionsTitle
             actionsButton
             picker
-            
+            subtasks
         }
         .background(SolColor.colors().screen.background)
         .ignoresSafeArea(.all)
@@ -58,14 +58,6 @@ extension TaskContentView {
                 Text("Photo").tag(3)
             }
             .pickerStyle(SegmentedPickerStyle())
-            HStack{
-                PushView(
-                    destination: TaskView(),
-                    label: {
-                        Text("sdfsd")
-                    }).buttonStyle(PlainButtonStyle())
-                
-            }.frame(height: 100)
             Spacer().frame(width: 12, height: 1, alignment: .center)
         }
         
@@ -289,17 +281,14 @@ extension TaskContentView {
                         planningActionView
                         notificationActionView
                     }
-                    
                     VStack {
                         repeatActionButton
                         deadlineActionView
                     }
-                    
                     VStack {
                         Spacer()
                             .frame(width: 10, height: 10, alignment: .center)
                     }
-                    
                 }
             }
             Spacer().frame(width: 1, height: 16, alignment: .center)
@@ -325,9 +314,8 @@ extension TaskContentView {
                         color: SolColor.colors().checkBox.doneBackground))
                 .foregroundColor(SolColor.colors().checkBox.doneBackground)
                 .strikethrough(self.actionDone, color: SolColor.colors().checkBox.doneBackground)
-                .frame(
-                    maxWidth: .infinity,
-                    alignment: .leading)
+                //.frame(maxWidth: .infinity, alignment: .center)
+                .frame(width: .infinity, height: 24 * 3 + 5 * 3, alignment: .center)
             
             Spacer().frame(width: 8, height: 1, alignment: .center)
         })
@@ -364,8 +352,24 @@ extension TaskContentView {
             Spacer()
                 .frame(
                     width: .infinity,
-                    height: (41 + 41 + 24),
+                    height: (41 + 41 + 34),
                     alignment: .center)
+        }
+    }
+}
+
+extension TaskContentView {
+    var subtasks: some View {
+        HStack{
+            VStack {
+                Spacer().frame(width: 1, height: 16, alignment: .center)
+                TaskItemView()
+                TaskItemView()
+                TaskItemView()
+                TaskItemView()
+                TaskItemView()                
+                Spacer().frame(width: 1, height: 16, alignment: .center)
+            }
         }
     }
 }
