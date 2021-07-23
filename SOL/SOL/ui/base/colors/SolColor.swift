@@ -16,6 +16,7 @@ struct ColorsVar {
     var addTask: AddTask
     var checkBox: CheckBox
     var actionButton:ActionButton
+    var taskLine: TaskLine
 }
 
 struct FontColors {
@@ -54,6 +55,10 @@ struct CheckBox{
 struct ActionButton {
     var background: Color
     var taskDone: Color
+}
+
+struct TaskLine{
+    var container: Color
 }
 
 class SolColor{
@@ -98,7 +103,9 @@ class SolColor{
             actionButton: ActionButton(
                 background: Color(red: 246/255,green: 246/255,blue: 246/255),
                 taskDone: Color(red:28/255, green: 206/255, blue: 12/255)
-            )
+            ),
+             
+            taskLine: TaskLine(container: Color(red: 246/255, green:  246/255, blue:  246/255, opacity:  1))
         )
         return colors
     }

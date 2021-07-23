@@ -37,7 +37,7 @@ struct SolNavigationView: View {
                         }
                     }.frame(width: .infinity, height: 44, alignment: .center)
                     Spacer().frame(width: 8, height: 1, alignment: .center)
-                    SettingButton()
+                    //SettingButton()
                     Spacer().frame(width: 16, height: 1, alignment: .center)
                 }
                 Spacer().frame(width: 16, height: 16, alignment: .center)

@@ -53,10 +53,10 @@ struct TLItemComponent: View {
             Spacer().frame(width: 0, height: 8, alignment: .center)
             
         }
-        .background(
-            (showChild == true || level == 1) ?
-                TaskLineColors.colors().background(level: level) : Color.clear
-        )
+//        .background(
+//            (showChild == true || level == 1) ?
+//               // TaskLineColors.colors().background(level: level) : Color.clear
+//        )
         
         
         

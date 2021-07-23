@@ -34,16 +34,16 @@ struct SpaceListCompoent: View {
                 Spacer().frame(width: 1, height: 12, alignment: .center)
               //  SpaceItemComponent()
                 VStack {
-                TaskLineComponent(showChild: true)
-                Spacer().frame(width: 1, height: 8, alignment: .center)
-                TaskLineComponent(showChild: false)
-                Spacer().frame(width: 1, height: 8, alignment: .center)
-                TaskLineComponent(showChild: false)
-                Spacer().frame(width: 1, height: 8, alignment: .center)
-                TaskLineComponent(showChild: false)
+//                TaskLineComponent(showChild: true)
+//                Spacer().frame(width: 1, height: 8, alignment: .center)
+//                TaskLineComponent(showChild: false)
+//                Spacer().frame(width: 1, height: 8, alignment: .center)
+//                TaskLineComponent(showChild: false)
+//                Spacer().frame(width: 1, height: 8, alignment: .center)
+//                TaskLineComponent(showChild: false)
             }
                 Spacer().frame(width: 1, height: 8, alignment: .center)
-                TaskLineComponent(showChild: true)
+              //  TaskLineComponent(showChild: true)
               //  SpaceItemComponent()
                 
                 

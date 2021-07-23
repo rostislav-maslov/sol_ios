@@ -9,7 +9,7 @@ import SwiftUI
 import NavigationStack
 
 struct TaskItemView: View {
-    
+    @ObservedObject  var model: TaskItemViewModel = TaskItemViewModel()
     
     var body: some View {
         VStack{
@@ -25,7 +25,6 @@ struct TaskItemView: View {
             //            doneLine
             
         }
-        
         .background(SolColor.colors().screen.background)
     }
 }
@@ -49,9 +48,9 @@ extension TaskItemView {
                             Spacer().frame(width: 0)
                             Image("ic_arrow-tab")
                                 .frame(width: 16, height: 15, alignment: .center)
-                            Spacer().frame(width: 12)
+                            //Spacer().frame(width: 12)
                             Spacer().frame(width: 0)
-                            defaultLine
+                            doneLine
                         }
                     }
                     
@@ -60,9 +59,7 @@ extension TaskItemView {
             }
             Spacer().frame(width: 8)
         }
-        .background(Color.white)
-        .foregroundColor(.white)
-        .background(Color.red)
+        .background(SolColor.colors().taskLine.container)
         .cornerRadius(12)
     }
 }
@@ -70,7 +67,6 @@ extension TaskItemView {
 extension TaskItemView{
     var defaultLine: some View {
         HStack{
-           
             Image("ic_check_undone")
                 .resizable()
                 .renderingMode(.template)

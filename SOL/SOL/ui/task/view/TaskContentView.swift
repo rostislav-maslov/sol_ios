@@ -9,7 +9,8 @@ import SwiftUI
 import NavigationStack
 
 struct TaskContentView: View {
-    @State private var favoriteColor = 0
+    @State private var activeTab = 0
+    private var activeTabMax = 3
     @EnvironmentObject private var navigationStack: NavigationStack
     
     @State var actionToggle:Bool = false
@@ -25,7 +26,8 @@ struct TaskContentView: View {
             actionsTitle
             actionsButton
             picker
-            subtasks
+            pickerContainer
+            
         }
         .background(SolColor.colors().screen.background)
         .ignoresSafeArea(.all)
@@ -41,6 +43,22 @@ struct TaskContentView: View {
                             //self.goBack.ppp().wrappedValue.dismiss()
                             print("DragGesture")
                         }
+                    }else{
+                        if value.translation.width > .zero
+                            && value.translation.height > -30
+                            && value.translation.height < 30 {
+                            if activeTab - 1 >= 0 {
+                                activeTab = activeTab - 1
+                            }
+                            print(activeTab)
+                            print(value.translation.width)
+                        }else{
+                            if activeTab + 1 <= activeTabMax {
+                                activeTab = activeTab + 1
+                            }
+                            print(activeTab)
+                            print(value.translation.width)
+                        }
                     }
                 }
         )
@@ -51,7 +69,7 @@ extension TaskContentView {
     var picker: some View {
         HStack{
             Spacer().frame(width: 12, height: 1, alignment: .center)
-            Picker(selection: $favoriteColor, label: Text("What is your favorite color?")) {
+            Picker(selection: $activeTab, label: Text("")) {
                 Text("Tasks").tag(0)
                 Text("Details").tag(1)
                 Text("Files").tag(2)
@@ -60,7 +78,24 @@ extension TaskContentView {
             .pickerStyle(SegmentedPickerStyle())
             Spacer().frame(width: 12, height: 1, alignment: .center)
         }
-        
+    }
+    
+    var pickerContainer: some View {
+        VStack{
+            if(activeTab == 0){
+                subtasks
+            }
+            if(activeTab == 1){
+                Text("Details")
+            }
+            if(activeTab == 2){
+                Text("files")
+            }
+            if(activeTab == 3){
+                Text("photo")
+            }
+            Spacer().frame(height: 142)
+        }
     }
 }
 

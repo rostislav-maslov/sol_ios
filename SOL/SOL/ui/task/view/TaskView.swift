@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 struct TaskView: View {
+    @ObservedObject  var model: TaskViewModel = TaskViewModel()
+    
     
     var body: some View {
         
@@ -22,14 +24,14 @@ struct TaskView: View {
         .preferredColorScheme(.light)
         
         .onAppear(perform: {
-           
+            
         })
     }           
 }
 
 struct TaskView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskView()
+        TaskView(model: TaskViewModel())
     }
 }
 
