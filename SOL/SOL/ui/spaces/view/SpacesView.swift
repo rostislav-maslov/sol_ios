@@ -105,13 +105,17 @@ extension SpacesView {
 }
 
 extension SpacesView {
+    func needCloseSheet(){
+        model.onDissmisAddSpace()
+        model.load()
+    }
+    
     var addSpaceSheet: some View {
         EmptyView()
             .sheet(isPresented: $model.showAddSpaceSheet, onDismiss:{
                 model.onDissmisAddSpace()
             }) {
-                AddSpaceView()
-                
+                AddSpaceView(viewModel: AddSpaceViewModel(needCloseSheet: self.needCloseSheet))
             }
             .background(SolColor.colors().screen.background)
             .preferredColorScheme(.light)
@@ -124,12 +128,9 @@ extension SpacesView {
             Spacer()
                 .frame(width: 1, height: 41+16, alignment: .center)
             mainInfo
-            
             spacesList
             Spacer()
                 .frame(width: 1, height: 142, alignment: .center)
-            
-            
             addSpaceSheet
         }
         .background(SolColor.colors().screen.background)

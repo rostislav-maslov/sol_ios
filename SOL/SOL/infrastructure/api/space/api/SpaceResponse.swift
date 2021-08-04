@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SpaceResponse: Codable  {
+public struct SpaceResponse: Codable  {
     var id:String
     var title:String
     var icon:IconResponse

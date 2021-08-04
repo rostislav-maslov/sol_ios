@@ -9,8 +9,7 @@ import SwiftUI
 
 
 struct AddSpaceView: View {
-    @ObservedObject var viewModel = AddSpaceViewModel()    
-    
+    @ObservedObject var viewModel:AddSpaceViewModel
     
     var body: some View {
         ZStack {
@@ -66,6 +65,6 @@ struct AddSpaceView: View {
 
 struct AddSpaceScreen_Previews: PreviewProvider {
     static var previews: some View {
-        AddSpaceView()
+        AddSpaceView(viewModel: AddSpaceViewModel(needCloseSheet: {}))
     }
 }

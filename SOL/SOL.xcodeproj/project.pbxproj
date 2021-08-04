@@ -59,6 +59,8 @@
 		4F90D00226BA6B69008F0C5D /* RefreshTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F90D00126BA6B69008F0C5D /* RefreshTokenResponse.swift */; };
 		4F90D00426BA7062008F0C5D /* MeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F90D00326BA7062008F0C5D /* MeResponse.swift */; };
 		4F90D00626BA71B9008F0C5D /* EmptyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F90D00526BA71B9008F0C5D /* EmptyRequest.swift */; };
+		4F90D00826BA79ED008F0C5D /* MySpacesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F90D00726BA79ED008F0C5D /* MySpacesUseCase.swift */; };
+		4F90D00B26BA7DAE008F0C5D /* SpaceMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F90D00A26BA7DAE008F0C5D /* SpaceMapping.swift */; };
 		4F9307D0265E15CD00204881 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9307CF265E15CD00204881 /* AuthAPI.swift */; };
 		4F9307D5265E184000204881 /* SignUpEmailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9307D4265E184000204881 /* SignUpEmailRequest.swift */; };
 		4F9307D7265E188800204881 /* SignUpEmailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9307D6265E188800204881 /* SignUpEmailResponse.swift */; };
@@ -190,6 +192,8 @@
 		4F90D00126BA6B69008F0C5D /* RefreshTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenResponse.swift; sourceTree = "<group>"; };
 		4F90D00326BA7062008F0C5D /* MeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeResponse.swift; sourceTree = "<group>"; };
 		4F90D00526BA71B9008F0C5D /* EmptyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRequest.swift; sourceTree = "<group>"; };
+		4F90D00726BA79ED008F0C5D /* MySpacesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySpacesUseCase.swift; sourceTree = "<group>"; };
+		4F90D00A26BA7DAE008F0C5D /* SpaceMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceMapping.swift; sourceTree = "<group>"; };
 		4F9307CF265E15CD00204881 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		4F9307D4265E184000204881 /* SignUpEmailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailRequest.swift; sourceTree = "<group>"; };
 		4F9307D6265E188800204881 /* SignUpEmailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailResponse.swift; sourceTree = "<group>"; };
@@ -436,6 +440,7 @@
 		4F61FD5E26A16A6700D83F2D /* space */ = {
 			isa = PBXGroup;
 			children = (
+				4F90D00926BA7DA0008F0C5D /* mapping */,
 				4F61FD6026A16A7700D83F2D /* entity */,
 				4F61FD5F26A16A7300D83F2D /* port */,
 				4F61FD6126A16A7D00D83F2D /* useCase */,
@@ -463,6 +468,7 @@
 			isa = PBXGroup;
 			children = (
 				4F2661CD26B92479001974BC /* CreateSpaceUseCase.swift */,
+				4F90D00726BA79ED008F0C5D /* MySpacesUseCase.swift */,
 			);
 			path = useCase;
 			sourceTree = "<group>";
@@ -688,6 +694,14 @@
 				4F87F7BA2658F7F20094C946 /* TLItemComponent.swift */,
 			);
 			path = TLItemComonent;
+			sourceTree = "<group>";
+		};
+		4F90D00926BA7DA0008F0C5D /* mapping */ = {
+			isa = PBXGroup;
+			children = (
+				4F90D00A26BA7DAE008F0C5D /* SpaceMapping.swift */,
+			);
+			path = mapping;
 			sourceTree = "<group>";
 		};
 		4F9307CE265E158700204881 /* api */ = {
@@ -1659,6 +1673,7 @@
 				4F2B5DA62668AB4F005BE636 /* PlaceholderTaskView.swift in Sources */,
 				4FA828A82696C83500540CFF /* TokenStore.swift in Sources */,
 				4FA828D32699A02800540CFF /* UserEntity.swift in Sources */,
+				4F90D00826BA79ED008F0C5D /* MySpacesUseCase.swift in Sources */,
 				4F61FD7E26A363DE00D83F2D /* SolNavigationView.swift in Sources */,
 				4FAB2A9526A7F75900587BBD /* TaskViewModel.swift in Sources */,
 				4FD2E31A265F6BD2007A20C6 /* TextFieldLoginComponent.swift in Sources */,
@@ -1673,6 +1688,7 @@
 				4F6F05B526660E530074B9D8 /* SpaceResponse.swift in Sources */,
 				4FA828BE2696E82400540CFF /* AuthState.swift in Sources */,
 				4F2661CE26B92479001974BC /* CreateSpaceUseCase.swift in Sources */,
+				4F90D00B26BA7DAE008F0C5D /* SpaceMapping.swift in Sources */,
 				4FA0F6FD264885CD00CECF24 /* StoriesComponent.swift in Sources */,
 				4F61FD7A26A363C100D83F2D /* BackButton.swift in Sources */,
 				4F6F05A726660D150074B9D8 /* SpaceProvider.swift in Sources */,

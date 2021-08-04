@@ -27,7 +27,6 @@ public class WarmUpUseCase: UseCase<AuthState, Bool>{
             callback(AuthState.UNLOGGED, true)
             return
         }
-        
         if( accessToken == nil || refreshToken == nil ) {
             callback(AuthState.UNLOGGED, true)
             return
@@ -45,7 +44,6 @@ public class WarmUpUseCase: UseCase<AuthState, Bool>{
                         DefaultStore.store.user.setUserId(success!.result.id)
                         callback(AuthState.LOGGED, true)
                     }
-                    
                     if isSuccess == false || errorResponse != nil {
                         callback(AuthState.UNLOGGED, true)
                     }
@@ -53,7 +51,7 @@ public class WarmUpUseCase: UseCase<AuthState, Bool>{
             }
             if success == false || errorResponse != nil {
                 callback(AuthState.UNLOGGED, true)
-            }                       
+            }
         }
     }
 }

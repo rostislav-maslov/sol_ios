@@ -6,11 +6,16 @@
 //
 
 import Foundation
+import Combine
 
 public class SpacesViewModel: ObservableObject {
     @Published var goToLogout: Bool = false
     @Published var showAddSpaceSheet: Bool = false
     @Published var spaces: [SpaceEntity] = []
+    @Published var state: ViewState = ViewState.INITIALIZATION
+    
+    private var disposables = Set<AnyCancellable>()
+    private let port:SpaceRepositoryPort = SolApiService.api().space
 }
 
 extension SpacesViewModel{
@@ -24,24 +29,22 @@ extension SpacesViewModel{
 }
 
 extension SpacesViewModel{
-    public func load(){
-        var space1:SpaceEntity = SpaceEntity()
-        space1.id = "1"
-        space1.title = "Работа1"
-        space1.icon.data = "👩‍🔧"
-        
-        var space2:SpaceEntity = SpaceEntity()
-        space2.id = "2"
-        space2.title = "Жизнь"
-        space2.icon.data = "🧟"
-        
-        var space3:SpaceEntity = SpaceEntity()
-        space3.id = "3"
-        space3.title = "Лайфстайл"
-        space3.icon.data = "🏬"
-        
-        spaces.append(space1)
-        spaces.append(space2)
-        spaces.append(space3)
-    }
+    func load(){
+        self.state = ViewState.LOADING
+        SolPublisher<[SpaceEntity], Bool>(useCase: MySpacesUseCase(self.port))
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] publisherReponse in
+                if publisherReponse.success != nil {
+                    self?.state = ViewState.NORMAL
+                    self?.spaces = publisherReponse.success!
+                }else {
+                    self?.state = ViewState.ERROR
+                    self?.spaces = []
+                }
+                
+                
+            }
+            .store(in: &disposables)
+
+    }       
 }

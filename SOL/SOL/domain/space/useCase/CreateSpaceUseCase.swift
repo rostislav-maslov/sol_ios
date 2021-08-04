@@ -21,7 +21,7 @@ public class CreateSpaceUseCase: UseCase<SpaceEntity, Bool>{
         
         port.create(request, responseFunc: { (success: BaseApiResponse<SpaceResponse>?, error: BaseApiErrorResponse?, isSuccess:Bool) in
             if success != nil && isSuccess == true {
-                callback(self.mapping(response: success!.result), true)
+                callback(SpaceMapping.mapping(response: success!.result), true)
             }else {
                 callback(nil, false)
             }
@@ -44,22 +44,4 @@ extension CreateSpaceUseCase{
         }
     }
     
-}
-
-extension CreateSpaceUseCase {
-    func mapping(response: SpaceResponse) -> SpaceEntity {
-        let space: SpaceEntity = SpaceEntity()
-        space.icon = mapping(response: response.icon)
-        space.id = response.id
-        space.sortNum = response.sortNum
-        space.title = response.title
-        return space
-    }
-    
-    func mapping(response: IconResponse) -> IconEntity {
-        let icon: IconEntity = IconEntity()
-        icon.data = response.data
-        icon.type = response.type
-        return icon
-    }
 }
