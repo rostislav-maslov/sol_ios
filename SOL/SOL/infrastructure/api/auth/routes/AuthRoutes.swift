@@ -8,6 +8,9 @@
 import Foundation
 
 class AuthRoutes {
+    static let ROOT = BaseRoutes.AUTH_HOST + "/not-secure/api/v1"
     static let SIGN_UP_EMAIL = BaseRoutes.NOT_SECURE_V1 + "/sign-up/email"
-    static let REFRESH_TOKEN = BaseRoutes.NOT_SECURE_V1 + "/refresh-token"
+    static let ME = BaseRoutes.V1 + "/user/me"
+    static let REFRESH_TOKEN = ROOT + "/auth/refresh"
+    static let LOGIN = ROOT + "/auth/login/email"
 }

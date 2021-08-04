@@ -9,7 +9,5 @@ import Foundation
 
 struct SignUpEmailResponse: Codable {
     var id: String
-    var username: String 
-    var accessToken: String
-    var refreshToken: String
+    var username: String
 }

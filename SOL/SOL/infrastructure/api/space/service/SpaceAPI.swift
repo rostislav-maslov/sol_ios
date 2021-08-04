@@ -7,10 +7,10 @@
 
 import Foundation
 
-class SpaceService: RequestService {    
+class SpaceAPI: RequestService, SpaceRepositoryPort {
     
     func create(_ request: SpaceCreateRequest, responseFunc: @escaping ApiResponseProtocol<SpaceResponse>) {
-        self.requestJson(url: SpaceRoutes.ROOT, method: "POST", request: request, responseFunc: responseFunc)
+        self.requestJson(url: SpaceRoutes.ROOT, method: "POST", requestBody: request, responseFunc: responseFunc)
     }
     
     func mySpaces(_ responseFunc: @escaping ApiResponseProtocol<[SpaceResponse]>) {

@@ -35,28 +35,25 @@ public class WarmUpUseCase: UseCase<AuthState, Bool>{
         
         let request: RefreshTokenRequest = RefreshTokenRequest(refreshToken: refreshToken!)
         
-        self.port.refreshToken(request) {  (response: BaseApiResponse<SignUpEmailResponse>?, errorResponse: BaseApiErrorResponse?, success: Bool) in
+        self.port.refreshToken(request) {  (response: BaseApiResponse<RefreshTokenResponse>?, errorResponse: BaseApiErrorResponse?, success: Bool) in
             if response != nil {
-                
-                var solUser:UserEntity = UserEntity( response!.result.id,  response!.result.username)
-                
                 DefaultStore.store.token.setAccessToken(response!.result.accessToken)
                 DefaultStore.store.token.setRefreshToken(response!.result.refreshToken)
-                DefaultStore.store.user.setUserId(response!.result.id)
                 
-                var state = AuthState.LOGGED
-//                self.updated()
-                callback(state, true)
-                //self.login(email: email, password: password)
+                self.port.me { (success:BaseApiResponse<MeResponse>?, error: BaseApiErrorResponse?, isSuccess: Bool) in
+                    if success != nil {
+                        DefaultStore.store.user.setUserId(success!.result.id)
+                        callback(AuthState.LOGGED, true)
+                    }
+                    
+                    if isSuccess == false || errorResponse != nil {
+                        callback(AuthState.UNLOGGED, true)
+                    }
+                }
             }
-            
-            if errorResponse != nil {
-                //self.solUser = nil
-                var state = AuthState.UNLOGGED
-//                self.updated()
-                callback(state, true)
-            }
-            
+            if success == false || errorResponse != nil {
+                callback(AuthState.UNLOGGED, true)
+            }                       
         }
     }
 }

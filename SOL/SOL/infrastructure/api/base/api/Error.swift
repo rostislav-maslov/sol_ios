@@ -15,5 +15,6 @@ struct PresentationData: Codable {
 struct Error: Codable {
     var presentationData:PresentationData = PresentationData()
     var domain:String = ""
-    var detail:String = ""
+    var reason:String = ""
+    var details:String = ""
 }

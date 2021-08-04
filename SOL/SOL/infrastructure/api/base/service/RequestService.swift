@@ -9,16 +9,19 @@ import Foundation
 
 class RequestService {
     
-    internal func  requestJson<R:Encodable, T:Codable>(url:String, method: String, request: R, responseFunc: @escaping ApiResponseProtocol<T>) {
+    internal func  requestJson<R:Encodable, T:Codable>(url:String, method: String, requestBody: R, responseFunc: @escaping ApiResponseProtocol<T>) {
         // prepare json data
-        let jsonData = try? JSONEncoder().encode(request)
+        let jsonData:Data? = try? JSONEncoder().encode(requestBody)
+        
         // create post request
         let url = URL(string: url)!
         var request = URLRequest(url: url)
         request.httpMethod = method
         
         // insert json data to the request
-        request.httpBody = jsonData
+        if (requestBody is EmptyRequest) == false && jsonData != nil {
+            request.httpBody = jsonData
+        }
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         let token: String? = DefaultStore.store.token.getAccessToken()
@@ -26,11 +29,6 @@ class RequestService {
         if token != nil {
             request.addValue(token!, forHTTPHeaderField: "X-Auth-Token")
         }
-                
-        print("\(request.httpMethod ?? "") \(request.url)")
-        let str = String(decoding: request.httpBody!, as: UTF8.self)
-        print("BODY \n \(str)")
-        print("HEADERS \n \(request.allHTTPHeaderFields)")
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
@@ -57,6 +55,20 @@ class RequestService {
             }
             
             responseFunc(responseObj, errorObj, status)
+            print("===========================")
+            print("\(request.httpMethod ?? "") \(request.url)")
+            print("HEADERS \n \(request.allHTTPHeaderFields)")
+            
+            var str = ""
+            if request.httpBody != nil {
+                str = String(decoding: request.httpBody!, as: UTF8.self)
+            }
+            print("BODY \n \(str)")
+            print("----------------------------")
+            print("CODE \n \(code)")
+            print("responseObj \n \(responseObj)")
+            print("errorObj \n \(errorObj)")
+            print("===========================")
         }
         
         task.resume()

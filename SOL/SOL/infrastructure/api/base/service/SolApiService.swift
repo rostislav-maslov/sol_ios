@@ -10,7 +10,7 @@ import Foundation
 class SolApiService {
     static var instance: SolApiService?
     let auth: AuthAPI = AuthAPI()
-    let space: SpaceService = SpaceService()
+    let space: SpaceAPI = SpaceAPI()
     
     static func api() -> SolApiService{
         if( instance == nil) {

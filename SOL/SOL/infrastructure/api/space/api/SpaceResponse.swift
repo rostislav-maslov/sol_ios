@@ -12,4 +12,6 @@ struct SpaceResponse: Codable  {
     var title:String
     var icon:IconResponse
     var sortNum:Int
+    
+    
 }

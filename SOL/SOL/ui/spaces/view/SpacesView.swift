@@ -110,10 +110,7 @@ extension SpacesView {
             .sheet(isPresented: $model.showAddSpaceSheet, onDismiss:{
                 model.onDissmisAddSpace()
             }) {
-                AddSpaceScreen {
-                    model.showAddSpaceSheet = false
-                    //        solData.space?.updateSpaces()
-                }
+                AddSpaceView()
                 
             }
             .background(SolColor.colors().screen.background)
