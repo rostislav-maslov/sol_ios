@@ -94,7 +94,7 @@ extension SpacesView {
     var spacesList: some View {
         ForEach(model.spaces, id: \.id) { space in
             VStack{
-                PushView(destination:  TaskView()) {
+                PushView(destination:  SpaceView(model: SpaceViewModel(space.id))) {
                     Spacer().frame(width: 1, height: 12, alignment: .center)
                     SpaceItemView(icon: space.icon.data, title: space.title)
                 }                

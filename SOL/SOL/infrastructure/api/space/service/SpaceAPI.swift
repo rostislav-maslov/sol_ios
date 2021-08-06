@@ -17,4 +17,12 @@ class SpaceAPI: RequestService, SpaceRepositoryPort {
         self.requestFormUrl(url: SpaceRoutes.ROOT, method: "GET", responseFunc: responseFunc)
     }
     
+    func space(_ spaceId: String, _ responseFunc: @escaping ApiResponseProtocol<SpaceResponse>) {
+        self.requestFormUrl(url: SpaceRoutes.ROOT + "/\(spaceId)", method: "GET", responseFunc: responseFunc)
+    }
+    
+    func updateTitleIcon(_ request: SpaceUpdateRequest, _ responseFunc: @escaping ApiResponseProtocol<SpaceResponse>) {
+        self.requestJson(url: SpaceRoutes.ROOT + "/\(request.id!)", method: "PATCH", requestBody: request, responseFunc: responseFunc)
+    }
+    
 }

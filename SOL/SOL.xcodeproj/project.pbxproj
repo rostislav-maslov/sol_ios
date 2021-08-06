@@ -54,6 +54,13 @@
 		4F87F7B62658F2470094C946 /* TLIconComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F87F7B52658F2470094C946 /* TLIconComponent.swift */; };
 		4F87F7B82658F2B70094C946 /* SolFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F87F7B72658F2B70094C946 /* SolFonts.swift */; };
 		4F87F7BB2658F7F20094C946 /* TLItemComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F87F7BA2658F7F20094C946 /* TLItemComponent.swift */; };
+		4F8DCEEE26BBB47E00F8CD54 /* SpaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8DCEED26BBB47E00F8CD54 /* SpaceViewModel.swift */; };
+		4F8DCEF126BBB49400F8CD54 /* SpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8DCEF026BBB49400F8CD54 /* SpaceView.swift */; };
+		4F8DCEF326BBB4A300F8CD54 /* SpaceContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8DCEF226BBB4A300F8CD54 /* SpaceContentView.swift */; };
+		4F8DCEF526BBBFC600F8CD54 /* SpaceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8DCEF426BBBFC600F8CD54 /* SpaceUseCase.swift */; };
+		4F8DCEF726BBCAAF00F8CD54 /* MultilineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8DCEF626BBCAAF00F8CD54 /* MultilineTextView.swift */; };
+		4F8DCEFB26BD112900F8CD54 /* SpaceUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8DCEFA26BD112900F8CD54 /* SpaceUpdateRequest.swift */; };
+		4F8DCEFD26BD121900F8CD54 /* UpdateTitleIconSpaceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8DCEFC26BD121900F8CD54 /* UpdateTitleIconSpaceUseCase.swift */; };
 		4F90CFFE26BA677F008F0C5D /* LoginByEmailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F90CFFD26BA677F008F0C5D /* LoginByEmailRequest.swift */; };
 		4F90D00026BA6793008F0C5D /* LoginByEmailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F90CFFF26BA6793008F0C5D /* LoginByEmailResponse.swift */; };
 		4F90D00226BA6B69008F0C5D /* RefreshTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F90D00126BA6B69008F0C5D /* RefreshTokenResponse.swift */; };
@@ -187,6 +194,13 @@
 		4F87F7B52658F2470094C946 /* TLIconComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLIconComponent.swift; sourceTree = "<group>"; };
 		4F87F7B72658F2B70094C946 /* SolFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolFonts.swift; sourceTree = "<group>"; };
 		4F87F7BA2658F7F20094C946 /* TLItemComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLItemComponent.swift; sourceTree = "<group>"; };
+		4F8DCEED26BBB47E00F8CD54 /* SpaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceViewModel.swift; sourceTree = "<group>"; };
+		4F8DCEF026BBB49400F8CD54 /* SpaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceView.swift; sourceTree = "<group>"; };
+		4F8DCEF226BBB4A300F8CD54 /* SpaceContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceContentView.swift; sourceTree = "<group>"; };
+		4F8DCEF426BBBFC600F8CD54 /* SpaceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceUseCase.swift; sourceTree = "<group>"; };
+		4F8DCEF626BBCAAF00F8CD54 /* MultilineTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextView.swift; sourceTree = "<group>"; };
+		4F8DCEFA26BD112900F8CD54 /* SpaceUpdateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceUpdateRequest.swift; sourceTree = "<group>"; };
+		4F8DCEFC26BD121900F8CD54 /* UpdateTitleIconSpaceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTitleIconSpaceUseCase.swift; sourceTree = "<group>"; };
 		4F90CFFD26BA677F008F0C5D /* LoginByEmailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginByEmailRequest.swift; sourceTree = "<group>"; };
 		4F90CFFF26BA6793008F0C5D /* LoginByEmailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginByEmailResponse.swift; sourceTree = "<group>"; };
 		4F90D00126BA6B69008F0C5D /* RefreshTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenResponse.swift; sourceTree = "<group>"; };
@@ -469,6 +483,8 @@
 			children = (
 				4F2661CD26B92479001974BC /* CreateSpaceUseCase.swift */,
 				4F90D00726BA79ED008F0C5D /* MySpacesUseCase.swift */,
+				4F8DCEF426BBBFC600F8CD54 /* SpaceUseCase.swift */,
+				4F8DCEFC26BD121900F8CD54 /* UpdateTitleIconSpaceUseCase.swift */,
 			);
 			path = useCase;
 			sourceTree = "<group>";
@@ -595,9 +611,8 @@
 		4F6F05AC26660D860074B9D8 /* api */ = {
 			isa = PBXGroup;
 			children = (
-				4F6F05AD26660D970074B9D8 /* SpaceCreateRequest.swift */,
-				4F6F05B426660E530074B9D8 /* SpaceResponse.swift */,
-				4F6F05B626660E710074B9D8 /* IconResponse.swift */,
+				4F8DCEF826BD10FC00F8CD54 /* request */,
+				4F8DCEF926BD110300F8CD54 /* response */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -694,6 +709,51 @@
 				4F87F7BA2658F7F20094C946 /* TLItemComponent.swift */,
 			);
 			path = TLItemComonent;
+			sourceTree = "<group>";
+		};
+		4F8DCEEA26BBB45100F8CD54 /* space */ = {
+			isa = PBXGroup;
+			children = (
+				4F8DCEEC26BBB46500F8CD54 /* model */,
+				4F8DCEEB26BBB45E00F8CD54 /* view */,
+			);
+			path = space;
+			sourceTree = "<group>";
+		};
+		4F8DCEEB26BBB45E00F8CD54 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4F8DCEF026BBB49400F8CD54 /* SpaceView.swift */,
+				4F8DCEF226BBB4A300F8CD54 /* SpaceContentView.swift */,
+				4F8DCEF626BBCAAF00F8CD54 /* MultilineTextView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4F8DCEEC26BBB46500F8CD54 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4F8DCEED26BBB47E00F8CD54 /* SpaceViewModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4F8DCEF826BD10FC00F8CD54 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				4F6F05AD26660D970074B9D8 /* SpaceCreateRequest.swift */,
+				4F8DCEFA26BD112900F8CD54 /* SpaceUpdateRequest.swift */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		4F8DCEF926BD110300F8CD54 /* response */ = {
+			isa = PBXGroup;
+			children = (
+				4F6F05B626660E710074B9D8 /* IconResponse.swift */,
+				4F6F05B426660E530074B9D8 /* SpaceResponse.swift */,
+			);
+			path = response;
 			sourceTree = "<group>";
 		};
 		4F90D00926BA7DA0008F0C5D /* mapping */ = {
@@ -1337,6 +1397,7 @@
 		4FFC21A326312DEE00198E4B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				4F8DCEEA26BBB45100F8CD54 /* space */,
 				4F2661C826B92082001974BC /* addSpace */,
 				4FCE2EFE26A69F2F009B24DA /* taskItem */,
 				4F61FD6626A16FF600D83F2D /* task */,
@@ -1621,11 +1682,13 @@
 				4F90CFFE26BA677F008F0C5D /* LoginByEmailRequest.swift in Sources */,
 				4F90D00026BA6793008F0C5D /* LoginByEmailResponse.swift in Sources */,
 				4F9307E4265E1A4500204881 /* SolApiService.swift in Sources */,
+				4F8DCEFB26BD112900F8CD54 /* SpaceUpdateRequest.swift in Sources */,
 				4F0B5CA1264AFB710026FDD0 /* SpacesView.swift in Sources */,
 				4FA828C62696E86500540CFF /* UseCase.swift in Sources */,
 				4F61FD5D26A1630000D83F2D /* SpacesViewModel.swift in Sources */,
 				4FE38CFB2663EC190011E203 /* HeaderComponent.swift in Sources */,
 				4F90D00426BA7062008F0C5D /* MeResponse.swift in Sources */,
+				4F8DCEF326BBB4A300F8CD54 /* SpaceContentView.swift in Sources */,
 				4F9307D5265E184000204881 /* SignUpEmailRequest.swift in Sources */,
 				4F6B98EA269D614900B0FFC9 /* DaySchedulerViewModel.swift in Sources */,
 				4F9307E0265E19B500204881 /* BaseApiErrorResponse.swift in Sources */,
@@ -1640,6 +1703,7 @@
 				4FA828BC2696E2BA00540CFF /* WarmUpUseCase.swift in Sources */,
 				4FA5B46A2692E1000031093A /* LoginByEmailViewModel.swift in Sources */,
 				4F01BEAD264EE68500AAAA39 /* CornerRadius.swift in Sources */,
+				4F8DCEEE26BBB47E00F8CD54 /* SpaceViewModel.swift in Sources */,
 				4F6F05B326660DF10074B9D8 /* SpaceAPI.swift in Sources */,
 				4F6F05AE26660D970074B9D8 /* SpaceCreateRequest.swift in Sources */,
 				4FFC218E2631222800198E4B /* AppLoadingView.swift in Sources */,
@@ -1650,6 +1714,7 @@
 				4FC14AD7269DEF6000127B8D /* SlotEntity.swift in Sources */,
 				4F87F7B62658F2470094C946 /* TLIconComponent.swift in Sources */,
 				4F9307DE265E197100204881 /* ApiResponseProtocol.swift in Sources */,
+				4F8DCEF526BBBFC600F8CD54 /* SpaceUseCase.swift in Sources */,
 				4F61FD7126A33B5200D83F2D /* CheckBoxView.swift in Sources */,
 				4F90D00626BA71B9008F0C5D /* EmptyRequest.swift in Sources */,
 				4F61FD6B26A1702700D83F2D /* TaskView.swift in Sources */,
@@ -1663,6 +1728,7 @@
 				4F0B5C8E2649780B0026FDD0 /* ActionButtonView.swift in Sources */,
 				4FA828C32696E84E00540CFF /* UseCaseProtocol.swift in Sources */,
 				4F6B98EC269D619700B0FFC9 /* DaySchedulerView.swift in Sources */,
+				4F8DCEF726BBCAAF00F8CD54 /* MultilineTextView.swift in Sources */,
 				4F61FD6526A16C2B00D83F2D /* IconEntity.swift in Sources */,
 				4FA828D72699BFB300540CFF /* AddTaskState.swift in Sources */,
 				4FB2C146266B34B10008CCDA /* TaskFieldButtonComponent.swift in Sources */,
@@ -1672,6 +1738,7 @@
 				4F069313262EE16C00D3E924 /* ActivityView.swift in Sources */,
 				4F2B5DA62668AB4F005BE636 /* PlaceholderTaskView.swift in Sources */,
 				4FA828A82696C83500540CFF /* TokenStore.swift in Sources */,
+				4F8DCEF126BBB49400F8CD54 /* SpaceView.swift in Sources */,
 				4FA828D32699A02800540CFF /* UserEntity.swift in Sources */,
 				4F90D00826BA79ED008F0C5D /* MySpacesUseCase.swift in Sources */,
 				4F61FD7E26A363DE00D83F2D /* SolNavigationView.swift in Sources */,
@@ -1700,6 +1767,7 @@
 				4FE38D02266413BD0011E203 /* IconFieldComponent.swift in Sources */,
 				4FE38CF72663CF580011E203 /* WarmUpScreen.swift in Sources */,
 				4F9307D7265E188800204881 /* SignUpEmailResponse.swift in Sources */,
+				4F8DCEFD26BD121900F8CD54 /* UpdateTitleIconSpaceUseCase.swift in Sources */,
 				4F0B5C9826498BF80026FDD0 /* SpaceListCompoent.swift in Sources */,
 				4FD2E320265F74B7007A20C6 /* ButtonComponent.swift in Sources */,
 				4F9307E7265E1D3C00204881 /* BaseRoutes.swift in Sources */,
