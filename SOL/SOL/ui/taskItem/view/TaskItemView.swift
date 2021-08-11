@@ -9,11 +9,12 @@ import SwiftUI
 import NavigationStack
 
 struct TaskItemView: View {
-    @ObservedObject  var model: TaskItemViewModel = TaskItemViewModel()
+    @ObservedObject  var model: TaskItemViewModel
     
     var body: some View {
         VStack{
-            Spacer().frame(width: 1, height: 16, alignment: .center)
+            Spacer()
+                .frame(width: 1, height: 16, alignment: .center)
             HStack{
                 Spacer()
                     .frame(width: 16, height: 0, alignment: .center)
@@ -36,25 +37,25 @@ extension TaskItemView {
             VStack{
                 Spacer().frame(height: 16)
                 defaultLine
-                HStack{
-                    Spacer().frame(width: 0)
-                    Image("ic_arrow-tab")
-                        .frame(width: 16, height: 15, alignment: .center)
-                    Spacer().frame(width: 12)
-                    Spacer().frame(width: 0)
-                    VStack{
-                        defaultLine
-                        HStack{
-                            Spacer().frame(width: 0)
-                            Image("ic_arrow-tab")
-                                .frame(width: 16, height: 15, alignment: .center)
-                            //Spacer().frame(width: 12)
-                            Spacer().frame(width: 0)
-                            doneLine
-                        }
-                    }
-                    
-                }
+//                HStack{
+//                    Spacer().frame(width: 0)
+//                    Image("ic_arrow-tab")
+//                        .frame(width: 16, height: 15, alignment: .center)
+//                    Spacer().frame(width: 12)
+//                    Spacer().frame(width: 0)
+//                    VStack{
+//                        defaultLine
+//                        HStack{
+//                            Spacer().frame(width: 0)
+//                            Image("ic_arrow-tab")
+//                                .frame(width: 16, height: 15, alignment: .center)
+//                            //Spacer().frame(width: 12)
+//                            Spacer().frame(width: 0)
+//                            doneLine
+//                        }
+//                    }
+//                    
+//                }
                 Spacer().frame(height: 16)
             }
             Spacer().frame(width: 8)
@@ -81,17 +82,17 @@ extension TaskItemView{
             Spacer()
                 .frame(width: 8, height: 0, alignment: .center)
             PushView(
-                destination: TaskView(),
+                destination: TaskView(model: TaskViewModel(task: self.model.task)),
                 label: {
                     HStack{
-                        Text("🤧")
+                        Text(model.task.icon.data)
                             .font(
                                 SolFonts.font(
                                     size: 16,
                                     weight: Font.Weight.medium,
                                     color: SolColor.colors().fontColors.normal))
                         Spacer().frame(width: 4)
-                        Text("My first task")
+                        Text(model.task.title)
                             .font(
                                 SolFonts.font(
                                     size: 16,
@@ -128,7 +129,7 @@ extension TaskItemView{
             Spacer()
                 .frame(width: 8, height: 0, alignment: .center)
             PushView(
-                destination: TaskView(),
+                destination: TaskView(model: TaskViewModel(task: TaskEntity.forRender())),
                 label: {
                     HStack{
                         Text("🤧")
@@ -159,6 +160,6 @@ extension TaskItemView{
 
 struct TaskItemView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskItemView()
+        TaskItemView(model: TaskItemViewModel(task: TaskEntity.forRender()))
     }
 }

@@ -24,36 +24,15 @@ public class SpaceViewModel: NSObject, ObservableObject, UITextViewDelegate{
     @Published var titleSize:CGFloat = (24 + 8) * 1
     @Published var detectFirstSizeTitle:Bool = false
     @Published var firstSizeTitle:CGFloat = 0
+    @Published var bottomButtonType: BottomButtonType = BottomButtonType.ADD_TASK
+    @Published var emojiTextField:UIEmojiTextField?
+    @Published var listIdHack = UUID()
     
     private var disposables = Set<AnyCancellable>()
     private let port:SpaceRepositoryPort = SolApiService.api().space
     
     init(_ spaceId:String){
         self.spaceId = spaceId
-    }
-    
-    func inRow() -> Int {
-        let screenSize: CGRect = UIScreen.main.bounds
-        print(screenSize.width)
-        var inRow:Int = 28
-        if screenSize.width <= 320 {
-            inRow = 24
-        }else if screenSize.width <= 375 {
-            inRow = 28
-        }else if screenSize.width <= 390 {
-            inRow = 32
-        }else if screenSize.width <= 414 {
-            inRow = 38
-        }else if screenSize.width <= 428 {
-            inRow = 40
-        }
-        return inRow
-    }
-    
-    func calcTitleHeight() -> CGFloat{        
-        let lines:Int = space.title.count / inRow() + 1
-        //self.titleSize = (24 + 8) * CGFloat.init(lines)
-        return (24 + 8) * CGFloat.init(lines)
     }
     
     func load(){
@@ -87,7 +66,7 @@ public class SpaceViewModel: NSObject, ObservableObject, UITextViewDelegate{
     
     public func textViewDidChange(_ textView: UITextView) {
         let sizeThatFitsTextView = textView.sizeThatFits(CGSize(width: textView.frame.size.width, height: CGFloat(MAXFLOAT)))
-        let heightOfText = sizeThatFitsTextView.height
+        let heightOfText = sizeThatFitsTextView.height + 10
         space.title = textView.text
         self.titleSize = heightOfText
     }
@@ -98,5 +77,13 @@ public class SpaceViewModel: NSObject, ObservableObject, UITextViewDelegate{
             self.saveTitleIcon()            
         }
         return true
+    }
+}
+
+extension SpaceViewModel{
+    
+    func taskDidCreated(_ taskEntity: TaskEntity) -> Void{
+        self.space.tasks.insert(taskEntity, at: 0)
+        self.listIdHack = UUID()
     }
 }

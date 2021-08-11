@@ -8,6 +8,6 @@
 import Foundation
 
 public struct IconResponse: Codable {
-    var data:String
+    var data:String?
     var type:String
 }

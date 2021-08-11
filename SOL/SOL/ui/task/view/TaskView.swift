@@ -9,15 +9,14 @@ import Foundation
 import SwiftUI
 
 struct TaskView: View {
-    @ObservedObject  var model: TaskViewModel = TaskViewModel()
-    
-    
+    @ObservedObject  var model: TaskViewModel
+        
     var body: some View {
         
         ZStack {            
             TaskContentView()
             SolNavigationView()
-            AddTaskRootView()
+            AddTaskRootView(model: AddTaskViewModel("", parentTaskId: ""), parentTitle: $model.task.title)
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
@@ -31,7 +30,7 @@ struct TaskView: View {
 
 struct TaskView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskView(model: TaskViewModel())
+        TaskView(model: TaskViewModel(task: TaskEntity.forRender()))
     }
 }
 

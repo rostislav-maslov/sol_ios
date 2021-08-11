@@ -11,12 +11,13 @@ struct AddTaskTextView: View {
     @ObservedObject var model:AddTaskViewModel
     @State var stateIcon: ViewState = ViewState.NORMAL
     @State private var titleIsFocused: Field = .firstName
+    @State var fieldFocus = true
     
     var body: some View {
         ZStack{
             backgroundView
             
-            VStack{
+            VStack{                
                 titleField
                 Spacer().frame(width: 0, height: 8, alignment: .center)
                 HStack{
@@ -61,20 +62,37 @@ extension AddTaskTextView{
     
     var titleField: some View {
         HStack{
-            TextField("Type your task", text: $model.task.title)
-                .font(
-                    SolFonts.font(
-                        size: 16,
-                        weight: Font.Weight.medium,
-                        color: SolColor.colors().fontColors.normal))
-                .padding()                
+            AddTaskTextFieldView(
+                text: $model.task.title,
+                textFieldShouldBeginEditing: {
+                },
+                placeholder: "Type your task") { (textField: UITextField) in
+                textField.becomeFirstResponder()
+            }
+            .frame(width: .infinity, height: 16, alignment: .center)
+            .padding()
+            
+            
+            
+//            TextField("Type your task", text: $model.task.title)
+//                .font(
+//                    SolFonts.font(
+//                        size: 16,
+//                        weight: Font.Weight.medium,
+//                        color: SolColor.colors().fontColors.normal))
+//                .padding()
+            
         }
     }
 }
 
 extension AddTaskTextView{
     var iconChose: some View {
-        IconFieldComponent(placeholder: "", value: $model.task.emoji, state: $stateIcon)
+        IconFieldComponent(placeholder: "", value: $model.task.icon.data, state: $stateIcon, textFieldShouldBeginEditing: {
+            
+        }, callbackEmojiTextField: { (emojiTextField:UIEmojiTextField) in
+            
+        })
     }
 }
 
@@ -116,7 +134,7 @@ extension AddTaskTextView{
 }
 
 extension AddTaskTextView{
-        
+    
     var submitButton: some View {
         Button(action: {
             model.submit()
@@ -131,6 +149,6 @@ extension AddTaskTextView{
 
 struct AddTaskTextView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTaskTextView(model: AddTaskViewModel())
+        AddTaskTextView(model: AddTaskViewModel(nil, parentTaskId: nil))
     }
 }

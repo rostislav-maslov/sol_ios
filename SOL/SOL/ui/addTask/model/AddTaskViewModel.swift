@@ -6,15 +6,32 @@
 //
 
 import Foundation
+import Combine
 
 public class AddTaskViewModel: ObservableObject {
+    var spaceId: String?
+    var parentTaskId: String?
     @Published var state: AddTaskState = AddTaskState.PLACEHOLDER
     @Published var task: TaskEntity = TaskEntity()
     @Published var sheets: SheetsState = SheetsState()
     @Published var buttonState: ButtonState = ButtonState()
+    @Published var loadingStatus: ViewState = ViewState.NORMAL
     
-    init(){
-        print("init")
+    var taskDidCreated: ((_ taskEntity: TaskEntity) -> Void)?
+    
+    private var disposables = Set<AnyCancellable>()
+    private let port:TaskRepositoryPort = SolApiService.api().task as TaskRepositoryPort
+    
+    
+    init(_ spaceId: String?, parentTaskId: String?){
+        self.spaceId = spaceId
+        self.parentTaskId = parentTaskId
+    }
+    
+    init(_ spaceId: String?, parentTaskId: String?, taskDidCreated: @escaping ((_ taskEntity: TaskEntity) -> Void)){
+        self.spaceId = spaceId
+        self.parentTaskId = parentTaskId
+        self.taskDidCreated = taskDidCreated
     }
     
     public func removeTimeSlot(startDate: Date) {
@@ -94,14 +111,7 @@ public class AddTaskViewModel: ObservableObject {
     
 }
 
-extension AddTaskViewModel{
-    func submit(){
-        self.state = AddTaskState.PLACEHOLDER
-        self.task = TaskEntity()
-        self.sheets = SheetsState()
-        self.buttonState = ButtonState()
-    }
-}
+
 
 extension AddTaskViewModel{
     func goToText() {
@@ -145,5 +155,53 @@ extension AddTaskViewModel {
         var hasDeadline: Bool = false
         var hasRepeat: Bool = false
         var submitButtonActive: Bool = false
+    }
+}
+
+extension AddTaskViewModel {
+    public func clean(){
+        task = TaskEntity()
+        sheets = SheetsState()
+        buttonState = ButtonState()
+        touchBackground()
+    }
+    
+    public func createTask(){
+        if self.loadingStatus != .LOADING {
+            self.loadingStatus = .LOADING
+            
+            SolPublisher<TaskEntity, Bool>(useCase:
+                                            CreateTaskUseCase(self.port,
+                                                              CreateTaskUseCase.Input.init(
+                                                                title: task.title,
+                                                                emoji: task.icon.data,
+                                                                parentTaskId: parentTaskId,
+                                                                spaceId: spaceId)))
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] result in
+                    if(result.success != nil) {
+                        self?.loadingStatus = .NORMAL
+                        self?.state = AddTaskState.PLACEHOLDER
+                        self?.task = TaskEntity()
+                        if self?.taskDidCreated != nil {
+                            self?.taskDidCreated!(result.success!)
+                        }
+                    } else {
+                        self?.loadingStatus = .ERROR
+                    }
+                    
+                }
+                .store(in: &disposables)
+        }
+    }
+}
+
+extension AddTaskViewModel{
+    func submit(){
+        if task.title == "" {
+            return 
+        }
+        createTask()
+        clean()
     }
 }

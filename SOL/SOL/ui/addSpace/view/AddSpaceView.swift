@@ -32,7 +32,11 @@ struct AddSpaceView: View {
                     IconFieldComponent(
                         placeholder: "🪐",
                         value: $viewModel.emoji,
-                        state: $viewModel.state)
+                        state: $viewModel.state, textFieldShouldBeginEditing: {
+                            
+                        }, callbackEmojiTextField: {(emojiTextField: UIEmojiTextField) in
+                            
+                        })
                     Spacer()
                         .frame(
                             width: 8,

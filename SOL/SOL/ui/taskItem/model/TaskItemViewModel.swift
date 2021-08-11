@@ -7,6 +7,10 @@
 
 import Foundation
 
-class TaskItemViewModel: ObservableObject {
-    @Published var taskEntity: TaskEntity = TaskEntity()
+public class TaskItemViewModel: ObservableObject {
+    @Published var task: TaskEntity
+    
+    init( task: TaskEntity) {
+        self.task = task
+    }
 }

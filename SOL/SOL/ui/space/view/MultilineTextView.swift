@@ -44,7 +44,7 @@ struct MultilineTextView: UIViewRepresentable {
         let sizeThatFitsTextView = uiView.sizeThatFits(CGSize(width: uiView.frame.size.width, height: CGFloat(MAXFLOAT)))
         let heightOfText = sizeThatFitsTextView.height
         
-        if model.firstSizeTitle != heightOfText && model.detectFirstSizeTitle == false {
+        if model.detectFirstSizeTitle == false {
             delegate.textViewDidChange?(uiView)
             model.detectFirstSizeTitle = true
         }

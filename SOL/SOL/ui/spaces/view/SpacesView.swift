@@ -10,13 +10,14 @@ import NavigationStack
 
 struct SpacesView: View {
     @ObservedObject var model = SpacesViewModel()
-    
+    @ObservedObject var addTaskViewModel = AddTaskViewModel(nil, parentTaskId: nil)
+    @State var defaultTaskAddTitle = "in Inbox"
     var body: some View {
         NavigationStackView{
             ZStack {
                 NavigationLink(destination: LoginUIView(), isActive: $model.goToLogout) {EmptyView()}
                 content
-                AddTaskRootView()
+                AddTaskRootView(model: addTaskViewModel, parentTitle: $defaultTaskAddTitle)
             }
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)

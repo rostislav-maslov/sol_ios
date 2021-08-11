@@ -13,17 +13,31 @@ import NavigationStack
 
 struct SpaceView: View {
     @ObservedObject var model: SpaceViewModel
-    @EnvironmentObject private var navigationStack: NavigationStack    
+    @EnvironmentObject private var navigationStack: NavigationStack
     
     init(model: SpaceViewModel){
         self.model = model
     }
-
+    
     var body: some View {        
         ZStack {
             content
             SolNavigationView()
-            AddTaskRootView()
+            if model.bottomButtonType == BottomButtonType.ADD_TASK {
+                AddTaskRootView(
+                    model: AddTaskViewModel(
+                        model.spaceId,
+                        parentTaskId: nil,
+                        taskDidCreated: model.taskDidCreated),
+                    parentTitle: $model.space.title)
+            }
+            if model.bottomButtonType == BottomButtonType.CLOSE_ICON_FIELD {
+                DoneKeyboardButtonView(action: {
+                    model.saveTitleIcon()
+                    model.emojiTextField?.endEditing(false)
+                    model.bottomButtonType = BottomButtonType.ADD_TASK
+                })
+            }
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
@@ -33,6 +47,7 @@ struct SpaceView: View {
         })
     }
 }
+
 
 extension SpaceView {
     var content: some View {
@@ -86,6 +101,7 @@ extension SpaceView {
                 Text("Tasks").tag(0)
                 Text("Details").tag(1)
             }
+            .id(self.model.listIdHack)
             .pickerStyle(SegmentedPickerStyle())
             Spacer().frame(width: 12, height: 1, alignment: .center)
         }
@@ -205,31 +221,36 @@ extension SpaceView {
 
 extension SpaceView {
     var taskTitle: some View {
-        
         HStack(alignment: .top, spacing: 0, content: {
-            Spacer().frame(width: 16, height: 11, alignment: .center)
-            Spacer().frame(width: 8, height: 1, alignment: .center)
-            MultilineTextView(
-                text: $model.space.title, model: self.model,
-                textColor: UIColor(SolColor.colors().checkBox.doneBackground),
-                textSize: 24, delegate: model)
-                .font(SolFonts.font(
-                        size: 24,
-                        weight: Font.Weight.medium,
-                        color: SolColor.colors().checkBox.doneBackground))
-                .frame(width: .infinity, height: model.titleSize, alignment: .center)
-                .foregroundColor(SolColor.colors().checkBox.doneBackground)
-
-                           
-//            TextField("Space title", text: $model.space.title)
-//                .font(SolFonts.font(
-//                        size: 24,
-//                        weight: Font.Weight.medium,
-//                        color: SolColor.colors().checkBox.doneBackground))
-//                .frame(width: .infinity, height: model.calcTitleHeight(), alignment: .center)
-//                .foregroundColor(SolColor.colors().checkBox.doneBackground)
-
+            Spacer().frame(width: 2, height: 11, alignment: .center)
+            VStack(alignment: .leading, spacing: 0, content: {
+                Spacer().frame(width: 0, height: 4, alignment: .center)
+                IconFieldComponent(
+                    placeholder: "🪐",
+                    value: $model.space.icon.data,
+                    state: $model.state, textFieldShouldBeginEditing: {
+                        model.bottomButtonType = BottomButtonType.CLOSE_ICON_FIELD
+                    }, callbackEmojiTextField: { (emojiTextField:UIEmojiTextField) in
+                        
+                        model.emojiTextField = emojiTextField
+                    })
+            })
             
+            VStack(alignment: .leading, spacing: 0, content: {
+                
+                
+                Spacer().frame(height: 2)
+                MultilineTextView(
+                    text: $model.space.title, model: self.model,
+                    textColor: UIColor(SolColor.colors().checkBox.undoneBackground),
+                    textSize: 24, delegate: model)
+                    .font(SolFonts.font(
+                            size: 24,
+                            weight: Font.Weight.medium,
+                            color: SolColor.colors().checkBox.undoneBackground))
+                    .frame(width: .infinity, height: model.titleSize, alignment: .center)
+                    .foregroundColor(SolColor.colors().checkBox.doneBackground)
+            })
             Spacer().frame(width: 8, height: 1, alignment: .center)
         })
     }
@@ -276,11 +297,12 @@ extension SpaceView {
         HStack{
             VStack {
                 Spacer().frame(width: 1, height: 16, alignment: .center)
-                TaskItemView()
-                TaskItemView()
-                TaskItemView()
-                TaskItemView()
-                TaskItemView()
+                ForEach(model.space.tasks, id: \.id) { task in
+                    TaskItemView(model: TaskItemViewModel(task: task))
+                }
+                if (model.space.tasks.count == 0){
+                    Text("Vacuum")
+                }
                 Spacer().frame(width: 1, height: 16, alignment: .center)
             }
         }
@@ -289,6 +311,7 @@ extension SpaceView {
 
 
 struct SpaceView_Previews: PreviewProvider {
+    
     static var previews: some View {
         SpaceView(model: SpaceViewModel("1111"))
     }

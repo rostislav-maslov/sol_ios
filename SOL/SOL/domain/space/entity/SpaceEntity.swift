@@ -9,7 +9,9 @@ import Foundation
 
 public class SpaceEntity{
     var id:String = ""
-    var title:String = ""
+    var title:String = "asfdasfd"
     var icon:IconEntity = IconEntity()
     var sortNum:Int = 1
+    
+    var tasks:[TaskEntity] = []
 }

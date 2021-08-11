@@ -8,5 +8,9 @@
 import Foundation
 
 public class TaskViewModel: ObservableObject {
-    @Published var task: TaskEntity = TaskEntity()
+    @Published var task: TaskEntity
+    
+    init(task: TaskEntity){
+        self.task = task
+    }
 }

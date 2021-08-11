@@ -120,6 +120,6 @@ extension ChooseEventTimeComponent{
 
 struct ChooseEventTimeComponent_Previews: PreviewProvider {
     static var previews: some View {
-        ChooseEventTimeComponent(model: AddTaskViewModel())
+        ChooseEventTimeComponent(model: AddTaskViewModel("", parentTaskId: ""))
     }
 }

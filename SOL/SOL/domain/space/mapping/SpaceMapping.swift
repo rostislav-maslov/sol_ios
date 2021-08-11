@@ -24,12 +24,19 @@ public class SpaceMapping {
         space.id = response.id
         space.sortNum = response.sortNum
         space.title = response.title
+        
+        if response.tasks != nil {
+            space.tasks = TaskMapping.mapping(response: response.tasks!)
+        }else{
+            space.tasks = []
+        }
+        
         return space
     }
     
     public static func mapping(response: IconResponse) -> IconEntity {
         let icon: IconEntity = IconEntity()
-        icon.data = response.data
+        icon.data = response.data!
         icon.type = response.type
         return icon
     }

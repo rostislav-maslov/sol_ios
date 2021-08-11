@@ -11,6 +11,7 @@ class SolApiService {
     static var instance: SolApiService?
     let auth: AuthAPI = AuthAPI()
     let space: SpaceAPI = SpaceAPI()
+    let task: TaskAPI = TaskAPI()
     
     static func api() -> SolApiService{
         if( instance == nil) {

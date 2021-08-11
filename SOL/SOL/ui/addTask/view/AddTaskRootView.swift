@@ -7,26 +7,26 @@
 
 import SwiftUI
 
-
-func stateComponent(_ keyboardResponder: KeyboardResponder) -> AddTaskState{
-    if keyboardResponder.currentHeight != 0.0 {
-        return AddTaskState.TEXT
-    }
-    
-    return AddTaskState.PLACEHOLDER
-    //    return StateTask.ADD_TASK
-}
-
-func textFieldBackground(_ kr: KeyboardResponder) -> Color{
-    return stateComponent(kr) == AddTaskState.PLACEHOLDER  ?
-        Color.white : 
-        Color(CGColor(red: 202/255, green: 206/255, blue: 212/255, alpha: 1.0))
-}
+//
+//func stateComponent(_ keyboardResponder: KeyboardResponder) -> AddTaskState{
+//    if keyboardResponder.currentHeight != 0.0 {
+//        return AddTaskState.TEXT
+//    }
+//    
+//    return AddTaskState.PLACEHOLDER
+//    //    return StateTask.ADD_TASK
+//}
+//
+//func textFieldBackground(_ kr: KeyboardResponder) -> Color{
+//    return stateComponent(kr) == AddTaskState.PLACEHOLDER  ?
+//        Color.white : 
+//        Color(CGColor(red: 202/255, green: 206/255, blue: 212/255, alpha: 1.0))
+//}
 
 struct AddTaskRootView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @ObservedObject var model:AddTaskViewModel = AddTaskViewModel()
-    //@ObservedObject var kr = KeyboardResponder()
+    @ObservedObject var model:AddTaskViewModel
+    @Binding var parentTitle:String
     
     var body: some View {
         ZStack{
@@ -91,7 +91,12 @@ struct AddTaskRootView: View {
 
 struct AddTaskRootView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTaskRootView()
+        AddTaskRootView( model:
+                            AddTaskViewModel("", parentTaskId: ""), parentTitle: Binding<String>(get: {
+                                return "value.wrappedValue"
+                            }, set: { (newValue: String) in
+                                
+                            }))
             .preferredColorScheme(.light)
         
     }

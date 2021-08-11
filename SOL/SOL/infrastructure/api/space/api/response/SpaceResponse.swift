@@ -13,5 +13,6 @@ public struct SpaceResponse: Codable  {
     var icon:IconResponse
     var sortNum:Int
     
+    var tasks:[TaskResponse]?
     
 }

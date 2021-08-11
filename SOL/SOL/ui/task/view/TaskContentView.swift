@@ -398,11 +398,11 @@ extension TaskContentView {
         HStack{
             VStack {
                 Spacer().frame(width: 1, height: 16, alignment: .center)
-                TaskItemView()
-                TaskItemView()
-                TaskItemView()
-                TaskItemView()
-                TaskItemView()                
+//                TaskItemView()
+//                TaskItemView()
+//                TaskItemView()
+//                TaskItemView()
+//                TaskItemView()                
                 Spacer().frame(width: 1, height: 16, alignment: .center)
             }
         }
