@@ -13,6 +13,9 @@ class TaskAPI: RequestService, TaskRepositoryPort {
         self.requestJson(url: TaskRoutes.ROOT, method: "POST", requestBody: request, responseFunc: responseFunc)
     }
     
+    func findById(_ id: String, responseFunc: @escaping ApiResponseProtocol<TaskResponse>) {
+        self.requestFormUrl(url: TaskRoutes.ROOT + "/\(id)", method: "GET", responseFunc: responseFunc)
+    }
     
     
 }

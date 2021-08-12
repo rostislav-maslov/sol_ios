@@ -7,23 +7,29 @@
 
 import Foundation
 import SwiftUI
+import NavigationStack
 
 struct TaskView: View {
     @ObservedObject  var model: TaskViewModel
-        
+    @EnvironmentObject var navigationStack: NavigationStack
+  
     var body: some View {
         
         ZStack {            
-            TaskContentView()
+            content
             SolNavigationView()
-            AddTaskRootView(model: AddTaskViewModel("", parentTaskId: ""), parentTitle: $model.task.title)
+            AddTaskRootView(
+                model: AddTaskViewModel(
+                    model.task.spaceId,
+                    parentTaskId: model.taskId,
+                    taskDidCreated: model.taskDidCreated),
+                parentTitle: $model.task.title)
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
-        .preferredColorScheme(.light)
-        
+        .preferredColorScheme(.light)        
         .onAppear(perform: {
-            
+            self.model.load()
         })
     }           
 }

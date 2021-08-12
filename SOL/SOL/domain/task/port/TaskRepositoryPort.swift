@@ -9,4 +9,5 @@ import Foundation
 
 protocol TaskRepositoryPort{
     func create(_ request: TaskCreateRequest, responseFunc: @escaping ApiResponseProtocol<TaskResponse>)
+    func findById(_ id: String, responseFunc: @escaping ApiResponseProtocol<TaskResponse>) 
 }
