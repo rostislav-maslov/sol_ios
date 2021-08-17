@@ -32,6 +32,8 @@
 		4F48255D26C4F9AD001ABE87 /* TaskHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48255C26C4F9AD001ABE87 /* TaskHeaderView.swift */; };
 		4F48255F26C4F9C6001ABE87 /* TaskActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48255E26C4F9C6001ABE87 /* TaskActionsView.swift */; };
 		4F48256126C4F9FF001ABE87 /* TaskSubtaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48256026C4F9FF001ABE87 /* TaskSubtaskView.swift */; };
+		4F48256326C55157001ABE87 /* MakeTaskDoneUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48256226C55157001ABE87 /* MakeTaskDoneUseCase.swift */; };
+		4F48256526C55168001ABE87 /* MakeTaskOpenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48256426C55168001ABE87 /* MakeTaskOpenUseCase.swift */; };
 		4F61FD5D26A1630000D83F2D /* SpacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61FD5C26A1630000D83F2D /* SpacesViewModel.swift */; };
 		4F61FD6326A16AF100D83F2D /* SpaceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61FD6226A16AF100D83F2D /* SpaceEntity.swift */; };
 		4F61FD6526A16C2B00D83F2D /* IconEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61FD6426A16C2B00D83F2D /* IconEntity.swift */; };
@@ -116,6 +118,7 @@
 		4FA828E02699C03700540CFF /* TaskEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828DF2699C03700540CFF /* TaskEntity.swift */; };
 		4FAB2A9526A7F75900587BBD /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAB2A9426A7F75900587BBD /* TaskViewModel.swift */; };
 		4FAB2A9726A7FB4600587BBD /* TaskItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAB2A9626A7FB4600587BBD /* TaskItemViewModel.swift */; };
+		4FACDFF826CB7E34004844CB /* TaskStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FACDFF726CB7E34004844CB /* TaskStatus.swift */; };
 		4FAD3EEF269424E40078288F /* AlwaysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD3EEE269424E40078288F /* AlwaysTest.swift */; };
 		4FB2C146266B34B10008CCDA /* TaskFieldButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB2C145266B34B10008CCDA /* TaskFieldButtonComponent.swift */; };
 		4FC14AD7269DEF6000127B8D /* SlotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC14AD6269DEF6000127B8D /* SlotEntity.swift */; };
@@ -189,6 +192,8 @@
 		4F48255C26C4F9AD001ABE87 /* TaskHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskHeaderView.swift; sourceTree = "<group>"; };
 		4F48255E26C4F9C6001ABE87 /* TaskActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskActionsView.swift; sourceTree = "<group>"; };
 		4F48256026C4F9FF001ABE87 /* TaskSubtaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSubtaskView.swift; sourceTree = "<group>"; };
+		4F48256226C55157001ABE87 /* MakeTaskDoneUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTaskDoneUseCase.swift; sourceTree = "<group>"; };
+		4F48256426C55168001ABE87 /* MakeTaskOpenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTaskOpenUseCase.swift; sourceTree = "<group>"; };
 		4F61FD5C26A1630000D83F2D /* SpacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesViewModel.swift; sourceTree = "<group>"; };
 		4F61FD6226A16AF100D83F2D /* SpaceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEntity.swift; sourceTree = "<group>"; };
 		4F61FD6426A16C2B00D83F2D /* IconEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconEntity.swift; sourceTree = "<group>"; };
@@ -279,6 +284,7 @@
 		4FA828DF2699C03700540CFF /* TaskEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEntity.swift; sourceTree = "<group>"; };
 		4FAB2A9426A7F75900587BBD /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		4FAB2A9626A7FB4600587BBD /* TaskItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemViewModel.swift; sourceTree = "<group>"; };
+		4FACDFF726CB7E34004844CB /* TaskStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStatus.swift; sourceTree = "<group>"; };
 		4FAD3EEE269424E40078288F /* AlwaysTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlwaysTest.swift; sourceTree = "<group>"; };
 		4FB2C145266B34B10008CCDA /* TaskFieldButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFieldButtonComponent.swift; sourceTree = "<group>"; };
 		4FC14AD6269DEF6000127B8D /* SlotEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotEntity.swift; sourceTree = "<group>"; };
@@ -1313,6 +1319,7 @@
 			children = (
 				4FA828DF2699C03700540CFF /* TaskEntity.swift */,
 				4FC14AD6269DEF6000127B8D /* SlotEntity.swift */,
+				4FACDFF726CB7E34004844CB /* TaskStatus.swift */,
 			);
 			path = entity;
 			sourceTree = "<group>";
@@ -1320,6 +1327,8 @@
 		4FA828DD2699C02400540CFF /* useCase */ = {
 			isa = PBXGroup;
 			children = (
+				4F48256226C55157001ABE87 /* MakeTaskDoneUseCase.swift */,
+				4F48256426C55168001ABE87 /* MakeTaskOpenUseCase.swift */,
 				4FFBE4F126C24D9C00A79D81 /* CreateTaskUseCase.swift */,
 				4F48255726C4F5E2001ABE87 /* TaskUseCase.swift */,
 			);
@@ -1851,6 +1860,7 @@
 				4F87F7BB2658F7F20094C946 /* TLItemComponent.swift in Sources */,
 				4FA828CF26999ED800540CFF /* UserPort.swift in Sources */,
 				4F61FD6326A16AF100D83F2D /* SpaceEntity.swift in Sources */,
+				4FACDFF826CB7E34004844CB /* TaskStatus.swift in Sources */,
 				4F87F7AF2658F1810094C946 /* TLTitleComponent.swift in Sources */,
 				4FFC21AB2637B5F500198E4B /* LoginByEmailView.swift in Sources */,
 				4FA0F6F426487D9000CECF24 /* TaskTitleComponent.swift in Sources */,
@@ -1885,6 +1895,8 @@
 				4FE38CF22663B8320011E203 /* DefaultStore.swift in Sources */,
 				4F9E8988262E73BF002F2B1B /* SOLApp.swift in Sources */,
 				4F87F7A12658E9D10094C946 /* SolColor.swift in Sources */,
+				4F48256326C55157001ABE87 /* MakeTaskDoneUseCase.swift in Sources */,
+				4F48256526C55168001ABE87 /* MakeTaskOpenUseCase.swift in Sources */,
 				4F0B5C8E2649780B0026FDD0 /* ActionButtonView.swift in Sources */,
 				4FA828C32696E84E00540CFF /* UseCaseProtocol.swift in Sources */,
 				4F6B98EC269D619700B0FFC9 /* DaySchedulerView.swift in Sources */,

@@ -25,7 +25,9 @@ extension TaskView{
             Spacer().frame(width: 16, height: 11, alignment: .center)
             VStack{
                 Spacer().frame(width: 0, height: 4, alignment: .center)
-                CheckBoxView(size: .NORMAL, done: $model.actionDone)
+                CheckBoxView(size: .NORMAL, done: $model.actionDone) {
+                    model.toggleTask()
+                }
             }
             Spacer().frame(width: 8, height: 1, alignment: .center)
             Text(model.task.fullTitle())

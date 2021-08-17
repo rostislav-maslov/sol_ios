@@ -53,6 +53,7 @@ extension TaskViewModel {
                 if publisherReponse.success != nil {
                     self?.state = ViewState.NORMAL
                     self?.task = publisherReponse.success!
+                    self?.actionDone == publisherReponse.success!.isDone()
                 }else {
                     self?.state = ViewState.ERROR                    
                 }
@@ -60,6 +61,51 @@ extension TaskViewModel {
             }
             .store(in: &disposables)
 
+    }
+}
+
+extension TaskViewModel {
+   
+    func toggleTask(){
+        if self.task.status == .DONE {
+            makeOpen()
+        }else{
+            makeDone()
+        }
+    }
+    
+    func makeDone(){
+        self.state = ViewState.LOADING
+        self.actionDone = true
+        SolPublisher<TaskEntity, Bool>(useCase: MakeTaskDoneUseCase(self.port, MakeTaskDoneUseCase.Input.of(self.taskId)))
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] publisherReponse in
+                if publisherReponse.success != nil {
+                    self?.state = ViewState.NORMAL
+                    self?.task = publisherReponse.success!
+                }else {
+                    self?.state = ViewState.ERROR
+                }
+                self?.listIdHack = UUID()
+            }
+            .store(in: &disposables)
+    }
+    
+    func makeOpen(){
+        self.state = ViewState.LOADING
+        self.actionDone = false
+        SolPublisher<TaskEntity, Bool>(useCase: MakeTaskOpenUseCase(self.port, MakeTaskOpenUseCase.Input.of(self.taskId)))
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] publisherReponse in
+                if publisherReponse.success != nil {
+                    self?.state = ViewState.NORMAL
+                    self?.task = publisherReponse.success!
+                }else {
+                    self?.state = ViewState.ERROR
+                }
+                self?.listIdHack = UUID()
+            }
+            .store(in: &disposables)
     }
 }
 

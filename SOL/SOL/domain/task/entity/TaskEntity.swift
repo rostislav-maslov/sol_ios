@@ -26,7 +26,7 @@ public class TaskEntity{
     var pointWeight:Int = 0
     var repeatTaskConfId:String?
     var spaceId:String?
-    var status:String?
+    var status:TaskStatus = TaskStatus.OPEN
     var viewIds:[String] = []
     var child:[TaskEntity] = []
     
@@ -42,6 +42,16 @@ extension TaskEntity{
             title = icon.data + " " + title
         }
         return title
+    }
+}
+
+extension TaskEntity{
+    func isDone() -> Bool {
+        
+        if status == .DONE {
+            return true
+        }
+        return false
     }
 }
 

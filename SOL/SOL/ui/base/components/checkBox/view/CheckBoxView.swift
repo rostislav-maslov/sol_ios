@@ -16,11 +16,12 @@ struct CheckBoxView: View {
     
     @State var size:CheckBoxSize
     @Binding var done: Bool
+    var action: ( () -> Void)
     
     var body: some View {
         
         Button(action: {
-            done = !done
+            self.action()
         }, label: {
             ZStack{
                 undoneImage
@@ -33,9 +34,10 @@ struct CheckBoxView: View {
         
     }
     
-    public init(size:CheckBoxSize, done: Binding<Bool>){
+    public init(size:CheckBoxSize, done: Binding<Bool>, action: @escaping (() -> Void)){
         self.size = size
         self._done = done
+        self.action = action
     }
     
 }
@@ -83,7 +85,8 @@ struct CheckBoxView_Previews: PreviewProvider {
             
         }, set: { ssss in
             
-        })
-        )
+        })) {
+            
+        }
     }
 }

@@ -167,7 +167,7 @@ extension TaskView{
     
     var doneActionView: some View {
         VStack{
-            if (model.actionDone == false){
+            if (model.task.status == .OPEN){
                 ActionButtonView(
                     title: "Done",
                     titleColor: SolColor.colors().checkBox.undoneBackground,
@@ -178,7 +178,7 @@ extension TaskView{
                     iconVerticalSpace: 4,
                     subTitle: "Make task done"
                 ){
-                    model.actionDone = !model.actionDone
+                    model.toggleTask()
                 }
                 
             }else {
@@ -192,7 +192,7 @@ extension TaskView{
                     iconVerticalSpace: 4,
                     subTitle: "Go back to work"
                 ){
-                    model.actionDone = !model.actionDone
+                    model.toggleTask()
                 }
             }
         }

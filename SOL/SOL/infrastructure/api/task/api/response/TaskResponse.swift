@@ -23,7 +23,7 @@ public struct TaskResponse: Codable{
     var pointWeight:Int?
     var repeatTaskConfId:String?
     var spaceId:String?
-    var status:String?
+    var status:TaskStatus = TaskStatus.OPEN
     var title:String?
     var viewIds:[String]?
     var child:[TaskResponse]?

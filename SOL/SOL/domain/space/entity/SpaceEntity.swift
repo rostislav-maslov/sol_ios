@@ -9,7 +9,7 @@ import Foundation
 
 public class SpaceEntity{
     var id:String = ""
-    var title:String = "asfdasfd"
+    var title:String = ""
     var icon:IconEntity = IconEntity()
     var sortNum:Int = 1
     

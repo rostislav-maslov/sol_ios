@@ -17,5 +17,13 @@ class TaskAPI: RequestService, TaskRepositoryPort {
         self.requestFormUrl(url: TaskRoutes.ROOT + "/\(id)", method: "GET", responseFunc: responseFunc)
     }
     
+    func makeDone(_ id: String, responseFunc: @escaping ApiResponseProtocol<TaskResponse>) {
+        self.requestFormUrl(url: TaskRoutes.ROOT + "/\(id)/done", method: "POST", responseFunc: responseFunc)
+    }
+    
+    func makeOpen(_ id: String, responseFunc: @escaping ApiResponseProtocol<TaskResponse>) {
+        self.requestFormUrl(url: TaskRoutes.ROOT + "/\(id)/open", method: "POST", responseFunc: responseFunc)
+    }
+    
     
 }
