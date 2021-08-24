@@ -7,8 +7,9 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
-public class TaskViewModel: ObservableObject {
+public class TaskViewModel: NSObject, ObservableObject, MultilineTextFieldProtocol {
     var taskId: String
     @Published var task: TaskEntity
     @Published var state: ViewState = ViewState.INITIALIZATION
@@ -21,6 +22,10 @@ public class TaskViewModel: ObservableObject {
     @Published var actionDone = false
     @Published var activeTab = 0
     @Published var listIdHack = UUID()
+    
+    @Published var bottomButtonType: BottomButtonType = BottomButtonType.ADD_TASK
+    @Published var emojiTextField:UIEmojiTextField?
+    
     var activeTabMax = 3
     
     private var disposables = Set<AnyCancellable>()
@@ -34,11 +39,17 @@ public class TaskViewModel: ObservableObject {
     }
     
     init( taskId: String, spaceId: String ){
+        
         self.taskId = taskId
-        self.task = TaskEntity()
-        self.task.id = taskId
-        self.task.spaceId = spaceId
-        self.state = ViewState.INITIALIZATION        
+        
+        self.state = ViewState.INITIALIZATION
+        
+        let task = TaskEntity()
+        task.id = taskId
+        task.spaceId = spaceId
+        
+        self.task = task
+        
     }
 }
 
@@ -82,7 +93,7 @@ extension TaskViewModel {
             .sink { [weak self] publisherReponse in
                 if publisherReponse.success != nil {
                     self?.state = ViewState.NORMAL
-                    self?.task = publisherReponse.success!
+                    self?.task.status = publisherReponse.success!.status
                 }else {
                     self?.state = ViewState.ERROR
                 }
@@ -99,7 +110,7 @@ extension TaskViewModel {
             .sink { [weak self] publisherReponse in
                 if publisherReponse.success != nil {
                     self?.state = ViewState.NORMAL
-                    self?.task = publisherReponse.success!
+                    self?.task.status = publisherReponse.success!.status
                 }else {
                     self?.state = ViewState.ERROR
                 }
@@ -107,6 +118,34 @@ extension TaskViewModel {
             }
             .store(in: &disposables)
     }
+    
+    public func textDidChange(text: String) {
+        task.title = text
+    }
+    
+    public func textEditFinish(text: String) {
+        task.title = text
+        self.saveTitleIcon()
+    }
+    
+    func saveTitleIcon() {
+        SolPublisher<TaskEntity, Bool>(
+            useCase: EditTitleAndIconTaskUseCase(
+                self.port,
+                EditTitleAndIconTaskUseCase.Input.of(task.id, task.title, task.icon.data)))
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] publisherReponse in
+                if publisherReponse.success != nil {
+                    self?.state = ViewState.NORMAL
+                    //self?.task = publisherReponse.success!
+                }else {
+                    self?.state = ViewState.ERROR
+                }
+                self?.listIdHack = UUID()
+            }
+            .store(in: &disposables)
+    }
+    
 }
 
 extension TaskViewModel{

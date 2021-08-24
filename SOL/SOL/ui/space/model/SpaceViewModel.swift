@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-public class SpaceViewModel: NSObject, ObservableObject, UITextViewDelegate{
+public class SpaceViewModel: NSObject, ObservableObject, MultilineTextFieldProtocol{
     @Published var spaceId:String
     @Published var space: SpaceEntity = SpaceEntity()
     @Published var state: ViewState = ViewState.INITIALIZATION
@@ -21,9 +21,7 @@ public class SpaceViewModel: NSObject, ObservableObject, UITextViewDelegate{
     @Published var actionPlanning = false
     @Published var actionDeadline = false
     @Published var actionDone = false
-    @Published var titleSize:CGFloat = (24 + 8) * 1
-    @Published var detectFirstSizeTitle:Bool = false
-    @Published var firstSizeTitle:CGFloat = 0
+        
     @Published var bottomButtonType: BottomButtonType = BottomButtonType.ADD_TASK
     @Published var emojiTextField:UIEmojiTextField?
     @Published var listIdHack = UUID()
@@ -32,7 +30,7 @@ public class SpaceViewModel: NSObject, ObservableObject, UITextViewDelegate{
     private let port:SpaceRepositoryPort = SolApiService.api().space
     
     init(_ spaceId:String){
-        self.spaceId = spaceId
+        self.spaceId = spaceId                
     }
     
     func load(){
@@ -59,25 +57,20 @@ public class SpaceViewModel: NSObject, ObservableObject, UITextViewDelegate{
                                                 UpdateTitleIconSpaceUseCase.Input.init(id: self.spaceId, title: self.space.title, emoji: space.icon.data)))
             .receive(on: DispatchQueue.main)
             .sink{ [weak self] publisherReponse in
-                
             }
             .store(in: &disposables)
     }
     
-    public func textViewDidChange(_ textView: UITextView) {
-        let sizeThatFitsTextView = textView.sizeThatFits(CGSize(width: textView.frame.size.width, height: CGFloat(MAXFLOAT)))
-        let heightOfText = sizeThatFitsTextView.height + 10
-        space.title = textView.text
-        self.titleSize = heightOfText
+    public func textDidChange(text: String) {
+        space.title = text
     }
     
-    public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if (text == "\n") {
-            textView.resignFirstResponder()
-            self.saveTitleIcon()            
-        }
-        return true
+    public func textEditFinish(text: String) {
+        space.title = text
+        self.saveTitleIcon()        
     }
+    
+    
 }
 
 extension SpaceViewModel{

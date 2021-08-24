@@ -9,13 +9,12 @@ import Foundation
 import SwiftUI
 import Combine
 
-struct MultilineTextView: UIViewRepresentable {
+struct MultilineTextFieldView: UIViewRepresentable {
     @Binding var text: String
-    @ObservedObject var model: SpaceViewModel
+    @ObservedObject var model: MultilineTextFieldModel
     
     var textColor: UIColor
-    var textSize: CGFloat
-    var delegate: UITextViewDelegate
+    var textSize: CGFloat    
     
     func makeUIView(context: Context) -> UITextView {
         let view = UITextView()
@@ -27,27 +26,23 @@ struct MultilineTextView: UIViewRepresentable {
         view.tintColor = textColor
         let font:UIFont = UIFont.systemFont(ofSize: textSize, weight: UIFont.Weight.medium)
         view.font = font
-        view.delegate = self.delegate
+        view.delegate = self.model
         view.returnKeyType = UIReturnKeyType.done
         
         let sizeThatFitsTextView = view.sizeThatFits(CGSize(width: view.frame.size.width, height: CGFloat(MAXFLOAT)))
         
         if model.firstSizeTitle == 0 {
             model.firstSizeTitle = sizeThatFitsTextView.height
+            model.titleSize = sizeThatFitsTextView.height
         }
-        
+        //self.frame(height: sizeThatFitsTextView.height)
         return view
     }
 
     func updateUIView(_ uiView: UITextView, context: Context) {
         uiView.text = text
-        let sizeThatFitsTextView = uiView.sizeThatFits(CGSize(width: uiView.frame.size.width, height: CGFloat(MAXFLOAT)))
-        let heightOfText = sizeThatFitsTextView.height
-        
-        if model.detectFirstSizeTitle == false {
-            delegate.textViewDidChange?(uiView)
-            model.detectFirstSizeTitle = true
-        }
+        model.updateTitleSize(uiView)
+        //self.frame(height: heightOfText)
 
     }
     

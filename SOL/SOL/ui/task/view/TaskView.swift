@@ -12,18 +12,34 @@ import NavigationStack
 struct TaskView: View {
     @ObservedObject  var model: TaskViewModel
     @EnvironmentObject var navigationStack: NavigationStack
-  
+    @ObservedObject var multilineTextFieldModel:MultilineTextFieldModel = MultilineTextFieldModel()
+    
+    init(model: TaskViewModel){
+        self.model = model
+        self.multilineTextFieldModel.delegate = model        
+    }
+    
     var body: some View {
         
         ZStack {            
             content
-            SolNavigationView()
-            AddTaskRootView(
-                model: AddTaskViewModel(
-                    model.task.spaceId,
-                    parentTaskId: model.taskId,
-                    taskDidCreated: model.taskDidCreated),
-                parentTitle: $model.task.title)
+            SolNavigationView()            
+            
+            if model.bottomButtonType == BottomButtonType.ADD_TASK {
+                AddTaskRootView(
+                    model: AddTaskViewModel(
+                        model.task.spaceId,
+                        parentTaskId: model.taskId,
+                        taskDidCreated: model.taskDidCreated),
+                    parentTitle: $model.task.title)
+            }
+            if model.bottomButtonType == BottomButtonType.CLOSE_ICON_FIELD {
+                DoneKeyboardButtonView(action: {
+                    model.saveTitleIcon()
+                    model.emojiTextField?.endEditing(false)
+                    model.bottomButtonType = BottomButtonType.ADD_TASK
+                })
+            }
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)

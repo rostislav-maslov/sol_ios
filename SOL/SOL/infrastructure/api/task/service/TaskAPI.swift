@@ -13,6 +13,10 @@ class TaskAPI: RequestService, TaskRepositoryPort {
         self.requestJson(url: TaskRoutes.ROOT, method: "POST", requestBody: request, responseFunc: responseFunc)
     }
     
+    func editTitleAndIcon(_ request: EditTitleAndIconTaskRequest, responseFunc: @escaping ApiResponseProtocol<TaskResponse>) {
+        self.requestJson(url: TaskRoutes.ROOT + "/\(request.id!)", method: "PATCH", requestBody: request, responseFunc: responseFunc)
+    }
+    
     func findById(_ id: String, responseFunc: @escaping ApiResponseProtocol<TaskResponse>) {
         self.requestFormUrl(url: TaskRoutes.ROOT + "/\(id)", method: "GET", responseFunc: responseFunc)
     }
