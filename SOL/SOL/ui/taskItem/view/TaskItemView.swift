@@ -27,7 +27,7 @@ struct TaskItemView: View {
             //            doneLine
             
         }
-        .background(SolColor.colors().screen.background)
+        //.background(SolColor.colors().screen.background)
     }
 }
 
@@ -36,28 +36,7 @@ extension TaskItemView {
         HStack{
             Spacer().frame(width: 8)
             VStack{
-                Spacer().frame(height: 16)
                 defaultLine
-//                HStack{
-//                    Spacer().frame(width: 0)
-//                    Image("ic_arrow-tab")
-//                        .frame(width: 16, height: 15, alignment: .center)
-//                    Spacer().frame(width: 12)
-//                    Spacer().frame(width: 0)
-//                    VStack{
-//                        defaultLine
-//                        HStack{
-//                            Spacer().frame(width: 0)
-//                            Image("ic_arrow-tab")
-//                                .frame(width: 16, height: 15, alignment: .center)
-//                            //Spacer().frame(width: 12)
-//                            Spacer().frame(width: 0)
-//                            doneLine
-//                        }
-//                    }
-//                    
-//                }
-                Spacer().frame(height: 16)
             }
             Spacer().frame(width: 8)
         }
@@ -68,46 +47,71 @@ extension TaskItemView {
 
 extension TaskItemView{
     var defaultLine: some View {
-        HStack{
-            Image("ic_check_undone")
-                .resizable()
-                .renderingMode(.template)
-                .frame(
-                    width: 18,
-                    height: 18,
-                    alignment: .center)
-                .foregroundColor(
-                    SolColor.colors().checkBox.undoneBackground
-                )
-                .scaledToFill()
-            Spacer()
-                .frame(width: 8, height: 0, alignment: .center)
-            PushView(
-                destination: TaskView(model: TaskViewModel(task: self.model.task)),
-                label: {
-                    HStack{
-                        Text(model.task.icon.data)
-                            .font(
-                                SolFonts.font(
-                                    size: 16,
-                                    weight: Font.Weight.medium,
-                                    color: SolColor.colors().fontColors.normal))
-                        Spacer().frame(width: 4)
-                        Text(model.task.title)
-                            .font(
-                                SolFonts.font(
-                                    size: 16,
-                                    weight: Font.Weight.medium,
-                                    color: SolColor.colors().fontColors.normal))
-                            .foregroundColor(SolColor.colors().fontColors.normal)
+        VStack{
+            HStack(alignment: .top, spacing: 0, content: {
+                Button(action: {
+                    print("done")
+                }, label: {
+                    VStack{
+                        Spacer().frame(height: 12)
+                        HStack{
+                            Spacer().frame(width: 6)
+                            Image("ic_check_undone")
+                                .resizable()
+                                .renderingMode(.template)
+                                .frame(
+                                    width: 18,
+                                    height: 18,
+                                    alignment: .center)
+                                .foregroundColor(
+                                    SolColor.colors().checkBox.undoneBackground
+                                )
+                                .scaledToFill()
+                            Spacer().frame(width: 4)
+                        }
+                        Spacer().frame(height: 12)
                     }
                 })
-                .buttonStyle(PlainButtonStyle())
-            
-            Spacer()
-            Spacer().frame(width: 16, height: 0, alignment: .center)
+                PushView(
+                    destination: TaskView(model: TaskViewModel(task: self.model.task)),
+                    label: {
+                        VStack{
+                            Spacer().frame(height: 8)
+                            HStack{
+                                Spacer().frame(width: 4)
+                                Text(model.task.icon.data + " " + model.task.title)
+                                    .font(
+                                        SolFonts.font(
+                                            size: 16,
+                                            weight: Font.Weight.regular,
+                                            color: SolColor.colors().fontColors.normal))
+                                    .foregroundColor(SolColor.colors().fontColors.normal)
+                                Spacer().frame(minWidth: 0, idealWidth: 0, maxWidth: 0, minHeight: 25, idealHeight: 25, maxHeight: 25, alignment: .center)
+                                Spacer()
+                                
+                            }.frame(width: .infinity)
+                            Spacer().frame(height: 8)
+                        }.background(SolColor.colors().taskLine.container)
+                    })
+                    .buttonStyle(PlainButtonStyle())
+                VStack{
+                    Button(action: {
+                        print("ic_task_item_expand")
+                    }, label: {
+                        VStack{
+                            Spacer().frame(height: 19)
+                            HStack{
+                                Spacer().frame(width: 8)
+                                Image("ic_task_item_expand")
+                                    .frame(width: 12, height: 6, alignment: .center)
+                                Spacer().frame(width: 8)
+                            }
+                            Spacer().frame(height: 14)
+                        }
+                    })
+                }
+            })
         }
-        
     }
 }
 
