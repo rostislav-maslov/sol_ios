@@ -13,6 +13,7 @@ struct TaskView: View {
     @ObservedObject  var model: TaskViewModel
     @EnvironmentObject var navigationStack: NavigationStack
     @ObservedObject var multilineTextFieldModel:MultilineTextFieldModel = MultilineTextFieldModel()
+    @State var isTarget:Bool = true
     
     init(model: TaskViewModel){
         self.model = model

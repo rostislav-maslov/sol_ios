@@ -10,11 +10,11 @@ import NavigationStack
 
 struct TaskItemView: View {
     @ObservedObject  var model: TaskItemViewModel
-    
+    @State var target: Bool = true
     var body: some View {
         VStack{
             Spacer()
-                .frame(width: 1, height: 16, alignment: .center)
+                .frame(width: 1, height: 8, alignment: .center)
             HStack{
                 Spacer()
                     .frame(width: 16, height: 0, alignment: .center)
@@ -22,7 +22,8 @@ struct TaskItemView: View {
                 Spacer()
                     .frame(width: 16, height: 0, alignment: .center)
             }
-            
+            Spacer()
+                .frame(width: 1, height: 8, alignment: .center)
             //            doneLine
             
         }

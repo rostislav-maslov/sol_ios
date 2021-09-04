@@ -9,5 +9,6 @@ import Foundation
 
 
 class SpaceRoutes {
-    static let ROOT = BaseRoutes.V1 + "/space"    
+    static let ROOT = BaseRoutes.V1 + "/space"
+    static let SORT_CHANGE = ROOT + "/sort-change"
 }

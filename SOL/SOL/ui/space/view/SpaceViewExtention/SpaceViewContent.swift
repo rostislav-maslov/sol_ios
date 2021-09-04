@@ -12,11 +12,17 @@ import NavigationStack
 extension SpaceView {
     var content: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            header
-            actionsTitle
-            actionsButton
-            picker
-            pickerContainer            
+            ScrollViewReader { (value:ScrollViewProxy) in
+                header
+                actionsTitle
+                actionsButton
+                picker
+                pickerContainer.id("endOfScrollView")
+                
+                    .onAppear {
+                        self.model.scrollViewProxy = value
+                    }
+            }
         }
         .background(SolColor.colors().screen.background)
         .ignoresSafeArea(.all)

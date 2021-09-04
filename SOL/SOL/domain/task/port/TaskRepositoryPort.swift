@@ -12,5 +12,6 @@ protocol TaskRepositoryPort{
     func editTitleAndIcon(_ request: EditTitleAndIconTaskRequest, responseFunc: @escaping ApiResponseProtocol<TaskResponse>)
     func findById(_ id: String, responseFunc: @escaping ApiResponseProtocol<TaskResponse>)
     func makeDone(_ id: String, responseFunc: @escaping ApiResponseProtocol<TaskResponse>)
-    func makeOpen(_ id: String, responseFunc: @escaping ApiResponseProtocol<TaskResponse>) 
+    func makeOpen(_ id: String, responseFunc: @escaping ApiResponseProtocol<TaskResponse>)
+    func changeSort(_ request: ChangeSortTasksRequest, responseFunc: @escaping ApiResponseProtocol<[TaskResponse]>) 
 }

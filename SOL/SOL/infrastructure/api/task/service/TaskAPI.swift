@@ -29,5 +29,9 @@ class TaskAPI: RequestService, TaskRepositoryPort {
         self.requestFormUrl(url: TaskRoutes.ROOT + "/\(id)/open", method: "POST", responseFunc: responseFunc)
     }
     
+    func changeSort(_ request: ChangeSortTasksRequest, responseFunc: @escaping ApiResponseProtocol<[TaskResponse]>) {
+        self.requestJson(url: TaskRoutes.SORT_NUM, method: "POST", requestBody: request, responseFunc: responseFunc)
+    }
+    
     
 }

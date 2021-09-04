@@ -25,4 +25,8 @@ class SpaceAPI: RequestService, SpaceRepositoryPort {
         self.requestJson(url: SpaceRoutes.ROOT + "/\(request.id!)", method: "PATCH", requestBody: request, responseFunc: responseFunc)
     }
     
+    func changeSortSpace(_ request: ChangeSortSpaceRequest, _ responseFunc: @escaping ApiResponseProtocol<[SpaceResponse]>) {
+        self.requestJson(url: SpaceRoutes.SORT_CHANGE , method: "POST", requestBody: request, responseFunc: responseFunc)
+    }
+    
 }

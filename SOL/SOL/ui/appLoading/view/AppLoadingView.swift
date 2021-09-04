@@ -21,7 +21,7 @@ struct AppLoadingView: View {
                     destination: LoginUIView(),
                     isActive: $viewModel.goToLogin) {}
                 NavigationLink(
-                    destination: SpacesView(),
+                    destination: SpacesView(),//SpacesView(),
                     isActive: $viewModel.goToSpaces) {}
                 ProgressView()
             }.navigationBarHidden(true)

@@ -15,7 +15,8 @@ public struct SpaceView: View {
     @ObservedObject var model: SpaceViewModel
     @ObservedObject var multilineTextFieldModel:MultilineTextFieldModel = MultilineTextFieldModel()
     @EnvironmentObject var navigationStack: NavigationStack
-    
+    @State public var isEditable = true
+    @State var isTarget = true
     init(model: SpaceViewModel){
         self.model = model
         self.multilineTextFieldModel.delegate = model        

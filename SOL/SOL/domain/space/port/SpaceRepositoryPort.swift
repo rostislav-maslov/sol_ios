@@ -12,4 +12,5 @@ protocol SpaceRepositoryPort{
     func updateTitleIcon(_ request: SpaceUpdateRequest, _ responseFunc: @escaping ApiResponseProtocol<SpaceResponse>) 
     func mySpaces(_ responseFunc: @escaping ApiResponseProtocol<[SpaceResponse]>)
     func space(_ spaceId: String, _ responseFunc: @escaping ApiResponseProtocol<SpaceResponse>)
+    func changeSortSpace(_ request: ChangeSortSpaceRequest, _ responseFunc: @escaping ApiResponseProtocol<[SpaceResponse]>) 
 }

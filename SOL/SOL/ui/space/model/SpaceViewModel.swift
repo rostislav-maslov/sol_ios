@@ -26,8 +26,11 @@ public class SpaceViewModel: NSObject, ObservableObject, MultilineTextFieldProto
     @Published var emojiTextField:UIEmojiTextField?
     @Published var listIdHack = UUID()
     
+    public var scrollViewProxy:ScrollViewProxy?
+    
     private var disposables = Set<AnyCancellable>()
     private let port:SpaceRepositoryPort = SolApiService.api().space
+    private let portTasks:TaskRepositoryPort = SolApiService.api().task
     
     init(_ spaceId:String){
         self.spaceId = spaceId                
@@ -76,7 +79,85 @@ public class SpaceViewModel: NSObject, ObservableObject, MultilineTextFieldProto
 extension SpaceViewModel{
     
     func taskDidCreated(_ taskEntity: TaskEntity) -> Void{
-        self.space.tasks.insert(taskEntity, at: 0)
+        self.space.tasks.append(taskEntity)
         self.listIdHack = UUID()
+        withAnimation {
+            self.scrollViewProxy?.scrollTo("endOfScrollView", anchor: .bottom)
+        }
     }
 }
+
+extension SpaceViewModel {
+    func reorderTasks(draggetTaskId: String, dropOnTaskId: String) -> Bool{
+        if (draggetTaskId == dropOnTaskId) {
+            return false
+        }
+        
+        var draggetTaskIndex: Int? = nil
+        for index in 0...(space.tasks.count - 1) {
+            if (space.tasks[index].id == draggetTaskId) {
+                draggetTaskIndex = index
+            }
+        }
+        if draggetTaskIndex == nil  {
+            return false
+        }
+        let task = space.tasks.remove(at: draggetTaskIndex!)
+        
+        var dropOnTaskIndex: Int? = nil
+        for index in 0...(space.tasks.count - 1) {
+            if (space.tasks[index].id == dropOnTaskId) {
+                dropOnTaskIndex = index
+            }
+        }
+        if  dropOnTaskIndex == nil {
+            return false
+        }
+        
+        space.tasks.insert(task, at: dropOnTaskIndex!)
+        commitNewSort()
+        return true
+    }
+    
+    func moveTaskToEnd(draggetTaskId: String) -> Bool{
+        if (draggetTaskId == space.tasks[space.tasks.count - 1].id) {
+            return false
+        }
+        
+        var draggetTaskIndex: Int? = nil
+        for index in 0...(space.tasks.count - 1) {
+            if (space.tasks[index].id == draggetTaskId) {
+                draggetTaskIndex = index
+            }
+        }
+        if draggetTaskIndex == nil  {
+            return false
+        }
+        let task = space.tasks.remove(at: draggetTaskIndex!)
+        space.tasks.insert(task, at: space.tasks.endIndex)
+        commitNewSort()
+        return true
+    }
+    
+    func commitNewSort(){
+        var tasks:[String] = []
+        
+        for task in space.tasks {
+            tasks.append(task.id)
+        }
+        
+        SolPublisher<[TaskEntity], Bool>(useCase: ChangeSortTaskUseCase(self.portTasks, ChangeSortTaskUseCase.Input.init(tasks: tasks)))
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] publisherReponse in
+                if publisherReponse.success != nil {
+                    self?.state = ViewState.NORMAL
+                    //self?.spaces = publisherReponse.success!
+                }else {
+                    self?.state = ViewState.ERROR
+                    //self?.spaces = []
+                }
+            }
+            .store(in: &disposables)
+    }
+}
+
