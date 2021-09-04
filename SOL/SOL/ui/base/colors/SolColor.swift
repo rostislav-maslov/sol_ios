@@ -73,7 +73,7 @@ class SolColor{
         let colors: ColorsVar = ColorsVar(
             fontColors: FontColors(
                 normal: Color(CGColor(red: 68/255, green: 68/255, blue: 68/255, alpha: 1)),
-                second: Color(CGColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1))
+                second: Color(CGColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1))                
             ),
             textField: TextFieldColors(
                 login: Color(CGColor(red: 248/255, green: 249/255, blue: 255/255, alpha: 1))

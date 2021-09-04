@@ -38,11 +38,20 @@ extension TaskView{
                                     return model.moveTaskToEnd(draggetTaskId: taskIdSuggest)
                         })
                 }
-                if (model.task.child.count == 0){
-                    Text("Vacuum")
+                if (model.task.child.count == 0 && self.model.state != .INITIALIZATION){
+                    VacuumView()
+                        
+                        .padding(EdgeInsets(top: 32.0, leading: 8.0, bottom: 0.0, trailing: 8.0))
                 }
                 Spacer().frame(width: 1, height: 16, alignment: .center)
             }
         }
     }
 }
+
+struct TaskView_Subtask_Previews: PreviewProvider {
+    static var previews: some View {
+        TaskView(model: TaskViewModel(task: TaskEntity.forRender()))
+    }
+}
+

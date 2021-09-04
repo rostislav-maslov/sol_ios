@@ -26,6 +26,7 @@
 		4F2B5DA62668AB4F005BE636 /* PlaceholderTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B5DA52668AB4F005BE636 /* PlaceholderTaskView.swift */; };
 		4F2B5DA92668B1FE005BE636 /* BackgroundForModalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B5DA82668B1FE005BE636 /* BackgroundForModalComponent.swift */; };
 		4F2B5DAC2668B2CC005BE636 /* AddTaskTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B5DAB2668B2CC005BE636 /* AddTaskTextView.swift */; };
+		4F2D875C26E3BE600032177A /* VacuumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D875B26E3BE600032177A /* VacuumView.swift */; };
 		4F2EA28626D4D211008A34CF /* EditTitleAndIconTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EA28526D4D211008A34CF /* EditTitleAndIconTaskRequest.swift */; };
 		4F2EA28826D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EA28726D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift */; };
 		4F4279422637C08500D71B2D /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4279412637C08500D71B2D /* NavigationBarColor.swift */; };
@@ -205,6 +206,7 @@
 		4F2B5DA52668AB4F005BE636 /* PlaceholderTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTaskView.swift; sourceTree = "<group>"; };
 		4F2B5DA82668B1FE005BE636 /* BackgroundForModalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundForModalComponent.swift; sourceTree = "<group>"; };
 		4F2B5DAB2668B2CC005BE636 /* AddTaskTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskTextView.swift; sourceTree = "<group>"; };
+		4F2D875B26E3BE600032177A /* VacuumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacuumView.swift; sourceTree = "<group>"; };
 		4F2EA28526D4D211008A34CF /* EditTitleAndIconTaskRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTitleAndIconTaskRequest.swift; sourceTree = "<group>"; };
 		4F2EA28726D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTitleAndIconTaskUseCase.swift; sourceTree = "<group>"; };
 		4F4279412637C08500D71B2D /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
@@ -484,6 +486,22 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		4F2D875926E3BE410032177A /* Vacuum */ = {
+			isa = PBXGroup;
+			children = (
+				4F2D875A26E3BE510032177A /* view */,
+			);
+			path = Vacuum;
+			sourceTree = "<group>";
+		};
+		4F2D875A26E3BE510032177A /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4F2D875B26E3BE600032177A /* VacuumView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		4F42793F2637C06100D71B2D /* extentions */ = {
 			isa = PBXGroup;
 			children = (
@@ -610,6 +628,7 @@
 		4F61FD6E26A33B3100D83F2D /* components */ = {
 			isa = PBXGroup;
 			children = (
+				4F2D875926E3BE410032177A /* Vacuum */,
 				4FEA6B2326D0F34800876D7C /* multilineTextField */,
 				4F7C4F0226BEC74E0097AC65 /* doneKeyboardButton */,
 				4FE38D00266413A00011E203 /* iconFieldComponent */,
@@ -1980,6 +1999,7 @@
 				4F2EA28626D4D211008A34CF /* EditTitleAndIconTaskRequest.swift in Sources */,
 				4F7C4EFF26BEC6160097AC65 /* UIEmojiTextField.swift in Sources */,
 				4FC973052699FCB5008509F6 /* DayViewControllerImpl.swift in Sources */,
+				4F2D875C26E3BE600032177A /* VacuumView.swift in Sources */,
 				4FC14AD7269DEF6000127B8D /* SlotEntity.swift in Sources */,
 				4F87F7B62658F2470094C946 /* TLIconComponent.swift in Sources */,
 				4F9307DE265E197100204881 /* ApiResponseProtocol.swift in Sources */,

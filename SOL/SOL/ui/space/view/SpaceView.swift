@@ -23,7 +23,7 @@ public struct SpaceView: View {
     }
     
     public var body: some View {        
-        ZStack {
+        ZStack {            
             content
             SolNavigationView()
             if model.bottomButtonType == BottomButtonType.ADD_TASK {
@@ -50,19 +50,6 @@ public struct SpaceView: View {
         })
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 struct SpaceView_Previews: PreviewProvider {
     

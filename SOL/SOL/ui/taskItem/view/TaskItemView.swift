@@ -24,10 +24,9 @@ struct TaskItemView: View {
             }
             Spacer()
                 .frame(width: 1, height: 8, alignment: .center)
-            //            doneLine
-            
+//                        doneLine            
         }
-        //.background(SolColor.colors().screen.background)
+        
     }
 }
 
@@ -79,36 +78,47 @@ extension TaskItemView{
                             Spacer().frame(height: 8)
                             HStack{
                                 Spacer().frame(width: 4)
-                                Text(model.task.icon.data + " " + model.task.title)
+                                Text(model.task.fullTitle())
                                     .font(
                                         SolFonts.font(
                                             size: 16,
                                             weight: Font.Weight.regular,
                                             color: SolColor.colors().fontColors.normal))
                                     .foregroundColor(SolColor.colors().fontColors.normal)
-                                Spacer().frame(minWidth: 0, idealWidth: 0, maxWidth: 0, minHeight: 25, idealHeight: 25, maxHeight: 25, alignment: .center)
+                                Spacer().frame(
+                                    minWidth: 0,
+                                    idealWidth: 0,
+                                    maxWidth: 0,
+                                    minHeight: 25,
+                                    idealHeight: 25,
+                                    maxHeight: 25,
+                                    alignment: .center)
                                 Spacer()
-                                
                             }.frame(width: .infinity)
                             Spacer().frame(height: 8)
                         }.background(SolColor.colors().taskLine.container)
                     })
                     .buttonStyle(PlainButtonStyle())
                 VStack{
-                    Button(action: {
-                        print("ic_task_item_expand")
-                    }, label: {
-                        VStack{
-                            Spacer().frame(height: 19)
-                            HStack{
-                                Spacer().frame(width: 8)
-                                Image("ic_task_item_expand")
-                                    .frame(width: 12, height: 6, alignment: .center)
-                                Spacer().frame(width: 8)
+                    if self.model.task.hasChild == true {
+                        Button(action: {
+                            print("ic_task_item_expand")
+                        }, label: {
+                            VStack{
+                                Spacer().frame(height: 19)
+                                HStack{
+                                    Spacer().frame(width: 8)
+                                    Image("ic_task_item_expand")
+                                        .frame(
+                                            width: 12,
+                                            height: 6,
+                                            alignment: .center)
+                                    Spacer().frame(width: 8)
+                                }
+                                Spacer().frame(height: 14)
                             }
-                            Spacer().frame(height: 14)
-                        }
-                    })
+                        })
+                    }
                 }
             })
         }
