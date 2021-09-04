@@ -17,28 +17,26 @@ extension SpacesView {
                     Spacer()
                         .frame(width: 5, height: 10, alignment: .center)
                 }
-                VStack {
-                    ActionButtonView(
-                        title: "Done",
-                        titleColor: SolColor.colors().actionButton.taskDone,
-                        icon: "ic_check_done",
-                        iconColor: SolColor.colors().actionButton.taskDone,
-                        iconWidth: 14,
-                        iconHeight: 14,
-                        iconVerticalSpace: 4,
-                        subTitle: "Go back to work"
-                    )
-                    ActionButtonView(
-                        title: "Done",
-                        titleColor: SolColor.colors().actionButton.taskDone,
-                        icon: "ic_check_done",
-                        iconColor: SolColor.colors().actionButton.taskDone,
-                        iconWidth: 14,
-                        iconHeight: 14,
-                        iconVerticalSpace: 4,
-                        subTitle: "Go back to work"
-                    )
-                }
+                ActionButtonView(
+                    title: "Planning",
+                    titleColor: SolColor.colors().checkBox.undoneBackground,
+                    icon: "ic_calendar",
+                    iconColor: SolColor.colors().checkBox.undoneBackground,
+                    iconWidth: 14,
+                    iconHeight: 14,
+                    iconVerticalSpace: 4,
+                    subTitle: "Open calendar"
+                )
+                ActionButtonView(
+                    title: "Notification",
+                    titleColor: SolColor.colors().checkBox.undoneBackground,
+                    icon: "notification",
+                    iconColor: SolColor.colors().checkBox.undoneBackground,
+                    iconWidth: 14,
+                    iconHeight: 14,
+                    iconVerticalSpace: 4,
+                    subTitle: "Show all reminders"
+                )
                 VStack {
                     Spacer()
                         .frame(width: 10, height: 10, alignment: .center)
