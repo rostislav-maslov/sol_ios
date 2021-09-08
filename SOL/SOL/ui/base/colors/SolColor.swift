@@ -59,6 +59,7 @@ struct ActionButton {
 
 struct TaskLine{
     var container: Color
+    var containerDone: Color
 }
 
 class SolColor{
@@ -97,7 +98,7 @@ class SolColor{
             
             checkBox: CheckBox(
                 undoneBackground: Color(CGColor(red: 68/255, green: 68/255, blue: 68/255, alpha: 1.0)),
-                doneBackground: Color(CGColor(red: 68/255, green: 68/255, blue: 68/255, alpha: 0.5))
+                doneBackground: Color(CGColor(red: 229/255, green: 230/255, blue: 241/255, alpha: 1.0))
             ),
             
             actionButton: ActionButton(
@@ -105,7 +106,10 @@ class SolColor{
                 taskDone: Color(red:28/255, green: 206/255, blue: 12/255)
             ),
              
-            taskLine: TaskLine(container: Color(red: 246/255, green:  246/255, blue:  246/255, opacity:  1))
+            taskLine: TaskLine(
+                container: Color(red: 246/255, green:  246/255, blue:  246/255, opacity:  1),
+                containerDone: Color(red: 96/255, green:  96/255, blue:  96/255, opacity:  1)
+            )
         )
         return colors
     }

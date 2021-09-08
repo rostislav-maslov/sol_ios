@@ -62,4 +62,11 @@ extension TaskEntity{
         task.icon.data = "👨‍🎓"
         return task
     }
+    public static func forRenderDone() -> TaskEntity {
+        var task = TaskEntity()
+        task.title = "hell "
+        task.icon.data = "👨‍🎓"
+        task.status = TaskStatus.DONE
+        return task
+    }
 }

@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import SwiftUI
 
-public class TaskViewModel: NSObject, ObservableObject, MultilineTextFieldProtocol {
+public class TaskViewModel: NSObject, ObservableObject, MultilineTextFieldProtocol, TaskItemViewModelProtocol {
     var taskId: String
     @Published var task: TaskEntity
     @Published var state: ViewState = ViewState.INITIALIZATION
@@ -235,3 +235,13 @@ extension TaskViewModel {
 }
 
 
+extension TaskViewModel {
+    func taskDidChange(task: TaskEntity) {
+        for index in 0...(self.task.child.count - 1) {
+            if self.task.child[index].id == task.id {
+                self.task.child[index] = task
+            }
+        }
+        self.listIdHack = UUID()
+    }
+}

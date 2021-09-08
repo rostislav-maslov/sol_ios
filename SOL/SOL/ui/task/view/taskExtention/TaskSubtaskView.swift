@@ -14,7 +14,7 @@ extension TaskView{
             VStack {
                 Spacer().frame(width: 1, height: 16, alignment: .center)
                 ForEach(model.task.child, id: \.id) { task in
-                    TaskItemView(model: TaskItemViewModel(task: task))
+                    TaskItemView(model: TaskItemViewModel(task: task, delegate: self.model))
                         .onDrag {
                             let item = NSItemProvider(object: NSString(string: task.id))
                             item.suggestedName = task.id
