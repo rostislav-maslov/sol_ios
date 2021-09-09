@@ -175,3 +175,11 @@ extension SpaceViewModel {
     }
 }
 
+extension SpaceViewModel {
+    static func forRender() -> SpaceViewModel{
+        let s = SpaceViewModel("111")
+        s.space.title = "asfdasf asdf asd f"
+        s.space.icon.data = "😀"
+        return s
+    }
+}

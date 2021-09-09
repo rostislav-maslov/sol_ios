@@ -25,8 +25,16 @@ extension SpaceView {
             Spacer()
                 .frame(
                     width: .infinity,
-                    height: (41 + 41 + 34),
+                    height: (41 + 41 + CGFloat(NavigationBarHelper.heightDelta)),
                     alignment: .center)
         }
     }
 }
+
+struct SpaceHeaderView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        SpaceView(model: SpaceViewModel.forRender())
+    }
+}
+

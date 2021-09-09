@@ -37,6 +37,15 @@
 		4F48256126C4F9FF001ABE87 /* TaskSubtaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48256026C4F9FF001ABE87 /* TaskSubtaskView.swift */; };
 		4F48256326C55157001ABE87 /* MakeTaskDoneUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48256226C55157001ABE87 /* MakeTaskDoneUseCase.swift */; };
 		4F48256526C55168001ABE87 /* MakeTaskOpenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48256426C55168001ABE87 /* MakeTaskOpenUseCase.swift */; };
+		4F4FA2AA26E9A86400872EE7 /* NavigationBarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FA2A926E9A86400872EE7 /* NavigationBarHelper.swift */; };
+		4F4FA2AD26E9A92200872EE7 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FA2AC26E9A92200872EE7 /* DeviceModel.swift */; };
+		4F4FA2AF26E9A97C00872EE7 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FA2AE26E9A97C00872EE7 /* Device.swift */; };
+		4F615E0626E8580F00273B1A /* EnvStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F615E0526E8580F00273B1A /* EnvStore.swift */; };
+		4F615E0826E8584C00273B1A /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F615E0726E8584C00273B1A /* TestView.swift */; };
+		4F615E0A26E8585F00273B1A /* TestInnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F615E0926E8585F00273B1A /* TestInnerView.swift */; };
+		4F615E0E26E8646100273B1A /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F615E0D26E8646100273B1A /* TaskStore.swift */; };
+		4F615E1026E8646B00273B1A /* SpaceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F615E0F26E8646B00273B1A /* SpaceStore.swift */; };
+		4F615E1226E8664900273B1A /* EnvModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F615E1126E8664900273B1A /* EnvModel.swift */; };
 		4F61FD5D26A1630000D83F2D /* SpacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61FD5C26A1630000D83F2D /* SpacesViewModel.swift */; };
 		4F61FD6326A16AF100D83F2D /* SpaceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61FD6226A16AF100D83F2D /* SpaceEntity.swift */; };
 		4F61FD6526A16C2B00D83F2D /* IconEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61FD6426A16C2B00D83F2D /* IconEntity.swift */; };
@@ -220,6 +229,15 @@
 		4F48256026C4F9FF001ABE87 /* TaskSubtaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSubtaskView.swift; sourceTree = "<group>"; };
 		4F48256226C55157001ABE87 /* MakeTaskDoneUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTaskDoneUseCase.swift; sourceTree = "<group>"; };
 		4F48256426C55168001ABE87 /* MakeTaskOpenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTaskOpenUseCase.swift; sourceTree = "<group>"; };
+		4F4FA2A926E9A86400872EE7 /* NavigationBarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarHelper.swift; sourceTree = "<group>"; };
+		4F4FA2AC26E9A92200872EE7 /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
+		4F4FA2AE26E9A97C00872EE7 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		4F615E0526E8580F00273B1A /* EnvStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvStore.swift; sourceTree = "<group>"; };
+		4F615E0726E8584C00273B1A /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		4F615E0926E8585F00273B1A /* TestInnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInnerView.swift; sourceTree = "<group>"; };
+		4F615E0D26E8646100273B1A /* TaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStore.swift; sourceTree = "<group>"; };
+		4F615E0F26E8646B00273B1A /* SpaceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceStore.swift; sourceTree = "<group>"; };
+		4F615E1126E8664900273B1A /* EnvModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvModel.swift; sourceTree = "<group>"; };
 		4F61FD5C26A1630000D83F2D /* SpacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesViewModel.swift; sourceTree = "<group>"; };
 		4F61FD6226A16AF100D83F2D /* SpaceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEntity.swift; sourceTree = "<group>"; };
 		4F61FD6426A16C2B00D83F2D /* IconEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconEntity.swift; sourceTree = "<group>"; };
@@ -539,6 +557,59 @@
 			path = taskExtention;
 			sourceTree = "<group>";
 		};
+		4F4FA2AB26E9A90900872EE7 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4F4FA2A926E9A86400872EE7 /* NavigationBarHelper.swift */,
+				4F4FA2AC26E9A92200872EE7 /* DeviceModel.swift */,
+				4F4FA2AE26E9A97C00872EE7 /* Device.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		4F615E0226E857E800273B1A /* testView */ = {
+			isa = PBXGroup;
+			children = (
+				4F615E0426E857FA00273B1A /* model */,
+				4F615E0326E857F400273B1A /* view */,
+			);
+			path = testView;
+			sourceTree = "<group>";
+		};
+		4F615E0326E857F400273B1A /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4F615E0726E8584C00273B1A /* TestView.swift */,
+				4F615E0926E8585F00273B1A /* TestInnerView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4F615E0426E857FA00273B1A /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4F615E0526E8580F00273B1A /* EnvStore.swift */,
+				4F615E1126E8664900273B1A /* EnvModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4F615E0B26E8645100273B1A /* space */ = {
+			isa = PBXGroup;
+			children = (
+				4F615E0F26E8646B00273B1A /* SpaceStore.swift */,
+			);
+			path = space;
+			sourceTree = "<group>";
+		};
+		4F615E0C26E8645600273B1A /* task */ = {
+			isa = PBXGroup;
+			children = (
+				4F615E0D26E8646100273B1A /* TaskStore.swift */,
+			);
+			path = task;
+			sourceTree = "<group>";
+		};
 		4F61FD5926A162C700D83F2D /* spaces */ = {
 			isa = PBXGroup;
 			children = (
@@ -634,6 +705,7 @@
 		4F61FD6E26A33B3100D83F2D /* components */ = {
 			isa = PBXGroup;
 			children = (
+				4F4FA2AB26E9A90900872EE7 /* helpers */,
 				4F2D875926E3BE410032177A /* Vacuum */,
 				4FEA6B2326D0F34800876D7C /* multilineTextField */,
 				4F7C4F0226BEC74E0097AC65 /* doneKeyboardButton */,
@@ -1205,6 +1277,8 @@
 		4FA828A62696C82500540CFF /* store */ = {
 			isa = PBXGroup;
 			children = (
+				4F615E0C26E8645600273B1A /* task */,
+				4F615E0B26E8645100273B1A /* space */,
 				4FA828AB2696C9C600540CFF /* defaults */,
 			);
 			path = store;
@@ -1694,6 +1768,7 @@
 		4FFC21A326312DEE00198E4B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				4F615E0226E857E800273B1A /* testView */,
 				4FA5B4642692E0210031093A /* base */,
 				4F61FD5926A162C700D83F2D /* spaces */,
 				4F8DCEEA26BBB45100F8CD54 /* space */,
@@ -1978,6 +2053,7 @@
 				4FFC2196263123A600198E4B /* LoginUIView.swift in Sources */,
 				4F90CFFE26BA677F008F0C5D /* LoginByEmailRequest.swift in Sources */,
 				4F90D00026BA6793008F0C5D /* LoginByEmailResponse.swift in Sources */,
+				4F4FA2AF26E9A97C00872EE7 /* Device.swift in Sources */,
 				4F9307E4265E1A4500204881 /* SolApiService.swift in Sources */,
 				4FCB320E26E1FCAA003A470A /* SpacesViewMainInfo.swift in Sources */,
 				4F48256126C4F9FF001ABE87 /* TaskSubtaskView.swift in Sources */,
@@ -1998,6 +2074,7 @@
 				4F87F7AF2658F1810094C946 /* TLTitleComponent.swift in Sources */,
 				4FFC21AB2637B5F500198E4B /* LoginByEmailView.swift in Sources */,
 				4FA0F6F426487D9000CECF24 /* TaskTitleComponent.swift in Sources */,
+				4F615E0626E8580F00273B1A /* EnvStore.swift in Sources */,
 				4FA828D92699BFEB00540CFF /* AddTaskViewModel.swift in Sources */,
 				4F0B5C9526498AEF0026FDD0 /* SpaceItemView.swift in Sources */,
 				4FA828BC2696E2BA00540CFF /* WarmUpUseCase.swift in Sources */,
@@ -2005,9 +2082,11 @@
 				4F01BEAD264EE68500AAAA39 /* CornerRadius.swift in Sources */,
 				4FCB321226E1FD21003A470A /* SpacesViewList.swift in Sources */,
 				4F8DCEEE26BBB47E00F8CD54 /* SpaceViewModel.swift in Sources */,
+				4F615E0826E8584C00273B1A /* TestView.swift in Sources */,
 				4F48255826C4F5E2001ABE87 /* TaskUseCase.swift in Sources */,
 				4F6F05B326660DF10074B9D8 /* SpaceAPI.swift in Sources */,
 				4F6F05AE26660D970074B9D8 /* SpaceCreateRequest.swift in Sources */,
+				4F615E1226E8664900273B1A /* EnvModel.swift in Sources */,
 				4FFC218E2631222800198E4B /* AppLoadingView.swift in Sources */,
 				4FA828CC26999EBC00540CFF /* SignUpByEmailUseCase.swift in Sources */,
 				4FAB2A9726A7FB4600587BBD /* TaskItemViewModel.swift in Sources */,
@@ -2057,6 +2136,7 @@
 				4F90D00826BA79ED008F0C5D /* MySpacesUseCase.swift in Sources */,
 				4F61FD7E26A363DE00D83F2D /* SolNavigationView.swift in Sources */,
 				4F62D52D26E7048F00AA5EBB /* TaskItemCheckboxView.swift in Sources */,
+				4F615E1026E8646B00273B1A /* SpaceStore.swift in Sources */,
 				4FAB2A9526A7F75900587BBD /* TaskViewModel.swift in Sources */,
 				4FFBE4EE26C24CBC00A79D81 /* TaskAPI.swift in Sources */,
 				4FD2E31A265F6BD2007A20C6 /* TextFieldLoginComponent.swift in Sources */,
@@ -2070,6 +2150,7 @@
 				4F61FD7C26A363CD00D83F2D /* SettingButton.swift in Sources */,
 				4F0F318B26714D1C00C67852 /* ChooseDeadlineView.swift in Sources */,
 				4FEA6B1E26D0EE5600876D7C /* SpaceViewActions.swift in Sources */,
+				4F615E0A26E8585F00273B1A /* TestInnerView.swift in Sources */,
 				4F6F05B526660E530074B9D8 /* SpaceResponse.swift in Sources */,
 				4FA828BE2696E82400540CFF /* AuthState.swift in Sources */,
 				4F2661CE26B92479001974BC /* CreateSpaceUseCase.swift in Sources */,
@@ -2109,8 +2190,10 @@
 				4F6F05B026660DC20074B9D8 /* SpaceRoutes.swift in Sources */,
 				4FCB321026E1FCC9003A470A /* SpacesViewActions.swift in Sources */,
 				4FE38CEB266397140011E203 /* ViewState.swift in Sources */,
+				4F615E0E26E8646100273B1A /* TaskStore.swift in Sources */,
 				4F2EA28826D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift in Sources */,
 				4FA828AA2696C92D00540CFF /* UserStore.swift in Sources */,
+				4F4FA2AD26E9A92200872EE7 /* DeviceModel.swift in Sources */,
 				4FFBE4F026C24D1E00A79D81 /* TaskRepositoryPort.swift in Sources */,
 				4F9307EA265E1DAE00204881 /* AuthRoutes.swift in Sources */,
 				4FEA6B1C26D0EE1C00876D7C /* SpaceViewHeader.swift in Sources */,
@@ -2122,6 +2205,7 @@
 				4F62D52B26E7046A00AA5EBB /* TaskItemContainerView.swift in Sources */,
 				4FCB320526DE09CC003A470A /* ListExample.swift in Sources */,
 				4FA828E02699C03700540CFF /* TaskEntity.swift in Sources */,
+				4F4FA2AA26E9A86400872EE7 /* NavigationBarHelper.swift in Sources */,
 				4F21D394266F3D2600459112 /* ChooseEventTimeComponent.swift in Sources */,
 				4F2661CC26B92156001974BC /* AddSpaceViewModel.swift in Sources */,
 				4F61FD6D26A1722C00D83F2D /* TaskContentView.swift in Sources */,

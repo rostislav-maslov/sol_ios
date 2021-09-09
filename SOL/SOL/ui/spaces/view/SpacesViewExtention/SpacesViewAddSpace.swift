@@ -12,7 +12,7 @@ import NavigationStack
 extension SpacesView {
     func needCloseSheet(){
         model.onDissmisAddSpace()
-        model.load()
+        spaceStore.sync()
     }
     
     var addSpaceSheet: some View {

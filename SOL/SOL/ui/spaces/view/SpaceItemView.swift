@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct SpaceItemView: View {
-    var icon: String
-    var title: String
+    var spaceId: String
+    @EnvironmentObject var spaceStore: SpaceStore
+    
     var body: some View {
         ZStack{
             Rectangle()
@@ -21,7 +22,7 @@ struct SpaceItemView: View {
                 HStack{
                     Spacer()
                         .frame(width: 19, height: 1, alignment: .center)
-                    Text(icon)
+                    Text(self.spaceStore.spaces[spaceId]!.icon.data)
                         .font(SolFonts
                                 .font(
                                     size: 20,
@@ -29,7 +30,7 @@ struct SpaceItemView: View {
                                     color: Color.black))
                     Spacer()
                         .frame(width: 6, height: 1, alignment: .center)
-                    Text(title)
+                    Text(self.spaceStore.spaces[spaceId]!.title)
                         .font(
                             SolFonts
                                 .font(
@@ -47,7 +48,7 @@ struct SpaceItemView: View {
 
 struct SpaceItemComponent_Previews: PreviewProvider {
     static var previews: some View {
-        SpaceItemView(icon: "🦐", title: "Space name")
+        SpaceItemView(spaceId: "")
             .preferredColorScheme(.light)
     }
 }

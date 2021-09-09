@@ -11,22 +11,28 @@ import NavigationStack
 struct SpacesView: View {
     @ObservedObject var model = SpacesViewModel()
     @ObservedObject var addTaskViewModel = AddTaskViewModel(nil, parentTaskId: nil)
-    
-    @State var defaultTaskAddTitle = "in Inbox"
-    @State var isTarget = true
+    @EnvironmentObject var spaceStore: SpaceStore
+    @EnvironmentObject var tastStore: TaskStore
     
     var body: some View {
         NavigationStackView{
             ZStack {
-                NavigationLink(destination: LoginUIView(), isActive: $model.goToLogout) {EmptyView()}
+                NavigationLink(
+                    destination: LoginUIView(),
+                    isActive: $model.goToLogout) {
+                    EmptyView()
+                }
                 content
-                AddTaskRootView(model: addTaskViewModel, parentTitle: $defaultTaskAddTitle)
+                AddTaskRootView(
+                    model: addTaskViewModel,
+                    parentTitle: $model.defaultTaskAddTitle)
             }
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
             .preferredColorScheme(.light)
             .onAppear(perform: {
-                model.load()
+                model.store = self.spaceStore
+                spaceStore.sync()
             })
         }
     }
@@ -35,7 +41,6 @@ struct SpacesView: View {
 struct SpacesView_Previews: PreviewProvider {
     static var previews: some View {
         SpacesView()
-        
     }
 }
 

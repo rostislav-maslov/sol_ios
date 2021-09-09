@@ -17,7 +17,8 @@ struct TaskView: View {
     
     init(model: TaskViewModel){
         self.model = model
-        self.multilineTextFieldModel.delegate = model        
+        self.multilineTextFieldModel.delegate = model
+        NavigationBarHelper.updateHeightDelta()
     }
     
     var body: some View {

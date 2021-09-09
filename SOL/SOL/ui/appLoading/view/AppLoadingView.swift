@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct AppLoadingView: View {
-    @ObservedObject var viewModel: AppLoadingViewModel
+    @ObservedObject var viewModel: AppLoadingViewModel = AppLoadingViewModel()
     
     init() {
-        viewModel = AppLoadingViewModel()
+        NavigationBarHelper.updateHeightDelta()
     }
     
     var body: some View {
@@ -21,11 +21,15 @@ struct AppLoadingView: View {
                     destination: LoginUIView(),
                     isActive: $viewModel.goToLogin) {}
                 NavigationLink(
-                    destination: SpacesView(),//SpacesView(),
+                    destination: SpacesView(),//TestView()
                     isActive: $viewModel.goToSpaces) {}
                 ProgressView()
             }.navigationBarHidden(true)
-        }.navigationBarHidden(true)        
+        }
+        .navigationBarHidden(true)
+        .environmentObject(SpaceStore())
+        .environmentObject(TaskStore())
+        .environmentObject(EnvStore())
         .onAppear(perform: viewModel.refresh)
     }
 }

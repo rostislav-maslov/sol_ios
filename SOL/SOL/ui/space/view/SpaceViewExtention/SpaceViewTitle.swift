@@ -14,7 +14,7 @@ extension SpaceView {
         HStack(alignment: .top, spacing: 0, content: {
             Spacer().frame(width: 2, height: 11, alignment: .center)
             VStack(alignment: .leading, spacing: 0, content: {
-                Spacer().frame(width: 0, height: 4, alignment: .center)
+                Spacer().frame(width: 0, height: 2, alignment: .center)
                 IconFieldComponent(
                     placeholder: "🪐",
                     value: $model.space.icon.data,
@@ -26,8 +26,7 @@ extension SpaceView {
                     })
             })
             
-            VStack(alignment: .leading, spacing: 0, content: {                                
-                Spacer().frame(height: 2)
+            VStack(alignment: .leading, spacing: 0, content: {
                 MultilineTextFieldView(
                     text: $model.space.title,
                     model: multilineTextFieldModel,
@@ -47,3 +46,11 @@ extension SpaceView {
         })
     }
 }
+
+struct SpaceTitleView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        SpaceView(model: SpaceViewModel("1111"))
+    }
+}
+

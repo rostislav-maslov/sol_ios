@@ -22,39 +22,53 @@ extension TaskView{
     var taskTitle: some View {
         
         HStack(alignment: .top, spacing: 0, content: {
-            Spacer().frame(width: 16, height: 11, alignment: .center)
+            Spacer().frame(width: 13, height: 11, alignment: .center)
             VStack{
-                Spacer().frame(width: 0, height: 4, alignment: .center)
+                Spacer().frame(width: 0, height: 9, alignment: .center)
                 CheckBoxView(size: .NORMAL, done: $model.actionDone) {
                     model.toggleTask()
                 }
             }
-            Spacer().frame(width: 8, height: 1, alignment: .center)
-            VStack(alignment: .leading, spacing: 0, content: {
-                Spacer().frame(width: 0, height: 4, alignment: .center)
-                IconFieldComponent(
-                    placeholder: "🪐",
-                    value: $model.task.icon.data,
-                    state: $model.state, textFieldShouldBeginEditing: {
-                        model.bottomButtonType = BottomButtonType.CLOSE_ICON_FIELD
-                    }, callbackEmojiTextField: { (emojiTextField:UIEmojiTextField) in
-                        model.emojiTextField = emojiTextField
-                    })
-            })
+//            Spacer().frame(width: 8, height: 1, alignment: .center)
+//            VStack(alignment: .leading, spacing: 0, content: {
+//                IconFieldComponent(
+//                    placeholder: "🪐",
+//                    value: $model.task.icon.data,
+//                    state: $model.state,
+//                    textFieldShouldBeginEditing: {
+//                        model.bottomButtonType = BottomButtonType.CLOSE_ICON_FIELD
+//                    },
+//                    callbackEmojiTextField: { (emojiTextField:UIEmojiTextField) in
+//                        model.emojiTextField = emojiTextField
+//                    })
+//            })
             
             VStack(alignment: .leading, spacing: 0, content: {
-                Spacer().frame(height: 2)
                 MultilineTextFieldView(
                     text: $model.task.title,
                     model: multilineTextFieldModel,
-                    textColor: UIColor(SolColor.colors().checkBox.undoneBackground),
+                    textColor: UIColor(
+                        SolColor
+                            .colors()
+                            .checkBox
+                            .undoneBackground),
                     textSize: 24)
                     .font(SolFonts.font(
                             size: 24,
                             weight: Font.Weight.medium,
-                            color: SolColor.colors().checkBox.undoneBackground))
-                    .frame(width: .infinity, height: multilineTextFieldModel.titleSize, alignment: .center)
-                    .foregroundColor(SolColor.colors().checkBox.doneBackground)
+                            color: SolColor
+                                .colors()
+                                .checkBox
+                                .undoneBackground))
+                    .frame(
+                        width: .infinity,
+                        height: multilineTextFieldModel.titleSize,
+                        alignment: .center)
+                    .foregroundColor(
+                        SolColor
+                            .colors()
+                            .checkBox
+                            .doneBackground)
             })
             
             Spacer().frame(width: 8, height: 1, alignment: .center)
@@ -62,48 +76,10 @@ extension TaskView{
     }
 }
 
-
-//extension SpaceView {
-//    var taskTitle: some View {
-//        HStack(alignment: .top, spacing: 0, content: {
-//            Spacer().frame(width: 2, height: 11, alignment: .center)
-//            VStack(alignment: .leading, spacing: 0, content: {
-//                Spacer().frame(width: 0, height: 4, alignment: .center)
-//                IconFieldComponent(
-//                    placeholder: "🪐",
-//                    value: $model.space.icon.data,
-//                    state: $model.state, textFieldShouldBeginEditing: {
-//                        model.bottomButtonType = BottomButtonType.CLOSE_ICON_FIELD
-//                    }, callbackEmojiTextField: { (emojiTextField:UIEmojiTextField) in
-//
-//                        model.emojiTextField = emojiTextField
-//                    })
-//            })
-//
-//            VStack(alignment: .leading, spacing: 0, content: {
-//                Spacer().frame(height: 2)
-//                MultilineTextFieldView(
-//                    text: $model.space.title,
-//                    firstSizeTitle: $model.firstSizeTitle,
-//                    detectFirstSizeTitle: $model.detectFirstSizeTitle,
-//                    textColor: UIColor(SolColor.colors().checkBox.undoneBackground),
-//                    textSize: 24, delegate: model)
-//                    .font(SolFonts.font(
-//                            size: 24,
-//                            weight: Font.Weight.medium,
-//                            color: SolColor.colors().checkBox.undoneBackground))
-//                    .frame(width: .infinity, height: model.titleSize, alignment: .center)
-//                    .foregroundColor(SolColor.colors().checkBox.doneBackground)
-//            })
-//            Spacer().frame(width: 8, height: 1, alignment: .center)
-//        })
-//    }
-//}
-
 extension TaskView {
     var actionsTitle:some View {
         VStack{
-            Spacer().frame(width: 1, height: 16, alignment: .center)
+            //Spacer().frame(width: 1, height: 16, alignment: .center)
             
             HStack(alignment: .center){
                 Spacer()
@@ -131,8 +107,14 @@ extension TaskView {
             Spacer()
                 .frame(
                     width: .infinity,
-                    height: (41 + 41 + 34),
+                    height: (41 + 41 + CGFloat(NavigationBarHelper.heightDelta)),
                     alignment: .center)
         }
+    }
+}
+
+struct TaskHeaderView_Previews: PreviewProvider {
+    static var previews: some View {
+        TaskView(model: TaskViewModel(task: TaskEntity.forRender()))
     }
 }

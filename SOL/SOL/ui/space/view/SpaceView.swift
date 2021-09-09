@@ -54,7 +54,7 @@ public struct SpaceView: View {
 struct SpaceView_Previews: PreviewProvider {
     
     static var previews: some View {
-        SpaceView(model: SpaceViewModel("1111"))
+        SpaceView(model: SpaceViewModel.forRender())
     }
 }
 

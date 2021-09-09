@@ -12,7 +12,7 @@ import NavigationStack
 extension SpaceView {
     var actionsTitle:some View {
         VStack{
-            Spacer().frame(width: 1, height: 16, alignment: .center)
+            //Spacer().frame(width: 1, height: 16, alignment: .center)
             
             HStack(alignment: .center){
                 Spacer()
@@ -119,5 +119,12 @@ extension SpaceView {
             }
             Spacer().frame(width: 1, height: 16, alignment: .center)
         }
+    }
+}
+
+struct SpaceActionsView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        SpaceView(model: SpaceViewModel.forRender())
     }
 }
