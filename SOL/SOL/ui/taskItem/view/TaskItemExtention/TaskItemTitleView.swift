@@ -14,23 +14,23 @@ extension TaskItemView {
             HStack{
                 Spacer().frame(width: 4)
                 Text(
-                    model.task.status == TaskStatus.OPEN ?
-                        model.task.fullTitle() :
-                        model.task.title
+                    taskStore.tasks[taskId]?.status == TaskStatus.OPEN ?
+                        taskStore.tasks[taskId]!.fullTitle() :
+                        taskStore.tasks[taskId]!.title
                 )
                 .font(
                     SolFonts.font(
                         size: 16,
                         weight: Font.Weight.regular,
-                        color: model.task.status == TaskStatus.OPEN ?
+                        color: taskStore.tasks[taskId]?.status == TaskStatus.OPEN ?
                             SolColor.colors().fontColors.normal :
                             SolColor.colors().fontColors.second
                     ))
                 .strikethrough(
-                    model.task.status == TaskStatus.DONE,
+                    taskStore.tasks[taskId]?.status == TaskStatus.DONE,
                     color: SolColor.colors().fontColors.second)
                 .foregroundColor(
-                    model.task.status == TaskStatus.OPEN ?
+                    taskStore.tasks[taskId]?.status == TaskStatus.OPEN ?
                                     SolColor.colors().fontColors.normal :
                                     SolColor.colors().fontColors.second
                 )
@@ -48,9 +48,9 @@ extension TaskItemView {
         }.background(SolColor.colors().taskLine.container)
     }
 }
-
-struct TaskItemTitleView_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskItemView(model: TaskItemViewModel(task: TaskEntity.forRenderDone(), delegate: TaskItemViewModelProtocol.self as! TaskItemViewModelProtocol)).title
-    }
-}
+//
+//struct TaskItemTitleView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TaskItemView(model: TaskItemViewModel(task: TaskEntity.forRenderDone(), delegate: TaskItemViewModelProtocol.self as! TaskItemViewModelProtocol)).title
+//    }
+//}

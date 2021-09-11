@@ -17,22 +17,22 @@ extension TaskItemView {
             Spacer().frame(width: 8)
         }
         .background(
-            model.task.status == TaskStatus.DONE ?
+            taskStore.tasks[taskId]?.status == TaskStatus.DONE ?
                 SolColor.colors().taskLine.container :
-            SolColor.colors().taskLine.container
+                SolColor.colors().taskLine.container
         )
         .cornerRadius(12)
     }
 }
 
 
-struct TaskItemContainerBackgroudView_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskItemView(model:
-                        TaskItemViewModel(
-                            task: TaskEntity.forRender(),
-                            delegate: TaskItemViewModelProtocol.self as! TaskItemViewModelProtocol
-                        )
-        ).containerBackground
-    }
-}
+//struct TaskItemContainerBackgroudView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TaskItemView(model:
+//                        TaskItemViewModel(
+//                            task: TaskEntity.forRender(),
+//                            delegate: TaskItemViewModelProtocol.self as! TaskItemViewModelProtocol
+//                        )
+//        ).containerBackground
+//    }
+//}

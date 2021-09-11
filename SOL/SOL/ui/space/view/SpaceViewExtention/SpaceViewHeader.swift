@@ -31,10 +31,10 @@ extension SpaceView {
     }
 }
 
-struct SpaceHeaderView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        SpaceView(model: SpaceViewModel.forRender())
-    }
-}
+//struct SpaceHeaderView_Previews: PreviewProvider {
+//    
+//    static var previews: some View {
+//        SpaceView(model: SpaceViewModel.forRender())
+//    }
+//}
 

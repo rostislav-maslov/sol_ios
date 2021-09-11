@@ -18,6 +18,7 @@
 		4F0B5C9E264ADE710026FDD0 /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B5C9D264ADE710026FDD0 /* KeyboardResponder.swift */; };
 		4F0B5CA1264AFB710026FDD0 /* SpacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B5CA0264AFB710026FDD0 /* SpacesView.swift */; };
 		4F0F318B26714D1C00C67852 /* ChooseDeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0F318A26714D1C00C67852 /* ChooseDeadlineView.swift */; };
+		4F13D3ED26EB011D00F2E947 /* TaskTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13D3EC26EB011D00F2E947 /* TaskTitleView.swift */; };
 		4F21D394266F3D2600459112 /* ChooseEventTimeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21D393266F3D2600459112 /* ChooseEventTimeComponent.swift */; };
 		4F21D39A266F458600459112 /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 4F21D399266F458600459112 /* ElegantCalendar */; };
 		4F2661CC26B92156001974BC /* AddSpaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2661CB26B92156001974BC /* AddSpaceViewModel.swift */; };
@@ -26,6 +27,10 @@
 		4F2B5DA62668AB4F005BE636 /* PlaceholderTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B5DA52668AB4F005BE636 /* PlaceholderTaskView.swift */; };
 		4F2B5DA92668B1FE005BE636 /* BackgroundForModalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B5DA82668B1FE005BE636 /* BackgroundForModalComponent.swift */; };
 		4F2B5DAC2668B2CC005BE636 /* AddTaskTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B5DAB2668B2CC005BE636 /* AddTaskTextView.swift */; };
+		4F2BED2926EB0B14004D7A15 /* TaskTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2BED2826EB0B14004D7A15 /* TaskTitleModel.swift */; };
+		4F2BED2B26EB10AC004D7A15 /* SpaceViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2BED2A26EB10AC004D7A15 /* SpaceViewStore.swift */; };
+		4F2BED3026ECA4A9004D7A15 /* SpaceTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2BED2F26ECA4A9004D7A15 /* SpaceTitleModel.swift */; };
+		4F2BED3226ECA4B5004D7A15 /* SpaceTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2BED3126ECA4B5004D7A15 /* SpaceTitleView.swift */; };
 		4F2D875C26E3BE600032177A /* VacuumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D875B26E3BE600032177A /* VacuumView.swift */; };
 		4F2EA28626D4D211008A34CF /* EditTitleAndIconTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EA28526D4D211008A34CF /* EditTitleAndIconTaskRequest.swift */; };
 		4F2EA28826D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EA28726D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift */; };
@@ -211,6 +216,7 @@
 		4F0B5C9D264ADE710026FDD0 /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
 		4F0B5CA0264AFB710026FDD0 /* SpacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesView.swift; sourceTree = "<group>"; };
 		4F0F318A26714D1C00C67852 /* ChooseDeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDeadlineView.swift; sourceTree = "<group>"; };
+		4F13D3EC26EB011D00F2E947 /* TaskTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTitleView.swift; sourceTree = "<group>"; };
 		4F21D393266F3D2600459112 /* ChooseEventTimeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseEventTimeComponent.swift; sourceTree = "<group>"; };
 		4F2661CB26B92156001974BC /* AddSpaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpaceViewModel.swift; sourceTree = "<group>"; };
 		4F2661CD26B92479001974BC /* CreateSpaceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSpaceUseCase.swift; sourceTree = "<group>"; };
@@ -218,6 +224,10 @@
 		4F2B5DA52668AB4F005BE636 /* PlaceholderTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTaskView.swift; sourceTree = "<group>"; };
 		4F2B5DA82668B1FE005BE636 /* BackgroundForModalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundForModalComponent.swift; sourceTree = "<group>"; };
 		4F2B5DAB2668B2CC005BE636 /* AddTaskTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskTextView.swift; sourceTree = "<group>"; };
+		4F2BED2826EB0B14004D7A15 /* TaskTitleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTitleModel.swift; sourceTree = "<group>"; };
+		4F2BED2A26EB10AC004D7A15 /* SpaceViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceViewStore.swift; sourceTree = "<group>"; };
+		4F2BED2F26ECA4A9004D7A15 /* SpaceTitleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceTitleModel.swift; sourceTree = "<group>"; };
+		4F2BED3126ECA4B5004D7A15 /* SpaceTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceTitleView.swift; sourceTree = "<group>"; };
 		4F2D875B26E3BE600032177A /* VacuumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacuumView.swift; sourceTree = "<group>"; };
 		4F2EA28526D4D211008A34CF /* EditTitleAndIconTaskRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTitleAndIconTaskRequest.swift; sourceTree = "<group>"; };
 		4F2EA28726D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTitleAndIconTaskUseCase.swift; sourceTree = "<group>"; };
@@ -478,6 +488,23 @@
 			path = ChooseDeadLineComponent;
 			sourceTree = "<group>";
 		};
+		4F13D3EA26EB00F600F2E947 /* taskTitleView */ = {
+			isa = PBXGroup;
+			children = (
+				4F2BED2726EB0B06004D7A15 /* model */,
+				4F13D3EB26EB010B00F2E947 /* view */,
+			);
+			path = taskTitleView;
+			sourceTree = "<group>";
+		};
+		4F13D3EB26EB010B00F2E947 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4F13D3EC26EB011D00F2E947 /* TaskTitleView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		4F21D392266F3D0400459112 /* ChooseEventTimeComponent */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +533,39 @@
 			isa = PBXGroup;
 			children = (
 				4FE38CFE2664123C0011E203 /* AddSpaceView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4F2BED2726EB0B06004D7A15 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4F2BED2826EB0B14004D7A15 /* TaskTitleModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4F2BED2C26ECA47E004D7A15 /* spaceTitleView */ = {
+			isa = PBXGroup;
+			children = (
+				4F2BED2D26ECA48A004D7A15 /* model */,
+				4F2BED2E26ECA48F004D7A15 /* view */,
+			);
+			path = spaceTitleView;
+			sourceTree = "<group>";
+		};
+		4F2BED2D26ECA48A004D7A15 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4F2BED2F26ECA4A9004D7A15 /* SpaceTitleModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4F2BED2E26ECA48F004D7A15 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4F2BED3126ECA4B5004D7A15 /* SpaceTitleView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -705,6 +765,8 @@
 		4F61FD6E26A33B3100D83F2D /* components */ = {
 			isa = PBXGroup;
 			children = (
+				4F2BED2C26ECA47E004D7A15 /* spaceTitleView */,
+				4F13D3EA26EB00F600F2E947 /* taskTitleView */,
 				4F4FA2AB26E9A90900872EE7 /* helpers */,
 				4F2D875926E3BE410032177A /* Vacuum */,
 				4FEA6B2326D0F34800876D7C /* multilineTextField */,
@@ -1332,6 +1394,7 @@
 			isa = PBXGroup;
 			children = (
 				4FFC218D2631222800198E4B /* AppLoadingView.swift */,
+				4F2BED2A26EB10AC004D7A15 /* SpaceViewStore.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -2060,12 +2123,14 @@
 				4F8DCEFB26BD112900F8CD54 /* SpaceUpdateRequest.swift in Sources */,
 				4F0B5CA1264AFB710026FDD0 /* SpacesView.swift in Sources */,
 				4FA828C62696E86500540CFF /* UseCase.swift in Sources */,
+				4F13D3ED26EB011D00F2E947 /* TaskTitleView.swift in Sources */,
 				4FEA6B1A26D0EDA000876D7C /* SpaceViewContent.swift in Sources */,
 				4F61FD5D26A1630000D83F2D /* SpacesViewModel.swift in Sources */,
 				4FE38CFB2663EC190011E203 /* HeaderComponent.swift in Sources */,
 				4F90D00426BA7062008F0C5D /* MeResponse.swift in Sources */,
 				4F9307D5265E184000204881 /* SignUpEmailRequest.swift in Sources */,
 				4F6B98EA269D614900B0FFC9 /* DaySchedulerViewModel.swift in Sources */,
+				4F2BED2B26EB10AC004D7A15 /* SpaceViewStore.swift in Sources */,
 				4F9307E0265E19B500204881 /* BaseApiErrorResponse.swift in Sources */,
 				4F87F7BB2658F7F20094C946 /* TLItemComponent.swift in Sources */,
 				4FA828CF26999ED800540CFF /* UserPort.swift in Sources */,
@@ -2145,6 +2210,7 @@
 				4F0B5C9E264ADE710026FDD0 /* KeyboardResponder.swift in Sources */,
 				4FD2E31D265F7339007A20C6 /* TitleLoginByEmailView.swift in Sources */,
 				4FE38CFF2664123C0011E203 /* AddSpaceView.swift in Sources */,
+				4F2BED3226ECA4B5004D7A15 /* SpaceTitleView.swift in Sources */,
 				4FE38CE92662CDAD0011E203 /* Error.swift in Sources */,
 				4FA828C82696E89500540CFF /* ReceiveReponse.swift in Sources */,
 				4F61FD7C26A363CD00D83F2D /* SettingButton.swift in Sources */,
@@ -2160,6 +2226,7 @@
 				4FA0F6FD264885CD00CECF24 /* StoriesComponent.swift in Sources */,
 				4F61FD7A26A363C100D83F2D /* BackButton.swift in Sources */,
 				4FEA6B2026D0EEBF00876D7C /* SpaceViewSubtask.swift in Sources */,
+				4F2BED2926EB0B14004D7A15 /* TaskTitleModel.swift in Sources */,
 				4F6F05A726660D150074B9D8 /* SpaceProvider.swift in Sources */,
 				4F2B5DAC2668B2CC005BE636 /* AddTaskTextView.swift in Sources */,
 				4F62D52F26E7082900AA5EBB /* TaskItemTitleView.swift in Sources */,
@@ -2185,6 +2252,7 @@
 				4F87F7AD2658F1750094C946 /* TLSpaceComponent.swift in Sources */,
 				4FCB320926E0B128003A470A /* ChangeSpaceSortUseCase.swift in Sources */,
 				4F6F05B726660E710074B9D8 /* IconResponse.swift in Sources */,
+				4F2BED3026ECA4A9004D7A15 /* SpaceTitleModel.swift in Sources */,
 				4F7C4F0626BEC7780097AC65 /* DoneKeyboardButtonView.swift in Sources */,
 				4F7C4F0826BED5960097AC65 /* BottomButtonType.swift in Sources */,
 				4F6F05B026660DC20074B9D8 /* SpaceRoutes.swift in Sources */,

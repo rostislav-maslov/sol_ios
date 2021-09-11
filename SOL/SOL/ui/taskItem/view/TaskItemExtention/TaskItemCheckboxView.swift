@@ -10,7 +10,7 @@ import SwiftUI
 extension TaskItemView {
     var checkbox: some View {
         VStack{
-            if(self.model.task.status == TaskStatus.OPEN){
+            if(taskStore.tasks[taskId]?.status == TaskStatus.OPEN){
                 Spacer().frame(height: 12)
                 HStack{
                     Spacer().frame(width: 6)
@@ -30,7 +30,7 @@ extension TaskItemView {
                 Spacer().frame(height: 12)
             }
             
-            if(self.model.task.status == TaskStatus.DONE){
+            if(taskStore.tasks[taskId]?.status == TaskStatus.DONE){
                 Spacer().frame(height: 17)
                 HStack{
                     Spacer().frame(width: 9)
@@ -53,9 +53,9 @@ extension TaskItemView {
     }
 }
 
-struct TaskItemCheckboxView_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskItemView(model: TaskItemViewModel(task: TaskEntity.forRenderDone(),
-                                              delegate: TaskItemViewModelProtocol.self as! TaskItemViewModelProtocol)).checkbox
-    }
-}
+//struct TaskItemCheckboxView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TaskItemView(model: TaskItemViewModel(task: TaskEntity.forRenderDone(),
+//                                              delegate: TaskItemViewModelProtocol.self as! TaskItemViewModelProtocol)).checkbox
+//    }
+//}

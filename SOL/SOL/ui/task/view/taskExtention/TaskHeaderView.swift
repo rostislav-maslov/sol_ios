@@ -29,46 +29,9 @@ extension TaskView{
                     model.toggleTask()
                 }
             }
-//            Spacer().frame(width: 8, height: 1, alignment: .center)
-//            VStack(alignment: .leading, spacing: 0, content: {
-//                IconFieldComponent(
-//                    placeholder: "🪐",
-//                    value: $model.task.icon.data,
-//                    state: $model.state,
-//                    textFieldShouldBeginEditing: {
-//                        model.bottomButtonType = BottomButtonType.CLOSE_ICON_FIELD
-//                    },
-//                    callbackEmojiTextField: { (emojiTextField:UIEmojiTextField) in
-//                        model.emojiTextField = emojiTextField
-//                    })
-//            })
             
             VStack(alignment: .leading, spacing: 0, content: {
-                MultilineTextFieldView(
-                    text: $model.task.title,
-                    model: multilineTextFieldModel,
-                    textColor: UIColor(
-                        SolColor
-                            .colors()
-                            .checkBox
-                            .undoneBackground),
-                    textSize: 24)
-                    .font(SolFonts.font(
-                            size: 24,
-                            weight: Font.Weight.medium,
-                            color: SolColor
-                                .colors()
-                                .checkBox
-                                .undoneBackground))
-                    .frame(
-                        width: .infinity,
-                        height: multilineTextFieldModel.titleSize,
-                        alignment: .center)
-                    .foregroundColor(
-                        SolColor
-                            .colors()
-                            .checkBox
-                            .doneBackground)
+                TaskTitleView(taskId: taskId)
             })
             
             Spacer().frame(width: 8, height: 1, alignment: .center)
@@ -113,8 +76,8 @@ extension TaskView {
     }
 }
 
-struct TaskHeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskView(model: TaskViewModel(task: TaskEntity.forRender()))
-    }
-}
+//struct TaskHeaderView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TaskView(model: TaskViewModel(task: TaskEntity.forRender()))
+//    }
+//}

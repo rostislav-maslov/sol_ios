@@ -122,9 +122,9 @@ extension SpaceView {
     }
 }
 
-struct SpaceActionsView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        SpaceView(model: SpaceViewModel.forRender())
-    }
-}
+//struct SpaceActionsView_Previews: PreviewProvider {
+//    
+//    static var previews: some View {
+//        SpaceView(model: SpaceViewModel.forRender())
+//    }
+//}

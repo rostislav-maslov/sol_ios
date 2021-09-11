@@ -167,6 +167,10 @@ extension AddTaskViewModel {
     }
     
     public func createTask(){
+        // TODO
+//        withAnimation {
+//            self.scrollViewProxy?.scrollTo("endOfScrollView", anchor: .bottom)
+//        }
         if self.loadingStatus != .LOADING {
             self.loadingStatus = .LOADING
             

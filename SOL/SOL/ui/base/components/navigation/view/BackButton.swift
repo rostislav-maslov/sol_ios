@@ -9,12 +9,13 @@ import SwiftUI
 import NavigationStack
 
 struct BackButton: View {
-    @EnvironmentObject private var navigationStack: NavigationStack
+    @EnvironmentObject private var navigationStack: NavigationStack   
     
     var body: some View {
         
                 Button(action: {
                     self.navigationStack.pop()
+//                    self.presentation.wrappedValue.dismiss()
                 }) {
                     HStack {
                         Image("ic_arrow-back")

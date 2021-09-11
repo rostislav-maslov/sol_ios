@@ -29,14 +29,19 @@ struct AddSpaceView: View {
                         height: 16,
                         alignment: .center)
                 HStack {
-                    IconFieldComponent(
-                        placeholder: "🪐",
-                        value: $viewModel.emoji,
-                        state: $viewModel.state, textFieldShouldBeginEditing: {
-                            
-                        }, callbackEmojiTextField: {(emojiTextField: UIEmojiTextField) in
-                            
-                        })
+//                    IconFieldComponent(
+//                        placeholder: "🪐",
+//                        getValue: {
+//                            return self.viewModel.emoji
+//                        },
+//                        setValue: { newValue in
+//                            self.viewModel.emoji = newValue
+//                        },
+//                        textFieldShouldBeginEditing: {
+//                            
+//                        }, callbackEmojiTextField: {(emojiTextField: UIEmojiTextField) in
+//                            
+//                        })
                     Spacer()
                         .frame(
                             width: 8,

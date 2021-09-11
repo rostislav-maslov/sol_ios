@@ -88,11 +88,21 @@ extension AddTaskTextView{
 
 extension AddTaskTextView{
     var iconChose: some View {
-        IconFieldComponent(placeholder: "", value: $model.task.icon.data, state: $stateIcon, textFieldShouldBeginEditing: {
-            
-        }, callbackEmojiTextField: { (emojiTextField:UIEmojiTextField) in
-            
-        })
+//        IconFieldComponent(
+//            placeholder: "",
+//            getValue: {
+//                return model.task.icon.data
+//            },
+//            setValue: { newValue in
+//                model.task.icon.data = newValue
+//            },
+//
+//            textFieldShouldBeginEditing: {
+//
+//        }, callbackEmojiTextField: { (emojiTextField:UIEmojiTextField) in
+//
+//        })
+        Text("d")
     }
 }
 

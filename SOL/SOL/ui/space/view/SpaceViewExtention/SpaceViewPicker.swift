@@ -17,7 +17,7 @@ extension SpaceView {
                 Text("Tasks").tag(0)
                 Text("Details").tag(1)
             }
-            .id(self.model.listIdHack)
+            .id("SpaceViewPicker" + spaceStore.lastUpdateUUID.uuidString)
             .pickerStyle(SegmentedPickerStyle())
             Spacer().frame(width: 12, height: 1, alignment: .center)
         }

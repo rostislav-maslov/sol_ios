@@ -10,6 +10,7 @@ import SwiftUI
 struct SpaceItemView: View {
     var spaceId: String
     @EnvironmentObject var spaceStore: SpaceStore
+    @EnvironmentObject var taskStore: TaskStore
     
     var body: some View {
         ZStack{
@@ -42,7 +43,12 @@ struct SpaceItemView: View {
                 }
                 Spacer().frame(width: 1, height: 12, alignment: .center)
             }
-        }        
+            
+        }.onAppear(perform: {
+            for task in spaceStore.spaces[spaceId]!.tasks {
+                taskStore.syncTask(taskId: task.id)
+            }
+        })
     }
 }
 

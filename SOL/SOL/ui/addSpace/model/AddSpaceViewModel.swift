@@ -19,7 +19,7 @@ public class AddSpaceViewModel: ObservableObject {
     }
     
     private var disposables = Set<AnyCancellable>()
-    private let port:SpaceRepositoryPort = SolApiService.api().space as! SpaceRepositoryPort
+    private let port:SpaceRepositoryPort = SolApiService.api().space 
     
     func create() -> Void {
         if self.state != .LOADING {

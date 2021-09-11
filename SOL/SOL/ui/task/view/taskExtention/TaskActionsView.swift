@@ -167,7 +167,7 @@ extension TaskView{
     
     var doneActionView: some View {
         VStack{
-            if (model.task.status == .OPEN){
+            if (taskStore.tasks[taskId]?.status == .OPEN){
                 ActionButtonView(
                     title: "Done",
                     titleColor: SolColor.colors().checkBox.undoneBackground,

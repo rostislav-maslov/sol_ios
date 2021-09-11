@@ -26,7 +26,7 @@ import SwiftUI
 struct AddTaskRootView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var model:AddTaskViewModel
-    @Binding var parentTitle:String
+    var parentTitle:String?
     
     var body: some View {
         ZStack{
@@ -92,11 +92,7 @@ struct AddTaskRootView: View {
 struct AddTaskRootView_Previews: PreviewProvider {
     static var previews: some View {
         AddTaskRootView( model:
-                            AddTaskViewModel("", parentTaskId: ""), parentTitle: Binding<String>(get: {
-                                return "value.wrappedValue"
-                            }, set: { (newValue: String) in
-                                
-                            }))
+                            AddTaskViewModel("", parentTaskId: ""), parentTitle: "")
             .preferredColorScheme(.light)
         
     }

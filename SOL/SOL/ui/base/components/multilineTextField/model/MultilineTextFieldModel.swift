@@ -21,24 +21,16 @@ public class MultilineTextFieldModel: NSObject, ObservableObject, UITextViewDele
     
     public var delegate: MultilineTextFieldProtocol?
     
-    //public var titleSizeDidChange: ((_ size: CGFloat) -> Void)?
-    
     public func textViewDidChange(_ textView: UITextView) {
         let sizeThatFitsTextView = textView.sizeThatFits(CGSize(width: textView.frame.size.width, height: CGFloat(MAXFLOAT)))
         let heightOfText = sizeThatFitsTextView.height + 10
         
-        //if self.detectFirstSizeTitle == false {
             DispatchQueue.main.async {
                 self.titleSize = heightOfText
                 self.firstSizeTitle = sizeThatFitsTextView.height
                 self.detectFirstSizeTitle = true
                 print(self.titleSize)
-                //self.titleSizeDidChange?(self.titleSize)
             }
-            //delegate.textViewDidChange?(uiView)
-        //}
-        
-        //self.frame(height: heightOfText)
         delegate?.textDidChange(text: textView.text)
     }
     
@@ -48,7 +40,6 @@ public class MultilineTextFieldModel: NSObject, ObservableObject, UITextViewDele
             delegate?.textEditFinish(text: textView.text)
             return false
         }
-        //delegate?.textDidChange(text: textView.text)
         return true
     }
     

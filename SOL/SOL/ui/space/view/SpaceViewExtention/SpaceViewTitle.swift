@@ -17,29 +17,30 @@ extension SpaceView {
                 Spacer().frame(width: 0, height: 2, alignment: .center)
                 IconFieldComponent(
                     placeholder: "🪐",
-                    value: $model.space.icon.data,
-                    state: $model.state, textFieldShouldBeginEditing: {
+                    spaceId: self.spaceId,
+                    textFieldShouldBeginEditing: {
                         model.bottomButtonType = BottomButtonType.CLOSE_ICON_FIELD
-                    }, callbackEmojiTextField: { (emojiTextField:UIEmojiTextField) in
-                        
-                        model.emojiTextField = emojiTextField
+                    },
+                    callbackEmojiTextField: { (emojiTextField:UIEmojiTextField) in
+                        self.model.emojiTextField = emojiTextField
                     })
             })
             
             VStack(alignment: .leading, spacing: 0, content: {
-                MultilineTextFieldView(
-                    text: $model.space.title,
-                    model: multilineTextFieldModel,
-                    textColor: UIColor(SolColor.colors().checkBox.undoneBackground),
-                    textSize: 24)
-                    .font(SolFonts.font(
-                            size: 24,
-                            weight: Font.Weight.medium,
-                            color: SolColor.colors().checkBox.undoneBackground))
-                    .frame(                        
-                        height: multilineTextFieldModel.titleSize
-                        )
-                    .foregroundColor(SolColor.colors().checkBox.doneBackground)                
+                SpaceTitleView(spaceId: self.model.spaceId)
+//                MultilineTextFieldView(
+//                    text: model.space.title,
+//                    model: multilineTextFieldModel,
+//                    textColor: UIColor(SolColor.colors().checkBox.undoneBackground),
+//                    textSize: 24)
+//                    .font(SolFonts.font(
+//                            size: 24,
+//                            weight: Font.Weight.medium,
+//                            color: SolColor.colors().checkBox.undoneBackground))
+//                    .frame(
+//                        height: multilineTextFieldModel.titleSize
+//                        )
+//                    .foregroundColor(SolColor.colors().checkBox.doneBackground)
             })
         
             Spacer().frame(width: 8, height: 1, alignment: .center)
@@ -50,7 +51,7 @@ extension SpaceView {
 struct SpaceTitleView_Previews: PreviewProvider {
     
     static var previews: some View {
-        SpaceView(model: SpaceViewModel("1111"))
+        SpaceView(spaceId: SpaceViewModel("1111").spaceId)
     }
 }
 

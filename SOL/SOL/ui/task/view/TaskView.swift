@@ -10,14 +10,18 @@ import SwiftUI
 import NavigationStack
 
 struct TaskView: View {
-    @ObservedObject  var model: TaskViewModel
-    @EnvironmentObject var navigationStack: NavigationStack
-    @ObservedObject var multilineTextFieldModel:MultilineTextFieldModel = MultilineTextFieldModel()
-    @State var isTarget:Bool = true
+    var taskId: String
     
-    init(model: TaskViewModel){
-        self.model = model
-        self.multilineTextFieldModel.delegate = model
+    @EnvironmentObject var taskStore: TaskStore
+    @EnvironmentObject var spaceStore: SpaceStore
+    
+    @ObservedObject var model: TaskViewModel
+    @EnvironmentObject var navigationStack: NavigationStack
+       
+    init(taskId: String){
+        self.taskId = taskId
+        self.model = TaskViewModel(taskId: taskId)
+            
         NavigationBarHelper.updateHeightDelta()
     }
     
@@ -30,14 +34,13 @@ struct TaskView: View {
             if model.bottomButtonType == BottomButtonType.ADD_TASK {
                 AddTaskRootView(
                     model: AddTaskViewModel(
-                        model.task.spaceId,
-                        parentTaskId: model.taskId,
-                        taskDidCreated: model.taskDidCreated),
-                    parentTitle: $model.task.title)
+                        taskStore.tasks[taskId]!.spaceId,
+                        parentTaskId: model.taskId),
+                    parentTitle: taskStore.tasks[taskId]?.title)
             }
             if model.bottomButtonType == BottomButtonType.CLOSE_ICON_FIELD {
                 DoneKeyboardButtonView(action: {
-                    model.saveTitleIcon()
+                    taskStore.saveTitleIcon(taskId: taskId)
                     model.emojiTextField?.endEditing(false)
                     model.bottomButtonType = BottomButtonType.ADD_TASK
                 })
@@ -47,14 +50,16 @@ struct TaskView: View {
         .navigationBarHidden(true)
         .preferredColorScheme(.light)        
         .onAppear(perform: {
-            self.model.load()
+            self.model.taskStore = taskStore
+            taskStore.syncTask(taskId: taskId)
+            //self.model.load()
         })
     }           
 }
 
-struct TaskView_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskView(model: TaskViewModel(task: TaskEntity.forRender()))
-    }
-}
+//struct TaskView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TaskView(model: TaskViewModel(task: TaskEntity.forRender()))
+//    }
+//}
 

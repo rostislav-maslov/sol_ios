@@ -11,15 +11,16 @@ import NavigationStack
 
 extension SpacesView {
     var spacesList: some View {
-        VStack{
-                        
+        VStack{                        
             ForEach(spaceStore.spacesOrdered, id: \.id) { space in
                 VStack{
                     PushView(
-                        destination:  SpaceView(model: SpaceViewModel(space.id))) {
+                        destination: SpaceView(spaceId: space.id),
+                        destinationId: "SpaceView") {
                         Spacer().frame(width: 1, height: 12, alignment: .center)
                         SpaceItemView(spaceId: space.id)
-                    }.onDrag {
+                    }                 
+                    .onDrag {
                         let item = NSItemProvider(object: NSString(string: space.id))
                         item.suggestedName = space.id
                         return item

@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 
 struct MultilineTextFieldView: UIViewRepresentable {
-    @Binding var text: String
+    var text: String
     @ObservedObject var model: MultilineTextFieldModel
     
     var textColor: UIColor

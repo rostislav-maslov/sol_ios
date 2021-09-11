@@ -12,41 +12,53 @@ import NavigationStack
 
 
 public struct SpaceView: View {
-    @ObservedObject var model: SpaceViewModel
-    @ObservedObject var multilineTextFieldModel:MultilineTextFieldModel = MultilineTextFieldModel()
+    var spaceId: String
+    @ObservedObject var model: SpaceViewModel    
     @EnvironmentObject var navigationStack: NavigationStack
+    
+    @EnvironmentObject var taskStore: TaskStore
+    @EnvironmentObject var spaceStore: SpaceStore
+    
     @State public var isEditable = true
     @State var isTarget = true
-    init(model: SpaceViewModel){
-        self.model = model
-        self.multilineTextFieldModel.delegate = model        
+    
+    var emojiTextField: EmojiTextField?    
+    
+    init(spaceId: String){
+        self.spaceId = spaceId
+        self.model = SpaceViewModel(spaceId)
     }
     
     public var body: some View {        
         ZStack {
             content
+                
             SolNavigationView()
             if model.bottomButtonType == BottomButtonType.ADD_TASK {
                 AddTaskRootView(
                     model: AddTaskViewModel(
                         model.spaceId,
-                        parentTaskId: nil,
-                        taskDidCreated: model.taskDidCreated),
-                    parentTitle: $model.space.title)
+                        parentTaskId: nil),
+                    parentTitle: "")
             }
             if model.bottomButtonType == BottomButtonType.CLOSE_ICON_FIELD {
-                DoneKeyboardButtonView(action: {
-                    model.saveTitleIcon()
-                    model.emojiTextField?.endEditing(false)
+                DoneKeyboardButtonView(action: {                                        
                     model.bottomButtonType = BottomButtonType.ADD_TASK
+                    model.emojiTextField?.endEditing(true)
+                    spaceStore.saveTitleIcon(
+                        spaceId: spaceId,
+                        title: spaceStore.spaces[spaceId]!.title,
+                        data: spaceStore.spaces[spaceId]!.icon.data)
                 })
             }
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
         .preferredColorScheme(.light)
         .onAppear(perform: {
-            self.model.load()
+            self.spaceStore.sync(spaceId: self.spaceId)
+            print(self.spaceStore.spaces[self.spaceId]!.title)
+            //self.model.spaceStore = self.spaceStore
+            //self.model.load()
         })
     }
 }
@@ -54,7 +66,7 @@ public struct SpaceView: View {
 struct SpaceView_Previews: PreviewProvider {
     
     static var previews: some View {
-        SpaceView(model: SpaceViewModel.forRender())
+        SpaceView(spaceId: SpaceViewModel.forRender().spaceId)
     }
 }
 

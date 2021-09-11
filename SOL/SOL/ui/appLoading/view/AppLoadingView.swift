@@ -6,31 +6,41 @@
 //
 
 import SwiftUI
+import NavigationStack
 
 struct AppLoadingView: View {
     @ObservedObject var viewModel: AppLoadingViewModel = AppLoadingViewModel()
-    
+    @State var goToSpace = false
     init() {
         NavigationBarHelper.updateHeightDelta()
     }
     
     var body: some View {
-        NavigationView{
+//        NavigationView{
+        NavigationStackView{
             VStack{
-                NavigationLink(
+                PushView(
                     destination: LoginUIView(),
                     isActive: $viewModel.goToLogin) {}
-                NavigationLink(
+                PushView(
                     destination: SpacesView(),//TestView()
-                    isActive: $viewModel.goToSpaces) {}
+                    isActive: $goToSpace) {}
+                
                 ProgressView()
-            }.navigationBarHidden(true)
+            }
+            .id(viewModel.id)
+            .navigationBarHidden(true)
         }
         .navigationBarHidden(true)
+        .accentColor( .black)
         .environmentObject(SpaceStore())
         .environmentObject(TaskStore())
         .environmentObject(EnvStore())
-        .onAppear(perform: viewModel.refresh)
+        .onAppear(perform: {
+            viewModel.refresh { result in
+                self.goToSpace = result
+            }
+        })
     }
 }
 
