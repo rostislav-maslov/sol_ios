@@ -7,18 +7,13 @@
 
 import Foundation
 
-public class TaskTitleModel: ObservableObject, MultilineTextFieldProtocol{
+public class TaskTitleModel: ObservableObject{
     var taskStore: TaskStore?
     var taskId: String
     init(taskId: String){        
         self.taskId = taskId
     }
     
-    public func textDidChange(text: String){
-        taskStore?.tasks[taskId]?.title = text
-    }
-    public func textEditFinish(text: String){
-        taskStore?.saveTitleIcon(taskId: taskId)
-    }
+   
     
 }

@@ -28,19 +28,6 @@ extension SpaceView {
             
             VStack(alignment: .leading, spacing: 0, content: {
                 SpaceTitleView(spaceId: self.model.spaceId)
-//                MultilineTextFieldView(
-//                    text: model.space.title,
-//                    model: multilineTextFieldModel,
-//                    textColor: UIColor(SolColor.colors().checkBox.undoneBackground),
-//                    textSize: 24)
-//                    .font(SolFonts.font(
-//                            size: 24,
-//                            weight: Font.Weight.medium,
-//                            color: SolColor.colors().checkBox.undoneBackground))
-//                    .frame(
-//                        height: multilineTextFieldModel.titleSize
-//                        )
-//                    .foregroundColor(SolColor.colors().checkBox.doneBackground)
             })
         
             Spacer().frame(width: 8, height: 1, alignment: .center)

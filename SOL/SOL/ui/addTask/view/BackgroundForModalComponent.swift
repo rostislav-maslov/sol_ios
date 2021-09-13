@@ -9,6 +9,9 @@ import SwiftUI
 
 struct BackgroundView: View {
     var didTouch: () -> Void
+    
+    
+    
     var body: some View {
         Button(action: didTouch, label: {
             Rectangle()

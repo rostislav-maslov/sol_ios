@@ -12,8 +12,7 @@ extension TaskView{
     var header: some View {
         VStack(alignment: .leading, spacing: nil, content: {
             headerSpacer
-            taskTitle
-            Spacer().frame(width: 1, height: .infinity, alignment: .center)
+            taskTitle            
         })
     }
 }

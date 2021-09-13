@@ -17,7 +17,7 @@ struct TaskView: View {
     
     @ObservedObject var model: TaskViewModel
     @EnvironmentObject var navigationStack: NavigationStack
-       
+    
     init(taskId: String){
         self.taskId = taskId
         self.model = TaskViewModel(taskId: taskId)                    
@@ -52,8 +52,9 @@ struct TaskView: View {
         .preferredColorScheme(.light)        
         .onAppear(perform: {
             self.model.taskStore = taskStore
-            taskStore.syncTask(taskId: taskId)
-            //self.model.load()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                self.taskStore.syncTask(taskId: taskId)
+            }
         })
     }           
 }

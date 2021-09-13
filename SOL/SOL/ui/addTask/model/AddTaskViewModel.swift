@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import SwiftUI
 
-public class AddTaskViewModel: ObservableObject {
+public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol {
     var spaceId: String?
     var parentTaskId: String?
     var taskStore: TaskStore?
@@ -22,6 +22,7 @@ public class AddTaskViewModel: ObservableObject {
     @Published var sheets: SheetsState = SheetsState()
     @Published var buttonState: ButtonState = ButtonState()
     @Published var loadingStatus: ViewState = ViewState.NORMAL
+    @Published var titleTextSize: CGFloat = 45.0
     
     private var disposables = Set<AnyCancellable>()
     private let port:TaskRepositoryPort = SolApiService.api().task as TaskRepositoryPort
@@ -177,9 +178,7 @@ extension AddTaskViewModel {
         self.loadingStatus = .NORMAL
         self.state = AddTaskState.PLACEHOLDER
         self.task = TaskEntity()
-        self.taskDidCreated()
-        
-        
+        self.taskDidCreated()                
     }
 }
 
@@ -190,5 +189,23 @@ extension AddTaskViewModel{
         }
         createTask()
         clean()
+    }
+}
+
+// M
+extension AddTaskViewModel {
+    public func textDidChange(text: String){
+        self.task.title = text        
+    }
+    public func textEditFinish(text: String){
+        self.submit()
+    }
+    public func titleSizeDidChange(titleSize: CGFloat){
+        if self.titleTextSize != titleSize {
+            self.titleTextSize = titleSize
+        }
+    }
+    public func multilineTextFieldView(view: UITextView){
+        view.becomeFirstResponder()
     }
 }

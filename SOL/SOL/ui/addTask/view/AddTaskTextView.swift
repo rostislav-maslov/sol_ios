@@ -16,6 +16,12 @@ struct AddTaskTextView: View {
     @EnvironmentObject var taskStore: TaskStore
     @EnvironmentObject var spaceStore: SpaceStore
     
+    @State var title: String  = ""
+    
+    init(model: AddTaskViewModel){
+        self.model = model
+    }
+    
     var body: some View {
         ZStack{
             backgroundView
@@ -41,6 +47,7 @@ struct AddTaskTextView: View {
                 
             }
         }
+        .frame(width: .infinity)
         .onAppear(perform: {
             print("AddTaskTextView - did appear")
             model.taskStore = taskStore
@@ -54,7 +61,7 @@ extension AddTaskTextView{
         Rectangle()
             .fill(SolColor.colors().addTask.addTaskBackground)
             .cornerRadius(12, corners: [.topLeft, .topRight])
-            .frame(width: .infinity, height: 102, alignment: .center)
+            .frame(width: .infinity, height: 64 + self.model.titleTextSize, alignment: .center)
     }
 }
 
@@ -67,46 +74,57 @@ extension AddTaskTextView{
     
     var titleField: some View {
         HStack{
-            AddTaskTextFieldView(
-                text: $model.task.title,
-                textFieldShouldBeginEditing: {
-                },
-                placeholder: "Type your task") { (textField: UITextField) in
-                textField.becomeFirstResponder()
+            Spacer().frame(width: 8)
+            MultilineTextFieldView(
+                text: model.task.title,
+                textColor: SolColor.colors().checkBox.undoneBackground,
+                textSize: 16)
+            { textDidChange in
+                if textDidChange != self.model.task.title {
+                        model.task.title = textDidChange
+                }
+                self.title = textDidChange
+            } textEditFinish: { textEditFinish in
+                
+                    model.task.title = textEditFinish
+                    model.submit()
+                
+            } titleSizeDidChange: { titleSize in
+                if titleSize != self.model.titleTextSize {
+                        self.model.titleTextSize = titleSize
+                }
+            } multilineTextFieldView: { textView in
+                textView.becomeFirstResponder()
             }
-            .frame(width: .infinity, height: 16, alignment: .center)
-            .padding()
-            
-            
-            
-//            TextField("Type your task", text: $model.task.title)
-//                .font(
-//                    SolFonts.font(
-//                        size: 16,
-//                        weight: Font.Weight.medium,
-//                        color: SolColor.colors().fontColors.normal))
-//                .padding()
-            
-        }
+            .font(SolFonts.font(
+                    size: 24,
+                    weight: Font.Weight.medium,
+                    color: SolColor.colors().checkBox.undoneBackground))
+            .frame(
+                height: self.model.titleTextSize
+            )
+            .foregroundColor(SolColor.colors().checkBox.doneBackground)
+            Spacer().frame(width: 8)
+        }.frame(width: UIScreen.main.bounds.width)
     }
 }
 
 extension AddTaskTextView{
     var iconChose: some View {
-//        IconFieldComponent(
-//            placeholder: "",
-//            getValue: {
-//                return model.task.icon.data
-//            },
-//            setValue: { newValue in
-//                model.task.icon.data = newValue
-//            },
-//
-//            textFieldShouldBeginEditing: {
-//
-//        }, callbackEmojiTextField: { (emojiTextField:UIEmojiTextField) in
-//
-//        })
+        //        IconFieldComponent(
+        //            placeholder: "",
+        //            getValue: {
+        //                return model.task.icon.data
+        //            },
+        //            setValue: { newValue in
+        //                model.task.icon.data = newValue
+        //            },
+        //
+        //            textFieldShouldBeginEditing: {
+        //
+        //        }, callbackEmojiTextField: { (emojiTextField:UIEmojiTextField) in
+        //
+        //        })
         Text("d")
     }
 }
@@ -155,10 +173,12 @@ extension AddTaskTextView{
             model.submit()
         }, label: {
             Image("add_task_submit")
-                .background(model.task.title.count > 0 ? SolColor.colors().addTask.taskButtonActiveColor : SolColor.colors().addTask.taskButtonDefaultColor)
+                .background(title.count > 0 ? SolColor.colors().addTask.taskButtonActiveColor : SolColor.colors().addTask.taskButtonDefaultColor)
                 .cornerRadius(12.0)
                 .frame(width: 16, height: 16, alignment: .center)
-        }).disabled(model.task.title.count == 0)
+        })
+        //.id("AddTaskTextView_submitButton_\(model.task.title.count)")
+        .disabled(model.task.title.count == 0)
     }
 }
 

@@ -10,7 +10,7 @@ import NavigationStack
 
 struct AppLoadingView: View {
     @ObservedObject var viewModel: AppLoadingViewModel = AppLoadingViewModel()
-    @State var goToSpace = false
+    @State var goToState:AppLoadingState?
     
 //    var spaceStore: SpaceStore
 //    var taskStore: TaskStore
@@ -18,18 +18,19 @@ struct AppLoadingView: View {
     
     init() {
         NavigationBarHelper.updateHeightDelta()
+        goToState = .INIT
     }
     
     var body: some View {
 //        NavigationView{
         NavigationStackView{
             VStack{
-                PushView(
-                    destination: LoginUIView(),
-                    isActive: $viewModel.goToLogin) {}
-                PushView(
-                    destination: SpacesView(),//TestView()
-                    isActive: $goToSpace) {}
+                PushView(destination: LoginUIView(), tag: AppLoadingState.LOGIN, selection: $goToState) {
+                    
+                }
+                PushView(destination: SpacesView(), tag: AppLoadingState.SPACES, selection: $goToState) {
+                    
+                }
                 
                 ProgressView()
             }
@@ -43,7 +44,7 @@ struct AppLoadingView: View {
         .environmentObject(EnvStore())
         .onAppear(perform: {
             viewModel.refresh { result in
-                self.goToSpace = result
+                self.goToState = result
             }
         })
     }

@@ -14,7 +14,7 @@ extension SpaceView {
         // Тут пул ту рефреш
         // https://swiftui-lab.com/scrollview-pull-to-refresh/
         ScrollView(.vertical, showsIndicators: false) {
-            ScrollViewReader { (value:ScrollViewProxy) in
+            //ScrollViewReader { (value:ScrollViewProxy) in
                 header
                 actionsTitle
                 actionsButton
@@ -22,9 +22,9 @@ extension SpaceView {
                 pickerContainer
                     .id("endOfScrollView")                
                     .onAppear {
-                        self.model.scrollViewProxy = value                        
+              //          self.model.scrollViewProxy = value                        
                     }
-            }
+            //}
         }
         .background(SolColor.colors().screen.background)
         .ignoresSafeArea(.all)

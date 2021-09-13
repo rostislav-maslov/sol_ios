@@ -35,7 +35,10 @@ public struct SpaceView: View {
                 
             SolNavigationView()
             if model.bottomButtonType == BottomButtonType.ADD_TASK {
-                AddTaskRootView(spaceId: self.spaceId, parentTaskId: nil, taskDidCreated: {
+                AddTaskRootView(
+                    spaceId: self.spaceId,
+                    parentTaskId: nil,
+                    taskDidCreated: {
                     withAnimation {
                         self.model.scrollViewProxy?
                             .scrollTo(
@@ -61,9 +64,6 @@ public struct SpaceView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 self.spaceStore.sync(spaceId: self.spaceId)
             }
-            
-            //self.model.spaceStore = self.spaceStore
-            //self.model.load()
         })
     }
 }

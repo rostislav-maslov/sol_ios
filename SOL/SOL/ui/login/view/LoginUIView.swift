@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NavigationStack
 
 struct LoginUIView: View {
     @State private var enter:String = ""
@@ -100,7 +101,7 @@ struct LoginUIView: View {
                             .frame(height: 16.0)
                         //-------------
                         
-                        NavigationLink(destination: LoginByEmailView(), tag: 1, selection: $navigationSelection) { EmptyView() }
+                        PushView(destination: LoginByEmailView(), tag: 1, selection: $navigationSelection) { EmptyView() }
                         Button(action: {
                             self.onClickEmail()
                         }) {

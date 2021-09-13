@@ -30,8 +30,7 @@ struct AddTaskRootView: View {
     @ObservedObject var model: AddTaskViewModel
     @EnvironmentObject var taskStore: TaskStore
     @EnvironmentObject var spaceStore: SpaceStore
-    
-    
+        
     init(spaceId: String?, parentTaskId: String?, taskDidCreated:  @escaping (() -> Void)){
         self.spaceId = spaceId
         self.parentTaskId = parentTaskId
@@ -55,36 +54,17 @@ struct AddTaskRootView: View {
             }
             VStack {
                 Spacer()
-                
-                VStack {
-                    HStack {
-                        ZStack{
-                            if self.model.state == AddTaskState.PLACEHOLDER {
-                                PlaceholderTaskView(model: model)
-                            }
-                            if self.model.state == AddTaskState.TEXT ||
-                                self.model.state == AddTaskState.DEADLINE{
-                                AddTaskTextView(model: model)
-                                //                                    .sheet(isPresented: $model.sheetStatus.days, content: {
-                                //                                        Text("days")
-                                //                                    }).colorScheme(ColorScheme.light)
-                                //
-                                //                                    .sheet(isPresented: $model.sheetStatus.notification, content: {
-                                //                                        Text("notification")
-                                //                                    }).colorScheme(ColorScheme.light)
-                                //
-                                //                                    .sheet(isPresented: $model.sheetStatus.repeatVar, content: {
-                                //                                        Text("repeatVar")
-                                //                                    }).colorScheme(ColorScheme.light)
-                            }
-                            if self.model.state == AddTaskState.PLANNING{
-                                ChooseEventTimeComponent(model: model).colorScheme(ColorScheme.light)
-                            }
-                        }
+                    if self.model.state == AddTaskState.PLACEHOLDER {
+                        PlaceholderTaskView(model: model)
                     }
-                }
-                
-                
+                    if self.model.state == AddTaskState.TEXT ||
+                        self.model.state == AddTaskState.DEADLINE{
+                        AddTaskTextView(model: model)
+                    }
+                    if self.model.state == AddTaskState.PLANNING{
+                        ChooseEventTimeComponent(model: model).colorScheme(ColorScheme.light)
+                    }                
+                                                                
                 EmptyView().sheet(
                     isPresented: $model.sheets.deadline,
                     onDismiss: {
