@@ -118,8 +118,8 @@ extension ChooseEventTimeComponent{
     }
 }
 
-struct ChooseEventTimeComponent_Previews: PreviewProvider {
-    static var previews: some View {
-        ChooseEventTimeComponent(model: AddTaskViewModel("", parentTaskId: ""))
-    }
-}
+//struct ChooseEventTimeComponent_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ChooseEventTimeComponent(model: AddTaskViewModel("", parentTaskId: ""))
+//    }
+//}

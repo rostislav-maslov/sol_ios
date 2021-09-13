@@ -12,7 +12,7 @@ public class TaskItemViewModel: ObservableObject {
     
     var taskId:String
     var taskStore: TaskStore?
-    var changeId = UUID()
+    //var changeId = UUID()
     
     @Published var target: Bool = true
     
@@ -21,8 +21,4 @@ public class TaskItemViewModel: ObservableObject {
     }
 }
 
-extension TaskItemViewModel{
-    func onTouchCheckbox(){        
-        self.changeId = UUID()
-    }
-}
+

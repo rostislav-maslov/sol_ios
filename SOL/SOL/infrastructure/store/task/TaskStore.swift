@@ -10,7 +10,9 @@ import Combine
 
 public class TaskStore: ObservableObject {
     @Published var tasks:[String: TaskEntity] = [String: TaskEntity]()
-    @Published var lastUpdateUUID = UUID()
+    @Published var forNotifyCombine = UUID()
+    
+    var spaceStore: SpaceStore?
     
     private var disposables = Set<AnyCancellable>()
     private let port:TaskRepositoryPort = SolApiService.api().task
@@ -43,9 +45,10 @@ extension TaskStore {
                         self?.syncTask(taskId: child.id)
                     }
                     self?.tasks[taskId] = task
+                    self?.tasks[task.id]?.loadStatus = LoadStatus.SUCCESS
                 }else {
                 }
-                self?.lastUpdateUUID = UUID()
+                self?.tasks[taskId]!.lastUpdateUUID = UUID()
             }
             .store(in: &disposables)
     }
@@ -57,7 +60,7 @@ extension TaskStore {
         let task:TaskEntity = tasks[taskId]!
         
         if (task.status == TaskStatus.DONE) {
-            task.status = TaskStatus.OPEN
+            tasks[taskId]!.status = TaskStatus.OPEN
             SolPublisher<TaskEntity, Bool>(useCase: MakeTaskOpenUseCase(self.port, MakeTaskOpenUseCase.Input.of(task.id)))
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] publisherReponse in
@@ -65,14 +68,11 @@ extension TaskStore {
                         self?.tasks[taskId]!.status = publisherReponse.success!.status
                     }else {
                     }
-                    self?.lastUpdateUUID = UUID()
+                    // self?.tasks[taskId]!.lastUpdateUUID = UUID()
                 }
                 .store(in: &disposables)
-            return
-        }
-        
-        if (task.status == TaskStatus.OPEN) {
-            task.status = TaskStatus.DONE
+        } else if (task.status == TaskStatus.OPEN) {
+            tasks[taskId]!.status = TaskStatus.DONE
             SolPublisher<TaskEntity, Bool>(useCase: MakeTaskDoneUseCase(self.port, MakeTaskDoneUseCase.Input.of(task.id)))
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] publisherReponse in
@@ -80,11 +80,14 @@ extension TaskStore {
                         self?.tasks[taskId]!.status = publisherReponse.success!.status
                     }else {
                     }
-                    self?.lastUpdateUUID = UUID()
+                    // self?.tasks[taskId]!.lastUpdateUUID = UUID()
                 }
                 .store(in: &disposables)
-            return
         }
+        
+        // NOTE: - Обновляем ласт апдейт что бы вю узнало об обновлении
+        tasks[taskId]!.lastUpdateUUID = UUID()
+        self.forNotifyCombine = UUID()
     }
     
     func saveTitleIcon(taskId: String) {
@@ -104,7 +107,7 @@ extension TaskStore {
                 if publisherReponse.success != nil {
                 }else {                    
                 }
-                self?.lastUpdateUUID = UUID()
+                self?.tasks[taskId]!.lastUpdateUUID = UUID()
             }
             .store(in: &disposables)
     }
@@ -184,6 +187,45 @@ extension TaskStore {
                         self?.syncTask(taskId: taskId)
                     }
                 }else {
+                }
+            }
+            .store(in: &disposables)
+    }
+}
+
+extension TaskStore {
+    func create( title: String,
+                 emoji: String,
+                 parentTaskId: String?,
+                 spaceId: String?){
+        SolPublisher<TaskEntity, Bool>(useCase:
+                                        CreateTaskUseCase(self.port,
+                                                          CreateTaskUseCase.Input.init(
+                                                            title: title,
+                                                            emoji: emoji,
+                                                            parentTaskId: parentTaskId,
+                                                            spaceId: spaceId)))
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                if(result.success != nil) {
+                    let task = result.success!
+                    self?.tasks[task.id] = task
+                    self?.tasks[task.id]?.loadStatus = LoadStatus.SUCCESS
+                    if parentTaskId != nil {
+                        self?.tasks[parentTaskId!]?.child.append(task)
+                    }else {
+                        if spaceId != nil {
+                            self?.spaceStore?.spaces[spaceId!]!.tasks.append(task)
+                            self?.spaceStore?.spaces[spaceId!]!.lastUpdateUUID = UUID()
+                        }
+                    }
+                    if parentTaskId != nil && self?.tasks[parentTaskId!] != nil {
+                        self?.tasks[parentTaskId!]!.lastUpdateUUID = UUID()
+                    }
+                    if self?.spaceStore?.spaces[task.spaceId!] != nil {
+                        self?.spaceStore?.spaces[task.spaceId!]?.lastUpdateUUID = UUID()
+                    }
+                    
                 }
             }
             .store(in: &disposables)

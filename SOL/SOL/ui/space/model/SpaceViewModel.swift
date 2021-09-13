@@ -25,8 +25,7 @@ public class SpaceViewModel: NSObject, ObservableObject{
         
     @Published var bottomButtonType: BottomButtonType = BottomButtonType.ADD_TASK
     var emojiTextField:UIEmojiTextField?
-    
-    
+            
     public var scrollViewProxy:ScrollViewProxy?
     
     private var disposables = Set<AnyCancellable>()

@@ -24,9 +24,19 @@ import SwiftUI
 //}
 
 struct AddTaskRootView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @ObservedObject var model:AddTaskViewModel
-    var parentTitle:String?
+    var spaceId: String?
+    var parentTaskId: String?
+    
+    @ObservedObject var model: AddTaskViewModel
+    @EnvironmentObject var taskStore: TaskStore
+    @EnvironmentObject var spaceStore: SpaceStore
+    
+    
+    init(spaceId: String?, parentTaskId: String?, taskDidCreated:  @escaping (() -> Void)){
+        self.spaceId = spaceId
+        self.parentTaskId = parentTaskId
+        self.model = AddTaskViewModel(spaceId, parentTaskId: parentTaskId, taskDidCreated: taskDidCreated)
+    }
     
     var body: some View {
         ZStack{
@@ -85,15 +95,17 @@ struct AddTaskRootView: View {
                     })
                 
             }
-        }
+        }.onAppear(perform: {
+            self.model.spaceStore = spaceStore
+            self.model.taskStore = taskStore
+        })
     }
 }
 
-struct AddTaskRootView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddTaskRootView( model:
-                            AddTaskViewModel("", parentTaskId: ""), parentTitle: "")
-            .preferredColorScheme(.light)
-        
-    }
-}
+//struct AddTaskRootView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddTaskRootView( spaceId:"", parentTaskId: "")
+//            .preferredColorScheme(.light)
+//        
+//    }
+//}

@@ -42,6 +42,7 @@
 		4F48256126C4F9FF001ABE87 /* TaskSubtaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48256026C4F9FF001ABE87 /* TaskSubtaskView.swift */; };
 		4F48256326C55157001ABE87 /* MakeTaskDoneUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48256226C55157001ABE87 /* MakeTaskDoneUseCase.swift */; };
 		4F48256526C55168001ABE87 /* MakeTaskOpenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48256426C55168001ABE87 /* MakeTaskOpenUseCase.swift */; };
+		4F4C04E426EEE94B0032728C /* LoadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4C04E326EEE94B0032728C /* LoadStatus.swift */; };
 		4F4FA2AA26E9A86400872EE7 /* NavigationBarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FA2A926E9A86400872EE7 /* NavigationBarHelper.swift */; };
 		4F4FA2AD26E9A92200872EE7 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FA2AC26E9A92200872EE7 /* DeviceModel.swift */; };
 		4F4FA2AF26E9A97C00872EE7 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FA2AE26E9A97C00872EE7 /* Device.swift */; };
@@ -239,6 +240,7 @@
 		4F48256026C4F9FF001ABE87 /* TaskSubtaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSubtaskView.swift; sourceTree = "<group>"; };
 		4F48256226C55157001ABE87 /* MakeTaskDoneUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTaskDoneUseCase.swift; sourceTree = "<group>"; };
 		4F48256426C55168001ABE87 /* MakeTaskOpenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTaskOpenUseCase.swift; sourceTree = "<group>"; };
+		4F4C04E326EEE94B0032728C /* LoadStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadStatus.swift; sourceTree = "<group>"; };
 		4F4FA2A926E9A86400872EE7 /* NavigationBarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarHelper.swift; sourceTree = "<group>"; };
 		4F4FA2AC26E9A92200872EE7 /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
 		4F4FA2AE26E9A97C00872EE7 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
@@ -1457,6 +1459,7 @@
 			isa = PBXGroup;
 			children = (
 				4F61FD6426A16C2B00D83F2D /* IconEntity.swift */,
+				4F4C04E326EEE94B0032728C /* LoadStatus.swift */,
 			);
 			path = entity;
 			sourceTree = "<group>";
@@ -1851,9 +1854,9 @@
 		4FFC21A426312DFA00198E4B /* domain */ = {
 			isa = PBXGroup;
 			children = (
+				4FA828BF2696E83600540CFF /* base */,
 				4F61FD5E26A16A6700D83F2D /* space */,
 				4FA828DA2699C00D00540CFF /* task */,
-				4FA828BF2696E83600540CFF /* base */,
 				4FA828B82696E29300540CFF /* user */,
 				4FA828B72696E27300540CFF /* needRefuctor */,
 			);
@@ -2264,6 +2267,7 @@
 				4F4FA2AD26E9A92200872EE7 /* DeviceModel.swift in Sources */,
 				4FFBE4F026C24D1E00A79D81 /* TaskRepositoryPort.swift in Sources */,
 				4F9307EA265E1DAE00204881 /* AuthRoutes.swift in Sources */,
+				4F4C04E426EEE94B0032728C /* LoadStatus.swift in Sources */,
 				4FEA6B1C26D0EE1C00876D7C /* SpaceViewHeader.swift in Sources */,
 				4FCB321626E1FD86003A470A /* SpacesViewAddSpace.swift in Sources */,
 				4F87F7B12658F18B0094C946 /* TLDeadlineComponent.swift in Sources */,

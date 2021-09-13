@@ -31,6 +31,7 @@ public class TaskViewModel: NSObject, ObservableObject {
     
     private var disposables = Set<AnyCancellable>()
     private let port:TaskRepositoryPort = SolApiService.api().task
+    
     public var scrollViewProxy:ScrollViewProxy?
     
     init(taskId: String){

@@ -13,6 +13,9 @@ struct AddTaskTextView: View {
     @State private var titleIsFocused: Field = .firstName
     @State var fieldFocus = true
     
+    @EnvironmentObject var taskStore: TaskStore
+    @EnvironmentObject var spaceStore: SpaceStore
+    
     var body: some View {
         ZStack{
             backgroundView
@@ -40,6 +43,8 @@ struct AddTaskTextView: View {
         }
         .onAppear(perform: {
             print("AddTaskTextView - did appear")
+            model.taskStore = taskStore
+            model.spaceStore = spaceStore
         })
     }
 }
@@ -157,8 +162,8 @@ extension AddTaskTextView{
     }
 }
 
-struct AddTaskTextView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddTaskTextView(model: AddTaskViewModel(nil, parentTaskId: nil))
-    }
-}
+//struct AddTaskTextView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddTaskTextView(model: AddTaskViewModel(nil, parentTaskId: nil))
+//    }
+//}

@@ -12,7 +12,6 @@ struct SpacesView: View {
     public static let VIEW_ID = "SpacesView"
     
     @ObservedObject var model = SpacesViewModel()
-    @ObservedObject var addTaskViewModel = AddTaskViewModel(nil, parentTaskId: nil)
  
     @EnvironmentObject var spaceStore: SpaceStore
     @EnvironmentObject var taskStore: TaskStore
@@ -27,14 +26,15 @@ struct SpacesView: View {
                     EmptyView()
                 }
                 content
-                AddTaskRootView(
-                    model: addTaskViewModel,
-                    parentTitle: "")
+                AddTaskRootView(spaceId: nil, parentTaskId: nil) {
+                    
+                }
             }
             .preferredColorScheme(.light)
             .onAppear(perform: {
                 model.store = self.spaceStore
                 spaceStore.taskStore = taskStore
+                taskStore.spaceStore = spaceStore
                 spaceStore.sync()
             })
         

@@ -32,6 +32,8 @@ public class TaskEntity{
     
     var slots: [SlotEntity] = []
     
+    var loadStatus: LoadStatus = LoadStatus.INITIAL
+    var lastUpdateUUID = UUID()
   
 }
 

@@ -20,9 +20,7 @@ struct TaskView: View {
        
     init(taskId: String){
         self.taskId = taskId
-        self.model = TaskViewModel(taskId: taskId)
-            
-        NavigationBarHelper.updateHeightDelta()
+        self.model = TaskViewModel(taskId: taskId)                    
     }
     
     var body: some View {
@@ -32,11 +30,14 @@ struct TaskView: View {
             SolNavigationView()            
             
             if model.bottomButtonType == BottomButtonType.ADD_TASK {
-                AddTaskRootView(
-                    model: AddTaskViewModel(
-                        taskStore.tasks[taskId]!.spaceId,
-                        parentTaskId: model.taskId),
-                    parentTitle: taskStore.tasks[taskId]?.title)
+                AddTaskRootView(spaceId: taskStore.tasks[taskId]?.spaceId, parentTaskId: taskId) {
+                    withAnimation {
+                        self.model.scrollViewProxy?
+                            .scrollTo(
+                                "endOfScrollViewTasks",
+                                anchor: .bottom)
+                    }
+                }
             }
             if model.bottomButtonType == BottomButtonType.CLOSE_ICON_FIELD {
                 DoneKeyboardButtonView(action: {

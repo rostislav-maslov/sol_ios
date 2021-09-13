@@ -14,4 +14,7 @@ public class SpaceEntity{
     var sortNum:Int = 1
     
     var tasks:[TaskEntity] = []
+    
+    var loadStatus: LoadStatus = LoadStatus.INITIAL
+    var lastUpdateUUID = UUID()
 }

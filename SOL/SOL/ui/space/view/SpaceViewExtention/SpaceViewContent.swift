@@ -11,16 +11,18 @@ import NavigationStack
 
 extension SpaceView {
     var content: some View {
+        // Тут пул ту рефреш
+        // https://swiftui-lab.com/scrollview-pull-to-refresh/
         ScrollView(.vertical, showsIndicators: false) {
             ScrollViewReader { (value:ScrollViewProxy) in
                 header
                 actionsTitle
                 actionsButton
                 picker
-                pickerContainer.id("endOfScrollView")
-                
+                pickerContainer
+                    .id("endOfScrollView")                
                     .onAppear {
-                        self.model.scrollViewProxy = value
+                        self.model.scrollViewProxy = value                        
                     }
             }
         }

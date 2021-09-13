@@ -17,7 +17,7 @@ extension TaskView {
                 actionsTitle
                 actionsButton
                 picker
-                pickerContainer.id("endOfScrollView")
+                pickerContainer.id("endOfScrollViewTasks")
                     
                     .onAppear {
                         self.model.scrollViewProxy = value

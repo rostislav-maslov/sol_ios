@@ -12,7 +12,7 @@ import SwiftUI
 public class SpaceStore: ObservableObject {
     @Published var spaces:[String: SpaceEntity] = [String: SpaceEntity]()
     @Published var spacesOrdered:[SpaceEntity] = []
-    @Published var lastUpdateUUID = UUID()
+    @Published var spaceListLastUpdateUUID = UUID()
     var taskStore: TaskStore?
     
     private var disposables = Set<AnyCancellable>()
@@ -45,13 +45,14 @@ extension SpaceStore {
             .sink { [weak self] publisherReponse in
                 if publisherReponse.success != nil {
                     for space in publisherReponse.success! {
-                        self?.spaces[space.id] = space                       
+                        self?.spaces[space.id] = space
+                        self?.spaces[space.id]?.loadStatus = LoadStatus.SUCCESS
                     }
                     self?.spacesOrdered = publisherReponse.success!
-                    for space in publisherReponse.success! {
+                    //for space in publisherReponse.success! {
                         //self?.sync(spaceId: space.id)
-                    }
-                    self?.lastUpdateUUID = UUID()
+                    //}
+                    self?.spaceListLastUpdateUUID = UUID()
                 } else {
                         //TODO: коллекционировать ошибки тут нужно
                 }
@@ -68,8 +69,7 @@ extension SpaceStore {
                         self?.taskStore?.addLazyTask(taskId: task.id)
                     }
                     self?.spaces[spaceId] = publisherReponse.success!
-                    print(self?.spaces[spaceId]?.title)
-                    self?.lastUpdateUUID = UUID()
+                    self?.spaces[spaceId]?.loadStatus = LoadStatus.SUCCESS
                 }else {
                 }
             }
@@ -82,6 +82,7 @@ extension SpaceStore {
                 for task in space.value.tasks {
                     taskStore?.syncTask(taskId: task.id)
                 }
+                spaces[space.value.id]?.lastUpdateUUID = UUID()
             }
         }
     }
@@ -89,6 +90,7 @@ extension SpaceStore {
     public func saveTitleIcon(spaceId: String, title: String, data: String){
         self.spaces[spaceId]?.title = title
         self.spaces[spaceId]?.icon.data = data
+        self.spaces[spaceId]?.lastUpdateUUID = UUID()
         
         SolPublisher<SpaceEntity, Bool>(useCase:
                                             UpdateTitleIconSpaceUseCase(
@@ -132,7 +134,7 @@ extension SpaceStore {
         }
         
         spacesOrdered.insert(space, at: dropOnSpaceIndex!)
-        lastUpdateUUID = UUID()
+        self.spaceListLastUpdateUUID = UUID()
         commitNewSort()
         return true
     }
@@ -153,7 +155,7 @@ extension SpaceStore {
         }
         let space = spacesOrdered.remove(at: draggetSpaceIndex!)
         spacesOrdered.insert(space, at: spacesOrdered.endIndex)
-        lastUpdateUUID = UUID()
+        self.spaceListLastUpdateUUID = UUID()
         commitNewSort()
         return true
     }
@@ -169,10 +171,9 @@ extension SpaceStore {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] publisherReponse in
                 if publisherReponse.success != nil {
-                    //self?.spaces = publisherReponse.success!
-                    self?.lastUpdateUUID = UUID()
+                
                 }else {                    
-                    //self?.spaces = []
+                
                 }
             }
             .store(in: &disposables)

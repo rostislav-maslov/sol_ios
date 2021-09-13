@@ -35,11 +35,14 @@ public struct SpaceView: View {
                 
             SolNavigationView()
             if model.bottomButtonType == BottomButtonType.ADD_TASK {
-                AddTaskRootView(
-                    model: AddTaskViewModel(
-                        model.spaceId,
-                        parentTaskId: nil),
-                    parentTitle: "")
+                AddTaskRootView(spaceId: self.spaceId, parentTaskId: nil, taskDidCreated: {
+                    withAnimation {
+                        self.model.scrollViewProxy?
+                            .scrollTo(
+                                "endOfScrollView",
+                                anchor: .bottom)
+                    }
+                })
             }
             if model.bottomButtonType == BottomButtonType.CLOSE_ICON_FIELD {
                 DoneKeyboardButtonView(action: {                                        
@@ -55,8 +58,10 @@ public struct SpaceView: View {
         .navigationBarTitleDisplayMode(.inline)
         .preferredColorScheme(.light)
         .onAppear(perform: {
-            self.spaceStore.sync(spaceId: self.spaceId)
-            print(self.spaceStore.spaces[self.spaceId]!.title)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                self.spaceStore.sync(spaceId: self.spaceId)
+            }
+            
             //self.model.spaceStore = self.spaceStore
             //self.model.load()
         })

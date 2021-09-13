@@ -11,6 +11,11 @@ import NavigationStack
 struct AppLoadingView: View {
     @ObservedObject var viewModel: AppLoadingViewModel = AppLoadingViewModel()
     @State var goToSpace = false
+    
+//    var spaceStore: SpaceStore
+//    var taskStore: TaskStore
+//    var spaceStore: EnvStore
+    
     init() {
         NavigationBarHelper.updateHeightDelta()
     }

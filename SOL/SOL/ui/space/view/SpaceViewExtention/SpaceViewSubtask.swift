@@ -45,7 +45,7 @@ extension SpaceView {
 //                                    return taskStore.moveTaskToEnd(parentTaskId: <#T##String#>, draggetTaskId: <#T##String#>).moveTaskToEnd(draggetTaskId: taskIdSuggest)
                                 })
                 }
-            }.id(taskStore.lastUpdateUUID)
+            }.id("SpaceView_subtasks_" + spaceStore.spaces[spaceId]!.lastUpdateUUID.uuidString)
             
             if (spaceStore.spaces[model.spaceId]!.tasks.count == 0 && model.state != .INITIALIZATION){
                 VacuumView()

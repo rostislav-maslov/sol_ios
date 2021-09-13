@@ -7,28 +7,27 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 public class AddTaskViewModel: ObservableObject {
     var spaceId: String?
     var parentTaskId: String?
+    var taskStore: TaskStore?
+    var spaceStore: SpaceStore?
+    
+    var taskDidCreated: (() -> Void)
+    
     @Published var state: AddTaskState = AddTaskState.PLACEHOLDER
     @Published var task: TaskEntity = TaskEntity()
     @Published var sheets: SheetsState = SheetsState()
     @Published var buttonState: ButtonState = ButtonState()
     @Published var loadingStatus: ViewState = ViewState.NORMAL
     
-    var taskDidCreated: ((_ taskEntity: TaskEntity) -> Void)?
-    
     private var disposables = Set<AnyCancellable>()
     private let port:TaskRepositoryPort = SolApiService.api().task as TaskRepositoryPort
     
     
-    init(_ spaceId: String?, parentTaskId: String?){
-        self.spaceId = spaceId
-        self.parentTaskId = parentTaskId
-    }
-    
-    init(_ spaceId: String?, parentTaskId: String?, taskDidCreated: @escaping ((_ taskEntity: TaskEntity) -> Void)){
+    init(_ spaceId: String?, parentTaskId: String?, taskDidCreated: @escaping (() -> Void)){
         self.spaceId = spaceId
         self.parentTaskId = parentTaskId
         self.taskDidCreated = taskDidCreated
@@ -116,7 +115,7 @@ public class AddTaskViewModel: ObservableObject {
 extension AddTaskViewModel{
     func goToText() {
         goToState(.TEXT)
-     
+        
         self.buttonState.hasSlots = self.task.slots.count > 0
         self.buttonState.hasNotification = false
         self.buttonState.hasDeadline = false
@@ -167,36 +166,20 @@ extension AddTaskViewModel {
     }
     
     public func createTask(){
-        // TODO
-//        withAnimation {
-//            self.scrollViewProxy?.scrollTo("endOfScrollView", anchor: .bottom)
-//        }
-        if self.loadingStatus != .LOADING {
-            self.loadingStatus = .LOADING
-            
-            SolPublisher<TaskEntity, Bool>(useCase:
-                                            CreateTaskUseCase(self.port,
-                                                              CreateTaskUseCase.Input.init(
-                                                                title: task.title,
-                                                                emoji: task.icon.data,
-                                                                parentTaskId: parentTaskId,
-                                                                spaceId: spaceId)))
-                .receive(on: DispatchQueue.main)
-                .sink { [weak self] result in
-                    if(result.success != nil) {
-                        self?.loadingStatus = .NORMAL
-                        self?.state = AddTaskState.PLACEHOLDER
-                        self?.task = TaskEntity()
-                        if self?.taskDidCreated != nil {
-                            self?.taskDidCreated!(result.success!)
-                        }
-                    } else {
-                        self?.loadingStatus = .ERROR
-                    }
-                    
-                }
-                .store(in: &disposables)
-        }
+        
+        self.loadingStatus = .NORMAL
+        self.state = AddTaskState.PLACEHOLDER
+        taskStore?.create( title: task.title,
+                           emoji: task.icon.data,
+                           parentTaskId: parentTaskId,
+                           spaceId: spaceId)
+        
+        self.loadingStatus = .NORMAL
+        self.state = AddTaskState.PLACEHOLDER
+        self.task = TaskEntity()
+        self.taskDidCreated()
+        
+        
     }
 }
 

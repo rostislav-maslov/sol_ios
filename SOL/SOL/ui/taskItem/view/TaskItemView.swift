@@ -34,7 +34,7 @@ struct TaskItemView: View {
             Spacer()
                 .frame(width: 1, height: 8, alignment: .center)
         }
-        .id("TaskItemView"+taskStore.lastUpdateUUID.uuidString)
+        .id("TaskItemView_Body_" + taskStore.tasks[self.taskId]!.lastUpdateUUID.uuidString)
         .onAppear(perform: {
             self.model.taskStore = taskStore
             if taskStore.tasks[taskId]?.title == "" {
@@ -49,7 +49,6 @@ extension TaskItemView{
         VStack{
             HStack(alignment: .top, spacing: 0, content: {
                 Button(action: {
-                    self.model.onTouchCheckbox()
                     taskStore.changeStatus(taskId: self.taskId)
                     let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
