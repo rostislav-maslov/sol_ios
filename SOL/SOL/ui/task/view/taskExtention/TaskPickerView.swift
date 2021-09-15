@@ -18,7 +18,7 @@ extension TaskView {
                 Text("Files").tag(2)
                 Text("Photo").tag(3)
             }
-            .id(self.model.listIdHack)
+            //.id(self.model.listIdHack)
             .pickerStyle(SegmentedPickerStyle())
             
             Spacer().frame(width: 12, height: 1, alignment: .center)

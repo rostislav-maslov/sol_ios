@@ -60,6 +60,7 @@ struct ActionButton {
 struct TaskLine{
     var container: Color
     var containerDone: Color
+    var divider: Color
 }
 
 class SolColor{
@@ -108,7 +109,8 @@ class SolColor{
              
             taskLine: TaskLine(
                 container: Color(red: 246/255, green:  246/255, blue:  246/255, opacity:  1),
-                containerDone: Color(red: 96/255, green:  96/255, blue:  96/255, opacity:  1)
+                containerDone: Color(red: 96/255, green:  96/255, blue:  96/255, opacity:  1),
+                divider: Color(red: 236/255, green:  236/255, blue:  236/255, opacity:  1)
             )
         )
         return colors

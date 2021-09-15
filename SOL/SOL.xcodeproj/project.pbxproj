@@ -34,6 +34,7 @@
 		4F2D875C26E3BE600032177A /* VacuumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D875B26E3BE600032177A /* VacuumView.swift */; };
 		4F2EA28626D4D211008A34CF /* EditTitleAndIconTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EA28526D4D211008A34CF /* EditTitleAndIconTaskRequest.swift */; };
 		4F2EA28826D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EA28726D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift */; };
+		4F3E568D26F18F7D0006F09A /* TaskItemSubtaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3E568C26F18F7D0006F09A /* TaskItemSubtaskView.swift */; };
 		4F4279422637C08500D71B2D /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4279412637C08500D71B2D /* NavigationBarColor.swift */; };
 		4F48255826C4F5E2001ABE87 /* TaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48255726C4F5E2001ABE87 /* TaskUseCase.swift */; };
 		4F48255B26C4F98C001ABE87 /* TaskPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48255A26C4F98C001ABE87 /* TaskPickerView.swift */; };
@@ -62,8 +63,8 @@
 		4F61FD7C26A363CD00D83F2D /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61FD7B26A363CD00D83F2D /* SettingButton.swift */; };
 		4F61FD7E26A363DE00D83F2D /* SolNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61FD7D26A363DE00D83F2D /* SolNavigationView.swift */; };
 		4F62D52B26E7046A00AA5EBB /* TaskItemContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62D52A26E7046A00AA5EBB /* TaskItemContainerView.swift */; };
-		4F62D52D26E7048F00AA5EBB /* TaskItemCheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62D52C26E7048F00AA5EBB /* TaskItemCheckboxView.swift */; };
-		4F62D52F26E7082900AA5EBB /* TaskItemTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62D52E26E7082900AA5EBB /* TaskItemTitleView.swift */; };
+		4F62D52D26E7048F00AA5EBB /* TaskItemSubtaskCheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62D52C26E7048F00AA5EBB /* TaskItemSubtaskCheckboxView.swift */; };
+		4F62D52F26E7082900AA5EBB /* TaskItemSubtaskTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62D52E26E7082900AA5EBB /* TaskItemSubtaskTitleView.swift */; };
 		4F6B98EA269D614900B0FFC9 /* DaySchedulerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B98E9269D614900B0FFC9 /* DaySchedulerViewModel.swift */; };
 		4F6B98EC269D619700B0FFC9 /* DaySchedulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B98EB269D619700B0FFC9 /* DaySchedulerView.swift */; };
 		4F6F05A726660D150074B9D8 /* SpaceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6F05A626660D150074B9D8 /* SpaceProvider.swift */; };
@@ -232,6 +233,7 @@
 		4F2D875B26E3BE600032177A /* VacuumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacuumView.swift; sourceTree = "<group>"; };
 		4F2EA28526D4D211008A34CF /* EditTitleAndIconTaskRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTitleAndIconTaskRequest.swift; sourceTree = "<group>"; };
 		4F2EA28726D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTitleAndIconTaskUseCase.swift; sourceTree = "<group>"; };
+		4F3E568C26F18F7D0006F09A /* TaskItemSubtaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemSubtaskView.swift; sourceTree = "<group>"; };
 		4F4279412637C08500D71B2D /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
 		4F48255726C4F5E2001ABE87 /* TaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskUseCase.swift; sourceTree = "<group>"; };
 		4F48255A26C4F98C001ABE87 /* TaskPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPickerView.swift; sourceTree = "<group>"; };
@@ -260,8 +262,8 @@
 		4F61FD7B26A363CD00D83F2D /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
 		4F61FD7D26A363DE00D83F2D /* SolNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolNavigationView.swift; sourceTree = "<group>"; };
 		4F62D52A26E7046A00AA5EBB /* TaskItemContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemContainerView.swift; sourceTree = "<group>"; };
-		4F62D52C26E7048F00AA5EBB /* TaskItemCheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemCheckboxView.swift; sourceTree = "<group>"; };
-		4F62D52E26E7082900AA5EBB /* TaskItemTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemTitleView.swift; sourceTree = "<group>"; };
+		4F62D52C26E7048F00AA5EBB /* TaskItemSubtaskCheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemSubtaskCheckboxView.swift; sourceTree = "<group>"; };
+		4F62D52E26E7082900AA5EBB /* TaskItemSubtaskTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemSubtaskTitleView.swift; sourceTree = "<group>"; };
 		4F6B98E9269D614900B0FFC9 /* DaySchedulerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySchedulerViewModel.swift; sourceTree = "<group>"; };
 		4F6B98EB269D619700B0FFC9 /* DaySchedulerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySchedulerView.swift; sourceTree = "<group>"; };
 		4F6F05A626660D150074B9D8 /* SpaceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceProvider.swift; sourceTree = "<group>"; };
@@ -818,8 +820,9 @@
 			isa = PBXGroup;
 			children = (
 				4F62D52A26E7046A00AA5EBB /* TaskItemContainerView.swift */,
-				4F62D52C26E7048F00AA5EBB /* TaskItemCheckboxView.swift */,
-				4F62D52E26E7082900AA5EBB /* TaskItemTitleView.swift */,
+				4F3E568C26F18F7D0006F09A /* TaskItemSubtaskView.swift */,
+				4F62D52C26E7048F00AA5EBB /* TaskItemSubtaskCheckboxView.swift */,
+				4F62D52E26E7082900AA5EBB /* TaskItemSubtaskTitleView.swift */,
 			);
 			path = TaskItemExtention;
 			sourceTree = "<group>";
@@ -2203,7 +2206,7 @@
 				4FA828D32699A02800540CFF /* UserEntity.swift in Sources */,
 				4F90D00826BA79ED008F0C5D /* MySpacesUseCase.swift in Sources */,
 				4F61FD7E26A363DE00D83F2D /* SolNavigationView.swift in Sources */,
-				4F62D52D26E7048F00AA5EBB /* TaskItemCheckboxView.swift in Sources */,
+				4F62D52D26E7048F00AA5EBB /* TaskItemSubtaskCheckboxView.swift in Sources */,
 				4F615E1026E8646B00273B1A /* SpaceStore.swift in Sources */,
 				4FAB2A9526A7F75900587BBD /* TaskViewModel.swift in Sources */,
 				4FFBE4EE26C24CBC00A79D81 /* TaskAPI.swift in Sources */,
@@ -2232,7 +2235,7 @@
 				4F2BED2926EB0B14004D7A15 /* TaskTitleModel.swift in Sources */,
 				4F6F05A726660D150074B9D8 /* SpaceProvider.swift in Sources */,
 				4F2B5DAC2668B2CC005BE636 /* AddTaskTextView.swift in Sources */,
-				4F62D52F26E7082900AA5EBB /* TaskItemTitleView.swift in Sources */,
+				4F62D52F26E7082900AA5EBB /* TaskItemSubtaskTitleView.swift in Sources */,
 				4F2661D026B924A4001974BC /* SpaceRepositoryPort.swift in Sources */,
 				4F48255D26C4F9AD001ABE87 /* TaskHeaderView.swift in Sources */,
 				4F48255B26C4F98C001ABE87 /* TaskPickerView.swift in Sources */,
@@ -2272,6 +2275,7 @@
 				4FCB321626E1FD86003A470A /* SpacesViewAddSpace.swift in Sources */,
 				4F87F7B12658F18B0094C946 /* TLDeadlineComponent.swift in Sources */,
 				4F9307DB265E18B700204881 /* BaseApiResponse.swift in Sources */,
+				4F3E568D26F18F7D0006F09A /* TaskItemSubtaskView.swift in Sources */,
 				4FA828AF2696CB6400540CFF /* SolPublisher.swift in Sources */,
 				4F0B5C9B2649962D0026FDD0 /* AddTaskRootView.swift in Sources */,
 				4F62D52B26E7046A00AA5EBB /* TaskItemContainerView.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension TaskItemView {
+extension TaskItemSubtaskView {
     var checkbox: some View {
         VStack{
             if(taskStore.tasks[taskId]?.status == TaskStatus.OPEN){

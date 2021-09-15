@@ -35,6 +35,8 @@ public class TaskEntity{
     var loadStatus: LoadStatus = LoadStatus.INITIAL
     var lastUpdateUUID = UUID()
   
+    //View
+    var showSubtask: Bool = false
 }
 
 extension TaskEntity{

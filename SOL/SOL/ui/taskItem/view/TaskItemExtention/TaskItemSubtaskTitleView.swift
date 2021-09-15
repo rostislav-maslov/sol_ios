@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension TaskItemView {
+extension TaskItemSubtaskView {
     var title: some View {
         VStack{
             Spacer().frame(height: 8)

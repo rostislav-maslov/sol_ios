@@ -34,10 +34,10 @@ struct TaskItemView: View {
             Spacer()
                 .frame(width: 1, height: 8, alignment: .center)
         }
-        .id("TaskItemView_Body_" + taskStore.tasks[self.taskId]!.lastUpdateUUID.uuidString)
+        
         .onAppear(perform: {
             self.model.taskStore = taskStore
-            if taskStore.tasks[taskId]?.title == "" {
+            if taskStore.tasks[taskId]?.loadStatus == .INITIAL {
                 taskStore.syncTask(taskId: taskId)
             }
         })
@@ -46,44 +46,11 @@ struct TaskItemView: View {
 
 extension TaskItemView{
     var defaultLine: some View {
-        VStack{
-            HStack(alignment: .top, spacing: 0, content: {
-                Button(action: {
-                    taskStore.changeStatus(taskId: self.taskId)
-                    let generator = UINotificationFeedbackGenerator()
-                    generator.notificationOccurred(.success)
-                }, label: {
-                    checkbox
-                })                              
-                PushView(
-                    destination: TaskView(taskId: self.taskId),
-                    label: {
-                       title
-                    })
-                    .buttonStyle(PlainButtonStyle())
-                VStack{
-                    if self.taskStore.tasks[taskId]?.hasChild == true {
-                        Button(action: {
-                            print("ic_task_item_expand")
-                        }, label: {
-                            VStack{
-                                Spacer().frame(height: 19)
-                                HStack{
-                                    Spacer().frame(width: 8)
-                                    Image("ic_task_item_expand")
-                                        .frame(
-                                            width: 12,
-                                            height: 6,
-                                            alignment: .center)
-                                    Spacer().frame(width: 8)
-                                }
-                                Spacer().frame(height: 14)
-                            }
-                        })
-                    }
-                }
-            })
+        Group{
+            TaskItemSubtaskView(taskId: taskId, isChild: false)
+           
         }
+        
     }
 }
 
