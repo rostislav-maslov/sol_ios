@@ -46,8 +46,16 @@ struct MultilineTextFieldView: UIViewRepresentable {
         view.backgroundColor = UIColor.clear
         view.textColor = UIColor(textColor)
         view.tintColor = UIColor(textColor)
+        
+        //let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: text)
+        //attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
+        //attributeString.addAttribute(NSAttributedString.Key.strikethroughColor, value: SolColor.colors().fontColors.second, range: NSMakeRange(0, attributeString.length))
+            
+        
+        //view.attributedText = attributeString
         let font:UIFont = UIFont.systemFont(ofSize: textSize, weight: UIFont.Weight.medium)
         view.font = font
+        
         view.delegate = self.model
         view.returnKeyType = UIReturnKeyType.done
         view.text = self.text

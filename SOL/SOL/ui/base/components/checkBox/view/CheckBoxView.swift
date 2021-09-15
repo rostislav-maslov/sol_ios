@@ -13,33 +13,29 @@ public enum CheckBoxSize {
 }
 
 struct CheckBoxView: View {
+    var taskId: String
+    var size:CheckBoxSize
+    @EnvironmentObject var taskStore: TaskStore
     
-    @State var size:CheckBoxSize
-    @Binding var done: Bool
-    var action: ( () -> Void)
-    
-    var body: some View {
+    public init(taskId: String, size:CheckBoxSize){
+        self.size = size
+        self.taskId = taskId
+    }
         
+    var body: some View {
         Button(action: {
-            self.action()
+            self.taskStore.changeStatus(taskId: taskId)
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
         }, label: {
             ZStack{
                 undoneImage
-                if (done == true ) {
+                if (taskStore.tasks[taskId]?.status == .DONE ) {
                     doneImage
                 }
             }
-        })
-        
-        
+        })                
     }
-    
-    public init(size:CheckBoxSize, done: Binding<Bool>, action: @escaping (() -> Void)){
-        self.size = size
-        self._done = done
-        self.action = action
-    }
-    
 }
 
 extension CheckBoxView{
@@ -52,7 +48,7 @@ extension CheckBoxView{
                 height: (self.size == .NORMAL ? 24 : 48),
                 alignment: .center)
             .foregroundColor(
-                done == true ?
+                taskStore.tasks[taskId]?.status == .DONE ?
                     SolColor.colors().checkBox.doneBackground :
                     SolColor.colors().checkBox.undoneBackground
             )
@@ -70,7 +66,7 @@ extension CheckBoxView {
                 height: (self.size == .NORMAL ? 8 : 12),
                 alignment: .center)
             .foregroundColor(
-                done == true ?
+                taskStore.tasks[taskId]?.status == .OPEN ?
                     SolColor.colors().checkBox.doneBackground :
                     SolColor.colors().checkBox.undoneBackground
             )
@@ -78,15 +74,15 @@ extension CheckBoxView {
     }
 }
 
-struct CheckBoxView_Previews: PreviewProvider {
-    static var previews: some View {
-        CheckBoxView(size: .BIG, done: Binding<Bool>(get: {
-            return true
-            
-        }, set: { ssss in
-            
-        })) {
-            
-        }
-    }
-}
+//struct CheckBoxView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CheckBoxView(size: .BIG, done: Binding<Bool>(get: {
+//            return true
+//
+//        }, set: { ssss in
+//
+//        })) {
+//
+//        }
+//    }
+//}

@@ -12,7 +12,7 @@ extension TaskView{
     var header: some View {
         VStack(alignment: .leading, spacing: nil, content: {
             headerSpacer
-            taskTitle            
+            taskTitle
         })
     }
 }
@@ -24,9 +24,7 @@ extension TaskView{
             Spacer().frame(width: 13, height: 11, alignment: .center)
             VStack{
                 Spacer().frame(width: 0, height: 9, alignment: .center)
-                CheckBoxView(size: .NORMAL, done: $model.actionDone) {
-                    model.toggleTask()
-                }
+                CheckBoxView(taskId: taskId, size: .NORMAL)
             }
             
             VStack(alignment: .leading, spacing: 0, content: {

@@ -19,7 +19,7 @@ public class TaskViewModel: NSObject, ObservableObject {
     @Published var actionNotification = false
     @Published var actionPlanning = false
     @Published var actionDeadline = false
-    @Published var actionDone = false
+    // @Published var actionDone = false
     @Published var activeTab = 0
     @Published var listIdHack = UUID()
     

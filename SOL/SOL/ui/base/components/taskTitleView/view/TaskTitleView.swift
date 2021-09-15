@@ -18,36 +18,39 @@ struct TaskTitleView: View {
     }
     
     var body: some View {
-        MultilineTextFieldView(text: taskStore.tasks[taskId]!.title, textColor: SolColor.colors().checkBox.undoneBackground, textSize: 24)
-        { textDidChange in
-            taskStore.tasks[taskId]?.title = textDidChange
-        } textEditFinish: { textEditFinish in
-            taskStore.tasks[taskId]?.title = textEditFinish
-            taskStore.saveTitleIcon(taskId: taskId, title: textEditFinish, iconData: taskStore.tasks[taskId]!.icon.data)
-        } titleSizeDidChange: { titleSize in
-            self.titleSize = titleSize
-        } multilineTextFieldView: { textView in
-            
-        }
-        .font(SolFonts.font(
-                size: 24,
-                weight: Font.Weight.medium,
-                color: SolColor
+        
+            MultilineTextFieldView(text: taskStore.tasks[taskId]!.title, textColor: SolColor.colors().checkBox.undoneBackground, textSize: 24)
+            { textDidChange in
+                taskStore.tasks[taskId]?.title = textDidChange
+            } textEditFinish: { textEditFinish in
+                taskStore.tasks[taskId]?.title = textEditFinish
+                taskStore.saveTitleIcon(taskId: taskId, title: textEditFinish, iconData: taskStore.tasks[taskId]!.icon.data)
+            } titleSizeDidChange: { titleSize in
+                self.titleSize = titleSize
+            } multilineTextFieldView: { textView in
+                
+            }
+            .font(SolFonts.font(
+                    size: 24,
+                    weight: Font.Weight.medium,
+                    color: SolColor
+                        .colors()
+                        .checkBox
+                        .undoneBackground))
+            .frame(
+                width: .infinity,
+                height: titleSize,
+                alignment: .center)
+            .foregroundColor(
+                SolColor
                     .colors()
                     .checkBox
-                    .undoneBackground))
-        .frame(
-            width: .infinity,
-            height: titleSize,
-            alignment: .center)
-        .foregroundColor(
-            SolColor
-                .colors()
-                .checkBox
-                .doneBackground)
-        .onAppear(perform: {
-            self.model.taskStore = self.taskStore
-        })
+                    .doneBackground)
+            .onAppear(perform: {
+                self.model.taskStore = self.taskStore
+            })
+        
+        
     }
 }
 
