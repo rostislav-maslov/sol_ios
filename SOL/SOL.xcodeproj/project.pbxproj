@@ -474,13 +474,6 @@
 			path = actionButton;
 			sourceTree = "<group>";
 		};
-		4F0B5C9326498ACC0026FDD0 /* SpaceItemComponent */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SpaceItemComponent;
-			sourceTree = "<group>";
-		};
 		4F0B5C9626498BCD0026FDD0 /* SpaceListComponent */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,13 +488,6 @@
 				4F0B5C9D264ADE710026FDD0 /* KeyboardResponder.swift */,
 			);
 			path = keyboard;
-			sourceTree = "<group>";
-		};
-		4F0F318926714CF100C67852 /* ChooseDeadLineComponent */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ChooseDeadLineComponent;
 			sourceTree = "<group>";
 		};
 		4F13D3EA26EB00F600F2E947 /* taskTitleView */ = {
@@ -519,13 +505,6 @@
 				4F13D3EC26EB011D00F2E947 /* TaskTitleView.swift */,
 			);
 			path = view;
-			sourceTree = "<group>";
-		};
-		4F21D392266F3D0400459112 /* ChooseEventTimeComponent */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ChooseEventTimeComponent;
 			sourceTree = "<group>";
 		};
 		4F2661C826B92082001974BC /* addSpace */ = {
@@ -627,6 +606,30 @@
 				4F2CAFA52702BC84003CACA0 /* TaskItemSubtaskTaskInfoView.swift */,
 			);
 			path = TaskItemSubtaskExtention;
+			sourceTree = "<group>";
+		};
+		4F2CAFA82702C270003CACA0 /* chooseEventTimeView */ = {
+			isa = PBXGroup;
+			children = (
+				4F2CAFAA2702C44C003CACA0 /* model */,
+				4F2CAFA92702C448003CACA0 /* view */,
+				4F21D393266F3D2600459112 /* ChooseEventTimeComponent.swift */,
+			);
+			path = chooseEventTimeView;
+			sourceTree = "<group>";
+		};
+		4F2CAFA92702C448003CACA0 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4F2CAFAA2702C44C003CACA0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		4F2D875926E3BE410032177A /* Vacuum */ = {
@@ -1297,8 +1300,6 @@
 		4FA0F6F126487D6700CECF24 /* components */ = {
 			isa = PBXGroup;
 			children = (
-				4F0F318926714CF100C67852 /* ChooseDeadLineComponent */,
-				4F21D392266F3D0400459112 /* ChooseEventTimeComponent */,
 				4FB2C144266B34880008CCDA /* TaskFieldButtonComponent */,
 				4FE38CF92663EC040011E203 /* HeaderComponent */,
 				4FD2E31E265F74A3007A20C6 /* ButtonComponent */,
@@ -1306,7 +1307,6 @@
 				4F87F79C265810520094C946 /* TaskLineComponent */,
 				4F87F799265804450094C946 /* DeadLineChoose */,
 				4F0B5C9626498BCD0026FDD0 /* SpaceListComponent */,
-				4F0B5C9326498ACC0026FDD0 /* SpaceItemComponent */,
 				4FA0F6F82648804C00CECF24 /* StoriesComponent */,
 				4FA0F6F526487DD400CECF24 /* IconComponent */,
 				4FA0F6F226487D7600CECF24 /* tastTitle */,
@@ -1556,7 +1556,6 @@
 				4F2B5DA52668AB4F005BE636 /* PlaceholderTaskView.swift */,
 				4F2B5DAB2668B2CC005BE636 /* AddTaskTextView.swift */,
 				4FC99B2426FF45EC0087FCCC /* AddTaskTextViewExtention */,
-				4F21D393266F3D2600459112 /* ChooseEventTimeComponent.swift */,
 				4F7C4F0926BEEDD10097AC65 /* AddTaskTextFieldView.swift */,
 			);
 			path = view;
@@ -1902,7 +1901,6 @@
 		4FFC21A326312DEE00198E4B /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				4F2CAFA22702B2B9003CACA0 /* chooseDeadlineView */,
 				4F615E0226E857E800273B1A /* testView */,
 				4FA5B4642692E0210031093A /* base */,
 				4F61FD5926A162C700D83F2D /* spaces */,
@@ -1910,8 +1908,10 @@
 				4F2661C826B92082001974BC /* addSpace */,
 				4FCE2EFE26A69F2F009B24DA /* taskItem */,
 				4F61FD6626A16FF600D83F2D /* task */,
-				4FC973002699E78E008509F6 /* dayScheduler */,
 				4FA828CA2696ECC500540CFF /* addTask */,
+				4F2CAFA82702C270003CACA0 /* chooseEventTimeView */,
+				4FC973002699E78E008509F6 /* dayScheduler */,
+				4F2CAFA22702B2B9003CACA0 /* chooseDeadlineView */,
 				4FA828B22696CE4900540CFF /* appLoading */,
 				4F0B5C8C264977F50026FDD0 /* actionButton */,
 				4FFC219A263123AE00198E4B /* login */,
@@ -2520,7 +2520,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"SOL/Preview Content\"";
 				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				ENABLE_PREVIEWS = YES;
@@ -2547,7 +2547,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"SOL/Preview Content\"";
 				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				ENABLE_PREVIEWS = YES;

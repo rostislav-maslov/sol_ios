@@ -10,7 +10,7 @@ import EventKit
 import EventKitUI
 import UIKit
 
-struct ChooseEventTimeComponent: View {
+struct ChooseEventTimeView: View {
     @ObservedObject var model: AddTaskViewModel
     @State var state: ViewState = .NORMAL
     
@@ -27,7 +27,7 @@ struct ChooseEventTimeComponent: View {
     
 }
 
-extension ChooseEventTimeComponent{
+extension ChooseEventTimeView{
     var backgroundView: some View {
         VStack{
             Rectangle()
@@ -40,7 +40,7 @@ extension ChooseEventTimeComponent{
     }
 }
 
-extension ChooseEventTimeComponent{
+extension ChooseEventTimeView{
     var backgroundBottomView: some View {
         VStack{
             Spacer()
@@ -55,12 +55,12 @@ extension ChooseEventTimeComponent{
     }
 }
 
-extension ChooseEventTimeComponent{
+extension ChooseEventTimeView{
     var day: some View {
         VStack{
             Spacer()
                 .frame(width: 0, height: 16, alignment: .center)
-            Text("Plan your at task")
+            Text("Plan your work at task")
             Spacer()
                 .frame(width: 0, height: 12, alignment: .center)
                 .background(SolColor.colors().addTask.addTaskBackground)
@@ -77,7 +77,7 @@ extension ChooseEventTimeComponent{
     }
 }
 
-extension ChooseEventTimeComponent{
+extension ChooseEventTimeView{
     var closeButton: some View{
         VStack{
             Spacer().frame(width: 0, height: ( 16), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -98,7 +98,7 @@ extension ChooseEventTimeComponent{
     
 }
 
-extension ChooseEventTimeComponent{
+extension ChooseEventTimeView{
     var submitButton: some View {
         VStack{
             Spacer()
