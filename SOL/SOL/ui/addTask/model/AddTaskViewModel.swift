@@ -24,9 +24,12 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol {
     @Published var loadingStatus: ViewState = ViewState.NORMAL
     @Published var titleTextSize: CGFloat = 45.0
     
+    @Published var taskInfoText: String = ""
+    @Published var taskInfoSize: CGFloat = 0.0
+    @Published var hasTaskInfo: Bool = false
+    
     private var disposables = Set<AnyCancellable>()
     private let port:TaskRepositoryPort = SolApiService.api().task as TaskRepositoryPort
-    
     
     init(_ spaceId: String?, parentTaskId: String?, taskDidCreated: @escaping (() -> Void)){
         self.spaceId = spaceId
@@ -60,9 +63,9 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol {
     
     private func goToState(_ newState: AddTaskState) {
         if newState == .TEXT && state != newState {
-            state = .TEXT
-            sheets.planning = false
             sheets.deadline = false
+            sheets.planning = false
+            state = .TEXT
             return
         }
         
@@ -115,11 +118,12 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol {
 
 extension AddTaskViewModel{
     func goToText() {
+        refillTaskInfoText()
         goToState(.TEXT)
         
         self.buttonState.hasSlots = self.task.slots.count > 0
         self.buttonState.hasNotification = false
-        self.buttonState.hasDeadline = false
+        self.buttonState.hasDeadline = self.task.deadline != nil
         self.buttonState.hasRepeat = false
         self.buttonState.submitButtonActive = self.task.title.count > 0
     }
@@ -164,6 +168,8 @@ extension AddTaskViewModel {
         sheets = SheetsState()
         buttonState = ButtonState()
         touchBackground()
+        taskInfoText = ""
+        hasTaskInfo = false
     }
     
     public func createTask(){
@@ -173,7 +179,10 @@ extension AddTaskViewModel {
         taskStore?.create( title: task.title,
                            emoji: task.icon.data,
                            parentTaskId: parentTaskId,
-                           spaceId: spaceId)
+                           spaceId: spaceId,
+                           deadline: task.deadline,
+                           deadlineType: task.deadlineType,
+                           timezone: Date().timezone)
         
         self.loadingStatus = .NORMAL
         self.state = AddTaskState.PLACEHOLDER
@@ -208,4 +217,24 @@ extension AddTaskViewModel {
     public func multilineTextFieldView(view: UITextView){
         view.becomeFirstResponder()
     }
+}
+
+// MARK: Work with task info line
+extension AddTaskViewModel {
+    
+    func refillTaskInfoText(){
+        self.taskInfoText = task.taskInfo
+        self.hasTaskInfo = task.hasTaskInfo
+        if hasTaskInfo == true {
+            withAnimation {           
+                self.taskInfoSize = 13.5
+            }            
+        }else{
+            self.taskInfoSize = 0.0
+        }
+    }
+}
+
+extension AddTaskViewModel {
+    
 }

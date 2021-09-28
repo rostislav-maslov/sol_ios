@@ -116,26 +116,36 @@ extension TaskStore {
 //MARK: - СОРТИРОВКА
 extension TaskStore {
     func reorderTasks(parentTaskId:String, draggetTaskId: String, dropOnTaskId: String) -> Bool{
-        let task:TaskEntity = tasks[parentTaskId]!
+        var taskList:[TaskEntity] = []
+        let taskParentCandidate:TaskEntity? = tasks[parentTaskId]
+        if taskParentCandidate != nil {
+            taskList = taskParentCandidate!.child
+        }else{
+            let spaceCandidate: SpaceEntity? = spaceStore?.spaces[parentTaskId]
+            if spaceCandidate != nil {
+                taskList = spaceCandidate!.tasks
+            }
+        }
+        
         
         if (draggetTaskId == dropOnTaskId) {
             return false
         }
         
         var draggetTaskIndex: Int? = nil
-        for index in 0...(task.child.count - 1) {
-            if (task.child[index].id == draggetTaskId) {
+        for index in 0...(taskList.count - 1) {
+            if (taskList[index].id == draggetTaskId) {
                 draggetTaskIndex = index
             }
         }
         if draggetTaskIndex == nil  {
             return false
         }
-        let taskToChange = task.child.remove(at: draggetTaskIndex!)
+        let taskToChange = taskList.remove(at: draggetTaskIndex!)
         
         var dropOnTaskIndex: Int? = nil
-        for index in 0...(task.child.count - 1) {
-            if (task.child[index].id == dropOnTaskId) {
+        for index in 0...(taskList.count - 1) {
+            if (taskList[index].id == dropOnTaskId) {
                 dropOnTaskIndex = index
             }
         }
@@ -143,10 +153,14 @@ extension TaskStore {
             return false
         }
         
-        task.child.insert(taskToChange, at: dropOnTaskIndex!)
+        taskList.insert(taskToChange, at: dropOnTaskIndex!)
         var toCommint:[String] = []
-        for ttt in task.child {
+        for ttt in taskList {
             toCommint.append(ttt.id)
+        }
+        
+        if taskParentCandidate != nil {
+            taskParentCandidate?.lastUpdateUUID = UUID()
         }
         
         commitNewSort(tasksToSort: toCommint)
@@ -197,14 +211,20 @@ extension TaskStore {
     func create( title: String,
                  emoji: String,
                  parentTaskId: String?,
-                 spaceId: String?){
+                 spaceId: String?,
+                   deadline: Date?,
+                   deadlineType: DeadlineType?,
+                   timezone: Int?){
         SolPublisher<TaskEntity, Bool>(useCase:
                                         CreateTaskUseCase(self.port,
                                                           CreateTaskUseCase.Input.init(
                                                             title: title,
                                                             emoji: emoji,
                                                             parentTaskId: parentTaskId,
-                                                            spaceId: spaceId)))
+                                                            spaceId: spaceId,
+                                                            deadline: deadline,
+                                                            deadlineType: deadlineType,
+                                                            timezone: timezone)))
             .receive(on: DispatchQueue.main)
             .sink { [weak self] result in
                 if(result.success != nil) {

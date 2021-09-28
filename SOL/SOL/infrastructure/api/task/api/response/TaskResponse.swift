@@ -10,7 +10,7 @@ import Foundation
 public struct TaskResponse: Codable{
     var id: String?    
     var createdFromRepeatTaskId: String?
-    var deadline:String?
+    var deadline: Int64?
     var description: String?
     var externalIds:[String]?
     var files:[String]?

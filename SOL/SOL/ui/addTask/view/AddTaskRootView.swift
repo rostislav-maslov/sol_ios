@@ -30,7 +30,8 @@ struct AddTaskRootView: View {
     @ObservedObject var model: AddTaskViewModel
     @EnvironmentObject var taskStore: TaskStore
     @EnvironmentObject var spaceStore: SpaceStore
-        
+    @State var deadlineViewDate = Date()
+    
     init(spaceId: String?, parentTaskId: String?, taskDidCreated:  @escaping (() -> Void)){
         self.spaceId = spaceId
         self.parentTaskId = parentTaskId
@@ -57,23 +58,19 @@ struct AddTaskRootView: View {
                     if self.model.state == AddTaskState.PLACEHOLDER {
                         PlaceholderTaskView(model: model)
                     }
-                    if self.model.state == AddTaskState.TEXT ||
-                        self.model.state == AddTaskState.DEADLINE{
+                    if self.model.state == AddTaskState.TEXT{
                         AddTaskTextView(model: model)
                     }
                     if self.model.state == AddTaskState.PLANNING{
                         ChooseEventTimeComponent(model: model).colorScheme(ColorScheme.light)
                     }                
-                                                                
-                EmptyView().sheet(
+                 
+                ChooseDeadlineView(
                     isPresented: $model.sheets.deadline,
-                    onDismiss: {
-                        model.goToText()                        
-                    },
-                    content: {
-                        ChooseDeadlineView().colorScheme(.light)
-                    })
-                
+                    date: $model.task.deadline,
+                    onClear: model.goToText,
+                    onSubmit: model.goToText)
+
             }
         }.onAppear(perform: {
             self.model.spaceStore = spaceStore

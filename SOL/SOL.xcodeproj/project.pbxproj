@@ -31,6 +31,9 @@
 		4F2BED2B26EB10AC004D7A15 /* SpaceViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2BED2A26EB10AC004D7A15 /* SpaceViewStore.swift */; };
 		4F2BED3026ECA4A9004D7A15 /* SpaceTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2BED2F26ECA4A9004D7A15 /* SpaceTitleModel.swift */; };
 		4F2BED3226ECA4B5004D7A15 /* SpaceTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2BED3126ECA4B5004D7A15 /* SpaceTitleView.swift */; };
+		4F2CAF9F2702AF2D003CACA0 /* NullEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CAF9E2702AF2D003CACA0 /* NullEncodable.swift */; };
+		4F2CAFA12702AF73003CACA0 /* DateMillisec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CAFA02702AF73003CACA0 /* DateMillisec.swift */; };
+		4F2CAFA62702BC84003CACA0 /* TaskItemSubtaskTaskInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CAFA52702BC84003CACA0 /* TaskItemSubtaskTaskInfoView.swift */; };
 		4F2D875C26E3BE600032177A /* VacuumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D875B26E3BE600032177A /* VacuumView.swift */; };
 		4F2EA28626D4D211008A34CF /* EditTitleAndIconTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EA28526D4D211008A34CF /* EditTitleAndIconTaskRequest.swift */; };
 		4F2EA28826D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EA28726D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift */; };
@@ -144,6 +147,9 @@
 		4FB2C146266B34B10008CCDA /* TaskFieldButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB2C145266B34B10008CCDA /* TaskFieldButtonComponent.swift */; };
 		4FC14AD7269DEF6000127B8D /* SlotEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC14AD6269DEF6000127B8D /* SlotEntity.swift */; };
 		4FC973052699FCB5008509F6 /* DayViewControllerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC973042699FCB5008509F6 /* DayViewControllerImpl.swift */; };
+		4FC99B2626FF46250087FCCC /* ATTButtonLinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC99B2526FF46250087FCCC /* ATTButtonLinesView.swift */; };
+		4FC99B2926FF468B0087FCCC /* ATTDeadLineFastLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC99B2826FF468B0087FCCC /* ATTDeadLineFastLineView.swift */; };
+		4FC99B2B26FF59A50087FCCC /* DeadlineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC99B2A26FF59A50087FCCC /* DeadlineType.swift */; };
 		4FCB320526DE09CC003A470A /* ListExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB320426DE09CC003A470A /* ListExample.swift */; };
 		4FCB320726DE138D003A470A /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB320626DE138D003A470A /* MyView.swift */; };
 		4FCB320926E0B128003A470A /* ChangeSpaceSortUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB320826E0B128003A470A /* ChangeSpaceSortUseCase.swift */; };
@@ -230,6 +236,9 @@
 		4F2BED2A26EB10AC004D7A15 /* SpaceViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceViewStore.swift; sourceTree = "<group>"; };
 		4F2BED2F26ECA4A9004D7A15 /* SpaceTitleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceTitleModel.swift; sourceTree = "<group>"; };
 		4F2BED3126ECA4B5004D7A15 /* SpaceTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceTitleView.swift; sourceTree = "<group>"; };
+		4F2CAF9E2702AF2D003CACA0 /* NullEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullEncodable.swift; sourceTree = "<group>"; };
+		4F2CAFA02702AF73003CACA0 /* DateMillisec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateMillisec.swift; sourceTree = "<group>"; };
+		4F2CAFA52702BC84003CACA0 /* TaskItemSubtaskTaskInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemSubtaskTaskInfoView.swift; sourceTree = "<group>"; };
 		4F2D875B26E3BE600032177A /* VacuumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacuumView.swift; sourceTree = "<group>"; };
 		4F2EA28526D4D211008A34CF /* EditTitleAndIconTaskRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTitleAndIconTaskRequest.swift; sourceTree = "<group>"; };
 		4F2EA28726D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTitleAndIconTaskUseCase.swift; sourceTree = "<group>"; };
@@ -349,6 +358,9 @@
 		4FB2C145266B34B10008CCDA /* TaskFieldButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFieldButtonComponent.swift; sourceTree = "<group>"; };
 		4FC14AD6269DEF6000127B8D /* SlotEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotEntity.swift; sourceTree = "<group>"; };
 		4FC973042699FCB5008509F6 /* DayViewControllerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewControllerImpl.swift; sourceTree = "<group>"; };
+		4FC99B2526FF46250087FCCC /* ATTButtonLinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATTButtonLinesView.swift; sourceTree = "<group>"; };
+		4FC99B2826FF468B0087FCCC /* ATTDeadLineFastLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATTDeadLineFastLineView.swift; sourceTree = "<group>"; };
+		4FC99B2A26FF59A50087FCCC /* DeadlineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineType.swift; sourceTree = "<group>"; };
 		4FCB320426DE09CC003A470A /* ListExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExample.swift; sourceTree = "<group>"; };
 		4FCB320626DE138D003A470A /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		4FCB320826E0B128003A470A /* ChangeSpaceSortUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSpaceSortUseCase.swift; sourceTree = "<group>"; };
@@ -572,6 +584,49 @@
 				4F2BED3126ECA4B5004D7A15 /* SpaceTitleView.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		4F2CAF9D2702AF1F003CACA0 /* extention */ = {
+			isa = PBXGroup;
+			children = (
+				4F2CAF9E2702AF2D003CACA0 /* NullEncodable.swift */,
+				4F2CAFA02702AF73003CACA0 /* DateMillisec.swift */,
+			);
+			path = extention;
+			sourceTree = "<group>";
+		};
+		4F2CAFA22702B2B9003CACA0 /* chooseDeadlineView */ = {
+			isa = PBXGroup;
+			children = (
+				4F2CAFA42702B2CB003CACA0 /* model */,
+				4F2CAFA32702B2C7003CACA0 /* view */,
+			);
+			path = chooseDeadlineView;
+			sourceTree = "<group>";
+		};
+		4F2CAFA32702B2C7003CACA0 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4F0F318A26714D1C00C67852 /* ChooseDeadlineView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4F2CAFA42702B2CB003CACA0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4F2CAFA72702BC8B003CACA0 /* TaskItemSubtaskExtention */ = {
+			isa = PBXGroup;
+			children = (
+				4F62D52C26E7048F00AA5EBB /* TaskItemSubtaskCheckboxView.swift */,
+				4F62D52E26E7082900AA5EBB /* TaskItemSubtaskTitleView.swift */,
+				4F2CAFA52702BC84003CACA0 /* TaskItemSubtaskTaskInfoView.swift */,
+			);
+			path = TaskItemSubtaskExtention;
 			sourceTree = "<group>";
 		};
 		4F2D875926E3BE410032177A /* Vacuum */ = {
@@ -821,8 +876,7 @@
 			children = (
 				4F62D52A26E7046A00AA5EBB /* TaskItemContainerView.swift */,
 				4F3E568C26F18F7D0006F09A /* TaskItemSubtaskView.swift */,
-				4F62D52C26E7048F00AA5EBB /* TaskItemSubtaskCheckboxView.swift */,
-				4F62D52E26E7082900AA5EBB /* TaskItemSubtaskTitleView.swift */,
+				4F2CAFA72702BC8B003CACA0 /* TaskItemSubtaskExtention */,
 			);
 			path = TaskItemExtention;
 			sourceTree = "<group>";
@@ -1443,6 +1497,7 @@
 		4FA828BF2696E83600540CFF /* base */ = {
 			isa = PBXGroup;
 			children = (
+				4F2CAF9D2702AF1F003CACA0 /* extention */,
 				4FA828C12696E84200540CFF /* entity */,
 				4FA828C02696E83C00540CFF /* useCase */,
 			);
@@ -1500,8 +1555,8 @@
 				4F2B5DA82668B1FE005BE636 /* BackgroundForModalComponent.swift */,
 				4F2B5DA52668AB4F005BE636 /* PlaceholderTaskView.swift */,
 				4F2B5DAB2668B2CC005BE636 /* AddTaskTextView.swift */,
+				4FC99B2426FF45EC0087FCCC /* AddTaskTextViewExtention */,
 				4F21D393266F3D2600459112 /* ChooseEventTimeComponent.swift */,
-				4F0F318A26714D1C00C67852 /* ChooseDeadlineView.swift */,
 				4F7C4F0926BEEDD10097AC65 /* AddTaskTextFieldView.swift */,
 			);
 			path = view;
@@ -1541,6 +1596,7 @@
 				4FA828DF2699C03700540CFF /* TaskEntity.swift */,
 				4FC14AD6269DEF6000127B8D /* SlotEntity.swift */,
 				4FACDFF726CB7E34004844CB /* TaskStatus.swift */,
+				4FC99B2A26FF59A50087FCCC /* DeadlineType.swift */,
 			);
 			path = entity;
 			sourceTree = "<group>";
@@ -1582,6 +1638,15 @@
 				4F6B98EB269D619700B0FFC9 /* DaySchedulerView.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		4FC99B2426FF45EC0087FCCC /* AddTaskTextViewExtention */ = {
+			isa = PBXGroup;
+			children = (
+				4FC99B2526FF46250087FCCC /* ATTButtonLinesView.swift */,
+				4FC99B2826FF468B0087FCCC /* ATTDeadLineFastLineView.swift */,
+			);
+			path = AddTaskTextViewExtention;
 			sourceTree = "<group>";
 		};
 		4FCB320C26E1FC85003A470A /* SpacesViewExtention */ = {
@@ -1837,6 +1902,7 @@
 		4FFC21A326312DEE00198E4B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				4F2CAFA22702B2B9003CACA0 /* chooseDeadlineView */,
 				4F615E0226E857E800273B1A /* testView */,
 				4FA5B4642692E0210031093A /* base */,
 				4F61FD5926A162C700D83F2D /* spaces */,
@@ -2208,6 +2274,7 @@
 				4F61FD7E26A363DE00D83F2D /* SolNavigationView.swift in Sources */,
 				4F62D52D26E7048F00AA5EBB /* TaskItemSubtaskCheckboxView.swift in Sources */,
 				4F615E1026E8646B00273B1A /* SpaceStore.swift in Sources */,
+				4F2CAFA12702AF73003CACA0 /* DateMillisec.swift in Sources */,
 				4FAB2A9526A7F75900587BBD /* TaskViewModel.swift in Sources */,
 				4FFBE4EE26C24CBC00A79D81 /* TaskAPI.swift in Sources */,
 				4FD2E31A265F6BD2007A20C6 /* TextFieldLoginComponent.swift in Sources */,
@@ -2217,6 +2284,7 @@
 				4FD2E31D265F7339007A20C6 /* TitleLoginByEmailView.swift in Sources */,
 				4FE38CFF2664123C0011E203 /* AddSpaceView.swift in Sources */,
 				4F2BED3226ECA4B5004D7A15 /* SpaceTitleView.swift in Sources */,
+				4F2CAF9F2702AF2D003CACA0 /* NullEncodable.swift in Sources */,
 				4FE38CE92662CDAD0011E203 /* Error.swift in Sources */,
 				4FA828C82696E89500540CFF /* ReceiveReponse.swift in Sources */,
 				4F61FD7C26A363CD00D83F2D /* SettingButton.swift in Sources */,
@@ -2228,6 +2296,7 @@
 				4F2661CE26B92479001974BC /* CreateSpaceUseCase.swift in Sources */,
 				4F90D00B26BA7DAE008F0C5D /* SpaceMapping.swift in Sources */,
 				4F48255F26C4F9C6001ABE87 /* TaskActionsView.swift in Sources */,
+				4F2CAFA62702BC84003CACA0 /* TaskItemSubtaskTaskInfoView.swift in Sources */,
 				4FFBE4E626C1AC8A00A79D81 /* TaskRoutes.swift in Sources */,
 				4FA0F6FD264885CD00CECF24 /* StoriesComponent.swift in Sources */,
 				4F61FD7A26A363C100D83F2D /* BackButton.swift in Sources */,
@@ -2247,6 +2316,7 @@
 				4FE38CF72663CF580011E203 /* WarmUpScreen.swift in Sources */,
 				4F9307D7265E188800204881 /* SignUpEmailResponse.swift in Sources */,
 				4F8DCEFD26BD121900F8CD54 /* UpdateTitleIconSpaceUseCase.swift in Sources */,
+				4FC99B2626FF46250087FCCC /* ATTButtonLinesView.swift in Sources */,
 				4F0B5C9826498BF80026FDD0 /* SpaceListCompoent.swift in Sources */,
 				4FEA6B2926D11D2B00876D7C /* MultilineTextFieldModel.swift in Sources */,
 				4FFBE4EA26C1ACCB00A79D81 /* TaskCreateRequest.swift in Sources */,
@@ -2255,11 +2325,13 @@
 				4FEA6B2226D0EEDE00876D7C /* SpaceViewTitle.swift in Sources */,
 				4FD2E320265F74B7007A20C6 /* ButtonComponent.swift in Sources */,
 				4F9307E7265E1D3C00204881 /* BaseRoutes.swift in Sources */,
+				4FC99B2B26FF59A50087FCCC /* DeadlineType.swift in Sources */,
 				4F87F7AD2658F1750094C946 /* TLSpaceComponent.swift in Sources */,
 				4FCB320926E0B128003A470A /* ChangeSpaceSortUseCase.swift in Sources */,
 				4F6F05B726660E710074B9D8 /* IconResponse.swift in Sources */,
 				4F2BED3026ECA4A9004D7A15 /* SpaceTitleModel.swift in Sources */,
 				4F7C4F0626BEC7780097AC65 /* DoneKeyboardButtonView.swift in Sources */,
+				4FC99B2926FF468B0087FCCC /* ATTDeadLineFastLineView.swift in Sources */,
 				4F7C4F0826BED5960097AC65 /* BottomButtonType.swift in Sources */,
 				4F6F05B026660DC20074B9D8 /* SpaceRoutes.swift in Sources */,
 				4FCB321026E1FCC9003A470A /* SpacesViewActions.swift in Sources */,
@@ -2446,7 +2518,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"SOL/Preview Content\"";
 				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				ENABLE_PREVIEWS = YES;
@@ -2456,8 +2530,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.productivity.SOL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2469,7 +2545,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"SOL/Preview Content\"";
 				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				ENABLE_PREVIEWS = YES;
@@ -2479,8 +2557,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.productivity.SOL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2493,7 +2573,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2S5H4G5S36;
+				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				INFOPLIST_FILE = SOLTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2516,7 +2596,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2S5H4G5S36;
+				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				INFOPLIST_FILE = SOLTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2538,6 +2618,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				INFOPLIST_FILE = SOLUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2558,6 +2639,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				INFOPLIST_FILE = SOLUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

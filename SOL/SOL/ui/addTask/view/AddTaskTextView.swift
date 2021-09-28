@@ -16,7 +16,7 @@ struct AddTaskTextView: View {
     @EnvironmentObject var taskStore: TaskStore
     @EnvironmentObject var spaceStore: SpaceStore
     
-    @State var title: String  = ""
+    @State var title: String = ""
     
     init(model: AddTaskViewModel){
         self.model = model
@@ -28,6 +28,9 @@ struct AddTaskTextView: View {
             
             VStack{                
                 titleField
+                if model.hasTaskInfo == true {                    
+                    taskInfo
+                }
                 Spacer().frame(width: 0, height: 8, alignment: .center)
                 HStack{
                     Spacer().frame(width: 16, height: 8, alignment: .center)
@@ -42,6 +45,8 @@ struct AddTaskTextView: View {
                     Spacer().frame(width: 16, height:0, alignment: .center)
                 }
                 .frame(width: .infinity, height: 30, alignment: .center)
+                //Spacer().frame(width: 0.0, height: 8.0, alignment: .center)
+                //deadlineFastLine
                 
                 Spacer().frame(width: 0.0, height: 8.0, alignment: .center)
                 
@@ -61,7 +66,10 @@ extension AddTaskTextView{
         Rectangle()
             .fill(SolColor.colors().addTask.addTaskBackground)
             .cornerRadius(12, corners: [.topLeft, .topRight])
-            .frame(width: .infinity, height: 64 + self.model.titleTextSize, alignment: .center)
+            .frame(
+                width: .infinity,
+                height: 64 + self.model.titleTextSize + self.model.taskInfoSize,                
+                alignment: .center)
     }
 }
 
@@ -81,17 +89,17 @@ extension AddTaskTextView{
                 textSize: 16)
             { textDidChange in
                 if textDidChange != self.model.task.title {
-                        model.task.title = textDidChange
+                    model.task.title = textDidChange
                 }
                 self.title = textDidChange
             } textEditFinish: { textEditFinish in
                 
-                    model.task.title = textEditFinish
-                    model.submit()
+                model.task.title = textEditFinish
+                model.submit()
                 
             } titleSizeDidChange: { titleSize in
                 if titleSize != self.model.titleTextSize {
-                        self.model.titleTextSize = titleSize
+                    self.model.titleTextSize = titleSize
                 }
             } multilineTextFieldView: { textView in
                 textView.becomeFirstResponder()
@@ -106,6 +114,19 @@ extension AddTaskTextView{
             .foregroundColor(SolColor.colors().checkBox.doneBackground)
             Spacer().frame(width: 8)
         }.frame(width: UIScreen.main.bounds.width)
+    }
+}
+
+// MARK: Task Info
+extension AddTaskTextView {
+    var taskInfo: some View {
+        HStack{
+            Spacer().frame(width: 14, height: 0, alignment: .center)
+            Text(model.taskInfoText)
+                .font(SolFonts.font(size: 11, weight: Font.Weight.regular, color: SolColor.colors().fontColors.second))
+                .foregroundColor(SolColor.colors().fontColors.second)
+            Spacer()
+        }.frame(width: .infinity)
     }
 }
 
@@ -129,42 +150,6 @@ extension AddTaskTextView{
     }
 }
 
-extension AddTaskTextView{
-    var buttonsLine: some View {
-        HStack {
-            TaskFieldButtonComponent(
-                imageName: "ic_calendar",
-                title: "planning",
-                choosed: model.buttonState.hasSlots,
-                didTouch: model.goToPlanning
-            )
-            Spacer().frame(width: 24, height: 0, alignment: .center)
-            
-            TaskFieldButtonComponent(
-                imageName: "notification",
-                title: "notification",
-                choosed: model.buttonState.hasNotification,
-                didTouch: model.goToNotification
-            )
-            Spacer().frame(width: 24, height: 0, alignment: .center)
-            
-            TaskFieldButtonComponent(
-                imageName: "deadline",
-                title: "Deadline",
-                choosed: model.buttonState.hasDeadline,
-                didTouch:model.goToDeadline
-            )
-            Spacer().frame(width: 24, height: 0, alignment: .center)
-            
-            TaskFieldButtonComponent(
-                imageName: "repeat",
-                title: "repeat",
-                choosed: model.buttonState.hasRepeat,
-                didTouch: model.goToRepeat
-            )
-        }
-    }
-}
 
 extension AddTaskTextView{
     

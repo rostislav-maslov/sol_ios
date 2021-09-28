@@ -28,7 +28,7 @@ struct DaySchedulerView: UIViewControllerRepresentable, DayViewControllerProtoco
         //var info = ""// TODO data[Int(arc4random_uniform(UInt32(data.count)))]
         
         //info.append(rangeFormatter.string(from: event.startDate, to: event.endDate))
-        event.text = task.fullTitle()
+        event.text = task.fullTitle
         event.color = UIColor.red
         return event
     }

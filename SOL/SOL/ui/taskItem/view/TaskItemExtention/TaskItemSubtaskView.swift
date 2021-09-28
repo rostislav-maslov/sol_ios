@@ -29,7 +29,13 @@ struct TaskItemSubtaskView: View {
                 PushView(
                     destination: TaskView(taskId: self.taskId),
                     label: {
-                        title
+                        VStack{
+                            title
+                            if taskStore.tasks[taskId]!.hasTaskInfo {
+                                taskInfo
+                            }
+                            Spacer().frame(height: 8)
+                        }                        
                     })
                     .buttonStyle(PlainButtonStyle())
                 VStack{

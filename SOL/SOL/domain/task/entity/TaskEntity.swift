@@ -13,7 +13,9 @@ public class TaskEntity{
     var icon:IconEntity = IconEntity()
     
     var createdFromRepeatTaskId: String?
-    var deadline:String?
+    var deadline:Date?
+    var deadlineType: DeadlineType = DeadlineType.FULL
+    var timezone: Int?
     var description: String = ""
     var externalIds:[String] = []
     var files:[String] = []
@@ -39,13 +41,32 @@ public class TaskEntity{
     var showSubtask: Bool = false
 }
 
+// NOTE: Text helpers
 extension TaskEntity{
-    func fullTitle() -> String {
+    var fullTitle: String {
         var title = title
         if icon.data != "" {
             title = icon.data + " " + title
         }
         return title
+    }
+    
+    var taskInfo: String {
+        var infoText = ""
+        
+        if self.deadline != nil {
+            infoText = self.deadline!.beautify
+        }
+        
+        return infoText
+    }
+    
+    var hasTaskInfo: Bool {
+        if self.taskInfo != "" {
+            return true
+        }
+        
+        return false
     }
 }
 

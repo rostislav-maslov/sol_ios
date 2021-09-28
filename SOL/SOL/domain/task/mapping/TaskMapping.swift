@@ -25,7 +25,7 @@ public class TaskMapping {
         task.title = response.title!
                 
         task.createdFromRepeatTaskId = response.createdFromRepeatTaskId
-        task.deadline = response.description
+        task.deadline = response.deadline != nil ? Date(milliseconds: response.deadline!) : nil        
         task.description = response.description!
         task.externalIds = response.externalIds!
         task.files = response.files!

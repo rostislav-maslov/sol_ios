@@ -10,7 +10,7 @@ import SwiftUI
 struct TaskFieldButtonComponent: View {
     var imageName:String
     var title:String
-    var choosed:Bool
+    @Binding var choosed:Bool
     var didTouch: () -> Void
     
     var body: some View {
@@ -29,18 +29,18 @@ struct TaskFieldButtonComponent: View {
                         .frame(width: 20, height: 20, alignment: .center)
                 }
                 .padding(0)
-                
-                
             }
-            
-        }
+        }        
+        .onAppear(perform: {
+            print("\(title) - \(choosed)")
+        })
     }
 }
 
-struct TaskFieldButtonComponent_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskFieldButtonComponent(imageName: "deadline", title: "Deadline", choosed: false) {
-            
-        }
-    }
-}
+//struct TaskFieldButtonComponent_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TaskFieldButtonComponent(imageName: "deadline", title: "Deadline", choosed: false) {
+//            
+//        }
+//    }
+//}

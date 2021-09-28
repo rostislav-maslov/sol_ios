@@ -26,10 +26,9 @@ extension SpaceView {
                             }
                             .onDrop(of: ["public.utf8-plain-text"], isTargeted: $isTarget,
                                     perform: { (provider) -> Bool in
-                                        guard let nsProvider = provider.first, let spaceIdSuggest = nsProvider.suggestedName
+                                        guard let nsProvider = provider.first, let taskIdSuggest = nsProvider.suggestedName
                                         else { return false}
-                                        return false
-//                                        return model.reorderTasks(draggetTaskId: spaceIdSuggest, dropOnTaskId: task.id)
+                                        return taskStore.reorderTasks(parentTaskId: spaceId, draggetTaskId: taskIdSuggest, dropOnTaskId: task.id)
                                     })
                     }
                 }
@@ -41,8 +40,7 @@ extension SpaceView {
                                 perform: { (provider) -> Bool in
                                     guard let nsProvider = provider.first, let taskIdSuggest = nsProvider.suggestedName
                                     else { return false}
-                                    return false
-//                                    return taskStore.moveTaskToEnd(parentTaskId: <#T##String#>, draggetTaskId: <#T##String#>).moveTaskToEnd(draggetTaskId: taskIdSuggest)
+                                    return taskStore.moveTaskToEnd(parentTaskId: spaceId, draggetTaskId: taskIdSuggest)
                                 })
                 }
             }.id("SpaceView_subtasks_" + spaceStore.spaces[spaceId]!.lastUpdateUUID.uuidString)

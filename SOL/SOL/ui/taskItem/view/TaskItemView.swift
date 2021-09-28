@@ -47,8 +47,7 @@ struct TaskItemView: View {
 extension TaskItemView{
     var defaultLine: some View {
         Group{
-            TaskItemSubtaskView(taskId: taskId, isChild: false)
-           
+            TaskItemSubtaskView(taskId: taskId, isChild: false)           
         }
         
     }

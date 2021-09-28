@@ -15,7 +15,7 @@ extension TaskItemSubtaskView {
                 Spacer().frame(width: 4)
                 Text(
                     taskStore.tasks[taskId]?.status == TaskStatus.OPEN ?
-                        taskStore.tasks[taskId]!.fullTitle() :
+                        taskStore.tasks[taskId]!.fullTitle :
                         taskStore.tasks[taskId]!.title
                 )
                 .font(
@@ -44,7 +44,9 @@ extension TaskItemSubtaskView {
                     alignment: .center)
                 Spacer()
             }.frame(width: .infinity)
-            Spacer().frame(height: 8)
+            
+            Spacer().frame(height: 0)
+            
         }.background(SolColor.colors().taskLine.container)
     }
 }

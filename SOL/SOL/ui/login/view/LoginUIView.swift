@@ -54,51 +54,51 @@ struct LoginUIView: View {
                     //TextField("Enter your name", text: $enter)
                     // --------
                     VStack{
-                        Button(action: {
-                            //self.authState.login()
-                        }) {
-                            Text("Apple ID")
-                                .font(.system(size: 16))
-                                .foregroundColor(Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 1.0))
-                                .padding(.vertical, 10.0)
-                                .frame(maxWidth: .infinity)
-                            
-                        }
-                        .background(Color(red: 18/255, green: 18/255, blue: 18/255, opacity: 1.0))
-                        .cornerRadius(8)
-                        Spacer()
-                            .frame(height: 16.0)
+//                        Button(action: {
+//                            //self.authState.login()
+//                        }) {
+//                            Text("Apple ID")
+//                                .font(.system(size: 16))
+//                                .foregroundColor(Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 1.0))
+//                                .padding(.vertical, 10.0)
+//                                .frame(maxWidth: .infinity)
+//
+//                        }
+//                        .background(Color(red: 18/255, green: 18/255, blue: 18/255, opacity: 1.0))
+//                        .cornerRadius(8)
+//                        Spacer()
+//                            .frame(height: 16.0)
                         // --------
-                        Button(action: {
-                            print("Button action")
-                        }) {
-                            Text("Facebook")
-                                .font(.system(size: 16))
-                                .foregroundColor(Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 1.0))
-                                .padding(.vertical, 10.0)
-                                .frame(maxWidth: .infinity)
-                            
-                        }
-                        .background(Color(red: 66/255, green: 103/255, blue: 178/255, opacity: 1.0))
-                        .cornerRadius(8)
-                        Spacer()
-                            .frame(height: 16.0)
+//                        Button(action: {
+//                            print("Button action")
+//                        }) {
+//                            Text("Facebook")
+//                                .font(.system(size: 16))
+//                                .foregroundColor(Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 1.0))
+//                                .padding(.vertical, 10.0)
+//                                .frame(maxWidth: .infinity)
+//
+//                        }
+//                        .background(Color(red: 66/255, green: 103/255, blue: 178/255, opacity: 1.0))
+//                        .cornerRadius(8)
+//                        Spacer()
+//                            .frame(height: 16.0)
                         ///---------
-                        Button(action: {
-                            print("Button action")
-                        }) {
-                            Text("Google")
-                                .font(.system(size: 16))
-                                .foregroundColor(Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 1.0))
-                                .padding(.vertical, 10.0)
-                                .frame(maxWidth: .infinity)
-                            
-                        }
-                        .background(Color(red: 234/255, green: 67/255, blue: 53/255, opacity: 1.0))
-                        .cornerRadius(8)
-                        
-                        Spacer()
-                            .frame(height: 16.0)
+//                        Button(action: {
+//                            print("Button action")
+//                        }) {
+//                            Text("Google")
+//                                .font(.system(size: 16))
+//                                .foregroundColor(Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 1.0))
+//                                .padding(.vertical, 10.0)
+//                                .frame(maxWidth: .infinity)
+//                            
+//                        }
+//                        .background(Color(red: 234/255, green: 67/255, blue: 53/255, opacity: 1.0))
+//                        .cornerRadius(8)
+//                        
+//                        Spacer()
+//                            .frame(height: 16.0)
                         //-------------
                         
                         PushView(destination: LoginByEmailView(), tag: 1, selection: $navigationSelection) { EmptyView() }
