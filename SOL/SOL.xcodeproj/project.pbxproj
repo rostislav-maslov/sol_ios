@@ -180,6 +180,13 @@
 		4FEA6B2026D0EEBF00876D7C /* SpaceViewSubtask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA6B1F26D0EEBF00876D7C /* SpaceViewSubtask.swift */; };
 		4FEA6B2226D0EEDE00876D7C /* SpaceViewTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA6B2126D0EEDE00876D7C /* SpaceViewTitle.swift */; };
 		4FEA6B2926D11D2B00876D7C /* MultilineTextFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA6B2826D11D2B00876D7C /* MultilineTextFieldModel.swift */; };
+		4FEF48E227080A3700B23BC1 /* SlotMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF48E127080A3700B23BC1 /* SlotMapping.swift */; };
+		4FEF48E427080B9500B23BC1 /* SlotRepositoryPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF48E327080B9500B23BC1 /* SlotRepositoryPort.swift */; };
+		4FEF48EB27080E5F00B23BC1 /* SlotRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF48EA27080E5F00B23BC1 /* SlotRoutes.swift */; };
+		4FEF48EF27080E9100B23BC1 /* SlotResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF48EE27080E9100B23BC1 /* SlotResponse.swift */; };
+		4FEF48F227080EEB00B23BC1 /* SlotCreateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF48F127080EEB00B23BC1 /* SlotCreateRequest.swift */; };
+		4FEF48F427080FE400B23BC1 /* SlotAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF48F327080FE400B23BC1 /* SlotAPI.swift */; };
+		4FEF48F627084F5800B23BC1 /* SlotUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF48F527084F5800B23BC1 /* SlotUpdateRequest.swift */; };
 		4FFBE4E626C1AC8A00A79D81 /* TaskRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFBE4E526C1AC8A00A79D81 /* TaskRoutes.swift */; };
 		4FFBE4EA26C1ACCB00A79D81 /* TaskCreateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFBE4E926C1ACCB00A79D81 /* TaskCreateRequest.swift */; };
 		4FFBE4EC26C1AD4000A79D81 /* TaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFBE4EB26C1AD4000A79D81 /* TaskResponse.swift */; };
@@ -391,6 +398,13 @@
 		4FEA6B1F26D0EEBF00876D7C /* SpaceViewSubtask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceViewSubtask.swift; sourceTree = "<group>"; };
 		4FEA6B2126D0EEDE00876D7C /* SpaceViewTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceViewTitle.swift; sourceTree = "<group>"; };
 		4FEA6B2826D11D2B00876D7C /* MultilineTextFieldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextFieldModel.swift; sourceTree = "<group>"; };
+		4FEF48E127080A3700B23BC1 /* SlotMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotMapping.swift; sourceTree = "<group>"; };
+		4FEF48E327080B9500B23BC1 /* SlotRepositoryPort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotRepositoryPort.swift; sourceTree = "<group>"; };
+		4FEF48EA27080E5F00B23BC1 /* SlotRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotRoutes.swift; sourceTree = "<group>"; };
+		4FEF48EE27080E9100B23BC1 /* SlotResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotResponse.swift; sourceTree = "<group>"; };
+		4FEF48F127080EEB00B23BC1 /* SlotCreateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotCreateRequest.swift; sourceTree = "<group>"; };
+		4FEF48F327080FE400B23BC1 /* SlotAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotAPI.swift; sourceTree = "<group>"; };
+		4FEF48F527084F5800B23BC1 /* SlotUpdateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotUpdateRequest.swift; sourceTree = "<group>"; };
 		4FFBE4E526C1AC8A00A79D81 /* TaskRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRoutes.swift; sourceTree = "<group>"; };
 		4FFBE4E926C1ACCB00A79D81 /* TaskCreateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCreateRequest.swift; sourceTree = "<group>"; };
 		4FFBE4EB26C1AD4000A79D81 /* TaskResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResponse.swift; sourceTree = "<group>"; };
@@ -1129,6 +1143,7 @@
 		4F9307CE265E158700204881 /* api */ = {
 			isa = PBXGroup;
 			children = (
+				4FEF48E527080E2300B23BC1 /* slot */,
 				4FFBE4E026C1AC5400A79D81 /* task */,
 				4F6F05A826660D6C0074B9D8 /* space */,
 				4F9307D8265E18A500204881 /* base */,
@@ -1593,7 +1608,6 @@
 			isa = PBXGroup;
 			children = (
 				4FA828DF2699C03700540CFF /* TaskEntity.swift */,
-				4FC14AD6269DEF6000127B8D /* SlotEntity.swift */,
 				4FACDFF726CB7E34004844CB /* TaskStatus.swift */,
 				4FC99B2A26FF59A50087FCCC /* DeadlineType.swift */,
 			);
@@ -1820,6 +1834,108 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		4FEF48DC270809F000B23BC1 /* slot */ = {
+			isa = PBXGroup;
+			children = (
+				4FEF48DD270809FD00B23BC1 /* mapping */,
+				4FEF48DF27080A0E00B23BC1 /* port */,
+				4FEF48DE27080A0500B23BC1 /* entity */,
+				4FEF48E027080A1400B23BC1 /* useCase */,
+			);
+			path = slot;
+			sourceTree = "<group>";
+		};
+		4FEF48DD270809FD00B23BC1 /* mapping */ = {
+			isa = PBXGroup;
+			children = (
+				4FEF48E127080A3700B23BC1 /* SlotMapping.swift */,
+			);
+			path = mapping;
+			sourceTree = "<group>";
+		};
+		4FEF48DE27080A0500B23BC1 /* entity */ = {
+			isa = PBXGroup;
+			children = (
+				4FC14AD6269DEF6000127B8D /* SlotEntity.swift */,
+			);
+			path = entity;
+			sourceTree = "<group>";
+		};
+		4FEF48DF27080A0E00B23BC1 /* port */ = {
+			isa = PBXGroup;
+			children = (
+				4FEF48E327080B9500B23BC1 /* SlotRepositoryPort.swift */,
+			);
+			path = port;
+			sourceTree = "<group>";
+		};
+		4FEF48E027080A1400B23BC1 /* useCase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = useCase;
+			sourceTree = "<group>";
+		};
+		4FEF48E527080E2300B23BC1 /* slot */ = {
+			isa = PBXGroup;
+			children = (
+				4FEF48E627080E2C00B23BC1 /* api */,
+				4FEF48E827080E3900B23BC1 /* protocols */,
+				4FEF48E727080E3100B23BC1 /* routes */,
+				4FEF48E927080E4100B23BC1 /* service */,
+			);
+			path = slot;
+			sourceTree = "<group>";
+		};
+		4FEF48E627080E2C00B23BC1 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				4FEF48ED27080E8200B23BC1 /* request */,
+				4FEF48EC27080E7900B23BC1 /* response */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		4FEF48E727080E3100B23BC1 /* routes */ = {
+			isa = PBXGroup;
+			children = (
+				4FEF48EA27080E5F00B23BC1 /* SlotRoutes.swift */,
+			);
+			path = routes;
+			sourceTree = "<group>";
+		};
+		4FEF48E827080E3900B23BC1 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = protocols;
+			sourceTree = "<group>";
+		};
+		4FEF48E927080E4100B23BC1 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				4FEF48F327080FE400B23BC1 /* SlotAPI.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		4FEF48EC27080E7900B23BC1 /* response */ = {
+			isa = PBXGroup;
+			children = (
+				4FEF48EE27080E9100B23BC1 /* SlotResponse.swift */,
+			);
+			path = response;
+			sourceTree = "<group>";
+		};
+		4FEF48ED27080E8200B23BC1 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				4FEF48F127080EEB00B23BC1 /* SlotCreateRequest.swift */,
+				4FEF48F527084F5800B23BC1 /* SlotUpdateRequest.swift */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
 		4FFBE4E026C1AC5400A79D81 /* task */ = {
 			isa = PBXGroup;
 			children = (
@@ -1923,6 +2039,7 @@
 		4FFC21A426312DFA00198E4B /* domain */ = {
 			isa = PBXGroup;
 			children = (
+				4FEF48DC270809F000B23BC1 /* slot */,
 				4FA828BF2696E83600540CFF /* base */,
 				4F61FD5E26A16A6700D83F2D /* space */,
 				4FA828DA2699C00D00540CFF /* task */,
@@ -2216,6 +2333,7 @@
 				4F0B5C9526498AEF0026FDD0 /* SpaceItemView.swift in Sources */,
 				4FA828BC2696E2BA00540CFF /* WarmUpUseCase.swift in Sources */,
 				4FA5B46A2692E1000031093A /* LoginByEmailViewModel.swift in Sources */,
+				4FEF48EB27080E5F00B23BC1 /* SlotRoutes.swift in Sources */,
 				4F01BEAD264EE68500AAAA39 /* CornerRadius.swift in Sources */,
 				4FCB321226E1FD21003A470A /* SpacesViewList.swift in Sources */,
 				4F8DCEEE26BBB47E00F8CD54 /* SpaceViewModel.swift in Sources */,
@@ -2248,6 +2366,7 @@
 				4FE38CF22663B8320011E203 /* DefaultStore.swift in Sources */,
 				4F9E8988262E73BF002F2B1B /* SOLApp.swift in Sources */,
 				4F87F7A12658E9D10094C946 /* SolColor.swift in Sources */,
+				4FEF48F627084F5800B23BC1 /* SlotUpdateRequest.swift in Sources */,
 				4F48256326C55157001ABE87 /* MakeTaskDoneUseCase.swift in Sources */,
 				4F48256526C55168001ABE87 /* MakeTaskOpenUseCase.swift in Sources */,
 				4FCB321A26E21311003A470A /* ChangeSortTaskUseCase.swift in Sources */,
@@ -2269,6 +2388,7 @@
 				4FA828A82696C83500540CFF /* TokenStore.swift in Sources */,
 				4F8DCEF126BBB49400F8CD54 /* SpaceView.swift in Sources */,
 				4FFBE4EC26C1AD4000A79D81 /* TaskResponse.swift in Sources */,
+				4FEF48F227080EEB00B23BC1 /* SlotCreateRequest.swift in Sources */,
 				4FA828D32699A02800540CFF /* UserEntity.swift in Sources */,
 				4F90D00826BA79ED008F0C5D /* MySpacesUseCase.swift in Sources */,
 				4F61FD7E26A363DE00D83F2D /* SolNavigationView.swift in Sources */,
@@ -2279,9 +2399,11 @@
 				4FFBE4EE26C24CBC00A79D81 /* TaskAPI.swift in Sources */,
 				4FD2E31A265F6BD2007A20C6 /* TextFieldLoginComponent.swift in Sources */,
 				4FA0F6F726487DE900CECF24 /* IconComponent.swift in Sources */,
+				4FEF48EF27080E9100B23BC1 /* SlotResponse.swift in Sources */,
 				4FEA6B1826D0ED6000876D7C /* SpaceViewPicker.swift in Sources */,
 				4F0B5C9E264ADE710026FDD0 /* KeyboardResponder.swift in Sources */,
 				4FD2E31D265F7339007A20C6 /* TitleLoginByEmailView.swift in Sources */,
+				4FEF48E427080B9500B23BC1 /* SlotRepositoryPort.swift in Sources */,
 				4FE38CFF2664123C0011E203 /* AddSpaceView.swift in Sources */,
 				4F2BED3226ECA4B5004D7A15 /* SpaceTitleView.swift in Sources */,
 				4F2CAF9F2702AF2D003CACA0 /* NullEncodable.swift in Sources */,
@@ -2304,9 +2426,11 @@
 				4F2BED2926EB0B14004D7A15 /* TaskTitleModel.swift in Sources */,
 				4F6F05A726660D150074B9D8 /* SpaceProvider.swift in Sources */,
 				4F2B5DAC2668B2CC005BE636 /* AddTaskTextView.swift in Sources */,
+				4FEF48F427080FE400B23BC1 /* SlotAPI.swift in Sources */,
 				4F62D52F26E7082900AA5EBB /* TaskItemSubtaskTitleView.swift in Sources */,
 				4F2661D026B924A4001974BC /* SpaceRepositoryPort.swift in Sources */,
 				4F48255D26C4F9AD001ABE87 /* TaskHeaderView.swift in Sources */,
+				4FEF48E227080A3700B23BC1 /* SlotMapping.swift in Sources */,
 				4F48255B26C4F98C001ABE87 /* TaskPickerView.swift in Sources */,
 				4FA828B62696CE9100540CFF /* AppLoadingViewModel.swift in Sources */,
 				4F87F79B265804870094C946 /* DeadLineChoose.swift in Sources */,
@@ -2447,7 +2571,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2502,7 +2626,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
