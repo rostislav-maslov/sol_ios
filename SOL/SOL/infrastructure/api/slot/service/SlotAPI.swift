@@ -8,7 +8,7 @@
 import Foundation
 
 class SlotAPI: RequestService, SlotRepositoryPort {
-    
+
     func create(_ request: SlotCreateRequest, responseFunc: @escaping ApiResponseProtocol<SlotResponse>) {
         self.requestJson(url: SlotRoutes.ROOT, method: "POST", requestBody: request, responseFunc: responseFunc)
     }
@@ -24,7 +24,7 @@ class SlotAPI: RequestService, SlotRepositoryPort {
     func findByTaskId(_ taskId: String, responseFunc: @escaping ApiResponseProtocol<[SlotResponse]>){
         self.requestFormUrl(url: SlotRoutes.ROOT + "?taskId=\(taskId)", method: "GET", responseFunc: responseFunc)
     }
-    func findByDate(_ date: UInt64, _ timezone: Int, responseFunc: @escaping ApiResponseProtocol<[SlotResponse]>){
+    func findByDate(_ date: Int64, _ timezone: Int, responseFunc: @escaping ApiResponseProtocol<BaseListResponse<SlotResponse>>){
         self.requestFormUrl(url: SlotRoutes.ROOT + "?date=\(date)&timezone=\(timezone)", method: "GET", responseFunc: responseFunc)
     }
     

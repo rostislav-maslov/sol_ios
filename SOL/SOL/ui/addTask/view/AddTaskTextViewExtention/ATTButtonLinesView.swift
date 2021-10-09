@@ -29,9 +29,8 @@ extension AddTaskTextView{
             TaskFieldButtonComponent(
                 imageName: "deadline",
                 title: "Deadline",
-                
                 choosed: $model.buttonState.hasDeadline,
-                didTouch:model.goToDeadline
+                didTouch: model.goToDeadline
             )
             
             TaskFieldButtonComponent(

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import NavigationStack
 
 struct TaskItemSubtaskView: View {
     
@@ -26,7 +25,7 @@ struct TaskItemSubtaskView: View {
                 }, label: {
                     checkbox
                 })
-                PushView(
+                NavigationLink(
                     destination: TaskView(taskId: self.taskId),
                     label: {
                         VStack{

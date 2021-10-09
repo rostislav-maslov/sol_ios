@@ -9,8 +9,8 @@ import Foundation
 
 public class SlotEntity {
     var id: String = UUID().uuidString
-    var startDate: Date?
-    var endDate: Date?
+    var startTime: Date?
+    var endTime: Date?
     var title: String = ""
     var ownerId: String?
     var createdFromTaskId: String?
@@ -21,4 +21,6 @@ public class SlotEntity {
     var timezone: Int = 0
     var createdAt: Date?
     var updatedAt: Date?
+    
+    var isDraft: Bool = false
 }

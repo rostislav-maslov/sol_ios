@@ -10,8 +10,8 @@ import Foundation
 
 public struct SlotResponse: Codable{
     var id: String?
-    var startDate: Date?
-    var endDate: Date?
+    var startTime: Int64?
+    var endTime: Int64?
     var title: String?
     var ownerId: String?
     var createdFromTaskId: String?

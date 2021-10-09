@@ -19,11 +19,11 @@ struct DoneKeyboardButtonView: View {
                             Rectangle()
                                 .fill(SolColor.colors().button.background)
                                 .cornerRadius(12, corners: [.topLeft, .topRight])
-                                .frame(width: .infinity, height: 44, alignment: .center)
+                                .frame(height: 44, alignment: .center)
                             Text("Submit")
                                 .foregroundColor(SolColor.colors().button.font)
                                 .font(SolFonts.font(size: 18, weight: Font.Weight.medium, color: SolColor.colors().button.font))
-                        }.frame(width: .infinity, height: 44, alignment: .center)
+                        }.frame(height: 44, alignment: .center)
                     })
                 }
             }

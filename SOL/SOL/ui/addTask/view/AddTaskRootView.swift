@@ -28,6 +28,7 @@ struct AddTaskRootView: View {
     var parentTaskId: String?
     
     @ObservedObject var model: AddTaskViewModel
+    
     @EnvironmentObject var taskStore: TaskStore
     @EnvironmentObject var spaceStore: SpaceStore
     @State var deadlineViewDate = Date()
@@ -50,7 +51,7 @@ struct AddTaskRootView: View {
                     Spacer()
                     Rectangle()
                         .fill(SolColor.colors().addTask.addTaskBackground)
-                        .frame(width: .infinity, height: 34, alignment: .center)
+                        .frame(height: 34, alignment: .center)
                 }.ignoresSafeArea()
             }
             VStack {
@@ -62,9 +63,11 @@ struct AddTaskRootView: View {
                         AddTaskTextView(model: model)
                     }
                     if self.model.state == AddTaskState.PLANNING{
-                        ChooseEventTimeView(model: model).colorScheme(ColorScheme.light)
+                        SlotsCalendarView(delegate: self.model).colorScheme(ColorScheme.light)                        
                     }                
                  
+                
+                
                 ChooseDeadlineView(
                     isPresented: $model.sheets.deadline,
                     date: $model.task.deadline,

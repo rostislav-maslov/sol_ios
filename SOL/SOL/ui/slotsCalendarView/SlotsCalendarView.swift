@@ -10,9 +10,9 @@ import EventKit
 import EventKitUI
 import UIKit
 
-struct ChooseEventTimeView: View {
-    @ObservedObject var model: AddTaskViewModel
-    @State var state: ViewState = .NORMAL
+struct SlotsCalendarView: View {
+    let delegate: DaySchedulerProtocol
+    @State var state = ViewState.NORMAL
     
     var body: some View {
         ZStack{
@@ -20,14 +20,13 @@ struct ChooseEventTimeView: View {
             day
             closeButton
             submitButton
-        }
-        
+        }        
         .ignoresSafeArea()
     }
     
 }
 
-extension ChooseEventTimeView{
+extension SlotsCalendarView{
     var backgroundView: some View {
         VStack{
             Rectangle()
@@ -40,7 +39,7 @@ extension ChooseEventTimeView{
     }
 }
 
-extension ChooseEventTimeView{
+extension SlotsCalendarView{
     var backgroundBottomView: some View {
         VStack{
             Spacer()
@@ -55,7 +54,7 @@ extension ChooseEventTimeView{
     }
 }
 
-extension ChooseEventTimeView{
+extension SlotsCalendarView{
     var day: some View {
         VStack{
             Spacer()
@@ -68,7 +67,7 @@ extension ChooseEventTimeView{
             Spacer()
                 .frame(width: 0, height: 0, alignment: .center)
             
-            DaySchedulerView(model: model)
+            DaySchedulerView(delegate: delegate)
             
             Spacer()
                 .frame(width: 0, height: 0, alignment: .center)
@@ -77,13 +76,15 @@ extension ChooseEventTimeView{
     }
 }
 
-extension ChooseEventTimeView{
+extension SlotsCalendarView{
     var closeButton: some View{
         VStack{
             Spacer().frame(width: 0, height: ( 16), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             HStack{
                 Spacer()
-                Button(action: model.goToText, label: {
+                Button(action: {
+                    delegate.onClose()                    
+                }, label: {
                     ZStack{
                         Image("ic_close")
                             .frame(width: 24, height: 24, alignment: .center)
@@ -98,7 +99,7 @@ extension ChooseEventTimeView{
     
 }
 
-extension ChooseEventTimeView{
+extension SlotsCalendarView{
     var submitButton: some View {
         VStack{
             Spacer()
@@ -108,7 +109,7 @@ extension ChooseEventTimeView{
                 ButtonComponent(
                     title: "Submit",
                     state: $state,
-                    action: model.goToText)
+                    action: self.delegate.onSubmit)
                 Spacer()
                     .frame(width: 16, height: 0, alignment: .center)
             }

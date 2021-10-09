@@ -31,6 +31,6 @@ extension AddTaskTextView{
             Spacer()
         }
         .hidden()
-        .frame(width: .infinity)
+        .frame(width: nil)
     }
 }

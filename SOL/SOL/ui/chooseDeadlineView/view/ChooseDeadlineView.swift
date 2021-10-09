@@ -27,8 +27,7 @@ struct ChooseDeadlineView: View {
     
     
     var body: some View {
-        EmptyView()
-            .sheet(
+        Text("").sheet(
             isPresented: $isPresented,
             onDismiss: {
                 if useCancel == true {
@@ -44,9 +43,8 @@ struct ChooseDeadlineView: View {
                 onSubmit()
             },
             content: {
-             content
-            })
-            
+                content
+            })                           
     }
     
     var content: some View {

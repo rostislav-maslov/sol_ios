@@ -8,7 +8,6 @@
 import SwiftUI
 import Combine
 import ToastUI
-import NavigationStack
 
 struct LoginByEmailView: View {
     @ObservedObject var viewModel = LoginByEmailViewModel()
@@ -21,7 +20,7 @@ struct LoginByEmailView: View {
     var body: some View {
         
             ZStack {
-                PushView(destination: SpacesView(), isActive: $viewModel.navigateToSpace) {}
+                NavigationLink(destination: SpacesView(), isActive: $viewModel.navigateToSpace) {}
                 
                 SolColor.colors().screen.background.edgesIgnoringSafeArea(.all)
                 VStack(alignment: .leading) {

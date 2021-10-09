@@ -7,13 +7,13 @@
 
 import Foundation
 import SwiftUI
-import NavigationStack
+
 
 extension SpaceView {
     var header: some View {
         VStack(alignment: .leading, spacing: nil, content: {
             headerSpacer
-            taskTitle            
+            taskTitle
         })
     }
 }
@@ -22,8 +22,7 @@ extension SpaceView {
     var headerSpacer: some View {
         HStack{
             Spacer()
-                .frame(
-                    width: .infinity,
+                .frame(                    
                     height: (41 + 41 + CGFloat(NavigationBarHelper.heightDelta)),
                     alignment: .center)
         }

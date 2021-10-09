@@ -2,7 +2,6 @@ PODS:
   - CalendarKit (1.0.10)
   - Introspect (0.1.3)
   - ISEmojiView (0.2.6)
-  - NavigationStack (1.0.2)
   - SwiftUIRefresh (0.0.3):
     - Introspect (~> 0.1.0)
   - ToastUI (2.0.0)
@@ -10,7 +9,6 @@ PODS:
 DEPENDENCIES:
   - CalendarKit
   - ISEmojiView
-  - NavigationStack
   - SwiftUIRefresh
   - ToastUI
 
@@ -19,7 +17,6 @@ SPEC REPOS:
     - CalendarKit
     - Introspect
     - ISEmojiView
-    - NavigationStack
     - SwiftUIRefresh
     - ToastUI
 
@@ -27,10 +24,9 @@ SPEC CHECKSUMS:
   CalendarKit: 4bcc7dcf4a6e558550a46d91db2d23dc1fb608a9
   Introspect: 2be020f30f084ada52bb4387fff83fa52c5c400e
   ISEmojiView: f7cd94a6c93307f429ec5da001293d0b02247f03
-  NavigationStack: bb6c4f3d1b9fe92f1f6d47370f73c9233ad56272
   SwiftUIRefresh: ca6ae2718d25aad5dd68bbf5d2ae36ef6ade98bf
   ToastUI: 391eb9a1cc15e7ef4b79ee112e4a0b969259154f
 
-PODFILE CHECKSUM: d6e005c6eb6836328f5f7e6e537f82821d5c6bb0
+PODFILE CHECKSUM: b95ed950b37d75283524749b812d0624d1ff0ea0
 
 COCOAPODS: 1.8.4

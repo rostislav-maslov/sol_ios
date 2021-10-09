@@ -6,15 +6,15 @@
 //
 
 import SwiftUI
-import NavigationStack
 
 struct BackButton: View {
-    @EnvironmentObject private var navigationStack: NavigationStack   
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+      
     
     var body: some View {
         
                 Button(action: {
-                    self.navigationStack.pop()
+                    presentationMode.wrappedValue.dismiss()
 //                    self.presentation.wrappedValue.dismiss()
                 }) {
                     HStack {

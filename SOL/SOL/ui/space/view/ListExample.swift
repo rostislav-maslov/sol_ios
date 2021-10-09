@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import NavigationStack
+
 import Combine
 
 struct Item: Identifiable {
@@ -15,8 +15,7 @@ struct Item: Identifiable {
 }
 
 struct ListExample: View {
-    
-    @EnvironmentObject var navigationStack: NavigationStack
+
     @State private var items: [Item] = (0..<15).map { Item(title: "Item #\($0)") }
     @State private var isEditable = false
     

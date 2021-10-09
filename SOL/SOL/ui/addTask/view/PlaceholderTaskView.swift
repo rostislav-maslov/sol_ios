@@ -28,7 +28,7 @@ extension PlaceholderTaskView{
             Rectangle()
                 .fill(SolColor.colors().addTask.placeholderBackground)
                 .cornerRadius(8)
-                .frame(width: .infinity, height: 48, alignment: .center)
+                .frame(height: 48, alignment: .center)
                 .padding(EdgeInsets(top: 0.0, leading: 8.0, bottom: 0.0, trailing: 8.0))
             HStack{
                 Spacer()
@@ -54,7 +54,7 @@ extension PlaceholderTaskView{
                 Rectangle()
             })
             .foregroundColor(.clear)
-            .frame(width: .infinity, height: 48, alignment: .center)
+            .frame(height: 48, alignment: .center)
         }
     }
 }

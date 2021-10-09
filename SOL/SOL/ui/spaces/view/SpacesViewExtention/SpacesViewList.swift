@@ -7,16 +7,15 @@
 
 import Foundation
 import SwiftUI
-import NavigationStack
+
 
 extension SpacesView {
     var spacesList: some View {
         VStack{                        
             ForEach(spaceStore.spacesOrdered, id: \.id) { space in
                 VStack{
-                    PushView(
-                        destination: SpaceView(spaceId: space.id),
-                        destinationId: "SpaceView") {
+                    NavigationLink(
+                        destination: SpaceView(spaceId: space.id)) {
                         Spacer().frame(width: 1, height: 12, alignment: .center)
                         SpaceItemView(spaceId: space.id)
                     }                 
@@ -35,7 +34,7 @@ extension SpacesView {
             }
             Rectangle()
                 .foregroundColor(SolColor.colors().screen.background)
-                .frame(width: .infinity, height: 50, alignment: .center)
+                .frame(height: 50, alignment: .center)
                 .onDrop(of: ["public.utf8-plain-text"], isTargeted: $model.isTarget,
                         perform: { (provider) -> Bool in
                             guard let nsProvider = provider.first, let spaceIdSuggest = nsProvider.suggestedName

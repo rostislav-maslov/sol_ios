@@ -43,7 +43,7 @@ extension TaskItemSubtaskView {
                     maxHeight: 25,
                     alignment: .center)
                 Spacer()
-            }.frame(width: .infinity)
+            }.frame(width: nil)
             
             Spacer().frame(height: 0)
             

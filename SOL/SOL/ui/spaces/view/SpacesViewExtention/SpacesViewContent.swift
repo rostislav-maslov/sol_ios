@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-import NavigationStack
+
 
 extension SpacesView {
     var content: some View {

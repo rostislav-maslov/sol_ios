@@ -23,9 +23,7 @@ public class TaskEntity{
     
     var ownerId:String?
     var parentTaskId:String?
-    var pics:[String] = []
-    var planningPoints:[String] = []
-    var pointWeight:Int = 0
+    var pics:[String] = []        
     var repeatTaskConfId:String?
     var spaceId:String?
     var status:TaskStatus = TaskStatus.OPEN

@@ -33,9 +33,7 @@ public class TaskMapping {
         
         task.ownerId = response.ownerId
         task.parentTaskId = response.parentTaskId
-        task.pics = response.pics!
-        task.planningPoints = response.planningPoints!
-        task.pointWeight = response.pointWeight!
+        task.pics = response.pics!        
         task.repeatTaskConfId = response.repeatTaskConfId
         task.spaceId = response.spaceId
         task.status = response.status

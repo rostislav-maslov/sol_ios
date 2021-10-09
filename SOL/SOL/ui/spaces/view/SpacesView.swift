@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import NavigationStack
 
 struct SpacesView: View {
     public static let VIEW_ID = "SpacesView"
@@ -17,8 +16,6 @@ struct SpacesView: View {
     @EnvironmentObject var taskStore: TaskStore
     
     var body: some View {
-        //NavigationStackView{
-        
             ZStack {
                 NavigationLink(
                     destination: LoginUIView(),
@@ -27,10 +24,12 @@ struct SpacesView: View {
                 }
                 content
                 AddTaskRootView(spaceId: nil, parentTaskId: nil) {
-                    
                 }
             }
             .preferredColorScheme(.light)
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
+            .navigationTitle("Spaces")
             .onAppear(perform: {
                 model.store = self.spaceStore
                 spaceStore.taskStore = taskStore

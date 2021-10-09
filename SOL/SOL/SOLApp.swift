@@ -19,7 +19,6 @@ struct SOLApp: App {
             ZStack{
                 Color(CGColor(
                     red:239/255, green:239/255, blue: 239/255, alpha:1
-                    
                 )).ignoresSafeArea(.all)
                 AppLoadingView()                
             }

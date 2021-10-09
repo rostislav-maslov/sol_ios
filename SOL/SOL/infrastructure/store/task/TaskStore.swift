@@ -15,9 +15,7 @@ public class TaskStore: ObservableObject {
     var spaceStore: SpaceStore?
     
     private var disposables = Set<AnyCancellable>()
-    private let port:TaskRepositoryPort = SolApiService.api().task
-    
-    
+    private let port:TaskRepositoryPort = SolApiService.api().task        
 }
 
 //MARK: - Загрузка
@@ -212,9 +210,10 @@ extension TaskStore {
                  emoji: String,
                  parentTaskId: String?,
                  spaceId: String?,
-                   deadline: Date?,
-                   deadlineType: DeadlineType?,
-                   timezone: Int?){
+                 deadline: Date?,
+                 deadlineType: DeadlineType?,
+                 timezone: Int?,
+                 slots: [SlotEntity]){
         SolPublisher<TaskEntity, Bool>(useCase:
                                         CreateTaskUseCase(self.port,
                                                           CreateTaskUseCase.Input.init(
@@ -230,6 +229,9 @@ extension TaskStore {
                 if(result.success != nil) {
                     let task = result.success!
                     self?.tasks[task.id] = task
+                    
+                    self?.createSlots(task: task, slots: slots)
+                    
                     self?.tasks[task.id]?.loadStatus = LoadStatus.SUCCESS
                     if parentTaskId != nil {
                         self?.tasks[parentTaskId!]?.child.append(task)
@@ -249,6 +251,20 @@ extension TaskStore {
                 }
             }
             .store(in: &disposables)
+    }
+    
+    func createSlots(task: TaskEntity, slots: [SlotEntity]) {
+        for slot in slots {
+            let request: SlotCreateRequest = SlotCreateRequest(
+                endTime: slot.endTime!.millisecondsSince1970,
+                startTime: slot.startTime!.millisecondsSince1970,
+                taskId: task.id,
+                timezone: slot.timezone)
+            
+            SolApiService.instance?.slot.create(request, responseFunc: { success, error, isSuccess in
+                
+            })
+        }
     }
 }
 

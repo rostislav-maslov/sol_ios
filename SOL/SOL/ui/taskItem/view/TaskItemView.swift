@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import NavigationStack
 
 struct TaskItemView: View {
     @ObservedObject  var model: TaskItemViewModel

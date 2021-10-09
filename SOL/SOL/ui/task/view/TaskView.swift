@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import NavigationStack
 
 struct TaskView: View {
     var taskId: String
@@ -16,18 +15,22 @@ struct TaskView: View {
     @EnvironmentObject var spaceStore: SpaceStore
     
     @ObservedObject var model: TaskViewModel
-    @EnvironmentObject var navigationStack: NavigationStack
+    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+        
     
     init(taskId: String){
         self.taskId = taskId
-        self.model = TaskViewModel(taskId: taskId)                    
+        self.model = TaskViewModel(taskId: taskId)
+        UINavigationBar.appearance().titleTextAttributes = [
+                   .font : UIFont(name: "HelveticaNeue-Thin", size: 0)!]
     }
     
     var body: some View {
         
         ZStack {            
             content
-            SolNavigationView()            
+            //SolNavigationView()            
             
             if model.bottomButtonType == BottomButtonType.ADD_TASK {
                 AddTaskRootView(spaceId: taskStore.tasks[taskId]?.spaceId, parentTaskId: taskId) {
@@ -47,9 +50,9 @@ struct TaskView: View {
                 })
             }
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarHidden(true)
-        .preferredColorScheme(.light)        
+        .preferredColorScheme(.light)
+        .navigationTitle(taskStore != nil ? (taskStore.tasks[taskId]?.title ?? "") : "" )
+        .navigationBarHidden(false)
         .onAppear(perform: {
             self.model.taskStore = taskStore
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {

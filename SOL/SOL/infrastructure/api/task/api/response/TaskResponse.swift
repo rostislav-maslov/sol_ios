@@ -19,8 +19,6 @@ public struct TaskResponse: Codable{
     var ownerId:String?
     var parentTaskId:String?
     var pics:[String]?
-    var planningPoints:[String]?
-    var pointWeight:Int?
     var repeatTaskConfId:String?
     var spaceId:String?
     var status:TaskStatus = TaskStatus.OPEN

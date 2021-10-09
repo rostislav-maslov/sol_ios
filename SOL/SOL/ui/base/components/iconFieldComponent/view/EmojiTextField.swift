@@ -24,7 +24,7 @@ public struct EmojiTextField: UIViewRepresentable {
     }
     
     public func updateUIView(_ uiView: UIEmojiTextField, context: Context) {
-        uiView.text = text
+        //uiView.text = text
     }
     
     public func makeCoordinator() -> Coordinator {
@@ -39,7 +39,7 @@ public struct EmojiTextField: UIViewRepresentable {
         }
         
         public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-            parent.textFieldShouldBeginEditing()
+            //parent.textFieldShouldBeginEditing()
             return true
         }
         

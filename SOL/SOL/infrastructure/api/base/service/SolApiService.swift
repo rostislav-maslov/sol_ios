@@ -12,6 +12,7 @@ class SolApiService {
     let auth: AuthAPI = AuthAPI()
     let space: SpaceAPI = SpaceAPI()
     let task: TaskAPI = TaskAPI()
+    let slot: SlotAPI = SlotAPI()
     
     static func api() -> SolApiService{
         if( instance == nil) {

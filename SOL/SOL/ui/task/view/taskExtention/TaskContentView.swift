@@ -35,7 +35,7 @@ extension TaskView {
                         if value.translation.width > .zero
                             && value.translation.height > -30
                             && value.translation.height < 30 {
-                            self.navigationStack.pop()                            
+                            self.presentationMode.wrappedValue.dismiss()
                             
                             //self.goBack.ppp().wrappedValue.dismiss()
                             print("DragGesture")

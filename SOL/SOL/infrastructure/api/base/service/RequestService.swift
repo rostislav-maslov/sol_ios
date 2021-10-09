@@ -92,9 +92,6 @@ class RequestService {
             request.addValue(token!, forHTTPHeaderField: "X-Auth-Token")
         }
                 
-        print("\(request.httpMethod ?? "") \(String(describing: request.url))")
-        print("HEADERS \n \(String(describing: request.allHTTPHeaderFields))")
-        
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "No data")
@@ -120,6 +117,20 @@ class RequestService {
             }
             
             responseFunc(responseObj, errorObj, status)
+            
+            print("===========================")
+            print("\(request.httpMethod ?? "") \(String(describing: request.url))")
+            print("HEADERS \n \(String(describing: request.allHTTPHeaderFields))")
+            var str = ""
+            if request.httpBody != nil {
+                str = String(decoding: request.httpBody!, as: UTF8.self)
+            }
+            print("BODY \n \(str)")
+            print("----------------------------")
+            print("CODE \n \(code)")
+            print("responseObj \n \(responseObj)")
+            print("errorObj \n \(errorObj)")
+            print("===========================")
         }
         
         task.resume()

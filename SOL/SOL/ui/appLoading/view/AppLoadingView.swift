@@ -6,15 +6,11 @@
 //
 
 import SwiftUI
-import NavigationStack
+
 
 struct AppLoadingView: View {
     @ObservedObject var viewModel: AppLoadingViewModel = AppLoadingViewModel()
     @State var goToState:AppLoadingState?
-    
-//    var spaceStore: SpaceStore
-//    var taskStore: TaskStore
-//    var spaceStore: EnvStore
     
     init() {
         NavigationBarHelper.updateHeightDelta()
@@ -22,14 +18,12 @@ struct AppLoadingView: View {
     }
     
     var body: some View {
-//        NavigationView{
-        NavigationStackView{
+        NavigationView{
             VStack{
-                PushView(destination: LoginUIView(), tag: AppLoadingState.LOGIN, selection: $goToState) {
+                NavigationLink(destination: LoginUIView(), tag: AppLoadingState.LOGIN, selection: $goToState) {
                     
                 }
-                PushView(destination: SpacesView(), tag: AppLoadingState.SPACES, selection: $goToState) {
-                    
+                NavigationLink(destination: SpacesView(), tag: AppLoadingState.SPACES, selection: $goToState) {
                 }
                 
                 ProgressView()

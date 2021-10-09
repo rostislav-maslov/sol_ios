@@ -7,14 +7,13 @@
 
 import Foundation
 import SwiftUI
-import NavigationStack
+
 
 
 
 public struct SpaceView: View {
     var spaceId: String
-    @ObservedObject var model: SpaceViewModel    
-    @EnvironmentObject var navigationStack: NavigationStack
+    @ObservedObject var model: SpaceViewModel
     
     @EnvironmentObject var taskStore: TaskStore
     @EnvironmentObject var spaceStore: SpaceStore
@@ -22,18 +21,23 @@ public struct SpaceView: View {
     @State public var isEditable = true
     @State var isTarget = true
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var emojiTextField: EmojiTextField?    
     
     init(spaceId: String){
         self.spaceId = spaceId
         self.model = SpaceViewModel(spaceId)
+        
+        UINavigationBar.appearance().titleTextAttributes = [
+                   .font : UIFont(name: "HelveticaNeue-Thin", size: 0)!]
     }
     
     public var body: some View {        
         ZStack {
             content
                 
-            SolNavigationView()
+            // SolNavigationView()
             if model.bottomButtonType == BottomButtonType.ADD_TASK {
                 AddTaskRootView(
                     spaceId: self.spaceId,
@@ -60,6 +64,8 @@ public struct SpaceView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .preferredColorScheme(.light)
+        .navigationTitle(spaceStore != nil ? (spaceStore.spaces[spaceId]?.title ?? "") : "" )
+        .navigationBarHidden(false)
         .onAppear(perform: {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 self.spaceStore.sync(spaceId: self.spaceId)

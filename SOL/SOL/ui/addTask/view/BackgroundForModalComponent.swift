@@ -15,7 +15,7 @@ struct BackgroundView: View {
     var body: some View {
         Button(action: didTouch, label: {
             Rectangle()
-                .frame(width: .infinity, height: .infinity, alignment: .center)
+                .frame(width: nil, height: nil, alignment: .center)
                 .foregroundColor(Color(CGColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5)))
                 .ignoresSafeArea()
         })

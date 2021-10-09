@@ -44,7 +44,7 @@ struct AddTaskTextView: View {
                     submitButton
                     Spacer().frame(width: 16, height:0, alignment: .center)
                 }
-                .frame(width: .infinity, height: 30, alignment: .center)
+                .frame(width: nil, height: 30, alignment: .center)
                 //Spacer().frame(width: 0.0, height: 8.0, alignment: .center)
                 //deadlineFastLine
                 
@@ -52,7 +52,7 @@ struct AddTaskTextView: View {
                 
             }
         }
-        .frame(width: .infinity)
+        .frame(width: nil)
         .onAppear(perform: {
             print("AddTaskTextView - did appear")
             model.taskStore = taskStore
@@ -67,7 +67,7 @@ extension AddTaskTextView{
             .fill(SolColor.colors().addTask.addTaskBackground)
             .cornerRadius(12, corners: [.topLeft, .topRight])
             .frame(
-                width: .infinity,
+                width: nil,
                 height: 64 + self.model.titleTextSize + self.model.taskInfoSize,                
                 alignment: .center)
     }
@@ -126,7 +126,7 @@ extension AddTaskTextView {
                 .font(SolFonts.font(size: 11, weight: Font.Weight.regular, color: SolColor.colors().fontColors.second))
                 .foregroundColor(SolColor.colors().fontColors.second)
             Spacer()
-        }.frame(width: .infinity)
+        }.frame(width: nil)
     }
 }
 

@@ -9,7 +9,9 @@ import Foundation
 import Combine
 import SwiftUI
 
-public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol {
+public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, DaySchedulerProtocol {
+
+    
     var spaceId: String?
     var parentTaskId: String?
     var taskStore: TaskStore?
@@ -37,26 +39,26 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol {
         self.taskDidCreated = taskDidCreated
     }
     
-    public func removeTimeSlot(startDate: Date) {
+    public func removeTimeSlot(startTime: Date) {
         task.slots.removeAll { (check: SlotEntity) in
-            return check.startDate == startDate
+            return check.startTime == startTime
         }
     }
     
-    public func addTimeSlot(startDate: Date, endDate: Date) {
+    public func addTimeSlot(startTime: Date, endTime: Date) {
         let slot:SlotEntity = SlotEntity()
-        slot.startDate = startDate
-        slot.endDate = endDate
+        slot.startTime = startTime
+        slot.endTime = endTime
         
         task.slots.append(slot)
     }
     
     
-    public func changeTimeSlot(id: String, newStartDate: Date, newEndDate: Date){
+    public func changeTimeSlot(id: String, newStartTime: Date, newEndTime: Date){
         for slot in task.slots {
             if slot.id == id {
-                slot.endDate = newEndDate
-                slot.startDate = newStartDate
+                slot.endTime = newEndTime
+                slot.startTime = newStartTime
             }
         }
     }
@@ -162,6 +164,7 @@ extension AddTaskViewModel {
     }
 }
 
+// MARK: Send task to backend
 extension AddTaskViewModel {
     public func clean(){
         task = TaskEntity()
@@ -182,16 +185,18 @@ extension AddTaskViewModel {
                            spaceId: spaceId,
                            deadline: task.deadline,
                            deadlineType: task.deadlineType,
-                           timezone: Date().timezone)
+                           timezone: Date().timezone,
+                           slots: task.slots
+        )
         
         self.loadingStatus = .NORMAL
         self.state = AddTaskState.PLACEHOLDER
         self.task = TaskEntity()
         self.taskDidCreated()                
     }
-}
 
-extension AddTaskViewModel{
+  
+    
     func submit(){
         if task.title == "" {
             return 
@@ -201,7 +206,7 @@ extension AddTaskViewModel{
     }
 }
 
-// M
+// MARK:  Title text field
 extension AddTaskViewModel {
     public func textDidChange(text: String){
         self.task.title = text        
@@ -235,6 +240,49 @@ extension AddTaskViewModel {
     }
 }
 
+
+//MARK: DaySchedulerProtocol
 extension AddTaskViewModel {
+    func newSlotName() -> String {
+        return task.fullTitle
+    }
     
+    func addSlot(startTime: Date, endTime: Date) {
+        let slot: SlotEntity = SlotEntity()
+        slot.id = UUID().uuidString
+        slot.title = task.title
+        slot.startTime = startTime
+        slot.endTime = endTime
+        slot.spaceId = self.spaceId
+        slot.slotsMilliseconds = endTime.millisecondsSince1970 - startTime.millisecondsSince1970
+        slot.isDraft = true
+        slot.timezone = Date().timezone
+        task.slots.append(slot)
+    }
+    
+    func changeTimeSlot() {
+        
+    }
+    
+    
+    func slotsByDay(date: Date, callback: @escaping (([SlotEntity]) -> Void) ) {
+        SolApiService.instance?.slot.findByDate(date.millisecondsSince1970, Date().timezone, responseFunc:   { (success, error, isSuccess) in
+            var result:[SlotEntity] = []
+            if isSuccess == true && success != nil {
+                for item in success!.result.items{
+                    result.append(SlotMapping.mapping(response: item))
+                }                                
+            }
+            result.append(contentsOf: self.task.slots)
+            callback(result)
+        })
+    }
+    
+    func onClose() {
+        goToText()
+    }
+    
+    func onSubmit() {
+        goToText()
+    }
 }

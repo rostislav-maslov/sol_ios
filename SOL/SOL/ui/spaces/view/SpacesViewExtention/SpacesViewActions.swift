@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import NavigationStack
 
 extension SpacesView {
     var actionButtons: some View {

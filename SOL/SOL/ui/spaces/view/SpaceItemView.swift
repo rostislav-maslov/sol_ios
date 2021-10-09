@@ -16,7 +16,7 @@ struct SpaceItemView: View {
         ZStack{
             Rectangle()
                 .foregroundColor(SolColor.colors().screen.background)
-                .frame(width: .infinity, height: 50, alignment: .center)
+                .frame(height: 50, alignment: .center)
             VStack{
                 Spacer()
                     .frame(width: 1, height: 12, alignment: .center)
