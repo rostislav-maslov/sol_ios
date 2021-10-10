@@ -54,7 +54,7 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, Day
     }
     
     
-    public func changeTimeSlot(id: String, newStartTime: Date, newEndTime: Date){
+    public func changeTimeSlot(slotId id: String, startTime newStartTime: Date, endTime newEndTime: Date) {
         for slot in task.slots {
             if slot.id == id {
                 slot.endTime = newEndTime
@@ -259,11 +259,6 @@ extension AddTaskViewModel {
         slot.timezone = Date().timezone
         task.slots.append(slot)
     }
-    
-    func changeTimeSlot() {
-        
-    }
-    
     
     func slotsByDay(date: Date, callback: @escaping (([SlotEntity]) -> Void) ) {
         SolApiService.instance?.slot.findByDate(date.millisecondsSince1970, Date().timezone, responseFunc:   { (success, error, isSuccess) in

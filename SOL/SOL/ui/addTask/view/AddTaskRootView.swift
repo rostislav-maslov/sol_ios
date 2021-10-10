@@ -63,7 +63,7 @@ struct AddTaskRootView: View {
                         AddTaskTextView(model: model)
                     }
                     if self.model.state == AddTaskState.PLANNING{
-                        SlotsCalendarView(delegate: self.model).colorScheme(ColorScheme.light)                        
+                        PlanningSlotsView(delegate: self.model).colorScheme(ColorScheme.light)                        
                     }                
                  
                 

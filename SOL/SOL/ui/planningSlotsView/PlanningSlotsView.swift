@@ -10,7 +10,7 @@ import EventKit
 import EventKitUI
 import UIKit
 
-struct SlotsCalendarView: View {
+struct PlanningSlotsView: View {
     let delegate: DaySchedulerProtocol
     @State var state = ViewState.NORMAL
     
@@ -26,7 +26,7 @@ struct SlotsCalendarView: View {
     
 }
 
-extension SlotsCalendarView{
+extension PlanningSlotsView{
     var backgroundView: some View {
         VStack{
             Rectangle()
@@ -39,7 +39,7 @@ extension SlotsCalendarView{
     }
 }
 
-extension SlotsCalendarView{
+extension PlanningSlotsView{
     var backgroundBottomView: some View {
         VStack{
             Spacer()
@@ -54,7 +54,7 @@ extension SlotsCalendarView{
     }
 }
 
-extension SlotsCalendarView{
+extension PlanningSlotsView{
     var day: some View {
         VStack{
             Spacer()
@@ -76,7 +76,7 @@ extension SlotsCalendarView{
     }
 }
 
-extension SlotsCalendarView{
+extension PlanningSlotsView{
     var closeButton: some View{
         VStack{
             Spacer().frame(width: 0, height: ( 16), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -99,7 +99,7 @@ extension SlotsCalendarView{
     
 }
 
-extension SlotsCalendarView{
+extension PlanningSlotsView{
     var submitButton: some View {
         VStack{
             Spacer()

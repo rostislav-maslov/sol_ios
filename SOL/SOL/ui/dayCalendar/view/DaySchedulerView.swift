@@ -20,7 +20,7 @@ protocol DaySchedulerProtocol {
     func newSlotName() -> String
     func slotsByDay(date: Date, callback:  @escaping (([SlotEntity]) -> Void) )
     func addSlot(startTime: Date, endTime: Date) -> Void
-    func changeTimeSlot() -> Void
+    func changeTimeSlot(slotId: String, startTime: Date, endTime: Date) -> Void
     func onSubmit() -> Void
     func onClose() -> Void
 }
@@ -36,34 +36,12 @@ struct DaySchedulerView: UIViewControllerRepresentable, DayViewControllerProtoco
         return delegate.newSlotName()
     }
     
-    private func createEventDescriptor(_ slot: SlotEntity,_ title: String) -> EventDescriptor{
-        // Созданем описание события для того что бы добавить в календарь
-        let event:Event = Event()
-        
-        event.startDate = slot.startTime!
-        event.endDate = slot.endTime!
-        event.userInfo = slot.id
-        event.isAllDay = false
-        //var info = ""// TODO data[Int(arc4random_uniform(UInt32(data.count)))]
-        
-        //info.append(rangeFormatter.string(from: event.startDate, to: event.endDate))
-        event.text = title
-        if slot.isDraft {
-            //event.color = UIColor.red
-            event.color = UIColor(SolColor.colors().fontColors.normal)
-        }else{
-            event.color = UIColor(SolColor.colors().fontColors.second)
-        }
-        
-        return event
-    }
+   
     
     
     
     func eventsForDate(_ date: Date) -> [EventDescriptor] {
         //Получаем инфу о событиях дня. после создание запрашивается заново все события дня
-        
-        var result:[EventDescriptor] = []
         
         delegate.slotsByDay(date: date, callback: { (results: [SlotEntity]) in
             var needAdd: [SlotEntity] = []
@@ -88,9 +66,9 @@ struct DaySchedulerView: UIViewControllerRepresentable, DayViewControllerProtoco
                     self.dayViewControllerImpl.reloadData()
                 }
             }
-            
         })
         
+        var result:[EventDescriptor] = []
         for slot in allSots {
             let formatter = DateFormatter()
             formatter.dateFormat = "ddMMyyyy"
@@ -98,13 +76,11 @@ struct DaySchedulerView: UIViewControllerRepresentable, DayViewControllerProtoco
             let firstTime:String = formatter.string(from: date)
             let startTime:String = formatter.string(from: slot.startTime!)
             let endTime:String = formatter.string(from: slot.endTime!)
-            
-            
+
             if firstTime == startTime || firstTime == endTime {
-                result.append(createEventDescriptor(slot, slot.title))
+                result.append(slot.updateAndReturnDescriptor())
             }
         }
-        //dayViewControllerImpl.reloadData()
         return result
     }
     
@@ -112,23 +88,46 @@ struct DaySchedulerView: UIViewControllerRepresentable, DayViewControllerProtoco
         return UIColor(SolColor.colors().fontColors.normal)
     }
     
+    // MARK: Create Event
     func createEvent(eventDescriptor: EventDescriptor) -> Void {
         // Создание нового слота
         delegate.addSlot(startTime: eventDescriptor.startDate, endTime: eventDescriptor.endDate)
     }
     
+    // MARK: Edit Event
     func updateEvent(eventDescriptor: EventDescriptor) -> Void{
         // запускается когда мы хотим обновить событие в календаре
         if let ev:CalendarKit.Event = eventDescriptor.editedEvent as? CalendarKit.Event {
             if let slotId:String = ev.userInfo as? String {
-                //model.changeTimeSlot(id: slotId, newStartDate: eventDescriptor.startDate, newEndDate: eventDescriptor.endDate)
-                delegate.changeTimeSlot()
+                for slot in allSots {
+                    if slotId == slot.id {
+                        slot.startTime = eventDescriptor.startDate
+                        slot.endTime = eventDescriptor.endDate
+                        
+                        // Commit changes
+                        if slot.isDraft == true {
+                            delegate.changeTimeSlot(slotId: slotId, startTime: eventDescriptor.startDate, endTime: eventDescriptor.endDate)
+                        } else {
+                            let req = SlotUpdateRequest(
+                                endTime: eventDescriptor.endDate.millisecondsSince1970,
+                                startTime: eventDescriptor.startDate.millisecondsSince1970,
+                                id: slotId,
+                                timezone: Date().timezone)
+                          
+                            SolApiService.instance?.slot.edit(req, responseFunc: { success, error, isSuccess in
+                                print(isSuccess)
+                            })
+                        }
+                    }
+                }
+                
             }
         }
+        
     }
             
     func updateUIViewController(_ uiViewController: UIViewController, context: Context){
-        print((uiViewController as!   DayViewControllerImpl).reloadData != nil)
+        
     }
     
     func makeUIViewController(context: Context) -> UIViewController {

@@ -8,8 +8,8 @@
 import Foundation
 
 public struct SlotUpdateRequest: Codable{
-    var endTime: UInt64
-    var startTime:  UInt64
+    var endTime: Int64
+    var startTime:  Int64
     var id: String
     var timezone: Int
 }

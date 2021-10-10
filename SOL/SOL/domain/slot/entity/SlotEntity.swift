@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CalendarKit
 
 public class SlotEntity {
     var id: String = UUID().uuidString
@@ -23,4 +24,34 @@ public class SlotEntity {
     var updatedAt: Date?
     
     var isDraft: Bool = false
+    
+    var eventDescriptor:Event = Event()
+    
+    func updateAndReturnDescriptor() -> EventDescriptor {        
+        eventDescriptor.startDate = startTime!
+        
+        // Это нужно, что бы события не накладывались друг на друга
+        if Calendar.current.component(.minute, from: endTime!) % 5 == 0 {
+            eventDescriptor.endDate = Calendar.current.date(byAdding: .minute, value: -2, to: endTime!)!
+        }else{
+            eventDescriptor.endDate = endTime!
+        }
+        
+        
+        eventDescriptor.userInfo = id
+        eventDescriptor.isAllDay = false
+        //var info = ""// TODO data[Int(arc4random_uniform(UInt32(data.count)))]
+        
+        //info.append(rangeFormatter.string(from: event.startDate, to: event.endDate))
+        eventDescriptor.text = title
+        if isDraft {
+            //event.color = UIColor.red
+            eventDescriptor.color = UIColor(SolColor.colors().fontColors.normal)
+        }else{
+            eventDescriptor.color = UIColor(SolColor.colors().fontColors.second)
+        }
+        
+        return eventDescriptor
+    }
+
 }

@@ -20,8 +20,8 @@ public protocol DayViewControllerProtocol {
 
 class DayViewControllerImpl: DayViewController {
     var eventDelegate: DayViewControllerProtocol?
-    var generatedEvents = [EventDescriptor]()
-    var alreadyGeneratedSet = Set<Date>()
+    // var generatedEvents = [EventDescriptor]()
+    // var alreadyGeneratedSet = Set<Date>()
            
     private var createdEvent: EventDescriptor?
     
@@ -52,10 +52,6 @@ class DayViewControllerImpl: DayViewController {
     
     
     override func eventsForDate(_ date: Date) -> [EventDescriptor] {
-//        if !alreadyGeneratedSet.contains(date) {
-//            alreadyGeneratedSet.insert(date)
-//            //generatedEvents.append(contentsOf: generateEventsForDate(date))
-//        }
         return self.eventDelegate!.eventsForDate(date)
     }
            
@@ -81,6 +77,7 @@ class DayViewControllerImpl: DayViewController {
     override func dayView(dayView: DayView, didTapTimelineAt date: Date) {
         endEventEditing()
         print("Did Tap at date: \(date)")
+        reloadData()
     }
     
     override func dayViewDidBeginDragging(dayView: DayView) {
@@ -126,15 +123,12 @@ class DayViewControllerImpl: DayViewController {
     override func dayView(dayView: DayView, didUpdate event: EventDescriptor) {
         print("did finish editing \(event)")
         print("new startDate: \(event.startDate) new endDate: \(event.endDate)")
-        
-        if let _ = event.editedEvent as? CalendarKit.Event {
-            eventDelegate?.updateEvent(eventDescriptor: event)
-            event.commitEditing()
-        }
-        
+        eventDelegate?.updateEvent(eventDescriptor: event)
+        event.commitEditing()
+                
         if let createdEvent = createdEvent {
             createdEvent.editedEvent = nil
-            generatedEvents.append(createdEvent)
+            //generatedEvents.append(createdEvent)
             self.eventDelegate?.createEvent(eventDescriptor: createdEvent)
             self.createdEvent = nil
             endEventEditing()

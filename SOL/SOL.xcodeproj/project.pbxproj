@@ -19,7 +19,7 @@
 		4F0B5CA1264AFB710026FDD0 /* SpacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B5CA0264AFB710026FDD0 /* SpacesView.swift */; };
 		4F0F318B26714D1C00C67852 /* ChooseDeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0F318A26714D1C00C67852 /* ChooseDeadlineView.swift */; };
 		4F13D3ED26EB011D00F2E947 /* TaskTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13D3EC26EB011D00F2E947 /* TaskTitleView.swift */; };
-		4F21D394266F3D2600459112 /* SlotsCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21D393266F3D2600459112 /* SlotsCalendarView.swift */; };
+		4F21D394266F3D2600459112 /* PlanningSlotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21D393266F3D2600459112 /* PlanningSlotsView.swift */; };
 		4F21D39A266F458600459112 /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 4F21D399266F458600459112 /* ElegantCalendar */; };
 		4F2661CC26B92156001974BC /* AddSpaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2661CB26B92156001974BC /* AddSpaceViewModel.swift */; };
 		4F2661CE26B92479001974BC /* CreateSpaceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2661CD26B92479001974BC /* CreateSpaceUseCase.swift */; };
@@ -79,7 +79,7 @@
 		4F6F05B726660E710074B9D8 /* IconResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6F05B626660E710074B9D8 /* IconResponse.swift */; };
 		4F71E153270AA45500A80F47 /* CreateSlotUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71E152270AA45500A80F47 /* CreateSlotUseCase.swift */; };
 		4F71E155270AA46F00A80F47 /* FindSlotByDayUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71E154270AA46F00A80F47 /* FindSlotByDayUseCase.swift */; };
-		4F71E157270AAB8500A80F47 /* SlotsCalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71E156270AAB8500A80F47 /* SlotsCalendarModel.swift */; };
+		4F71E157270AAB8500A80F47 /* PlanningSlotsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71E156270AAB8500A80F47 /* PlanningSlotsModel.swift */; };
 		4F71E159270AAD4E00A80F47 /* SlotsDraftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71E158270AAD4E00A80F47 /* SlotsDraftModel.swift */; };
 		4F7C4EFF26BEC6160097AC65 /* UIEmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C4EFE26BEC6160097AC65 /* UIEmojiTextField.swift */; };
 		4F7C4F0126BEC6330097AC65 /* EmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C4F0026BEC6330097AC65 /* EmojiTextField.swift */; };
@@ -237,7 +237,7 @@
 		4F0B5CA0264AFB710026FDD0 /* SpacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesView.swift; sourceTree = "<group>"; };
 		4F0F318A26714D1C00C67852 /* ChooseDeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDeadlineView.swift; sourceTree = "<group>"; };
 		4F13D3EC26EB011D00F2E947 /* TaskTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTitleView.swift; sourceTree = "<group>"; };
-		4F21D393266F3D2600459112 /* SlotsCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotsCalendarView.swift; sourceTree = "<group>"; };
+		4F21D393266F3D2600459112 /* PlanningSlotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningSlotsView.swift; sourceTree = "<group>"; };
 		4F2661CB26B92156001974BC /* AddSpaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpaceViewModel.swift; sourceTree = "<group>"; };
 		4F2661CD26B92479001974BC /* CreateSpaceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSpaceUseCase.swift; sourceTree = "<group>"; };
 		4F2661CF26B924A4001974BC /* SpaceRepositoryPort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceRepositoryPort.swift; sourceTree = "<group>"; };
@@ -296,7 +296,7 @@
 		4F6F05B626660E710074B9D8 /* IconResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconResponse.swift; sourceTree = "<group>"; };
 		4F71E152270AA45500A80F47 /* CreateSlotUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSlotUseCase.swift; sourceTree = "<group>"; };
 		4F71E154270AA46F00A80F47 /* FindSlotByDayUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSlotByDayUseCase.swift; sourceTree = "<group>"; };
-		4F71E156270AAB8500A80F47 /* SlotsCalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotsCalendarModel.swift; sourceTree = "<group>"; };
+		4F71E156270AAB8500A80F47 /* PlanningSlotsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningSlotsModel.swift; sourceTree = "<group>"; };
 		4F71E158270AAD4E00A80F47 /* SlotsDraftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotsDraftModel.swift; sourceTree = "<group>"; };
 		4F7C4EFE26BEC6160097AC65 /* UIEmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEmojiTextField.swift; sourceTree = "<group>"; };
 		4F7C4F0026BEC6330097AC65 /* EmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextField.swift; sourceTree = "<group>"; };
@@ -632,14 +632,14 @@
 			path = TaskItemSubtaskExtention;
 			sourceTree = "<group>";
 		};
-		4F2CAFA82702C270003CACA0 /* slotsCalendarView */ = {
+		4F2CAFA82702C270003CACA0 /* planningSlotsView */ = {
 			isa = PBXGroup;
 			children = (
 				4F2CAFAA2702C44C003CACA0 /* model */,
 				4F2CAFA92702C448003CACA0 /* view */,
-				4F21D393266F3D2600459112 /* SlotsCalendarView.swift */,
+				4F21D393266F3D2600459112 /* PlanningSlotsView.swift */,
 			);
-			path = slotsCalendarView;
+			path = planningSlotsView;
 			sourceTree = "<group>";
 		};
 		4F2CAFA92702C448003CACA0 /* view */ = {
@@ -652,7 +652,7 @@
 		4F2CAFAA2702C44C003CACA0 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				4F71E156270AAB8500A80F47 /* SlotsCalendarModel.swift */,
+				4F71E156270AAB8500A80F47 /* PlanningSlotsModel.swift */,
 				4F71E158270AAD4E00A80F47 /* SlotsDraftModel.swift */,
 			);
 			path = model;
@@ -1648,13 +1648,13 @@
 			path = TaskFieldButtonComponent;
 			sourceTree = "<group>";
 		};
-		4FC973002699E78E008509F6 /* dayScheduler */ = {
+		4FC973002699E78E008509F6 /* dayCalendar */ = {
 			isa = PBXGroup;
 			children = (
 				4F6B98E8269D613700B0FFC9 /* model */,
 				4FC973032699E7D3008509F6 /* view */,
 			);
-			path = dayScheduler;
+			path = dayCalendar;
 			sourceTree = "<group>";
 		};
 		4FC973032699E7D3008509F6 /* view */ = {
@@ -2040,8 +2040,8 @@
 				4FCE2EFE26A69F2F009B24DA /* taskItem */,
 				4F61FD6626A16FF600D83F2D /* task */,
 				4FA828CA2696ECC500540CFF /* addTask */,
-				4F2CAFA82702C270003CACA0 /* slotsCalendarView */,
-				4FC973002699E78E008509F6 /* dayScheduler */,
+				4F2CAFA82702C270003CACA0 /* planningSlotsView */,
+				4FC973002699E78E008509F6 /* dayCalendar */,
 				4F2CAFA22702B2B9003CACA0 /* chooseDeadlineView */,
 				4FA828B22696CE4900540CFF /* appLoading */,
 				4F0B5C8C264977F50026FDD0 /* actionButton */,
@@ -2336,7 +2336,7 @@
 				4F6B98EA269D614900B0FFC9 /* DaySchedulerViewModel.swift in Sources */,
 				4F2BED2B26EB10AC004D7A15 /* SpaceViewStore.swift in Sources */,
 				4F71E155270AA46F00A80F47 /* FindSlotByDayUseCase.swift in Sources */,
-				4F71E157270AAB8500A80F47 /* SlotsCalendarModel.swift in Sources */,
+				4F71E157270AAB8500A80F47 /* PlanningSlotsModel.swift in Sources */,
 				4F9307E0265E19B500204881 /* BaseApiErrorResponse.swift in Sources */,
 				4F87F7BB2658F7F20094C946 /* TLItemComponent.swift in Sources */,
 				4FA828CF26999ED800540CFF /* UserPort.swift in Sources */,
@@ -2498,7 +2498,7 @@
 				4FCB320526DE09CC003A470A /* ListExample.swift in Sources */,
 				4FA828E02699C03700540CFF /* TaskEntity.swift in Sources */,
 				4F4FA2AA26E9A86400872EE7 /* NavigationBarHelper.swift in Sources */,
-				4F21D394266F3D2600459112 /* SlotsCalendarView.swift in Sources */,
+				4F21D394266F3D2600459112 /* PlanningSlotsView.swift in Sources */,
 				4F2661CC26B92156001974BC /* AddSpaceViewModel.swift in Sources */,
 				4F61FD6D26A1722C00D83F2D /* TaskContentView.swift in Sources */,
 				4F87F7B32658F1940094C946 /* TLSubtaskButtonComponent.swift in Sources */,
@@ -2664,7 +2664,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"SOL/Preview Content\"";
 				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				ENABLE_PREVIEWS = YES;
@@ -2679,7 +2679,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -2691,7 +2691,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"SOL/Preview Content\"";
 				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				ENABLE_PREVIEWS = YES;
@@ -2706,7 +2706,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

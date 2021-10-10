@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import SwiftUI
 
-public class SlotsCalendarModel: NSObject, ObservableObject {
+public class PlanningSlotsModel: NSObject, ObservableObject {
     var taskId: String
     var taskStore: TaskStore?
     
@@ -23,6 +23,3 @@ public class SlotsCalendarModel: NSObject, ObservableObject {
     }
 }
 
-extension SlotsCalendarModel{
-    
-}
