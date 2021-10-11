@@ -20,7 +20,7 @@
 		4F0F318B26714D1C00C67852 /* ChooseDeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0F318A26714D1C00C67852 /* ChooseDeadlineView.swift */; };
 		4F13D3ED26EB011D00F2E947 /* TaskTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13D3EC26EB011D00F2E947 /* TaskTitleView.swift */; };
 		4F21D394266F3D2600459112 /* PlanningSlotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21D393266F3D2600459112 /* PlanningSlotsView.swift */; };
-		4F21D39A266F458600459112 /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 4F21D399266F458600459112 /* ElegantCalendar */; };
+		4F21D39A266F458600459112 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 4F21D399266F458600459112 /* SwiftPackageProductDependency */; };
 		4F2661CC26B92156001974BC /* AddSpaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2661CB26B92156001974BC /* AddSpaceViewModel.swift */; };
 		4F2661CE26B92479001974BC /* CreateSpaceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2661CD26B92479001974BC /* CreateSpaceUseCase.swift */; };
 		4F2661D026B924A4001974BC /* SpaceRepositoryPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2661CF26B924A4001974BC /* SpaceRepositoryPort.swift */; };
@@ -202,7 +202,6 @@
 		4FFC218E2631222800198E4B /* AppLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFC218D2631222800198E4B /* AppLoadingView.swift */; };
 		4FFC2196263123A600198E4B /* LoginUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFC2195263123A600198E4B /* LoginUIView.swift */; };
 		4FFC21AB2637B5F500198E4B /* LoginByEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFC21AA2637B5F500198E4B /* LoginByEmailView.swift */; };
-		D2367AFF0C140F61AA29073D /* Pods_SOL_SOLUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B6C87DAB321D7DA773F0A7 /* Pods_SOL_SOLUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -226,7 +225,6 @@
 		0F3423B468176CF32762A8D6 /* Pods-SOLTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOLTests.debug.xcconfig"; path = "Target Support Files/Pods-SOLTests/Pods-SOLTests.debug.xcconfig"; sourceTree = "<group>"; };
 		20146135884EF8AA0BFA512D /* Pods-SOL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOL.debug.xcconfig"; path = "Target Support Files/Pods-SOL/Pods-SOL.debug.xcconfig"; sourceTree = "<group>"; };
 		4AD8ED818060EBD76E28D9D4 /* Pods_SOLTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOLTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B81AA0DE1CBCD47D8EA7713 /* Pods-SOL-SOLUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOL-SOLUITests.release.xcconfig"; path = "Target Support Files/Pods-SOL-SOLUITests/Pods-SOL-SOLUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4F01BEAC264EE68500AAAA39 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		4F069312262EE16C00D3E924 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		4F0B5C8D2649780B0026FDD0 /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
@@ -426,10 +424,8 @@
 		4FFC2195263123A600198E4B /* LoginUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUIView.swift; sourceTree = "<group>"; };
 		4FFC21AA2637B5F500198E4B /* LoginByEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginByEmailView.swift; sourceTree = "<group>"; };
 		5F5AD670EFE9C003912E494C /* Pods-SOL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOL.release.xcconfig"; path = "Target Support Files/Pods-SOL/Pods-SOL.release.xcconfig"; sourceTree = "<group>"; };
-		92B6C87DAB321D7DA773F0A7 /* Pods_SOL_SOLUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOL_SOLUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FF00C2D917786245CB4C04 /* Pods-SOLTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOLTests.release.xcconfig"; path = "Target Support Files/Pods-SOLTests/Pods-SOLTests.release.xcconfig"; sourceTree = "<group>"; };
 		EFC9D812CAFE379C7AEB269D /* Pods_SOL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1A57217DE12683B4FD0BDD4 /* Pods-SOL-SOLUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOL-SOLUITests.debug.xcconfig"; path = "Target Support Files/Pods-SOL-SOLUITests/Pods-SOL-SOLUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -438,7 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F83DF2D18AD6EAB55EF844 /* Pods_SOL.framework in Frameworks */,
-				4F21D39A266F458600459112 /* ElegantCalendar in Frameworks */,
+				4F21D39A266F458600459112 /* BuildFile in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,7 +450,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2367AFF0C140F61AA29073D /* Pods_SOL_SOLUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,8 +461,6 @@
 			children = (
 				20146135884EF8AA0BFA512D /* Pods-SOL.debug.xcconfig */,
 				5F5AD670EFE9C003912E494C /* Pods-SOL.release.xcconfig */,
-				F1A57217DE12683B4FD0BDD4 /* Pods-SOL-SOLUITests.debug.xcconfig */,
-				4B81AA0DE1CBCD47D8EA7713 /* Pods-SOL-SOLUITests.release.xcconfig */,
 				0F3423B468176CF32762A8D6 /* Pods-SOLTests.debug.xcconfig */,
 				B2FF00C2D917786245CB4C04 /* Pods-SOLTests.release.xcconfig */,
 			);
@@ -2068,7 +2061,6 @@
 			isa = PBXGroup;
 			children = (
 				EFC9D812CAFE379C7AEB269D /* Pods_SOL.framework */,
-				92B6C87DAB321D7DA773F0A7 /* Pods_SOL_SOLUITests.framework */,
 				4AD8ED818060EBD76E28D9D4 /* Pods_SOLTests.framework */,
 			);
 			name = Frameworks;
@@ -2093,7 +2085,7 @@
 			);
 			name = SOL;
 			packageProductDependencies = (
-				4F21D399266F458600459112 /* ElegantCalendar */,
+				4F21D399266F458600459112 /* SwiftPackageProductDependency */,
 			);
 			productName = SOL;
 			productReference = 4F9E8984262E73BF002F2B1B /* SOL.app */;
@@ -2122,11 +2114,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F9E89AF262E73C3002F2B1B /* Build configuration list for PBXNativeTarget "SOLUITests" */;
 			buildPhases = (
-				6FE04E072E25D111F834AF3F /* [CP] Check Pods Manifest.lock */,
 				4F9E899C262E73C3002F2B1B /* Sources */,
 				4F9E899D262E73C3002F2B1B /* Frameworks */,
 				4F9E899E262E73C3002F2B1B /* Resources */,
-				7FAB249B69AEB1D7581D3693 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2170,7 +2160,7 @@
 			);
 			mainGroup = 4F9E897B262E73BF002F2B1B;
 			packageReferences = (
-				4F21D398266F458600459112 /* XCRemoteSwiftPackageReference "ElegantCalendar" */,
+				4F21D398266F458600459112 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 4F9E8985262E73BF002F2B1B /* Products */;
 			projectDirPath = "";
@@ -2210,45 +2200,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6FE04E072E25D111F834AF3F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SOL-SOLUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7FAB249B69AEB1D7581D3693 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SOL-SOLUITests/Pods-SOL-SOLUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SOL-SOLUITests/Pods-SOL-SOLUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SOL-SOLUITests/Pods-SOL-SOLUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		859FC59FC7D2CD6D7716796C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2758,7 +2709,6 @@
 		};
 		4F9E89B0262E73C3002F2B1B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1A57217DE12683B4FD0BDD4 /* Pods-SOL-SOLUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2779,7 +2729,6 @@
 		};
 		4F9E89B1262E73C3002F2B1B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4B81AA0DE1CBCD47D8EA7713 /* Pods-SOL-SOLUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2840,7 +2789,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4F21D398266F458600459112 /* XCRemoteSwiftPackageReference "ElegantCalendar" */ = {
+		4F21D398266F458600459112 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ThasianX/ElegantCalendar";
 			requirement = {
@@ -2851,9 +2800,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4F21D399266F458600459112 /* ElegantCalendar */ = {
+		4F21D399266F458600459112 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4F21D398266F458600459112 /* XCRemoteSwiftPackageReference "ElegantCalendar" */;
+			package = 4F21D398266F458600459112 /* RemoteSwiftPackageReference */;
 			productName = ElegantCalendar;
 		};
 /* End XCSwiftPackageProductDependency section */

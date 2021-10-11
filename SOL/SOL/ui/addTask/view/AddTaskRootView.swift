@@ -45,8 +45,9 @@ struct AddTaskRootView: View {
                 BackgroundView(didTouch: model.touchBackground)
             }
             
+            
+            
             if self.model.state == AddTaskState.TEXT {
-                
                 VStack {
                     Spacer()
                     Rectangle()
@@ -59,26 +60,26 @@ struct AddTaskRootView: View {
                     if self.model.state == AddTaskState.PLACEHOLDER {
                         PlaceholderTaskView(model: model)
                     }
-                    if self.model.state == AddTaskState.TEXT{
+                if self.model.state == AddTaskState.TEXT && self.model.showDeadline == false{
                         AddTaskTextView(model: model)
                     }
                     if self.model.state == AddTaskState.PLANNING{
                         PlanningSlotsView(delegate: self.model).colorScheme(ColorScheme.light)                        
-                    }                
-                 
-                
-                
-                ChooseDeadlineView(
-                    isPresented: $model.sheets.deadline,
-                    date: $model.task.deadline,
-                    onClear: model.goToText,
-                    onSubmit: model.goToText)
-
+                    }
             }
+            ChooseDeadlineView(
+                isPresented: $model.showDeadline,
+                date: $model.task.deadline,
+                onClear: model.goToText,
+                onSubmit: model.goToText
+            )
+           
         }.onAppear(perform: {
             self.model.spaceStore = spaceStore
             self.model.taskStore = taskStore
-        })
+        }).onDisappear {
+            
+        }
     }
 }
 

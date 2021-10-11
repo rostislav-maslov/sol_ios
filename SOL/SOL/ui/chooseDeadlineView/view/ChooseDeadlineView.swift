@@ -11,6 +11,7 @@ import SwiftUI
 import EventKit
 import EventKitUI
 import UIKit
+import BottomSheet
 
 
 
@@ -18,33 +19,45 @@ struct ChooseDeadlineView: View {
     @Binding var isPresented: Bool
     @Binding var date: Date?
     public var onClear: ( () -> Void )
-    public var onSubmit: ( () -> Void )
+    public var onSubmit: ( () -> Void )    
     
     @State var useCancel = false
     @State var useSubmit = false
     @State var datetimePickerValue: Date = Date()
     @State private var state = ViewState.NORMAL
     
-    
-    var body: some View {
-        Text("").sheet(
-            isPresented: $isPresented,
-            onDismiss: {
-                if useCancel == true {
-                    useCancel = false
-                    return
-                }
-                if useSubmit == true {
-                    useSubmit = false
-                    return
-                }
-                
-                date = datetimePickerValue
-                onSubmit()
-            },
-            content: {
-                content
-            })                           
+    var body: some View {       
+        Text("")
+            .bottomSheet(
+                isPresented: $isPresented,
+                height: 650,
+                topBarHeight: 32,
+                topBarCornerRadius: 16,
+                contentBackgroundColor: SolColor.colors().addTask.addTaskBackground,
+                topBarBackgroundColor: SolColor.colors().addTask.addTaskBackground,
+                showTopIndicator: true,
+                content: {
+                    content
+            })
+//            .bottomSheet(
+//            isPresented: $isPresented,
+//            height: 600,
+//            onDismiss: {
+//                if useCancel == true {
+//                    useCancel = false
+//                    return
+//                }
+//                if useSubmit == true {
+//                    useSubmit = false
+//                    return
+//                }
+//
+//                date = datetimePickerValue
+//                onSubmit()
+//            },
+//            content: {
+//
+//            })
     }
     
     var content: some View {
@@ -81,12 +94,14 @@ struct ChooseDeadlineView: View {
                 ButtonComponent(title: "Clear", state: $state) {
                     useCancel = true
                     date = nil
+                    isPresented = false
                     onClear()
                 }
                 Spacer().frame(width: 16, height: 0, alignment: .center)
                 ButtonComponent(title: "Submit", state: $state) {
                     useSubmit = true
                     date = datetimePickerValue
+                    isPresented = false
                     onSubmit()
                 }
                 Spacer().frame(width: 8, height: 0, alignment: .center)

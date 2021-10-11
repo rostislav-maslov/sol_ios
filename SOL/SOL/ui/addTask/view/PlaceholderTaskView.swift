@@ -50,7 +50,10 @@ extension PlaceholderTaskView{
                     )
                 Spacer()
             }
-            Button(action: self.model.goToText, label: {
+            Button(action: {
+                self.model.goToText()
+                
+            }, label: {
                 Rectangle()
             })
             .foregroundColor(.clear)
@@ -70,7 +73,9 @@ extension PlaceholderTaskView{
             Image("mic")
                 .frame(width: 48, height: 48, alignment: .center)
                 .padding(EdgeInsets(top: 0.0, leading: 0.0, bottom: 0.0, trailing: 8.0))
-            Button(action: self.model.goToText, label: {
+            Button(action: {
+                self.model.goToText()
+            }, label: {
                 Rectangle()
             })
             .foregroundColor(.clear)

@@ -22,6 +22,7 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, Day
     @Published var state: AddTaskState = AddTaskState.PLACEHOLDER
     @Published var task: TaskEntity = TaskEntity()
     @Published var sheets: SheetsState = SheetsState()
+    @Published var showDeadline:Bool = false
     @Published var buttonState: ButtonState = ButtonState()
     @Published var loadingStatus: ViewState = ViewState.NORMAL
     @Published var titleTextSize: CGFloat = 45.0
@@ -65,7 +66,7 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, Day
     
     private func goToState(_ newState: AddTaskState) {
         if newState == .TEXT && state != newState {
-            sheets.deadline = false
+            showDeadline = false
             sheets.planning = false
             state = .TEXT
             return
@@ -73,21 +74,21 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, Day
         
         if newState == .PLANNING && state != newState {
             state = newState
-            sheets.deadline = false
+            showDeadline = false
             sheets.planning = true
         }
         
         if newState == .DEADLINE  && state != newState {
-            state = newState
-            sheets.deadline = true
-            sheets.planning = false
+            //state = newState
+            showDeadline = true
+            //sheets.planning = false
         }
         
     }
     
     func touchBackground() {
         sheets.planning = false
-        sheets.deadline = false
+        showDeadline = false
         if state == .TEXT {
             state = .PLACEHOLDER
             return
@@ -110,7 +111,7 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, Day
         }
         state = .PLACEHOLDER
         sheets.planning = false
-        sheets.deadline = false
+        showDeadline = false
     }
     
     
@@ -149,8 +150,7 @@ extension AddTaskViewModel{
 
 extension AddTaskViewModel{
     public class SheetsState{
-        var planning:Bool = false
-        var deadline:Bool = false
+        @Published var planning:Bool = false
     }
 }
 

@@ -37,20 +37,12 @@ public struct SpaceView: View {
         ZStack {
             content
                 
-            // SolNavigationView()
-            if model.bottomButtonType == BottomButtonType.ADD_TASK {
-                AddTaskRootView(
-                    spaceId: self.spaceId,
-                    parentTaskId: nil,
-                    taskDidCreated: {
-                    withAnimation {
-                        self.model.scrollViewProxy?
-                            .scrollTo(
-                                "endOfScrollView",
-                                anchor: .bottom)
-                    }
-                })
+            
+            AddTaskRootView(spaceId: self.spaceId, parentTaskId: nil) {
             }
+            
+
+            
             if model.bottomButtonType == BottomButtonType.CLOSE_ICON_FIELD {
                 DoneKeyboardButtonView(action: {                                        
                     model.bottomButtonType = BottomButtonType.ADD_TASK
