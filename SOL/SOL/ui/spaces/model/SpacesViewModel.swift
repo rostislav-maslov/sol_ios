@@ -18,6 +18,7 @@ public class SpacesViewModel: ObservableObject, DaySchedulerProtocol {
     @Published var defaultTaskAddTitle = "in Inbox"
     @Published var isTarget = true
     @Published var showPlanning = false
+    @Published var showToastSuccessCreate = false
     
     var store: SpaceStore?
     

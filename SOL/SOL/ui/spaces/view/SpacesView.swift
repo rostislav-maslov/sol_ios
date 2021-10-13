@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct SpacesView: View {
     public static let VIEW_ID = "SpacesView"
@@ -30,6 +31,7 @@ struct SpacesView: View {
                 content
                 
                 AddTaskRootView(spaceId: nil, parentTaskId: nil) {
+                    model.showToastSuccessCreate = true
                 }
                 
                 PlanningSlotsView(
@@ -48,6 +50,15 @@ struct SpacesView: View {
                 taskStore.spaceStore = spaceStore
                 spaceStore.sync()
             })
+            .toast(isPresenting: $model.showToastSuccessCreate){
+                AlertToast(
+                    displayMode: .hud,
+                    type: .regular,
+                    title: "Task did create 👍",
+                    subTitle: "Take a look on inbox space"
+                )                
+            }
+        
         
     }
 }

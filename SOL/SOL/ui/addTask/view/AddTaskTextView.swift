@@ -17,6 +17,7 @@ struct AddTaskTextView: View {
     @EnvironmentObject var spaceStore: SpaceStore
     
     @State var title: String = ""
+    @State var showToast = false
     
     init(model: AddTaskViewModel){
         self.model = model
@@ -49,9 +50,8 @@ struct AddTaskTextView: View {
                 //deadlineFastLine
                 
                 Spacer().frame(width: 0.0, height: 8.0, alignment: .center)
-                
             }
-        }
+        }        
         .frame(width: nil)
         .onAppear(perform: {
             print("AddTaskTextView - did appear")
@@ -154,7 +154,7 @@ extension AddTaskTextView{
 extension AddTaskTextView{
     
     var submitButton: some View {
-        Button(action: {
+        Button(action: {            
             model.submit()
         }, label: {
             Image("add_task_submit")

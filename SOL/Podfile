@@ -7,7 +7,7 @@ target 'SOL' do
 
   # Pods for SOL
   pod "SwiftUIRefresh"
-  pod 'ToastUI'
+  pod 'AlertToast'
   pod 'ISEmojiView'
   pod 'CalendarKit'
   pod 'BottomSheet', :git => 'https://github.com/weitieda/bottom-sheet.git'
