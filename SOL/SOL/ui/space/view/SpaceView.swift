@@ -41,7 +41,11 @@ public struct SpaceView: View {
             AddTaskRootView(spaceId: self.spaceId, parentTaskId: nil) {
             }
             
-
+            PlanningSlotsView(
+                delegate: self.model,
+                isPresented: $model.showPlanning,
+                type: PlanningType.VIEW)
+                .colorScheme(ColorScheme.light)
             
             if model.bottomButtonType == BottomButtonType.CLOSE_ICON_FIELD {
                 DoneKeyboardButtonView(action: {                                        

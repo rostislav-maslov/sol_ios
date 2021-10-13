@@ -39,7 +39,18 @@ struct SpaceItemView: View {
                                     weight: Font.Weight.medium,
                                     color: SolColor.colors().fontColors.normal)
                         )
+                        .foregroundColor(SolColor.colors().fontColors.normal)
                     Spacer()
+                    Text(self.spaceStore.spaces[spaceId]!.countTask > 0 ? "\(self.spaceStore.spaces[spaceId]!.countTask)" : "")
+                        .font(
+                            SolFonts
+                                .font(
+                                    size: 12,
+                                    weight: Font.Weight.bold,
+                                    color: SolColor.colors().fontColors.second)
+                        )
+                        .foregroundColor(SolColor.colors().fontColors.second)
+                    Spacer().frame(width: 16, height: 1, alignment: .center)
                 }
                 Spacer().frame(width: 1, height: 12, alignment: .center)
             }

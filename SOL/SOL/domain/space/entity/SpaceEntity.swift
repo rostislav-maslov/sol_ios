@@ -12,7 +12,7 @@ public class SpaceEntity{
     var title:String = ""
     var icon:IconEntity = IconEntity()
     var sortNum:Int = 1
-    
+    var countTask: Int = 0
     var tasks:[TaskEntity] = []
     
     var loadStatus: LoadStatus = LoadStatus.INITIAL

@@ -24,8 +24,9 @@ extension SpacesView {
                     iconWidth: 14,
                     iconHeight: 14,
                     iconVerticalSpace: 4,
-                    subTitle: "Open calendar"
-                )
+                    subTitle: "Open calendar") {
+                        model.openPlanning()
+                    }
                 ActionButtonView(
                     title: "Notification",
                     titleColor: SolColor.colors().checkBox.undoneBackground,

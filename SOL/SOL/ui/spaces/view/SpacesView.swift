@@ -15,6 +15,11 @@ struct SpacesView: View {
     @EnvironmentObject var spaceStore: SpaceStore
     @EnvironmentObject var taskStore: TaskStore
     
+    init(){
+        UINavigationBar.appearance().titleTextAttributes = [
+                   .font : UIFont(name: "HelveticaNeue-Thin", size: 0)!]
+    }
+    
     var body: some View {
             ZStack {
                 NavigationLink(
@@ -23,12 +28,19 @@ struct SpacesView: View {
                     EmptyView()
                 }
                 content
+                
                 AddTaskRootView(spaceId: nil, parentTaskId: nil) {
                 }
+                
+                PlanningSlotsView(
+                    delegate: self.model,                    
+                    isPresented: $model.showPlanning,
+                    type: PlanningType.VIEW)
+                    .colorScheme(ColorScheme.light)
             }
             .preferredColorScheme(.light)
             .navigationBarBackButtonHidden(true)
-            .navigationBarHidden(true)
+            .navigationBarHidden(true)        
             .navigationTitle("Spaces")
             .onAppear(perform: {
                 model.store = self.spaceStore

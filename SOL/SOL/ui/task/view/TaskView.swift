@@ -49,10 +49,16 @@ struct TaskView: View {
                     model.bottomButtonType = BottomButtonType.ADD_TASK
                 })
             }
+            PlanningSlotsView(
+                delegate: self.model,
+                isPresented: $model.showPlanning,
+                type: PlanningType.VIEW)
+                .colorScheme(ColorScheme.light)
         }
         .preferredColorScheme(.light)
         .navigationTitle(taskStore != nil ? (taskStore.tasks[taskId]?.title ?? "") : "" )
         .navigationBarHidden(false)
+        .navigationBarTitleDisplayMode(NavigationBarItem.TitleDisplayMode.inline)
         .onAppear(perform: {
             self.model.taskStore = taskStore
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {

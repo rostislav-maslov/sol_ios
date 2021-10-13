@@ -24,7 +24,7 @@ public class SpaceMapping {
         space.id = response.id
         space.sortNum = response.sortNum
         space.title = response.title
-        
+        space.countTask = response.countTask
         if response.tasks != nil {
             space.tasks = TaskMapping.mapping(response: response.tasks!)
         }else{

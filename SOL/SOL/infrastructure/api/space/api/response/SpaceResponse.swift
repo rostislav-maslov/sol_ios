@@ -12,7 +12,7 @@ public struct SpaceResponse: Codable  {
     var title:String
     var icon:IconResponse
     var sortNum:Int
-    
+    var countTask: Int = 0
     var tasks:[TaskResponse]?
     
 }

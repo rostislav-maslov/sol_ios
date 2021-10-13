@@ -19,7 +19,7 @@ struct TaskTitleView: View {
     
     var body: some View {
         
-            MultilineTextFieldView(text: taskStore.tasks[taskId]!.title, textColor: SolColor.colors().checkBox.undoneBackground, textSize: 24)
+        MultilineTextFieldView(text: taskStore.tasks[taskId] != nil ? taskStore.tasks[taskId]!.title : "", textColor: SolColor.colors().checkBox.undoneBackground, textSize: 24)
             { textDidChange in
                 taskStore.tasks[taskId]?.title = textDidChange
             } textEditFinish: { textEditFinish in

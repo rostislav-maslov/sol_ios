@@ -16,6 +16,7 @@ public protocol DayViewControllerProtocol {
     func newEventColor() -> UIColor
     func createEvent(eventDescriptor: EventDescriptor) -> Void
     func updateEvent(eventDescriptor: EventDescriptor) -> Void
+    func didSelectEvent(eventDescriptor: Event) -> Void
 }
 
 class DayViewControllerImpl: DayViewController {
@@ -62,6 +63,7 @@ class DayViewControllerImpl: DayViewController {
             return
         }
         print("Event has been selected: \(descriptor) \(String(describing: descriptor.userInfo))")
+        eventDelegate!.didSelectEvent(eventDescriptor: descriptor)
     }
     
     override func dayViewDidLongPressEventView(_ eventView: EventView) {

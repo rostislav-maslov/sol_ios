@@ -25,4 +25,5 @@ public struct TaskResponse: Codable{
     var title:String?
     var viewIds:[String]?
     var child:[TaskResponse]?
+    var slotsMilliseconds: Int64?
 }

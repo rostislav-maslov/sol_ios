@@ -28,7 +28,7 @@ extension TaskStore {
         }
     }
     
-    func syncTask(taskId: String){
+    func syncTask(taskId: String, silent: Bool = false){
         if tasks[taskId] == nil {
             //TODO: - 
             tasks[taskId] = TaskEntity()
@@ -44,9 +44,13 @@ extension TaskStore {
                     }
                     self?.tasks[taskId] = task
                     self?.tasks[task.id]?.loadStatus = LoadStatus.SUCCESS
+                    
+                    if silent == false {
+                        self?.tasks[taskId]!.lastUpdateUUID = UUID()
+                    } 
                 }else {
                 }
-                self?.tasks[taskId]!.lastUpdateUUID = UUID()
+                               
             }
             .store(in: &disposables)
     }
@@ -67,6 +71,7 @@ extension TaskStore {
                     }else {
                     }
                     // self?.tasks[taskId]!.lastUpdateUUID = UUID()
+                    self?.spaceStore?.spaces[task.spaceId!]!.countTask = (self?.spaceStore!.spaces[task.spaceId!]!.countTask)! + 1
                 }
                 .store(in: &disposables)
         } else if (task.status == TaskStatus.OPEN) {
@@ -79,6 +84,7 @@ extension TaskStore {
                     }else {
                     }
                     // self?.tasks[taskId]!.lastUpdateUUID = UUID()
+                    self?.spaceStore?.spaces[task.spaceId!]!.countTask = (self?.spaceStore!.spaces[task.spaceId!]!.countTask)! - 1
                 }
                 .store(in: &disposables)
         }
@@ -205,6 +211,7 @@ extension TaskStore {
     }
 }
 
+//MARK: - Создание таска
 extension TaskStore {
     func create( title: String,
                  emoji: String,
@@ -245,6 +252,7 @@ extension TaskStore {
                         self?.tasks[parentTaskId!]!.lastUpdateUUID = UUID()
                     }
                     if self?.spaceStore?.spaces[task.spaceId!] != nil {
+                        self?.spaceStore?.spaces[task.spaceId!]!.countTask = (self?.spaceStore!.spaces[task.spaceId!]!.countTask)! + 1
                         self?.spaceStore?.spaces[task.spaceId!]?.lastUpdateUUID = UUID()
                     }
                     

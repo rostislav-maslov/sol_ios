@@ -45,6 +45,12 @@ public class TaskMapping {
         }
         task.child = child
         
+        if response.slotsMilliseconds != nil {
+            task.slotsMilliseconds = response.slotsMilliseconds!
+        }else{
+            task.slotsMilliseconds = 0
+        }
+        
         task.slots = []
         
         return task

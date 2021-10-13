@@ -20,6 +20,7 @@ public class TaskEntity{
     var externalIds:[String] = []
     var files:[String] = []
     var hasChild:Bool = false
+    var slotsMilliseconds: Int64 = 0
     
     var ownerId:String?
     var parentTaskId:String?
@@ -51,11 +52,18 @@ extension TaskEntity{
     
     var taskInfo: String {
         var infoText = ""
-        
-        if self.deadline != nil {
-            infoText = self.deadline!.beautify
+                
+        if slotsPlaceholder != "" {
+            infoText =  infoText + slotsPlaceholder
         }
         
+        if self.deadline != nil {
+            if infoText != "" {
+                infoText =  infoText + " · "
+            }
+            infoText = infoText + self.deadline!.beautify
+        }
+                
         return infoText
     }
     
@@ -80,16 +88,49 @@ extension TaskEntity{
 
 extension TaskEntity{
     public static func forRender() -> TaskEntity {
-        var task = TaskEntity()
+        let task = TaskEntity()
         task.title = "🪐 hell "
         task.icon.data = "👨‍🎓"
         return task
     }
     public static func forRenderDone() -> TaskEntity {
-        var task = TaskEntity()
+        let task = TaskEntity()
         task.title = "🪐 hell "
         task.icon.data = "👨‍🎓"
         task.status = TaskStatus.DONE
         return task
     }
+}
+
+// MARK: - work with slots
+extension TaskEntity {
+    func reculcSlotsTime(){
+        var totalTime: Int64 = 0
+        for slot in slots {
+            if slot.endTime != nil && slot.startTime?.millisecondsSince1970 != nil{
+                totalTime = totalTime + slot.endTime!.millisecondsSince1970 - slot.startTime!.millisecondsSince1970
+            }
+        }
+        slotsMilliseconds = totalTime
+    }
+    
+    var slotsPlaceholder: String {
+        let minute: Int64 = 1000 * 60,
+            hour: Int64 = minute * 60,
+            day: Int64 = hour * 24,
+            delta: Int64 = minute * 4
+        
+        let slotsCalc: Int64 = slotsMilliseconds != Int64(0) ? slotsMilliseconds + delta : slotsMilliseconds
+        
+        if slotsCalc == 0 {
+            return ""
+        }else if slotsCalc < (hour){
+            return "\(slotsCalc / minute)m"
+        }else if slotsCalc < (day){
+            return "\(slotsCalc / hour)h"
+        }
+        return "\(slotsCalc / day)d"
+    }
+    
+    
 }

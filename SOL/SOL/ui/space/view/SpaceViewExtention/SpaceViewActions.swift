@@ -76,8 +76,9 @@ extension SpaceView {
                     iconHeight: 14,
                     iconVerticalSpace: 4,
                     subTitle: "Your plan 4h"){
-                    self.model.actionPlanning = !self.model.actionPlanning
-                }
+                        self.model.actionPlanning = !self.model.actionPlanning
+                        self.model.openPlanning()
+                    }
                 
             }else {
                 ActionButtonView(
@@ -89,7 +90,8 @@ extension SpaceView {
                     iconHeight: 14,
                     iconVerticalSpace: 4,
                     subTitle: "Tap to set time"){
-                    self.model.actionPlanning = !self.model.actionPlanning
+                        model.actionPlanning = !model.actionPlanning
+                        model.openPlanning()
                 }
             }
         }

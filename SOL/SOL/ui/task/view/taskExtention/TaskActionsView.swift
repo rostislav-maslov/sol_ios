@@ -113,7 +113,8 @@ extension TaskView{
                     iconHeight: 14,
                     iconVerticalSpace: 4,
                     subTitle: "Your plan 4h"){
-                    model.actionPlanning = !model.actionPlanning
+                        model.actionPlanning = !model.actionPlanning
+                        model.openPlanning()
                 }
                 
             }else {
@@ -126,7 +127,8 @@ extension TaskView{
                     iconHeight: 14,
                     iconVerticalSpace: 4,
                     subTitle: "Tap to set time"){
-                    model.actionPlanning = !model.actionPlanning
+                        model.actionPlanning = !model.actionPlanning
+                        model.openPlanning()
                 }
             }
         }

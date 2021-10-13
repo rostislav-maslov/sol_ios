@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-public class SpaceViewModel: NSObject, ObservableObject{
+public class SpaceViewModel: NSObject, ObservableObject, DaySchedulerProtocol{
     var spaceId:String
     @Published var state: ViewState = ViewState.INITIALIZATION
     var spaceStore: SpaceStore?
@@ -22,7 +22,8 @@ public class SpaceViewModel: NSObject, ObservableObject{
     @Published var actionPlanning = false
     @Published var actionDeadline = false
     @Published var actionDone = false
-        
+    @Published var showPlanning = false
+    
     @Published var bottomButtonType: BottomButtonType = BottomButtonType.ADD_TASK
     var emojiTextField:UIEmojiTextField?
             
@@ -49,4 +50,63 @@ extension SpaceViewModel {
         //s.space.icon.data = "😀"
         return s
     }
+}
+
+//MARK: DaySchedulerProtocol
+extension SpaceViewModel {
+    func openPlanning() {
+        showPlanning = true
+    }
+    
+    func newSlotName() -> String {
+        return ""
+    }
+    
+    func addSlot(startTime: Date, endTime: Date) {
+//        let slot: SlotEntity = SlotEntity()
+//        slot.id = UUID().uuidString
+//        slot.title = task.title
+//        slot.startTime = startTime
+//        slot.endTime = endTime
+//        slot.spaceId = self.spaceId
+//        slot.slotsMilliseconds = endTime.millisecondsSince1970 - startTime.millisecondsSince1970
+//        slot.isDraft = true
+//        slot.timezone = Date().timezone
+//        task.slots.append(slot)
+    }
+    
+    func slotsByDay(date: Date, callback: @escaping (([SlotEntity]) -> Void) ) {
+        SolApiService.instance?.slot.findByDate(date.millisecondsSince1970, Date().timezone, responseFunc:   { (success, error, isSuccess) in
+            var result:[SlotEntity] = []
+            if isSuccess == true && success != nil {
+                for item in success!.result.items{
+                    result.append(SlotMapping.mapping(response: item))
+                }
+            }
+            callback(result)
+        })
+    }
+  
+    func changeTimeSlot(slotId: String, startTime: Date, endTime: Date) {
+        
+    }
+    
+    func onClose() {
+        showPlanning = false
+    }
+    
+    func onSubmit() {
+        showPlanning = false
+    }
+    
+    func onTapEvent(slot: SlotEntity) {
+        // NOTE ignore
+    }
+    
+    func onDelete(slotId: String) {
+        SolApiService.instance?.slot.delete(slotId, responseFunc: { success, error, isSuccess in
+            
+        })
+    }
+
 }

@@ -23,10 +23,12 @@ protocol DaySchedulerProtocol {
     func changeTimeSlot(slotId: String, startTime: Date, endTime: Date) -> Void
     func onSubmit() -> Void
     func onClose() -> Void
+    func onTapEvent(slot: SlotEntity) -> Void
+    func onDelete(slotId: String) -> Void
 }
 
 struct DaySchedulerView: UIViewControllerRepresentable, DayViewControllerProtocol {
-    
+
     var delegate: DaySchedulerProtocol
     @State var reloadData: (() -> Void)?
     @State var allSots: [SlotEntity] = []
@@ -35,11 +37,7 @@ struct DaySchedulerView: UIViewControllerRepresentable, DayViewControllerProtoco
     func newEventTitle() -> String {
         return delegate.newSlotName()
     }
-    
-   
-    
-    
-    
+                   
     func eventsForDate(_ date: Date) -> [EventDescriptor] {
         //Получаем инфу о событиях дня. после создание запрашивается заново все события дня
         
@@ -125,6 +123,18 @@ struct DaySchedulerView: UIViewControllerRepresentable, DayViewControllerProtoco
         }
         
     }
+    
+    // MARK: Did tap on event
+    func didSelectEvent(eventDescriptor: Event) {
+        let slotId: String = eventDescriptor.userInfo as! String
+        for slot in allSots {
+            if slot.id == slotId {
+                delegate.onTapEvent(slot: slot)
+            }
+        }                
+    }
+    
+    
             
     func updateUIViewController(_ uiViewController: UIViewController, context: Context){
         

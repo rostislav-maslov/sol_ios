@@ -10,7 +10,7 @@ import Combine
 import SwiftUI
 
 public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, DaySchedulerProtocol {
-
+    
     
     var spaceId: String?
     var parentTaskId: String?
@@ -21,8 +21,9 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, Day
     
     @Published var state: AddTaskState = AddTaskState.PLACEHOLDER
     @Published var task: TaskEntity = TaskEntity()
-    @Published var sheets: SheetsState = SheetsState()
+    //@Published var sheets: SheetsState = SheetsState()
     @Published var showDeadline:Bool = false
+    @Published var showPlanning:Bool = false
     @Published var buttonState: ButtonState = ButtonState()
     @Published var loadingStatus: ViewState = ViewState.NORMAL
     @Published var titleTextSize: CGFloat = 45.0
@@ -54,28 +55,19 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, Day
         task.slots.append(slot)
     }
     
-    
-    public func changeTimeSlot(slotId id: String, startTime newStartTime: Date, endTime newEndTime: Date) {
-        for slot in task.slots {
-            if slot.id == id {
-                slot.endTime = newEndTime
-                slot.startTime = newStartTime
-            }
-        }
-    }
-    
     private func goToState(_ newState: AddTaskState) {
         if newState == .TEXT && state != newState {
             showDeadline = false
-            sheets.planning = false
+            showPlanning = false
             state = .TEXT
             return
         }
         
         if newState == .PLANNING && state != newState {
-            state = newState
             showDeadline = false
-            sheets.planning = true
+            showPlanning = true
+            state = newState
+            
         }
         
         if newState == .DEADLINE  && state != newState {
@@ -87,7 +79,7 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, Day
     }
     
     func touchBackground() {
-        sheets.planning = false
+        showPlanning = false
         showDeadline = false
         if state == .TEXT {
             state = .PLACEHOLDER
@@ -110,7 +102,7 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, Day
             return
         }
         state = .PLACEHOLDER
-        sheets.planning = false
+        showPlanning = false
         showDeadline = false
     }
     
@@ -168,7 +160,7 @@ extension AddTaskViewModel {
 extension AddTaskViewModel {
     public func clean(){
         task = TaskEntity()
-        sheets = SheetsState()
+        //sheets = SheetsState()
         buttonState = ButtonState()
         touchBackground()
         taskInfoText = ""
@@ -274,10 +266,33 @@ extension AddTaskViewModel {
     }
     
     func onClose() {
+        task.reculcSlotsTime()
         goToText()
     }
     
     func onSubmit() {
+        task.reculcSlotsTime()
         goToText()
     }
+    
+    func onTapEvent(slot: SlotEntity) {
+        // NOTE ignore
+    }
+    
+    public func changeTimeSlot(slotId id: String, startTime newStartTime: Date, endTime newEndTime: Date) {
+        for slot in task.slots {
+            if slot.id == id {
+                slot.endTime = newEndTime
+                slot.startTime = newStartTime
+            }
+        }
+    }
+    
+    func onDelete(slotId: String) {
+        for i in 0...task.slots.count {
+            task.slots.remove(at: i)
+            break
+        }        
+    }
+    
 }

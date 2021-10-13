@@ -20,7 +20,7 @@
 		4F0F318B26714D1C00C67852 /* ChooseDeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0F318A26714D1C00C67852 /* ChooseDeadlineView.swift */; };
 		4F13D3ED26EB011D00F2E947 /* TaskTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13D3EC26EB011D00F2E947 /* TaskTitleView.swift */; };
 		4F21D394266F3D2600459112 /* PlanningSlotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21D393266F3D2600459112 /* PlanningSlotsView.swift */; };
-		4F21D39A266F458600459112 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 4F21D399266F458600459112 /* SwiftPackageProductDependency */; };
+		4F21D39A266F458600459112 /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 4F21D399266F458600459112 /* ElegantCalendar */; };
 		4F2661CC26B92156001974BC /* AddSpaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2661CB26B92156001974BC /* AddSpaceViewModel.swift */; };
 		4F2661CE26B92479001974BC /* CreateSpaceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2661CD26B92479001974BC /* CreateSpaceUseCase.swift */; };
 		4F2661D026B924A4001974BC /* SpaceRepositoryPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2661CF26B924A4001974BC /* SpaceRepositoryPort.swift */; };
@@ -40,6 +40,9 @@
 		4F2EA28826D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EA28726D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift */; };
 		4F3E568D26F18F7D0006F09A /* TaskItemSubtaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3E568C26F18F7D0006F09A /* TaskItemSubtaskView.swift */; };
 		4F4279422637C08500D71B2D /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4279412637C08500D71B2D /* NavigationBarColor.swift */; };
+		4F4352932713DE1700484F3D /* PlanningType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4352922713DE1700484F3D /* PlanningType.swift */; };
+		4F4352952713DFC800484F3D /* PlanningSlotModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4352942713DFC800484F3D /* PlanningSlotModalView.swift */; };
+		4F4352972713E07A00484F3D /* PlanningSlotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4352962713E07A00484F3D /* PlanningSlotModel.swift */; };
 		4F48255826C4F5E2001ABE87 /* TaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48255726C4F5E2001ABE87 /* TaskUseCase.swift */; };
 		4F48255B26C4F98C001ABE87 /* TaskPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48255A26C4F98C001ABE87 /* TaskPickerView.swift */; };
 		4F48255D26C4F9AD001ABE87 /* TaskHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48255C26C4F9AD001ABE87 /* TaskHeaderView.swift */; };
@@ -255,6 +258,9 @@
 		4F2EA28726D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTitleAndIconTaskUseCase.swift; sourceTree = "<group>"; };
 		4F3E568C26F18F7D0006F09A /* TaskItemSubtaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemSubtaskView.swift; sourceTree = "<group>"; };
 		4F4279412637C08500D71B2D /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
+		4F4352922713DE1700484F3D /* PlanningType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningType.swift; sourceTree = "<group>"; };
+		4F4352942713DFC800484F3D /* PlanningSlotModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningSlotModalView.swift; sourceTree = "<group>"; };
+		4F4352962713E07A00484F3D /* PlanningSlotModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningSlotModel.swift; sourceTree = "<group>"; };
 		4F48255726C4F5E2001ABE87 /* TaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskUseCase.swift; sourceTree = "<group>"; };
 		4F48255A26C4F98C001ABE87 /* TaskPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPickerView.swift; sourceTree = "<group>"; };
 		4F48255C26C4F9AD001ABE87 /* TaskHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskHeaderView.swift; sourceTree = "<group>"; };
@@ -434,7 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F83DF2D18AD6EAB55EF844 /* Pods_SOL.framework in Frameworks */,
-				4F21D39A266F458600459112 /* BuildFile in Frameworks */,
+				4F21D39A266F458600459112 /* ElegantCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,7 +636,6 @@
 			children = (
 				4F2CAFAA2702C44C003CACA0 /* model */,
 				4F2CAFA92702C448003CACA0 /* view */,
-				4F21D393266F3D2600459112 /* PlanningSlotsView.swift */,
 			);
 			path = planningSlotsView;
 			sourceTree = "<group>";
@@ -638,6 +643,8 @@
 		4F2CAFA92702C448003CACA0 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4F21D393266F3D2600459112 /* PlanningSlotsView.swift */,
+				4F4352942713DFC800484F3D /* PlanningSlotModalView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -647,6 +654,8 @@
 			children = (
 				4F71E156270AAB8500A80F47 /* PlanningSlotsModel.swift */,
 				4F71E158270AAD4E00A80F47 /* SlotsDraftModel.swift */,
+				4F4352922713DE1700484F3D /* PlanningType.swift */,
+				4F4352962713E07A00484F3D /* PlanningSlotModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -2085,7 +2094,7 @@
 			);
 			name = SOL;
 			packageProductDependencies = (
-				4F21D399266F458600459112 /* SwiftPackageProductDependency */,
+				4F21D399266F458600459112 /* ElegantCalendar */,
 			);
 			productName = SOL;
 			productReference = 4F9E8984262E73BF002F2B1B /* SOL.app */;
@@ -2160,7 +2169,7 @@
 			);
 			mainGroup = 4F9E897B262E73BF002F2B1B;
 			packageReferences = (
-				4F21D398266F458600459112 /* RemoteSwiftPackageReference */,
+				4F21D398266F458600459112 /* XCRemoteSwiftPackageReference "ElegantCalendar" */,
 			);
 			productRefGroup = 4F9E8985262E73BF002F2B1B /* Products */;
 			projectDirPath = "";
@@ -2370,12 +2379,14 @@
 				4FA0F6F726487DE900CECF24 /* IconComponent.swift in Sources */,
 				4FEF48EF27080E9100B23BC1 /* SlotResponse.swift in Sources */,
 				4FEA6B1826D0ED6000876D7C /* SpaceViewPicker.swift in Sources */,
+				4F4352932713DE1700484F3D /* PlanningType.swift in Sources */,
 				4F0B5C9E264ADE710026FDD0 /* KeyboardResponder.swift in Sources */,
 				4FD2E31D265F7339007A20C6 /* TitleLoginByEmailView.swift in Sources */,
 				4FEF48E427080B9500B23BC1 /* SlotRepositoryPort.swift in Sources */,
 				4FE38CFF2664123C0011E203 /* AddSpaceView.swift in Sources */,
 				4F2BED3226ECA4B5004D7A15 /* SpaceTitleView.swift in Sources */,
 				4F2CAF9F2702AF2D003CACA0 /* NullEncodable.swift in Sources */,
+				4F4352972713E07A00484F3D /* PlanningSlotModel.swift in Sources */,
 				4FE38CE92662CDAD0011E203 /* Error.swift in Sources */,
 				4FA828C82696E89500540CFF /* ReceiveReponse.swift in Sources */,
 				4F61FD7C26A363CD00D83F2D /* SettingButton.swift in Sources */,
@@ -2425,6 +2436,7 @@
 				4FCB320926E0B128003A470A /* ChangeSpaceSortUseCase.swift in Sources */,
 				4F6F05B726660E710074B9D8 /* IconResponse.swift in Sources */,
 				4F2BED3026ECA4A9004D7A15 /* SpaceTitleModel.swift in Sources */,
+				4F4352952713DFC800484F3D /* PlanningSlotModalView.swift in Sources */,
 				4F7C4F0626BEC7780097AC65 /* DoneKeyboardButtonView.swift in Sources */,
 				4FC99B2926FF468B0087FCCC /* ATTDeadLineFastLineView.swift in Sources */,
 				4F7C4F0826BED5960097AC65 /* BottomButtonType.swift in Sources */,
@@ -2615,7 +2627,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"SOL/Preview Content\"";
 				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				ENABLE_PREVIEWS = YES;
@@ -2630,7 +2642,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2642,7 +2654,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"SOL/Preview Content\"";
 				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				ENABLE_PREVIEWS = YES;
@@ -2657,7 +2669,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -2789,7 +2801,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4F21D398266F458600459112 /* RemoteSwiftPackageReference */ = {
+		4F21D398266F458600459112 /* XCRemoteSwiftPackageReference "ElegantCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ThasianX/ElegantCalendar";
 			requirement = {
@@ -2800,9 +2812,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4F21D399266F458600459112 /* SwiftPackageProductDependency */ = {
+		4F21D399266F458600459112 /* ElegantCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4F21D398266F458600459112 /* RemoteSwiftPackageReference */;
+			package = 4F21D398266F458600459112 /* XCRemoteSwiftPackageReference "ElegantCalendar" */;
 			productName = ElegantCalendar;
 		};
 /* End XCSwiftPackageProductDependency section */
