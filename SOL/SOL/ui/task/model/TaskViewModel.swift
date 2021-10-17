@@ -11,11 +11,10 @@ import SwiftUI
 
 public class TaskViewModel: NSObject, ObservableObject, DaySchedulerProtocol {
     
-    
-    var taskId: String
     var taskStore: TaskStore?
     @Published var state: ViewState = ViewState.INITIALIZATION
     
+    @Published var taskId: String = ""
     @Published var actionToggle:Bool = false
     @Published var actionRepeat:Bool = false
     @Published var actionNotification = false
@@ -24,7 +23,7 @@ public class TaskViewModel: NSObject, ObservableObject, DaySchedulerProtocol {
     // @Published var actionDone = false
     @Published var activeTab = 0
     @Published var showPlanning = false
-    @Published var listIdHack = UUID()
+    
     
     @Published var isTarget = true
     @Published var bottomButtonType: BottomButtonType = BottomButtonType.ADD_TASK
@@ -36,13 +35,7 @@ public class TaskViewModel: NSObject, ObservableObject, DaySchedulerProtocol {
     private let port:TaskRepositoryPort = SolApiService.api().task
     
     public var scrollViewProxy:ScrollViewProxy?
-    
-    init(taskId: String){
-        self.taskId = taskId
-        self.state = ViewState.INITIALIZATION
         
-        
-    }
 }
 
 extension TaskViewModel {
@@ -50,21 +43,14 @@ extension TaskViewModel {
     func toggleTask(){
         taskStore?.changeStatus(taskId: taskId)
     }
-    
-    
-    
 }
 
 extension TaskViewModel{
     
     func taskDidCreated() -> Void{
-        //self.task.child.append(taskEntity)
-        //self.task.hasChild = true
-        self.listIdHack = UUID()
         withAnimation {
-            self.scrollViewProxy?.scrollTo("endOfScrollView", anchor: .bottom)
+            self.scrollViewProxy?.scrollTo("ListLastItem", anchor: .bottom)
         }
-                
     }
 }
 

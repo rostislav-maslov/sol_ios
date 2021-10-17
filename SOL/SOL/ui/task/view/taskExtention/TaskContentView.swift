@@ -11,54 +11,85 @@ import SwiftUI
 extension TaskView {
     
     var content: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            ScrollViewReader { (value:ScrollViewProxy) in
+        ScrollViewReader { proxy in
+            List {
                 header
+                    .listRowSeparator(Visibility.hidden)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(SolColor.colors().screen.background)
                 actionsTitle
+                    .listRowSeparator(Visibility.hidden)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(SolColor.colors().screen.background)
                 actionsButton
+                    .listRowSeparator(Visibility.hidden)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(SolColor.colors().screen.background)
                 picker
-                pickerContainer
-                    .id("endOfScrollViewTasks")
-                    
-                    .onAppear {
-                        self.model.scrollViewProxy = value
+                    .listRowSeparator(Visibility.hidden)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(SolColor.colors().screen.background)
+                if(model.activeTab == 0){
+                    if taskStore.tasks[self.taskId] != nil {
+                        ForEach(taskStore.tasks[self.taskId]!.child, id: \.id) { task in
+                            TaskItemView(taskId: task.id, onTouchTask: {(taskId:String) in
+                                goToTaskId = taskId
+                                goToTaskView = true
+                            })
+                                .listRowSeparator(Visibility.hidden)
+                                .listRowInsets(EdgeInsets())
+                                .listRowBackground(SolColor.colors().screen.background)
+                        }
+                  
+                        if (taskStore.tasks[self.taskId]!.child.count == 0){
+                            VacuumView()
+                                .listRowSeparator(Visibility.hidden)
+                                .listRowInsets(EdgeInsets())
+                                .listRowBackground(SolColor.colors().screen.background)
+                                .padding(EdgeInsets(top: 32.0, leading: 8.0, bottom: 0.0, trailing: 8.0))
+                        }
                     }
-                
+                }
+                if(model.activeTab == 1){
+                    Text("Details")
+                        .listRowSeparator(Visibility.hidden)
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(SolColor.colors().screen.background)
+                }
+                if(model.activeTab == 2){
+                    Text("files")
+                        .listRowSeparator(Visibility.hidden)
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(SolColor.colors().screen.background)
+                }
+                if(model.activeTab == 3){
+                    Text("photo")
+                        .listRowSeparator(Visibility.hidden)
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(SolColor.colors().screen.background)
+                }
+                Spacer()
+                    .id("ListLastItem")
+                    .frame(height: 142)
+                    .listRowSeparator(Visibility.hidden)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(SolColor.colors().screen.background)
+                    
+            }
+            .alignmentGuide(VerticalAlignment.top, computeValue: { (vd:ViewDimensions) in
+                return 0.0
+            })
+            .listStyle(PlainListStyle())
+            .background(SolColor.colors().screen.background)
+            .refreshable {
+                print("pull")
+            }
+            .onAppear {
+                self.model.scrollViewProxy = proxy
             }
         }
         .background(SolColor.colors().screen.background)
         .ignoresSafeArea(.all)
-        .gesture(
-            DragGesture(coordinateSpace: .local)
-                .onEnded { value in
-                    if value.startLocation.x > .zero && value.startLocation.x < 48{
-                        if value.translation.width > .zero
-                            && value.translation.height > -30
-                            && value.translation.height < 30 {
-                            self.presentationMode.wrappedValue.dismiss()
-                            
-                            //self.goBack.ppp().wrappedValue.dismiss()
-                            print("DragGesture")
-                        }
-                    }else{
-                        if value.translation.width > .zero
-                            && value.translation.height > -30
-                            && value.translation.height < 30 {
-                            if self.model.activeTab - 1 >= 0 {
-                                self.model.activeTab = self.model.activeTab - 1
-                            }
-                            print(self.model.activeTab)
-                            print(value.translation.width)
-                        }else{
-                            if self.model.activeTab + 1 <= self.model.activeTabMax {
-                                self.model.activeTab = self.model.activeTab + 1
-                            }
-                            print(self.model.activeTab)
-                            print(value.translation.width)
-                        }
-                    }
-                }
-        )
     }
 }
 

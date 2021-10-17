@@ -11,15 +11,13 @@ import SwiftUI
 extension TaskView{
     var header: some View {
         VStack(alignment: .leading, spacing: nil, content: {
-            headerSpacer
             taskTitle
         })
     }
 }
 
 extension TaskView{
-    var taskTitle: some View {
-        
+    var taskTitle: some View {        
         HStack(alignment: .top, spacing: 0, content: {
             Spacer().frame(width: 13, height: 11, alignment: .center)
             VStack{

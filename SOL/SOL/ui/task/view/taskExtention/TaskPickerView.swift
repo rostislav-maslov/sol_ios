@@ -25,21 +25,5 @@ extension TaskView {
         }
     }
     
-    var pickerContainer: some View {
-        VStack{
-            if(model.activeTab == 0){
-                subtasks
-            }
-            if(model.activeTab == 1){
-                Text("Details")
-            }
-            if(model.activeTab == 2){
-                Text("files")
-            }
-            if(model.activeTab == 3){
-                Text("photo")
-            }
-            Spacer().frame(height: 142)
-        }
-    }
+    
 }

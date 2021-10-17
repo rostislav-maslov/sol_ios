@@ -16,8 +16,10 @@ struct TaskView: View {
     @EnvironmentObject var spaceStore: SpaceStore
     @EnvironmentObject var addTaskModel: AddTaskViewModel
     
-    @ObservedObject var model: TaskViewModel
+    @StateObject var model: TaskViewModel = TaskViewModel()
     
+    @State var goToTaskView = false
+    @State var goToTaskId = ""
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
         
@@ -25,7 +27,6 @@ struct TaskView: View {
     init(spaceId: String, taskId: String){
         self.spaceId = spaceId
         self.taskId = taskId
-        self.model = TaskViewModel(taskId: taskId)
         UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "HelveticaNeue-Thin", size: 0)!]
     }
     
@@ -33,7 +34,6 @@ struct TaskView: View {
         
         ZStack {            
             content
-            //SolNavigationView()            
             
             if model.bottomButtonType == BottomButtonType.CLOSE_ICON_FIELD {
                 DoneKeyboardButtonView(action: {
@@ -47,12 +47,21 @@ struct TaskView: View {
                 isPresented: $model.showPlanning,
                 type: PlanningType.VIEW)
                 .colorScheme(ColorScheme.light)
+            NavigationLink(
+                destination: TaskView(spaceId: self.spaceId, taskId: goToTaskId),
+                isActive: $goToTaskView,
+                label:{
+                    
+                })
+                .frame(width: 0, height: 0)
+                .buttonStyle(PlainButtonStyle())
         }
         .preferredColorScheme(.light)
         .navigationTitle(taskStore.tasks[taskId]?.title ?? "")
         .navigationBarHidden(false)
         .navigationBarTitleDisplayMode(NavigationBarItem.TitleDisplayMode.inline)
         .onAppear(perform: {
+            self.model.taskId = taskId
             self.model.taskStore = taskStore
             self.addTaskModel.changeView(spaceId: spaceId, taskId: taskId, taskDidCreated: model.taskDidCreated)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
