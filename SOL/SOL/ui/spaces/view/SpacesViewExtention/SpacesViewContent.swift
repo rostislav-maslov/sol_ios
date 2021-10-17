@@ -78,8 +78,6 @@ extension SpacesView {
             .refreshable {
                 spaceStore.sync()
             }
-            
-            addSpaceSheet
         }
     }
 }

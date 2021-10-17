@@ -9,7 +9,12 @@ import SwiftUI
 
 
 struct AddSpaceView: View {
-    @ObservedObject var viewModel:AddSpaceViewModel
+    var spaceDidAdded: (() -> Void)
+    
+    @StateObject var viewModel:AddSpaceViewModel = AddSpaceViewModel()
+    @EnvironmentObject var spaceStore: SpaceStore
+    @State var placeholder: String = "🪐"
+    @State var stopEditing = false
     
     var body: some View {
         ZStack {
@@ -29,19 +34,12 @@ struct AddSpaceView: View {
                         height: 16,
                         alignment: .center)
                 HStack {
-//                    IconFieldComponent(
-//                        placeholder: "🪐",
-//                        getValue: {
-//                            return self.viewModel.emoji
-//                        },
-//                        setValue: { newValue in
-//                            self.viewModel.emoji = newValue
-//                        },
-//                        textFieldShouldBeginEditing: {
-//                            
-//                        }, callbackEmojiTextField: {(emojiTextField: UIEmojiTextField) in
-//                            
-//                        })
+                    IconFieldComponent(
+                        placeholder: $placeholder,
+                        emoji: $viewModel.emoji,
+                        stopEditing: $stopEditing) {
+                        }
+                 
                     Spacer()
                         .frame(
                             width: 8,
@@ -62,18 +60,19 @@ struct AddSpaceView: View {
                         alignment: .center)
                 ButtonComponent(title: "Create", state: $viewModel.state) {
                     viewModel.create()
+                    spaceDidAdded()
                 }
             }.padding()
         }
         .preferredColorScheme(.light)
         .onAppear(perform: {
-            
+            viewModel.spaceStore = spaceStore
         })
     }
 }
 
-struct AddSpaceScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        AddSpaceView(viewModel: AddSpaceViewModel(needCloseSheet: {}))
-    }
-}
+//struct AddSpaceScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddSpaceView(viewModel: AddSpaceViewModel(needCloseSheet: {}))
+//    }
+//}

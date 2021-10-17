@@ -23,7 +23,9 @@ public class TaskViewModel: NSObject, ObservableObject, DaySchedulerProtocol {
     // @Published var actionDone = false
     @Published var activeTab = 0
     @Published var showPlanning = false
-    
+    @Published var stopEditIcon = false
+    @Published var emoji = ""
+    @Published var placeholder = ""    
     
     @Published var isTarget = true
     @Published var bottomButtonType: BottomButtonType = BottomButtonType.ADD_TASK

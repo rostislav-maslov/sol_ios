@@ -21,6 +21,8 @@ struct TaskView: View {
     @State var goToTaskView = false
     @State var goToTaskId = ""
     
+    
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
         
     
@@ -37,6 +39,8 @@ struct TaskView: View {
             
             if model.bottomButtonType == BottomButtonType.CLOSE_ICON_FIELD {
                 DoneKeyboardButtonView(action: {
+                    taskStore.tasks[taskId]!.icon.data = model.emoji
+                    model.stopEditIcon = true
                     taskStore.saveTitleIcon(taskId: taskId)
                     model.emojiTextField?.endEditing(false)
                     model.bottomButtonType = BottomButtonType.ADD_TASK
@@ -63,6 +67,7 @@ struct TaskView: View {
         .onAppear(perform: {
             self.model.taskId = taskId
             self.model.taskStore = taskStore
+            self.model.emoji = taskStore.tasks[taskId]!.icon.data
             self.addTaskModel.changeView(spaceId: spaceId, taskId: taskId, taskDidCreated: model.taskDidCreated)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 self.taskStore.syncTask(taskId: taskId)

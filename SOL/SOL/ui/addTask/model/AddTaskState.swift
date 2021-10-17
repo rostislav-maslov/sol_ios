@@ -8,6 +8,7 @@
 import Foundation
 
 public enum AddTaskState {
+    case HIDDEN
     case PLACEHOLDER
     case TEXT
     case DEADLINE

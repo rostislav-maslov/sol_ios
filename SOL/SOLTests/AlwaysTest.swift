@@ -7,10 +7,10 @@
 
 import XCTest
 import Combine
-@testable import SOL
+//@testable import SOL
 
-final class AlwaysTests: XCTestCase {
-  func testItEmitsASingleValue() {
+//final class AlwaysTests: XCTestCase {
+//  func testItEmitsASingleValue() {
 //    var output: [Int] = []
 //    _ = Always(1).first().print("First")
 //        .sink(receiveValue: { (output1: Publishers.First<Always>.Output) in
@@ -19,5 +19,5 @@ final class AlwaysTests: XCTestCase {
 //        })
 //
 //    XCTAssertEqual(output, [1])
-  }
-}
+//  }
+//}

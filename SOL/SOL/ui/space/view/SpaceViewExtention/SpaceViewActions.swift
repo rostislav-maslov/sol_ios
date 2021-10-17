@@ -46,8 +46,9 @@ extension SpaceView {
                     iconHeight: 16,
                     iconVerticalSpace: 4,
                     subTitle: "Show all subtask") {
-                    self.model.actionToggle = !self.model.actionToggle
-                }
+                        self.model.actionToggle = !self.model.actionToggle
+                        taskStore.toggleBySpaceId(spaceId: spaceId, show: true)
+                    }
             }else {
                 ActionButtonView(
                     title: "Toggle",
@@ -58,7 +59,8 @@ extension SpaceView {
                     iconHeight: 14,
                     iconVerticalSpace: 4,
                     subTitle: "Hide all subtask"){
-                    self.model.actionToggle = !self.model.actionToggle
+                        self.model.actionToggle = !self.model.actionToggle
+                        taskStore.toggleBySpaceId(spaceId: spaceId, show: false)
                 }
             }
         }

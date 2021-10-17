@@ -21,7 +21,8 @@ extension TaskView{
                     iconHeight: 16,
                     iconVerticalSpace: 4,
                     subTitle: "Show all subtask") {
-                    model.actionToggle = !model.actionToggle
+                        model.actionToggle = !model.actionToggle
+                        taskStore.toggleByParentTask(parentTaskId: taskId, show: true)
                 }
             }else {
                 ActionButtonView(
@@ -33,7 +34,8 @@ extension TaskView{
                     iconHeight: 14,
                     iconVerticalSpace: 4,
                     subTitle: "Hide all subtask"){
-                    model.actionToggle = !model.actionToggle
+                        model.actionToggle = !model.actionToggle
+                        taskStore.toggleByParentTask(parentTaskId: taskId, show: false)
                 }
             }
         }

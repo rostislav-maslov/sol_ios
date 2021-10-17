@@ -6,9 +6,9 @@ target 'SOL' do
   use_frameworks!
 
   # Pods for SOL
-  pod "SwiftUIRefresh"
+#  pod "SwiftUIRefresh"
   pod 'AlertToast'
-  pod 'ISEmojiView'
+#  pod 'ISEmojiView'
   pod 'CalendarKit'
   pod 'BottomSheet', :git => 'https://github.com/weitieda/bottom-sheet.git'
   

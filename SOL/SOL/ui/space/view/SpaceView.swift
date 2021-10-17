@@ -24,6 +24,8 @@ public struct SpaceView: View {
     @State var isTarget = true
     @State var goToTaskView = false
     @State var taskId: String = ""
+    @State var placeholder = "🪐"
+    
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -46,9 +48,11 @@ public struct SpaceView: View {
                 type: PlanningType.VIEW)
                 .colorScheme(ColorScheme.light)
             if model.bottomButtonType == BottomButtonType.CLOSE_ICON_FIELD {
-                DoneKeyboardButtonView(action: {                                        
+                DoneKeyboardButtonView(action: {
+                    spaceStore.spaces[spaceId]!.icon.data = model.emoji
                     model.bottomButtonType = BottomButtonType.ADD_TASK
-                    model.emojiTextField?.endEditing(true)
+                    addTaskModel.state = .PLACEHOLDER
+                    self.model.stopEditIcon = true
                     spaceStore.saveTitleIcon(
                         spaceId: spaceId,
                         title: spaceStore.spaces[spaceId]!.title,
@@ -72,6 +76,7 @@ public struct SpaceView: View {
         .navigationBarHidden(false)
         .onAppear(perform: {
             self.model.spaceId = spaceId
+            self.model.emoji = spaceStore.spaces[spaceId]!.icon.data
             self.addTaskModel.changeView(spaceId: spaceId, taskId: nil, taskDidCreated: model.taskDidCreated)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 self.spaceStore.sync(spaceId: self.spaceId)

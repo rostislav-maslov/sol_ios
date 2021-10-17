@@ -11,6 +11,7 @@ import SwiftUI
 public enum GeneratorType{
     case TASK_CREATE
     case TASK_DONE
+    case INFO
 }
 
 extension UINotificationFeedbackGenerator{
@@ -20,6 +21,9 @@ extension UINotificationFeedbackGenerator{
             let generator = UIImpactFeedbackGenerator(style: .medium)
             generator.impactOccurred()
         case .TASK_CREATE:
+            let generator = UIImpactFeedbackGenerator(style: .medium)
+            generator.impactOccurred()
+        case .INFO:
             let generator = UIImpactFeedbackGenerator(style: .light)
             generator.impactOccurred()
         }

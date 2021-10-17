@@ -16,14 +16,12 @@ extension SpaceView {
             VStack(alignment: .leading, spacing: 0, content: {
                 Spacer().frame(width: 0, height: 2, alignment: .center)
                 IconFieldComponent(
-                    placeholder: "🪐",
-                    spaceId: self.spaceId,
-                    textFieldShouldBeginEditing: {
-                        model.bottomButtonType = BottomButtonType.CLOSE_ICON_FIELD
-                    },
-                    callbackEmojiTextField: { (emojiTextField:UIEmojiTextField) in
-                        self.model.emojiTextField = emojiTextField
-                    })
+                    placeholder: $placeholder,
+                    emoji: $model.emoji,
+                    stopEditing: $model.stopEditIcon) {
+                        addTaskModel.state = .HIDDEN
+                        model.bottomButtonType = .CLOSE_ICON_FIELD
+                }
             })
             
             VStack(alignment: .leading, spacing: 0, content: {

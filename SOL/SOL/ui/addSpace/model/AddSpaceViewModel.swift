@@ -12,11 +12,8 @@ public class AddSpaceViewModel: ObservableObject {
     @Published var title: String = ""
     @Published var state: ViewState = ViewState.NORMAL
     @Published var emoji: String = "🪐"
-    var needCloseSheet: (() -> Void)
     
-    init(needCloseSheet: @escaping (() -> Void)){
-        self.needCloseSheet = needCloseSheet
-    }
+    var spaceStore: SpaceStore?
     
     private var disposables = Set<AnyCancellable>()
     private let port:SpaceRepositoryPort = SolApiService.api().space 
@@ -30,11 +27,10 @@ public class AddSpaceViewModel: ObservableObject {
                 .sink { [weak self] result in
                     if(result.success != nil) {                        
                         self?.state = .NORMAL
-                        self?.needCloseSheet()
+                        self?.spaceStore?.sync()
                     } else {
                         self?.state = .ERROR
-                    }
-                    
+                    }                    
                 }
                 .store(in: &disposables)
         }

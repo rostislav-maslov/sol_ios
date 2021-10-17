@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TaskItemView: View {
-    @ObservedObject  var model: TaskItemViewModel
+    @StateObject  var model: TaskItemViewModel = TaskItemViewModel()
     @EnvironmentObject var taskStore: TaskStore
     @EnvironmentObject var spaceStore: SpaceStore
     
@@ -17,7 +17,6 @@ struct TaskItemView: View {
     
     init(taskId: String, onTouchTask: @escaping ((_ taskId: String) -> Void)){
         self.taskId = taskId
-        self.model = TaskItemViewModel(taskId: taskId)
         self.onTouchTask = onTouchTask
     }
     
@@ -25,7 +24,7 @@ struct TaskItemView: View {
         VStack{
             Spacer()
                 .frame(width: 1, height: 8, alignment: .center)
-            HStack{
+            HStack(alignment: VerticalAlignment.top){
                 Spacer()
                     .frame(width: 16, height: 0, alignment: .center)
                 containerBackground
@@ -36,7 +35,9 @@ struct TaskItemView: View {
                 .frame(width: 1, height: 8, alignment: .center)
         }
         
+        
         .onAppear(perform: {
+            self.model.taskId = self.taskId
             self.model.taskStore = taskStore
             if taskStore.tasks[taskId]?.loadStatus == .INITIAL {
                 taskStore.syncTask(taskId: taskId)
@@ -47,10 +48,7 @@ struct TaskItemView: View {
 
 extension TaskItemView{
     var defaultLine: some View {
-        Group{
             TaskItemSubtaskView(taskId: taskId, isChild: false, onTouchTask: self.onTouchTask)
-        }
-        
     }
 }
 

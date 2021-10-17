@@ -864,7 +864,7 @@
 				4F2D875926E3BE410032177A /* Vacuum */,
 				4FEA6B2326D0F34800876D7C /* multilineTextField */,
 				4F7C4F0226BEC74E0097AC65 /* doneKeyboardButton */,
-				4FE38D00266413A00011E203 /* iconFieldComponent */,
+				4FE38D00266413A00011E203 /* emojiTextField */,
 				4F61FD7726A363A800D83F2D /* navigation */,
 				4F61FD6F26A33B3C00D83F2D /* checkBox */,
 			);
@@ -1813,13 +1813,13 @@
 			path = addSpaces;
 			sourceTree = "<group>";
 		};
-		4FE38D00266413A00011E203 /* iconFieldComponent */ = {
+		4FE38D00266413A00011E203 /* emojiTextField */ = {
 			isa = PBXGroup;
 			children = (
 				4F7C4EFD26BEC5FA0097AC65 /* model */,
 				4F7C4EFC26BEC5F50097AC65 /* view */,
 			);
-			path = iconFieldComponent;
+			path = emojiTextField;
 			sourceTree = "<group>";
 		};
 		4FEA6B1626D0ED3700876D7C /* SpaceViewExtention */ = {

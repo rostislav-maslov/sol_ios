@@ -19,6 +19,8 @@ struct AddTaskTextView: View {
     
     @State var forNotifyCombine: String = ""
     @State var showToast = false
+    @State var placeholder = ""
+    @State var stopEditing = false
     
     init(model:AddTaskViewModel) {
         self.model = model
@@ -132,23 +134,10 @@ extension AddTaskTextView {
     }
 }
 
-extension AddTaskTextView{
+extension AddTaskTextView{    
     var iconChose: some View {
-        //        IconFieldComponent(
-        //            placeholder: "",
-        //            getValue: {
-        //                return model.task.icon.data
-        //            },
-        //            setValue: { newValue in
-        //                model.task.icon.data = newValue
-        //            },
-        //
-        //            textFieldShouldBeginEditing: {
-        //
-        //        }, callbackEmojiTextField: { (emojiTextField:UIEmojiTextField) in
-        //
-        //        })
-        Text("d")
+        IconFieldComponent(placeholder: $placeholder, emoji: $model.task.icon.data, stopEditing: $stopEditing) {
+        }
     }
 }
 

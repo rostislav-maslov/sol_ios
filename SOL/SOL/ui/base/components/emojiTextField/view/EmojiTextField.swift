@@ -10,21 +10,27 @@ import SwiftUI
 
 public struct EmojiTextField: UIViewRepresentable {
     @Binding var text: String
-    var textFieldShouldBeginEditing: (() -> Void)
-    var placeholder: String = ""
-    var callbackEmojiTextField: ((_ emojiTextField:UIEmojiTextField) -> Void)
+    @Binding var placeholder: String
+    @Binding var stopEditing: Bool
+    var textFieldDidBeginEditing: (() -> Void)    
     
     public func makeUIView(context: Context) -> UIEmojiTextField {
         let emojiTextField = UIEmojiTextField()
         emojiTextField.placeholder = placeholder
         emojiTextField.text = text
         emojiTextField.delegate = context.coordinator
-        callbackEmojiTextField(emojiTextField)
         return emojiTextField
     }
     
     public func updateUIView(_ uiView: UIEmojiTextField, context: Context) {
-        //uiView.text = text
+        if uiView.text != text {
+            uiView.text = text
+        }
+        
+        if stopEditing == true {
+            stopEditing = false
+            uiView.endEditing(false)
+        }
     }
     
     public func makeCoordinator() -> Coordinator {
@@ -38,14 +44,22 @@ public struct EmojiTextField: UIViewRepresentable {
             self.parent = parent
         }
         
-        public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-            //parent.textFieldShouldBeginEditing()
-            return true
+        public func textFieldDidBeginEditing(_ textField: UITextField) {
+            parent.textFieldDidBeginEditing()
         }
         
         public func textFieldDidChangeSelection(_ textField: UITextField) {
-            DispatchQueue.main.async { [weak self] in
-                self?.parent.text = textField.text ?? ""
+            var newValue:String = textField.text ?? ""
+            print(newValue)
+            print(newValue.count)
+
+            if newValue.count == 1 {
+                parent.text = newValue
+            }else {
+                newValue = newValue.replacingOccurrences(of: parent.text, with: "")
+                if newValue.count == 1 {
+                    parent.text = newValue
+                }
             }
         }
     }

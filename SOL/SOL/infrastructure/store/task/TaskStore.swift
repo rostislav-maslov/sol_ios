@@ -38,7 +38,8 @@ extension TaskStore {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] publisherReponse in
                 if publisherReponse.success != nil {
-                    let task = publisherReponse.success!
+                    var task = publisherReponse.success!
+                    task.showSubtask = self!.tasks[taskId]!.showSubtask
                     for child in task.child {
                         self?.syncTask(taskId: child.id)
                     }
@@ -58,6 +59,27 @@ extension TaskStore {
 
 //MARK: - Изменение
 extension TaskStore {
+    
+    func toggle(taskId : String){
+        tasks[taskId]!.showSubtask = !tasks[taskId]!.showSubtask
+    }
+    
+    func toggleByParentTask(parentTaskId : String, show: Bool){
+        for key in tasks.keys {
+            if tasks[key]?.parentTaskId == parentTaskId {
+                tasks[key]?.showSubtask = show
+            }
+        }
+    }
+    
+    func toggleBySpaceId(spaceId : String, show: Bool){
+        for task in spaceStore!.spaces[spaceId]!.tasks {
+            if tasks[task.id]?.spaceId == spaceId {
+                tasks[task.id]?.showSubtask = show
+            }
+        }
+    }
+    
     func changeStatus(taskId: String){
         let task:TaskEntity = tasks[taskId]!
         

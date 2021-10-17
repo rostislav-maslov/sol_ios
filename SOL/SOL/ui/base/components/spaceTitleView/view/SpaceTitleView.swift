@@ -19,7 +19,6 @@ struct SpaceTitleView: View {
     init(spaceId : String){
         self.spaceId = spaceId
         self.model = SpaceTitleModel(spaceId: spaceId)
-        
     }
     
     var body: some View {
@@ -32,6 +31,7 @@ struct SpaceTitleView: View {
             } textEditFinish: { textEditFinish in
                 spaceStore.spaces[spaceId]?.title = textEditFinish
                 spaceStore.saveTitleIcon(spaceId: spaceId, title: textEditFinish, data: spaceStore.spaces[spaceId]!.icon.data)
+                
             } titleSizeDidChange: { titleSize in
                 print("SpaceTitleView - \(titleSize)")
                 self.titleSize = titleSize

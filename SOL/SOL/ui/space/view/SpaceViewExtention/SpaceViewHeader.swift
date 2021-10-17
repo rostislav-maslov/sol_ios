@@ -12,7 +12,6 @@ import SwiftUI
 extension SpaceView {
     var header: some View {
         VStack(alignment: .leading, spacing: nil, content: {
-//            headerSpacer
             taskTitle
         })
     }

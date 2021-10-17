@@ -29,6 +29,14 @@ extension TaskView{
                 TaskTitleView(taskId: taskId)
             })
             
+            IconFieldComponent(
+                placeholder: $model.placeholder,
+                emoji: $model.emoji,
+                stopEditing: $model.stopEditIcon) {
+                    addTaskModel.state = .HIDDEN
+                    model.bottomButtonType = .CLOSE_ICON_FIELD
+            }
+            
             Spacer().frame(width: 8, height: 1, alignment: .center)
         })
     }

@@ -33,11 +33,16 @@ struct SpacesView: View {
                     type: PlanningType.VIEW)
                     .colorScheme(ColorScheme.light)
                 
-                NavigationLink(
-                    destination: LoginUIView(),
-                    isActive: $model.goToLogout) {
-                    EmptyView()
+                addSpaceSheet
+                
+                if model.goToLogout == true {
+                    NavigationLink(
+                        destination: LoginUIView(),
+                        isActive: $model.goToLogout) {
+                        EmptyView()
+                    }
                 }
+                
             }
             .preferredColorScheme(.light)
             .navigationBarBackButtonHidden(true)
@@ -46,7 +51,10 @@ struct SpacesView: View {
             .onAppear(perform: {
                 model.store = self.spaceStore
                 addTaskModel.needShowTaskCreatedToast = true
-                addTaskModel.changeView(spaceId: nil, taskId: nil, taskDidCreated: model.taskDidCreated)
+                addTaskModel.changeView(
+                    spaceId: nil,
+                    taskId: nil,
+                    taskDidCreated: model.taskDidCreated)
                 spaceStore.taskStore = taskStore
                 taskStore.spaceStore = spaceStore
                 spaceStore.sync()

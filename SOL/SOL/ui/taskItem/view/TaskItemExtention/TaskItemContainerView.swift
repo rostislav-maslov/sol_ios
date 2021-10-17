@@ -9,7 +9,7 @@ import SwiftUI
 
 extension TaskItemView {
     var containerBackground: some View {
-        HStack{
+        HStack(alignment: VerticalAlignment.top){
             Spacer().frame(width: 8)
             VStack{
                 defaultLine

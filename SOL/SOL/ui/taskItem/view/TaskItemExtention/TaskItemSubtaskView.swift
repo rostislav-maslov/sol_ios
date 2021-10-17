@@ -41,8 +41,9 @@ struct TaskItemSubtaskView: View {
                 VStack{
                     if self.taskStore.tasks[taskId]!.child.count > 0 && isChild == false {
                         Button(action: {
+                            UINotificationFeedbackGenerator.generate(GeneratorType.INFO)
                             withAnimation {
-                                taskStore.tasks[taskId]!.showSubtask = !taskStore.tasks[taskId]!.showSubtask
+                                taskStore.toggle(taskId: taskId)                                
                                 self.lasUpdate = UUID()
                             }
                         }, label: {
@@ -67,6 +68,9 @@ struct TaskItemSubtaskView: View {
                                 }
                                 Spacer().frame(height: 14)
                             }
+                            .background( taskStore.tasks[taskId]?.status == TaskStatus.DONE ?
+                                         SolColor.colors().taskLine.container :
+                                         SolColor.colors().taskLine.container)
                         }).buttonStyle(PlainButtonStyle())
                     }
                 }
@@ -75,14 +79,18 @@ struct TaskItemSubtaskView: View {
                 if taskStore.tasks[taskId]?.showSubtask == true {
                     Rectangle()
                         .foregroundColor(SolColor.colors().taskLine.divider)
-                        .frame(width: .infinity, height: 1, alignment: Alignment.center)
+                        .frame(width: nil, height: 1, alignment: Alignment.center)
                     VStack {
                         ForEach(taskStore.tasks[self.taskId]!.child, id: \.id) { task in
                             TaskItemSubtaskView(taskId: task.id, isChild: true, onTouchTask: self.onTouchTask)
                         }
                     }
                 }
-            }.id("TaskItemSubtaskView_Subs_\(lasUpdate.uuidString)")
+            }
+            .transition(.move(edge: .top))
+
+//            .transition(.slide(edge: .top))
+            .id("TaskItemSubtaskView_Subs_\(lasUpdate.uuidString)")
             
         }
         

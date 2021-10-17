@@ -11,8 +11,7 @@ import SwiftUI
 
 extension SpacesView {
     func needCloseSheet(){
-        model.onDissmisAddSpace()
-        spaceStore.sync()
+        model.onDissmisAddSpace()        
     }
     
     var addSpaceSheet: some View {
@@ -20,7 +19,9 @@ extension SpacesView {
             .sheet(isPresented: $model.showAddSpaceSheet, onDismiss:{
                 model.onDissmisAddSpace()
             }) {
-                AddSpaceView(viewModel: AddSpaceViewModel(needCloseSheet: self.needCloseSheet))
+                AddSpaceView {
+                    needCloseSheet()
+                }
             }
             .background(SolColor.colors().screen.background)
             .preferredColorScheme(.light)

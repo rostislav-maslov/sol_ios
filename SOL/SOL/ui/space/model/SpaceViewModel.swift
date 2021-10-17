@@ -23,6 +23,8 @@ public class SpaceViewModel: NSObject, ObservableObject, DaySchedulerProtocol{
     @Published var actionDeadline = false
     @Published var actionDone = false
     @Published var showPlanning = false
+    @Published var stopEditIcon = false
+    @Published var emoji = ""
     
     @Published var bottomButtonType: BottomButtonType = BottomButtonType.ADD_TASK
     var emojiTextField:UIEmojiTextField?
