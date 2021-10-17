@@ -73,7 +73,7 @@ extension SpaceView {
             .background(SolColor.colors().screen.background)
             .ignoresSafeArea(.all)
             .refreshable {
-                print("pull")
+                spaceStore.sync()                
             }
             .onAppear {
                 model.scrollViewProxy = proxy

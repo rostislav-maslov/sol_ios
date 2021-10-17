@@ -76,7 +76,7 @@ extension SpacesView {
             .background(SolColor.colors().screen.background)
             .ignoresSafeArea(.all)
             .refreshable {
-                print("pull")
+                spaceStore.sync()
             }
             
             addSpaceSheet

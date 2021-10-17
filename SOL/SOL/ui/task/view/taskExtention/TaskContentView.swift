@@ -82,7 +82,7 @@ extension TaskView {
             .listStyle(PlainListStyle())
             .background(SolColor.colors().screen.background)
             .refreshable {
-                print("pull")
+                self.taskStore.syncTask(taskId: taskId)
             }
             .onAppear {
                 self.model.scrollViewProxy = proxy
