@@ -11,32 +11,33 @@ struct TaskItemSubtaskView: View {
     
     var taskId: String
     var isChild: Bool
+    var onTouchTask: ((_ taskId: String) -> Void)
     @State var lasUpdate = UUID()
     @EnvironmentObject var taskStore: TaskStore
-    
     
     var body: some View {
         Group{
             HStack(alignment: .top, spacing: 0, content: {
                 Button(action: {
                     taskStore.changeStatus(taskId: self.taskId)
-                    let generator = UINotificationFeedbackGenerator()
-                    generator.notificationOccurred(.success)
+                    UINotificationFeedbackGenerator.generate(.TASK_DONE)
                 }, label: {
                     checkbox
-                })
-                NavigationLink(
-                    destination: TaskView(taskId: self.taskId),
-                    label: {
-                        VStack{
-                            title
-                            if taskStore.tasks[taskId]!.hasTaskInfo {
-                                taskInfo
-                            }
-                            Spacer().frame(height: 8)
-                        }                        
-                    })
-                    .buttonStyle(PlainButtonStyle())
+                }).buttonStyle(PlainButtonStyle())
+                
+                Button (action: {
+                    self.onTouchTask(taskId)
+                }, label: {
+                    VStack{
+                        title
+                        if taskStore.tasks[taskId]!.hasTaskInfo {
+                            taskInfo
+                        }
+                        Spacer().frame(height: 8)
+                    }
+                }).buttonStyle(PlainButtonStyle())
+
+                    
                 VStack{
                     if self.taskStore.tasks[taskId]!.child.count > 0 && isChild == false {
                         Button(action: {
@@ -66,7 +67,7 @@ struct TaskItemSubtaskView: View {
                                 }
                                 Spacer().frame(height: 14)
                             }
-                        })
+                        }).buttonStyle(PlainButtonStyle())
                     }
                 }
             })
@@ -77,7 +78,7 @@ struct TaskItemSubtaskView: View {
                         .frame(width: .infinity, height: 1, alignment: Alignment.center)
                     VStack {
                         ForEach(taskStore.tasks[self.taskId]!.child, id: \.id) { task in
-                            TaskItemSubtaskView(taskId: task.id, isChild: true)
+                            TaskItemSubtaskView(taskId: task.id, isChild: true, onTouchTask: self.onTouchTask)
                         }
                     }
                 }

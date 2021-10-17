@@ -17,8 +17,7 @@ public class SpacesViewModel: ObservableObject, DaySchedulerProtocol {
     @Published var state: ViewState = ViewState.INITIALIZATION
     @Published var defaultTaskAddTitle = "in Inbox"
     @Published var isTarget = true
-    @Published var showPlanning = false
-    @Published var showToastSuccessCreate = false
+    @Published var showPlanning = false    
     
     var store: SpaceStore?
     
@@ -33,6 +32,10 @@ extension SpacesViewModel{
     
     public func onDissmisAddSpace () -> Void {
         showAddSpaceSheet = false
+    }
+    
+    public func taskDidCreated () -> Void {
+        
     }
 }
 

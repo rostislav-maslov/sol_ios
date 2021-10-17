@@ -6,39 +6,16 @@
 //
 
 import SwiftUI
-
-//
-//func stateComponent(_ keyboardResponder: KeyboardResponder) -> AddTaskState{
-//    if keyboardResponder.currentHeight != 0.0 {
-//        return AddTaskState.TEXT
-//    }
-//    
-//    return AddTaskState.PLACEHOLDER
-//    //    return StateTask.ADD_TASK
-//}
-//
-//func textFieldBackground(_ kr: KeyboardResponder) -> Color{
-//    return stateComponent(kr) == AddTaskState.PLACEHOLDER  ?
-//        Color.white : 
-//        Color(CGColor(red: 202/255, green: 206/255, blue: 212/255, alpha: 1.0))
-//}
+import AlertToast
 
 struct AddTaskRootView: View {
-    var spaceId: String?
-    var parentTaskId: String?
-    
-    @ObservedObject var model: AddTaskViewModel
+    @EnvironmentObject var model: AddTaskViewModel
     
     @EnvironmentObject var taskStore: TaskStore
     @EnvironmentObject var spaceStore: SpaceStore
     @State var deadlineViewDate = Date()
     
-    init(spaceId: String?, parentTaskId: String?, taskDidCreated:  @escaping (() -> Void)){
-        self.spaceId = spaceId
-        self.parentTaskId = parentTaskId
-        self.model = AddTaskViewModel(spaceId, parentTaskId: parentTaskId, taskDidCreated: taskDidCreated)
-    }
-    
+ 
     var body: some View {
         ZStack{
             if self.model.state != AddTaskState.PLACEHOLDER {
@@ -79,7 +56,16 @@ struct AddTaskRootView: View {
                 onSubmit: model.goToText
             )
            
-        }.onAppear(perform: {
+        }
+        .toast(isPresenting: $model.showToastSuccessCreate){
+            AlertToast(
+                displayMode: .hud,
+                type: .regular,
+                title: "Task did create 👍",
+                subTitle: "Take a look on inbox space"
+            )
+        }
+        .onAppear(perform: {
             self.model.spaceStore = spaceStore
             self.model.taskStore = taskStore
         }).onDisappear {

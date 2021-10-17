@@ -11,13 +11,13 @@ import SwiftUI
 
 public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, DaySchedulerProtocol {
     
-    
-    var spaceId: String?
-    var parentTaskId: String?
     var taskStore: TaskStore?
     var spaceStore: SpaceStore?
     
-    var taskDidCreated: (() -> Void)
+    var taskDidCreated: (() -> Void)?
+    
+    @Published var spaceId: String?
+    @Published var parentTaskId: String?
     
     @Published var state: AddTaskState = AddTaskState.PLACEHOLDER
     @Published var task: TaskEntity = TaskEntity()
@@ -31,14 +31,19 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, Day
     @Published var taskInfoText: String = ""
     @Published var taskInfoSize: CGFloat = 0.0
     @Published var hasTaskInfo: Bool = false
+    @Published var titleTextView: UITextView?
+    @Published var showToastSuccessCreate = false
+    @Published var needShowTaskCreatedToast = false
     
     private var disposables = Set<AnyCancellable>()
-    private let port:TaskRepositoryPort = SolApiService.api().task as TaskRepositoryPort
+    private let port:TaskRepositoryPort = SolApiService.api().task as TaskRepositoryPort        
     
-    init(_ spaceId: String?, parentTaskId: String?, taskDidCreated: @escaping (() -> Void)){
+    public func changeView(spaceId: String?, taskId: String?, taskDidCreated: @escaping (() -> Void)){
         self.spaceId = spaceId
-        self.parentTaskId = parentTaskId
+        self.parentTaskId = taskId
         self.taskDidCreated = taskDidCreated
+        clean()
+        touchBackground()
     }
     
     public func removeTimeSlot(startTime: Date) {
@@ -79,6 +84,8 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, Day
     }
     
     func touchBackground() {
+        loadingStatus = .NORMAL        
+        
         showPlanning = false
         showDeadline = false
         if state == .TEXT {
@@ -162,15 +169,12 @@ extension AddTaskViewModel {
         task = TaskEntity()
         //sheets = SheetsState()
         buttonState = ButtonState()
-        touchBackground()
         taskInfoText = ""
         hasTaskInfo = false
+        //touchBackground()
     }
     
     public func createTask(){
-        
-        self.loadingStatus = .NORMAL
-        self.state = AddTaskState.PLACEHOLDER
         taskStore?.create( title: task.title,
                            emoji: task.icon.data,
                            parentTaskId: parentTaskId,
@@ -180,21 +184,32 @@ extension AddTaskViewModel {
                            timezone: Date().timezone,
                            slots: task.slots
         )
-        
-        self.loadingStatus = .NORMAL
-        self.state = AddTaskState.PLACEHOLDER
-        self.task = TaskEntity()
-        self.taskDidCreated()                
+        taskDidCreated?()
     }
-
   
-    
-    func submit(){
+    func submit(_ needClose: Bool){
         if task.title == "" {
-            return 
+            return
         }
+        
+        UINotificationFeedbackGenerator.generate(.TASK_CREATE)
+        
         createTask()
         clean()
+        
+        if needShowTaskCreatedToast == true {
+            showToastSuccessCreate = true
+        }        
+        
+        if needClose == true {
+            touchBackground()
+        }else {
+            
+            DispatchQueue.main.async {
+                self.titleTextView?.text = ""
+                self.titleTextView?.becomeFirstResponder()
+            }
+        }
     }
 }
 
@@ -204,7 +219,7 @@ extension AddTaskViewModel {
         self.task.title = text        
     }
     public func textEditFinish(text: String){
-        self.submit()
+        self.submit(false)
     }
     public func titleSizeDidChange(titleSize: CGFloat){
         if self.titleTextSize != titleSize {
@@ -212,6 +227,7 @@ extension AddTaskViewModel {
         }
     }
     public func multilineTextFieldView(view: UITextView){
+        titleTextView = view
         view.becomeFirstResponder()
     }
 }

@@ -16,7 +16,7 @@ extension SpacesView {
     }
     
     var addSpaceSheet: some View {
-        EmptyView()
+        Text("")
             .sheet(isPresented: $model.showAddSpaceSheet, onDismiss:{
                 model.onDissmisAddSpace()
             }) {

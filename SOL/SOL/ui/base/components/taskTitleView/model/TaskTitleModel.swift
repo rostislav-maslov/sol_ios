@@ -8,12 +8,6 @@
 import Foundation
 
 public class TaskTitleModel: ObservableObject{
-    var taskStore: TaskStore?
-    var taskId: String
-    init(taskId: String){        
-        self.taskId = taskId
-    }
-    
    
     
 }

@@ -122,6 +122,7 @@
 		4F9307E7265E1D3C00204881 /* BaseRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9307E6265E1D3C00204881 /* BaseRoutes.swift */; };
 		4F9307EA265E1DAE00204881 /* AuthRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9307E9265E1DAE00204881 /* AuthRoutes.swift */; };
 		4F9307ED265E24CD00204881 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9307EC265E24CD00204881 /* RequestService.swift */; };
+		4F9AFE30271BB99B00422845 /* UINotificationFeedbackGeneratorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9AFE2F271BB99B00422845 /* UINotificationFeedbackGeneratorExtention.swift */; };
 		4F9E8988262E73BF002F2B1B /* SOLApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E8987262E73BF002F2B1B /* SOLApp.swift */; };
 		4F9E898A262E73BF002F2B1B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E8989262E73BF002F2B1B /* ContentView.swift */; };
 		4F9E898C262E73C2002F2B1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F9E898B262E73C2002F2B1B /* Assets.xcassets */; };
@@ -340,6 +341,7 @@
 		4F9307E6265E1D3C00204881 /* BaseRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRoutes.swift; sourceTree = "<group>"; };
 		4F9307E9265E1DAE00204881 /* AuthRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRoutes.swift; sourceTree = "<group>"; };
 		4F9307EC265E24CD00204881 /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
+		4F9AFE2F271BB99B00422845 /* UINotificationFeedbackGeneratorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINotificationFeedbackGeneratorExtention.swift; sourceTree = "<group>"; };
 		4F9E8984262E73BF002F2B1B /* SOL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F9E8987262E73BF002F2B1B /* SOLApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOLApp.swift; sourceTree = "<group>"; };
 		4F9E8989262E73BF002F2B1B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -679,6 +681,7 @@
 		4F42793F2637C06100D71B2D /* extentions */ = {
 			isa = PBXGroup;
 			children = (
+				4F9AFE2E271BB98600422845 /* notificationFeedbackGenerator */,
 				4F01BEAE264EEFA500AAAA39 /* textField */,
 				4F01BEAB264EE67200AAAA39 /* cornerRadius */,
 				4F0B5C9C264ADE640026FDD0 /* keyboard */,
@@ -1260,6 +1263,14 @@
 				4F9307E9265E1DAE00204881 /* AuthRoutes.swift */,
 			);
 			path = routes;
+			sourceTree = "<group>";
+		};
+		4F9AFE2E271BB98600422845 /* notificationFeedbackGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				4F9AFE2F271BB99B00422845 /* UINotificationFeedbackGeneratorExtention.swift */,
+			);
+			path = notificationFeedbackGenerator;
 			sourceTree = "<group>";
 		};
 		4F9E897B262E73BF002F2B1B = {
@@ -2451,6 +2462,7 @@
 				4F9307EA265E1DAE00204881 /* AuthRoutes.swift in Sources */,
 				4F4C04E426EEE94B0032728C /* LoadStatus.swift in Sources */,
 				4FEA6B1C26D0EE1C00876D7C /* SpaceViewHeader.swift in Sources */,
+				4F9AFE30271BB99B00422845 /* UINotificationFeedbackGeneratorExtention.swift in Sources */,
 				4FCB321626E1FD86003A470A /* SpacesViewAddSpace.swift in Sources */,
 				4F87F7B12658F18B0094C946 /* TLDeadlineComponent.swift in Sources */,
 				4F9307DB265E18B700204881 /* BaseApiResponse.swift in Sources */,
@@ -2682,7 +2694,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				INFOPLIST_FILE = SOLTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2705,7 +2717,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				INFOPLIST_FILE = SOLTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

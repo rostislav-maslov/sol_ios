@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct AddTaskTextView: View {
     @ObservedObject var model:AddTaskViewModel
     @State var stateIcon: ViewState = ViewState.NORMAL
@@ -16,11 +17,12 @@ struct AddTaskTextView: View {
     @EnvironmentObject var taskStore: TaskStore
     @EnvironmentObject var spaceStore: SpaceStore
     
-    @State var title: String = ""
+    @State var forNotifyCombine: String = ""
     @State var showToast = false
     
-    init(model: AddTaskViewModel){
+    init(model:AddTaskViewModel) {
         self.model = model
+        print("AddTaskTextView - \(model.task.title)")
     }
     
     var body: some View {
@@ -52,7 +54,7 @@ struct AddTaskTextView: View {
                 Spacer().frame(width: 0.0, height: 8.0, alignment: .center)
             }
         }        
-        .frame(width: nil)
+        .frame(width: nil)    
         .onAppear(perform: {
             print("AddTaskTextView - did appear")
             model.taskStore = taskStore
@@ -88,20 +90,20 @@ extension AddTaskTextView{
                 textColor: SolColor.colors().checkBox.undoneBackground,
                 textSize: 16)
             { textDidChange in
-                if textDidChange != self.model.task.title {
-                    model.task.title = textDidChange
-                }
-                self.title = textDidChange
+                model.task.title = textDidChange
+                forNotifyCombine = textDidChange
             } textEditFinish: { textEditFinish in
                 
                 model.task.title = textEditFinish
-                model.submit()
+                model.submit(false)
                 
+                forNotifyCombine = textEditFinish
             } titleSizeDidChange: { titleSize in
                 if titleSize != self.model.titleTextSize {
                     self.model.titleTextSize = titleSize
                 }
             } multilineTextFieldView: { textView in
+                self.model.titleTextView = textView
                 textView.becomeFirstResponder()
             }
             .font(SolFonts.font(
@@ -155,14 +157,14 @@ extension AddTaskTextView{
     
     var submitButton: some View {
         Button(action: {            
-            model.submit()
+            model.submit(true)
         }, label: {
             Image("add_task_submit")
-                .background(title.count > 0 ? SolColor.colors().addTask.taskButtonActiveColor : SolColor.colors().addTask.taskButtonDefaultColor)
+                .background(model.task.title.count > 0 ? SolColor.colors().addTask.taskButtonActiveColor : SolColor.colors().addTask.taskButtonDefaultColor)
                 .cornerRadius(12.0)
                 .frame(width: 16, height: 16, alignment: .center)
         })
-        //.id("AddTaskTextView_submitButton_\(model.task.title.count)")
+        .id("AddTasdskTextView_submitButton_\(forNotifyCombine)")
         .disabled(model.task.title.count == 0)
     }
 }

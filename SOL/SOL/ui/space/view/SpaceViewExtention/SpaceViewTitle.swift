@@ -27,7 +27,7 @@ extension SpaceView {
             })
             
             VStack(alignment: .leading, spacing: 0, content: {
-                SpaceTitleView(spaceId: self.model.spaceId)
+                SpaceTitleView(spaceId: self.spaceId)
             })
         
             Spacer().frame(width: 8, height: 1, alignment: .center)
@@ -38,7 +38,7 @@ extension SpaceView {
 struct SpaceTitleView_Previews: PreviewProvider {
     
     static var previews: some View {
-        SpaceView(spaceId: SpaceViewModel("1111").spaceId)
+        SpaceView(spaceId: SpaceViewModel().spaceId!)
     }
 }
 

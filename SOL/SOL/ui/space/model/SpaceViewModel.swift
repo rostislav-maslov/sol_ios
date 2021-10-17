@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 
 public class SpaceViewModel: NSObject, ObservableObject, DaySchedulerProtocol{
-    var spaceId:String
+    var spaceId:String?
     @Published var state: ViewState = ViewState.INITIALIZATION
     var spaceStore: SpaceStore?
     
@@ -33,22 +33,24 @@ public class SpaceViewModel: NSObject, ObservableObject, DaySchedulerProtocol{
     private let port:SpaceRepositoryPort = SolApiService.api().space
     private let portTasks:TaskRepositoryPort = SolApiService.api().task
     
-    init(_ spaceId:String){
-        self.spaceId = spaceId                
-    }
-    
     func load(){
-        spaceStore?.sync(spaceId: self.spaceId)                
+        spaceStore?.sync(spaceId: self.spaceId!)                
     }
     
 }
 
 extension SpaceViewModel {
     static func forRender() -> SpaceViewModel{
-        let s = SpaceViewModel("111")
+        let s = SpaceViewModel()
         //s.space.title = "asfdasf asdf asd f"
         //s.space.icon.data = "😀"
         return s
+    }
+    
+    func taskDidCreated() -> Void {
+        withAnimation {
+            scrollViewProxy?.scrollTo("ListLastItem", anchor: .bottom)
+        }        
     }
 }
 

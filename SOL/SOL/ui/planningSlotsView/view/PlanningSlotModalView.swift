@@ -13,6 +13,7 @@ struct PlanningSlotModalView: View {
     //@ObservedObject var model: PlanningSlotModel
     @Binding var title: String
     @Binding var slotId: String
+    @Binding var spaceId: String
     @Binding var taskId: String
     
     @State var goToTaskView: Bool = false
@@ -39,7 +40,7 @@ struct PlanningSlotModalView: View {
                     Text("Это черновик, в задачу нельзя перейти =(")
                 }else{
                     if taskId != "" {
-                        NavigationLink(destination: TaskView(taskId: taskId), isActive: $goToTaskView) {
+                        NavigationLink(destination: TaskView(spaceId: spaceId, taskId: taskId), isActive: $goToTaskView) {
                             EmptyView()
                         }
                     }

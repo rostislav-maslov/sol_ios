@@ -10,13 +10,17 @@ import SwiftUI
 import Combine
 
 struct MultilineTextFieldView: UIViewRepresentable {
-    var text: String
+    //var text: String
     
     var textColor: Color
-    var textSize: CGFloat    
+    var textSize: CGFloat
+    var textDidChange : ((_ text: String) -> Void)
+    var textEditFinish :   ((_ text: String) -> Void)
+    var titleSizeDidChange :   ((_ titleSize: CGFloat) -> Void)
+    var multilineTextFieldView :   ((_ view: UITextView) -> Void)
     
-    @ObservedObject var model: MultilineTextFieldModel
-    
+    @StateObject var model: MultilineTextFieldModel = MultilineTextFieldModel()
+    @State var text:String = ""
     init(  text: String,
            textColor: Color,
            textSize: CGFloat,           
@@ -29,16 +33,19 @@ struct MultilineTextFieldView: UIViewRepresentable {
         self.textColor = textColor
         self.textSize = textSize
         
-        model = MultilineTextFieldModel(
-            textDidChange :textDidChange,
-            textEditFinish :textEditFinish,
-            titleSizeDidChange :titleSizeDidChange,
-            multilineTextFieldView :multilineTextFieldView
-        )
+        self.textDidChange = textDidChange
+        self.textEditFinish = textEditFinish
+        self.titleSizeDidChange = titleSizeDidChange
+        self.multilineTextFieldView = multilineTextFieldView
         
     }
     
     func makeUIView(context: Context) -> UITextView {
+        model.textDidChange = textDidChange
+        model.textEditFinish = textEditFinish
+        model.titleSizeDidChange = titleSizeDidChange
+        model.multilineTextFieldView = multilineTextFieldView
+
         let view = UITextView()
         view.isScrollEnabled = true
         view.isEditable = true
@@ -70,14 +77,15 @@ struct MultilineTextFieldView: UIViewRepresentable {
         }
         //self.frame(height: sizeThatFitsTextView.height)
         
-        model.multilineTextFieldView(view)
+        model.multilineTextFieldView?(view)
         return view
     }
     
     func updateUIView(_ uiView: UITextView, context: Context) {
         //uiView.text = text
         uiView.delegate = model
-        model.updateTitleSize(uiView)
+        //uiView.text = text
+        model.updateTitleSize(uiView)        
         //self.frame(height: heightOfText)
     }
     

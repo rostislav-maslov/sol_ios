@@ -24,6 +24,7 @@ struct PlanningSlotsView: View, DaySchedulerProtocol{
     @State var canGoToTask: Bool = false
     @State var title: String = ""
     @State var slotId: String = ""
+    @State var spaceId: String = ""
     @State var taskId: String = ""
     
     @ObservedObject var modalViewModel: PlanningSlotModel = PlanningSlotModel(slot: SlotEntity(), task: TaskEntity())
@@ -61,6 +62,7 @@ struct PlanningSlotsView: View, DaySchedulerProtocol{
                             canGoToTask: $canGoToTask,
                             title: $title,
                             slotId: $slotId,
+                            spaceId: $spaceId,
                             taskId: $taskId) {
                                 delegate.onDelete(slotId: slotId)
                                 showPlanningSlot = false
@@ -206,6 +208,7 @@ extension  PlanningSlotsView {
         title = slot.title
         slotId = slot.id
         taskId = slot.createdFromTaskId != nil ? slot.createdFromTaskId! : ""
+        spaceId = "" // TODO: тут понять откуда лучше брать spaceId
         
         modalViewModel.slot = slot
         showPlanningSlot = true

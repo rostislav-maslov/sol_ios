@@ -242,12 +242,12 @@ extension TaskStore {
                     self?.tasks[task.id]?.loadStatus = LoadStatus.SUCCESS
                     if parentTaskId != nil {
                         self?.tasks[parentTaskId!]?.child.append(task)
-                    }else {
-                        if spaceId != nil {
-                            self?.spaceStore?.spaces[spaceId!]!.tasks.append(task)
-                            self?.spaceStore?.spaces[spaceId!]!.lastUpdateUUID = UUID()
-                        }
                     }
+                    if spaceId != nil {
+                        self?.spaceStore?.spaces[spaceId!]!.tasks.append(task)
+                        self?.spaceStore?.spaces[spaceId!]!.lastUpdateUUID = UUID()
+                    }
+                    
                     if parentTaskId != nil && self?.tasks[parentTaskId!] != nil {
                         self?.tasks[parentTaskId!]!.lastUpdateUUID = UUID()
                     }
@@ -255,7 +255,7 @@ extension TaskStore {
                         self?.spaceStore?.spaces[task.spaceId!]!.countTask = (self?.spaceStore!.spaces[task.spaceId!]!.countTask)! + 1
                         self?.spaceStore?.spaces[task.spaceId!]?.lastUpdateUUID = UUID()
                     }
-                    
+                    self?.forNotifyCombine = UUID()
                 }
             }
             .store(in: &disposables)

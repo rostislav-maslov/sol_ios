@@ -15,18 +15,18 @@ extension TaskView{
                 Spacer().frame(width: 1, height: 16, alignment: .center)
                 if taskStore.tasks[self.taskId] != nil {
                     ForEach(taskStore.tasks[self.taskId]!.child, id: \.id) { task in
-                        TaskItemView(taskId: task.id)
-                            .onDrag {
-                                let item = NSItemProvider(object: NSString(string: task.id))
-                                item.suggestedName = task.id
-                                return item
-                            }
-                            .onDrop(of: ["public.utf8-plain-text"], isTargeted: $model.isTarget,
-                                    perform: { (provider) -> Bool in
-                                guard let nsProvider = provider.first, let taskIdSuggest = nsProvider.suggestedName
-                                else { return false}
-                                return taskStore.reorderTasks(parentTaskId: taskId, draggetTaskId: taskIdSuggest, dropOnTaskId: task.id)
-                            })
+//                        TaskItemView(taskId: task.id)
+//                            .onDrag {
+//                                let item = NSItemProvider(object: NSString(string: task.id))
+//                                item.suggestedName = task.id
+//                                return item
+//                            }
+//                            .onDrop(of: ["public.utf8-plain-text"], isTargeted: $model.isTarget,
+//                                    perform: { (provider) -> Bool in
+//                                guard let nsProvider = provider.first, let taskIdSuggest = nsProvider.suggestedName
+//                                else { return false}
+//                                return taskStore.reorderTasks(parentTaskId: taskId, draggetTaskId: taskIdSuggest, dropOnTaskId: task.id)
+//                            })
                     }
                     
                     if (taskStore.tasks[self.taskId]!.child.count > 0){

@@ -10,11 +10,11 @@ import SwiftUI
 struct TaskTitleView: View {
     var taskId: String
     @EnvironmentObject var taskStore: TaskStore
-    @ObservedObject var model: TaskTitleModel
+    @StateObject var model: TaskTitleModel = TaskTitleModel()
     @State var titleSize: CGFloat = 44
+    
     init(taskId : String){
         self.taskId = taskId
-        self.model = TaskTitleModel(taskId: taskId)
     }
     
     var body: some View {
@@ -47,7 +47,7 @@ struct TaskTitleView: View {
                     .checkBox
                     .doneBackground)
             .onAppear(perform: {
-                self.model.taskStore = self.taskStore
+                
             })
         
         

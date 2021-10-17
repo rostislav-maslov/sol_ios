@@ -6,15 +6,17 @@
 //
 
 import SwiftUI
-import AlertToast
+
 
 struct SpacesView: View {
     public static let VIEW_ID = "SpacesView"
     
-    @ObservedObject var model = SpacesViewModel()
- 
+    @StateObject var model = SpacesViewModel()
+    
+    @State var editMode: EditMode = .active
     @EnvironmentObject var spaceStore: SpaceStore
     @EnvironmentObject var taskStore: TaskStore
+    @EnvironmentObject var addTaskModel: AddTaskViewModel
     
     init(){
         UINavigationBar.appearance().titleTextAttributes = [
@@ -23,22 +25,19 @@ struct SpacesView: View {
     
     var body: some View {
             ZStack {
-                NavigationLink(
-                    destination: LoginUIView(),
-                    isActive: $model.goToLogout) {
-                    EmptyView()
-                }
-                content
-                
-                AddTaskRootView(spaceId: nil, parentTaskId: nil) {
-                    model.showToastSuccessCreate = true
-                }
+                content                                
                 
                 PlanningSlotsView(
                     delegate: self.model,                    
                     isPresented: $model.showPlanning,
                     type: PlanningType.VIEW)
                     .colorScheme(ColorScheme.light)
+                
+                NavigationLink(
+                    destination: LoginUIView(),
+                    isActive: $model.goToLogout) {
+                    EmptyView()
+                }
             }
             .preferredColorScheme(.light)
             .navigationBarBackButtonHidden(true)
@@ -46,20 +45,15 @@ struct SpacesView: View {
             .navigationTitle("Spaces")
             .onAppear(perform: {
                 model.store = self.spaceStore
+                addTaskModel.needShowTaskCreatedToast = true
+                addTaskModel.changeView(spaceId: nil, taskId: nil, taskDidCreated: model.taskDidCreated)
                 spaceStore.taskStore = taskStore
                 taskStore.spaceStore = spaceStore
                 spaceStore.sync()
             })
-            .toast(isPresenting: $model.showToastSuccessCreate){
-                AlertToast(
-                    displayMode: .hud,
-                    type: .regular,
-                    title: "Task did create 👍",
-                    subTitle: "Take a look on inbox space"
-                )                
+            .onDisappear {
+                addTaskModel.needShowTaskCreatedToast = false
             }
-        
-        
     }
 }
 

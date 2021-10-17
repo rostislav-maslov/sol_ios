@@ -13,13 +13,17 @@ import SwiftUI
 
 public struct SpaceView: View {
     var spaceId: String
-    @ObservedObject var model: SpaceViewModel
+    
+    @StateObject var model: SpaceViewModel = SpaceViewModel()
     
     @EnvironmentObject var taskStore: TaskStore
     @EnvironmentObject var spaceStore: SpaceStore
+    @EnvironmentObject var addTaskModel: AddTaskViewModel
     
     @State public var isEditable = true
     @State var isTarget = true
+    @State var goToTaskView = false
+    @State var taskId: String = ""
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -27,26 +31,20 @@ public struct SpaceView: View {
     
     init(spaceId: String){
         self.spaceId = spaceId
-        self.model = SpaceViewModel(spaceId)
         
         UINavigationBar.appearance().titleTextAttributes = [
                    .font : UIFont(name: "HelveticaNeue-Thin", size: 0)!]
+                
     }
     
     public var body: some View {        
         ZStack {
-            content
-                
-            
-            AddTaskRootView(spaceId: self.spaceId, parentTaskId: nil) {
-            }
-            
+            content            
             PlanningSlotsView(
                 delegate: self.model,
                 isPresented: $model.showPlanning,
                 type: PlanningType.VIEW)
                 .colorScheme(ColorScheme.light)
-            
             if model.bottomButtonType == BottomButtonType.CLOSE_ICON_FIELD {
                 DoneKeyboardButtonView(action: {                                        
                     model.bottomButtonType = BottomButtonType.ADD_TASK
@@ -57,12 +55,24 @@ public struct SpaceView: View {
                         data: spaceStore.spaces[spaceId]!.icon.data)
                 })
             }
+            
+            NavigationLink(
+                destination: TaskView(spaceId: self.spaceId, taskId: self.taskId),
+                isActive: $goToTaskView,
+                label:{
+                    
+                })
+                .frame(width: 0, height: 0)
+                .buttonStyle(PlainButtonStyle())
+                
         }
         .navigationBarTitleDisplayMode(.inline)
         .preferredColorScheme(.light)
-        .navigationTitle(spaceStore != nil ? (spaceStore.spaces[spaceId]?.title ?? "") : "" )
+        .navigationTitle(spaceStore.spaces[spaceId]?.title ?? "")
         .navigationBarHidden(false)
         .onAppear(perform: {
+            self.model.spaceId = spaceId
+            self.addTaskModel.changeView(spaceId: spaceId, taskId: nil, taskDidCreated: model.taskDidCreated)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 self.spaceStore.sync(spaceId: self.spaceId)
             }
@@ -70,10 +80,5 @@ public struct SpaceView: View {
     }
 }
 
-struct SpaceView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        SpaceView(spaceId: SpaceViewModel.forRender().spaceId)
-    }
-}
+
 

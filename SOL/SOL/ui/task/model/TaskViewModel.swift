@@ -51,19 +51,20 @@ extension TaskViewModel {
         taskStore?.changeStatus(taskId: taskId)
     }
     
-         
+    
     
 }
 
 extension TaskViewModel{
     
-    func taskDidCreated(_ taskEntity: TaskEntity) -> Void{
+    func taskDidCreated() -> Void{
         //self.task.child.append(taskEntity)
         //self.task.hasChild = true
         self.listIdHack = UUID()
         withAnimation {
             self.scrollViewProxy?.scrollTo("endOfScrollView", anchor: .bottom)
         }
+                
     }
 }
 

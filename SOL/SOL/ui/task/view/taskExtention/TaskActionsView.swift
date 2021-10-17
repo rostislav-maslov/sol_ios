@@ -180,8 +180,7 @@ extension TaskView{
                     iconVerticalSpace: 4,
                     subTitle: "Make task done"
                 ){
-                    let generator = UINotificationFeedbackGenerator()
-                    generator.notificationOccurred(.success)
+                    UINotificationFeedbackGenerator.generate(.TASK_DONE)
                     model.toggleTask()
                 }
                 
@@ -196,8 +195,7 @@ extension TaskView{
                     iconVerticalSpace: 4,
                     subTitle: "Go back to work"
                 ){
-                    let generator = UINotificationFeedbackGenerator()
-                    generator.notificationOccurred(.success)
+                    UINotificationFeedbackGenerator.generate(.TASK_DONE)
                     model.toggleTask()
                 }
             }

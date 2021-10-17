@@ -9,21 +9,24 @@ import Foundation
 import SwiftUI
 
 struct TaskView: View {
+    var spaceId: String
     var taskId: String
     
     @EnvironmentObject var taskStore: TaskStore
     @EnvironmentObject var spaceStore: SpaceStore
+    @EnvironmentObject var addTaskModel: AddTaskViewModel
     
     @ObservedObject var model: TaskViewModel
+    
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
         
     
-    init(taskId: String){
+    init(spaceId: String, taskId: String){
+        self.spaceId = spaceId
         self.taskId = taskId
         self.model = TaskViewModel(taskId: taskId)
-        UINavigationBar.appearance().titleTextAttributes = [
-                   .font : UIFont(name: "HelveticaNeue-Thin", size: 0)!]
+        UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "HelveticaNeue-Thin", size: 0)!]
     }
     
     var body: some View {
@@ -32,16 +35,6 @@ struct TaskView: View {
             content
             //SolNavigationView()            
             
-            if model.bottomButtonType == BottomButtonType.ADD_TASK {
-                AddTaskRootView(spaceId: taskStore.tasks[taskId]?.spaceId, parentTaskId: taskId) {
-                    withAnimation {
-                        self.model.scrollViewProxy?
-                            .scrollTo(
-                                "endOfScrollViewTasks",
-                                anchor: .bottom)
-                    }
-                }
-            }
             if model.bottomButtonType == BottomButtonType.CLOSE_ICON_FIELD {
                 DoneKeyboardButtonView(action: {
                     taskStore.saveTitleIcon(taskId: taskId)
@@ -56,11 +49,12 @@ struct TaskView: View {
                 .colorScheme(ColorScheme.light)
         }
         .preferredColorScheme(.light)
-        .navigationTitle(taskStore != nil ? (taskStore.tasks[taskId]?.title ?? "") : "" )
+        .navigationTitle(taskStore.tasks[taskId]?.title ?? "")
         .navigationBarHidden(false)
         .navigationBarTitleDisplayMode(NavigationBarItem.TitleDisplayMode.inline)
         .onAppear(perform: {
             self.model.taskStore = taskStore
+            self.addTaskModel.changeView(spaceId: spaceId, taskId: taskId, taskDidCreated: model.taskDidCreated)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 self.taskStore.syncTask(taskId: taskId)
             }

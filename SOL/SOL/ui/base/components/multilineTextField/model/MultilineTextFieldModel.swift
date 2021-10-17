@@ -21,23 +21,11 @@ public class MultilineTextFieldModel: NSObject, ObservableObject, UITextViewDele
     @Published var firstSizeTitle:CGFloat = 0
     @Published var titleSize:CGFloat = (24 + 8) * 1
         
-    var textDidChange : ((_ text: String) -> Void)
-    var textEditFinish : ((_ text: String) -> Void)
-    var titleSizeDidChange : ((_ titleSize: CGFloat) -> Void)
-    var multilineTextFieldView : ((_ view: UITextView) -> Void)
-        
-    init(
-        textDidChange : @escaping ((_ text: String) -> Void),
-        textEditFinish : @escaping ((_ text: String) -> Void),
-        titleSizeDidChange : @escaping ((_ titleSize: CGFloat) -> Void),
-        multilineTextFieldView : @escaping ((_ view: UITextView) -> Void)
-    ){
-        self.textDidChange = textDidChange
-        self.textEditFinish = textEditFinish
-        self.titleSizeDidChange = titleSizeDidChange
-        self.multilineTextFieldView = multilineTextFieldView
-    }
-    
+    @Published var textDidChange : ((_ text: String) -> Void)?
+    @Published var textEditFinish : ((_ text: String) -> Void)?
+    @Published var titleSizeDidChange : ((_ titleSize: CGFloat) -> Void)?
+    @Published var multilineTextFieldView : ((_ view: UITextView) -> Void)?
+               
     public func textViewDidChange(_ textView: UITextView) {
         let sizeThatFitsTextView = textView.sizeThatFits(CGSize(width: textView.frame.size.width, height: CGFloat(MAXFLOAT)))
         let heightOfText = sizeThatFitsTextView.height
@@ -47,15 +35,15 @@ public class MultilineTextFieldModel: NSObject, ObservableObject, UITextViewDele
             self.firstSizeTitle = sizeThatFitsTextView.height
             self.detectFirstSizeTitle = true
             
-            self.textDidChange(textView.text)
-            self.titleSizeDidChange(self.titleSize)          
+            self.textDidChange?(textView.text)
+            self.titleSizeDidChange?(self.titleSize)
         }
     }
     
     public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if (text == "\n") {
             textView.resignFirstResponder()
-            textEditFinish(textView.text)            
+            textEditFinish?(textView.text)            
             return false
         }
         return true

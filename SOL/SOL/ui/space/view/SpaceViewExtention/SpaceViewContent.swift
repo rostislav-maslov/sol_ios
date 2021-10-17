@@ -11,43 +11,73 @@ import SwiftUI
 
 extension SpaceView {
     var content: some View {
-        // Тут пул ту рефреш
-        // https://swiftui-lab.com/scrollview-pull-to-refresh/
-        ScrollView(.vertical, showsIndicators: false) {
-            //ScrollViewReader { (value:ScrollViewProxy) in
-            header
-            actionsTitle
-            actionsButton
-            picker
-            pickerContainer
-                .id("endOfScrollView")
-                .onAppear {
-                    //          self.model.scrollViewProxy = value
-                }
-            //}
-        }
-        .background(SolColor.colors().screen.background)
-        .ignoresSafeArea(.all)
-        .gesture(
-            DragGesture(coordinateSpace: .local)
-                .onEnded { value in
-                    if value.translation.width > .zero
-                        && value.translation.height > -30
-                        && value.translation.height < 30 {
-                        if model.activeTab - 1 >= 0 {
-                            model.activeTab = model.activeTab - 1
+        ScrollViewReader { proxy in
+            List {
+                header
+                    .listRowSeparator(Visibility.hidden)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(SolColor.colors().screen.background)
+                actionsTitle
+                    .listRowSeparator(Visibility.hidden)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(SolColor.colors().screen.background)
+                actionsButton
+                    .listRowSeparator(Visibility.hidden)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(SolColor.colors().screen.background)
+                picker
+                    .listRowSeparator(Visibility.hidden)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(SolColor.colors().screen.background)
+                if(model.activeTab == 0){
+                    ForEach(spaceStore.spaces[spaceId]!.tasks, id: \.id) { task in
+                        if taskStore.tasks[task.id] != nil {
+                            TaskItemView(taskId: task.id, onTouchTask: {(taskId: String) in
+                                self.taskId = taskId
+                                self.goToTaskView = true
+                            })
+                                .id("SpaceViewList_\(task.id)")
+                                .listRowSeparator(Visibility.hidden)
+                                .listRowInsets(EdgeInsets())
+                                .listRowBackground(SolColor.colors().screen.background)
                         }
-                        print(model.activeTab)
-                        print(value.translation.width)
-                    }else{
-                        if model.activeTab + 1 <= model.activeTabMax {
-                            model.activeTab = model.activeTab + 1
-                        }
-                        print(model.activeTab)
-                        print(value.translation.width)
                     }
                     
+                    if (spaceStore.spaces[spaceId]!.tasks.count == 0 && model.state != .INITIALIZATION){
+                        VacuumView()
+                            .listRowSeparator(Visibility.hidden)
+                            .listRowInsets(EdgeInsets())
+                            .listRowBackground(SolColor.colors().screen.background)
+                            .frame(height: 40, alignment: .center)
+                            .padding(EdgeInsets(top: 32.0, leading: 8.0, bottom: 0.0, trailing: 8.0))
+                    }
                 }
-        )
+                if(model.activeTab == 1){
+                    Text("Details")
+                        .listRowSeparator(Visibility.hidden)
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(SolColor.colors().screen.background)
+                }
+                Spacer()
+                    .id("ListLastItem")
+                    .listRowSeparator(Visibility.hidden)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(SolColor.colors().screen.background)
+                    .frame(height: 142)
+                
+            }
+            .alignmentGuide(VerticalAlignment.top, computeValue: { (vd:ViewDimensions) in
+                return 0.0
+            })
+            .listStyle(PlainListStyle())
+            .background(SolColor.colors().screen.background)
+            .ignoresSafeArea(.all)
+            .refreshable {
+                print("pull")
+            }
+            .onAppear {
+                model.scrollViewProxy = proxy
+            }
+        }
     }
 }

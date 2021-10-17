@@ -13,10 +13,12 @@ struct TaskItemView: View {
     @EnvironmentObject var spaceStore: SpaceStore
     
     var taskId: String
+    var onTouchTask: ((_ taskId: String) -> Void)
     
-    init(taskId: String){
+    init(taskId: String, onTouchTask: @escaping ((_ taskId: String) -> Void)){
         self.taskId = taskId
         self.model = TaskItemViewModel(taskId: taskId)
+        self.onTouchTask = onTouchTask
     }
     
     var body: some View {
@@ -46,7 +48,7 @@ struct TaskItemView: View {
 extension TaskItemView{
     var defaultLine: some View {
         Group{
-            TaskItemSubtaskView(taskId: taskId, isChild: false)           
+            TaskItemSubtaskView(taskId: taskId, isChild: false, onTouchTask: self.onTouchTask)
         }
         
     }

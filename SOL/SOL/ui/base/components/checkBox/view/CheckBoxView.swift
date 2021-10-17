@@ -25,8 +25,7 @@ struct CheckBoxView: View {
     var body: some View {
         Button(action: {
             self.taskStore.changeStatus(taskId: taskId)
-            let generator = UINotificationFeedbackGenerator()
-            generator.notificationOccurred(.success)
+            UINotificationFeedbackGenerator.generate(.TASK_DONE)
         }, label: {
             ZStack{
                 undoneImage

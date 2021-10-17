@@ -18,29 +18,43 @@ struct AppLoadingView: View {
     }
     
     var body: some View {
-        NavigationView{
-            VStack{
-                NavigationLink(destination: LoginUIView(), tag: AppLoadingState.LOGIN, selection: $goToState) {
+        ZStack{
+            NavigationView{
+                VStack{
+                    NavigationLink(
+                        destination: LoginUIView(),
+                        tag: AppLoadingState.LOGIN,
+                        selection: $goToState) {
+                    }
+                    NavigationLink(
+                        destination: SpacesView(),
+                        tag: AppLoadingState.SPACES,
+                        selection: $goToState) {
+                    }
                     
+                    ProgressView()
                 }
-                NavigationLink(destination: SpacesView(), tag: AppLoadingState.SPACES, selection: $goToState) {
-                }
-                
-                ProgressView()
+                .id(viewModel.id)
+                .navigationBarHidden(true)
             }
-            .id(viewModel.id)
             .navigationBarHidden(true)
+            .accentColor( .black)
+            
+            if goToState == .SPACES {
+                AddTaskRootView()
+            }
         }
-        .navigationBarHidden(true)
-        .accentColor( .black)
         .environmentObject(SpaceStore())
         .environmentObject(TaskStore())
         .environmentObject(EnvStore())
+        .environmentObject(EnvStore())
+        .environmentObject(AddTaskViewModel())
         .onAppear(perform: {
             viewModel.refresh { result in
                 self.goToState = result
             }
         })
+        
     }
 }
 
