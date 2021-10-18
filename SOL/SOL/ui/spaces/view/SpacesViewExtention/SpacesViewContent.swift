@@ -20,6 +20,7 @@ extension SpacesView {
                     .listRowSeparator(Visibility.hidden)
                     .listRowInsets(EdgeInsets())
                 mainInfo
+                    
                     .listRowSeparator(Visibility.hidden)
                     .listRowInsets(EdgeInsets())
                     .listRowBackground(SolColor.colors().screen.background)
@@ -37,19 +38,20 @@ extension SpacesView {
                     .listRowSeparator(Visibility.hidden)
                     .listRowInsets(EdgeInsets())
                     .listRowBackground(SolColor.colors().screen.background)
-                    //                    .onDrag {
-                    //                        let item = NSItemProvider(object: NSString(string: space.id))
-                    //                        item.suggestedName = space.id
-                    //                        return item
-                    //                    }
-                    //                    .onDrop(of: ["public.utf8-plain-text"], isTargeted: $model.isTarget,
-                    //                            perform: { (provider) -> Bool in
-                    //                                guard let nsProvider = provider.first, let spaceIdSuggest = nsProvider.suggestedName
-                    //                                else { return false}
-                    //                                return spaceStore.reorderSpaces(draggetSpaceId: spaceIdSuggest, dropOnSpaceId: space.id)
-                    //                            })
-                    
+                    .onDrag {
+                        let item = NSItemProvider(object: NSString(string: space.id))
+                        item.suggestedName = space.id
+                        return item
+                    }
                 }
+                .onInsert(of: ["public.utf8-plain-text"], perform: { (var1:Int, var2:[NSItemProvider]) in
+                    if var2.count == 0 {
+                        return
+                    }
+                    let spaceId = var2[0].suggestedName
+                    print("move \(spaceId) to \(var1) position")
+                    
+                })
                 .moveDisabled(false)
                 
                 Rectangle()
@@ -72,6 +74,7 @@ extension SpacesView {
                     .listRowInsets(EdgeInsets())
                 
             }
+            
             .listStyle(PlainListStyle())
             .background(SolColor.colors().screen.background)
             .ignoresSafeArea(.all)

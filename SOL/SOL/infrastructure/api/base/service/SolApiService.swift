@@ -8,7 +8,7 @@
 import Foundation
 
 class SolApiService {
-    static var instance: SolApiService?
+    private static var instance: SolApiService?
     let auth: AuthAPI = AuthAPI()
     let space: SpaceAPI = SpaceAPI()
     let task: TaskAPI = TaskAPI()

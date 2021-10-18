@@ -11,27 +11,19 @@ import EventKitUI
 import UIKit
 import BottomSheet
 
-struct PlanningSlotsView: View, DaySchedulerProtocol{
+struct PlanningSlotsView: View{
 
-    let delegate: DaySchedulerProtocol    
-        
-    @State var state = ViewState.NORMAL
     @Binding var isPresented: Bool
     var type: PlanningType
-    
-    @ObservedObject var model: PlanningSlotsModel = PlanningSlotsModel()
-    
-    @State var canGoToTask: Bool = false
-    @State var title: String = ""
-    @State var slotId: String = ""
-    @State var spaceId: String = ""
-    @State var taskId: String = ""
-    
-    @ObservedObject var modalViewModel: PlanningSlotModel = PlanningSlotModel(slot: SlotEntity(), task: TaskEntity())
-    @State var showPlanningSlot: Bool = false
-    
-    @ObservedObject var planningSlotModel: PlanningSlotModel = PlanningSlotModel(slot: SlotEntity(), task: TaskEntity())
+    var delegate: DaySchedulerProtocol
     @EnvironmentObject var taskStore: TaskStore
+    @EnvironmentObject var slotStore: SlotStore
+    
+    
+    @StateObject var model: PlanningSlotsModel = PlanningSlotsModel()
+    @StateObject var planningSlotModel: PlanningSlotModel = PlanningSlotModel(slot: SlotEntity(), task: TaskEntity())
+            
+    
     var body: some View {
         ZStack{
             Text("")
@@ -56,20 +48,24 @@ struct PlanningSlotsView: View, DaySchedulerProtocol{
             Text("")
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: Alignment.center)
                 .bottomSheet(
-                    isPresented: $showPlanningSlot,
+                    isPresented: $model.showPlanningSlot,
                     height: 300) {
                         PlanningSlotModalView(
-                            canGoToTask: $canGoToTask,
-                            title: $title,
-                            slotId: $slotId,
-                            spaceId: $spaceId,
-                            taskId: $taskId) {
-                                delegate.onDelete(slotId: slotId)
-                                showPlanningSlot = false
+                            canGoToTask: $model.canGoToTask,
+                            title: $model.title,
+                            slotId: $model.slotId,
+                            spaceId: $model.spaceId,
+                            taskId: $model.taskId) { slotToDeleteId in
+                                model.deleteSlot(slotToDeleteId: slotToDeleteId)                                
                             }
                 }
-            
         }
+        .onAppear(perform: {
+            model.slotStore = slotStore
+            model.type = type
+            model.delegate = delegate
+            model.needClose = needClose
+        })
         .ignoresSafeArea()
         .frame(
             width: UIScreen.main.bounds.width,
@@ -77,6 +73,10 @@ struct PlanningSlotsView: View, DaySchedulerProtocol{
             alignment: Alignment.center)                        
     }
     
+    
+    func needClose() {
+        isPresented = false
+    }
 }
 
 extension PlanningSlotsView{
@@ -118,11 +118,8 @@ extension PlanningSlotsView{
                 .background(SolColor.colors().addTask.addTaskBackground)
                 .frame(width: nil, height: 24, alignment: .center)
             Spacer()
-                .frame(width: 0, height: 0, alignment: .center)
-            
-            DaySchedulerView(
-                delegate: self)
-                                    
+                .frame(width: 0, height: 0, alignment: .center)            
+            DaySchedulerView(delegate: self.model, needUpdate: $model.needUpdate)
             Spacer()
                 .frame(width: 0, height: 0, alignment: .center)
         }
@@ -137,7 +134,7 @@ extension PlanningSlotsView{
             HStack{
                 Spacer()
                 Button(action: {
-                    onClose()
+                    model.onClose()
                 }, label: {
                     ZStack{
                         Image("ic_close")
@@ -162,9 +159,9 @@ extension PlanningSlotsView{
                     .frame(width: 16, height: 0, alignment: .center)
                 ButtonComponent(
                     title: "Submit",
-                    state: $state,
+                    state: $model.state,
                     action: {
-                        onSubmit()
+                        model.onSubmit()
                     })
                 Spacer()
                     .frame(width: 16, height: 0, alignment: .center)
@@ -176,47 +173,7 @@ extension PlanningSlotsView{
 }
 
 extension  PlanningSlotsView {
-    func newSlotName() -> String {
-        return delegate.newSlotName()
-    }
-    
-    func slotsByDay(date: Date, callback: @escaping (([SlotEntity]) -> Void)) {
-        return delegate.slotsByDay(date: date, callback: callback)
-    }
-    
-    func addSlot(startTime: Date, endTime: Date) {
-        delegate.addSlot(startTime: startTime, endTime: endTime)
-    }
-    
-    func changeTimeSlot(slotId: String, startTime: Date, endTime: Date) {
-        delegate.changeTimeSlot(slotId: slotId, startTime: startTime, endTime: endTime)
-    }
-    
-    func onClose() {
-        delegate.onClose()
-        isPresented = false
-    }
-    
-    func onSubmit() {
-        delegate.onSubmit()
-        isPresented = false
-    }
-    
-    func onTapEvent(slot: SlotEntity) {
-        
-        canGoToTask = type == .VIEW
-        title = slot.title
-        slotId = slot.id
-        taskId = slot.createdFromTaskId != nil ? slot.createdFromTaskId! : ""
-        spaceId = "" // TODO: тут понять откуда лучше брать spaceId
-        
-        modalViewModel.slot = slot
-        showPlanningSlot = true
-    }
-    
-    func onDelete(slotId: String) {
-        delegate.onDelete(slotId: slotId)
-    }
+   
 }
 
 //struct ChooseEventTimeComponent_Previews: PreviewProvider {

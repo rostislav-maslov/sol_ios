@@ -20,6 +20,7 @@ public class SpacesViewModel: ObservableObject, DaySchedulerProtocol {
     @Published var showPlanning = false    
     
     var store: SpaceStore?
+    var slotStore: SlotStore?
     
     private var disposables = Set<AnyCancellable>()
     private let port:SpaceRepositoryPort = SolApiService.api().space
@@ -63,17 +64,20 @@ extension SpacesViewModel {
 //        task.slots.append(slot)
     }
     
-    func slotsByDay(date: Date, callback: @escaping (([SlotEntity]) -> Void) ) {
-        SolApiService.instance?.slot.findByDate(date.millisecondsSince1970, Date().timezone, responseFunc:   { (success, error, isSuccess) in
-            var result:[SlotEntity] = []
-            if isSuccess == true && success != nil {
-                for item in success!.result.items{
-                    result.append(SlotMapping.mapping(response: item))
-                }
-            }
-            callback(result)
-        })
-    }
+//    func slotsByDay(date: Date, callback: @escaping (([SlotEntity]) -> Void) ) {
+//        slotStore?.syncByDay(day: date, callback: { result in
+//            <#code#>
+//        })
+//        slot.findByDate(date.millisecondsSince1970, Date().timezone, responseFunc:   { (success, error, isSuccess) in
+//            var result:[SlotEntity] = []
+//            if isSuccess == true && success != nil {
+//                for item in success!.result.items{
+//                    result.append(SlotMapping.mapping(response: item))
+//                }
+//            }
+//            callback(result)
+//        })
+  //  }
   
     func changeTimeSlot(slotId: String, startTime: Date, endTime: Date) {
         
@@ -91,9 +95,10 @@ extension SpacesViewModel {
         // NOTE ignore
     }
     
-    func onDelete(slotId: String) {
-        SolApiService.instance?.slot.delete(slotId, responseFunc: { success, error, isSuccess in
-            
-        })
+    func drafts() -> [SlotEntity] {
+        return []
+    }
+    
+    func onDeleteDraft(slotId: String) {        
     }
 }

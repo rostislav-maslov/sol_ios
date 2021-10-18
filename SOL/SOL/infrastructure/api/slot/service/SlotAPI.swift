@@ -18,7 +18,7 @@ class SlotAPI: RequestService, SlotRepositoryPort {
     func findById(_ id: String, responseFunc: @escaping ApiResponseProtocol<SlotResponse>){
         self.requestFormUrl(url: SlotRoutes.ROOT + "/\(id)", method: "GET", responseFunc: responseFunc)
     }
-    func delete(_ id: String, responseFunc: @escaping ApiResponseProtocol<SlotResponse>){
+    func delete(_ id: String, responseFunc: @escaping ApiResponseProtocol<String>){
         self.requestFormUrl(url: SlotRoutes.ROOT + "/\(id)", method: "DELETE", responseFunc: responseFunc)
     }
     func findByTaskId(_ taskId: String, responseFunc: @escaping ApiResponseProtocol<[SlotResponse]>){
@@ -27,7 +27,5 @@ class SlotAPI: RequestService, SlotRepositoryPort {
     func findByDate(_ date: Int64, _ timezone: Int, responseFunc: @escaping ApiResponseProtocol<BaseListResponse<SlotResponse>>){
         self.requestFormUrl(url: SlotRoutes.ROOT + "?date=\(date)&timezone=\(timezone)", method: "GET", responseFunc: responseFunc)
     }
-    
-    
-    
+            
 }

@@ -12,7 +12,7 @@ import SwiftUI
 public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, DaySchedulerProtocol {
     
     var taskStore: TaskStore?
-    var spaceStore: SpaceStore?
+    var spaceStore: SpaceStore?    
     
     var taskDidCreated: (() -> Void)?
     
@@ -268,17 +268,8 @@ extension AddTaskViewModel {
         task.slots.append(slot)
     }
     
-    func slotsByDay(date: Date, callback: @escaping (([SlotEntity]) -> Void) ) {
-        SolApiService.instance?.slot.findByDate(date.millisecondsSince1970, Date().timezone, responseFunc:   { (success, error, isSuccess) in
-            var result:[SlotEntity] = []
-            if isSuccess == true && success != nil {
-                for item in success!.result.items{
-                    result.append(SlotMapping.mapping(response: item))
-                }                                
-            }
-            result.append(contentsOf: self.task.slots)
-            callback(result)
-        })
+    func drafts() -> [SlotEntity] {
+        return task.slots
     }
     
     func onClose() {
@@ -304,7 +295,7 @@ extension AddTaskViewModel {
         }
     }
     
-    func onDelete(slotId: String) {
+    func onDeleteDraft(slotId: String) {
         for i in 0...task.slots.count {
             task.slots.remove(at: i)
             break

@@ -26,12 +26,11 @@ struct SpacesView: View {
     var body: some View {
             ZStack {
                 content                                
-                
                 PlanningSlotsView(
-                    delegate: self.model,                    
                     isPresented: $model.showPlanning,
-                    type: PlanningType.VIEW)
-                    .colorScheme(ColorScheme.light)
+                    type: PlanningType.VIEW,
+                    delegate: self.model
+                ).colorScheme(ColorScheme.light)
                 
                 addSpaceSheet
                 

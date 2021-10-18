@@ -40,8 +40,17 @@ extension SpaceView {
                                 .listRowSeparator(Visibility.hidden)
                                 .listRowInsets(EdgeInsets())
                                 .listRowBackground(SolColor.colors().screen.background)
+                                .onDrag {
+                                    let item = NSItemProvider(object: NSString(string: task.id))
+                                    item.suggestedName = task.id
+                                    return item
+                                }                                                                                                               
+                            
                         }
                     }
+                    .onInsert(of: ["public.utf8-plain-text"], perform: { var1, var2 in
+                        print("onInsert", var1, var2)
+                    })
                     
                     if (spaceStore.spaces[spaceId]!.tasks.count == 0 && model.state != .INITIALIZATION){
                         VacuumView()

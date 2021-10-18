@@ -1,13 +1,13 @@
 //
-//  FindSlotByDayUseCase.swift
+//  FindSlotTaskUseCase.swift
 //  SOL
 //
-//  Created by Rostislav Maslov on 04.10.2021.
+//  Created by Rostislav Maslov on 18.10.2021.
 //
 
 import Foundation
 
-public class FindSlotByDayUseCase: UseCase<[SlotEntity], Bool>{
+public class FindSlotTaskUseCase: UseCase<[SlotEntity], Bool>{
     let port: SlotRepositoryPort!
     private let input: Input
     
@@ -18,9 +18,9 @@ public class FindSlotByDayUseCase: UseCase<[SlotEntity], Bool>{
     
     override public func execute(_ callback: @escaping ([SlotEntity], Bool?) -> Void) {
         
-        port.findByDate(input.date.millisecondsSince1970, input.date.timezone) { (success: BaseApiResponse<BaseListResponse<SlotResponse>>?, error: BaseApiErrorResponse?, isSuccess:Bool) in
+        port.findByTaskId(input.taskId) { (success: BaseApiResponse<[SlotResponse]>?, error: BaseApiErrorResponse?, isSuccess:Bool) in
             if success != nil && isSuccess == true {
-                callback(SlotMapping.mapping(response: success != nil ? success!.result.items : []), true)
+                callback(SlotMapping.mapping(response: success != nil ? success!.result : []), true)
             }else{
                 callback([], false)
             }
@@ -28,10 +28,10 @@ public class FindSlotByDayUseCase: UseCase<[SlotEntity], Bool>{
     }
 }
 
-extension FindSlotByDayUseCase{
+extension FindSlotTaskUseCase{
     
     public struct Input{
-        var date: Date
+        var taskId: String
     }
     
 }

@@ -18,30 +18,58 @@ import CalendarKit
 
 protocol DaySchedulerProtocol {
     func newSlotName() -> String
-    func slotsByDay(date: Date, callback:  @escaping (([SlotEntity]) -> Void) )
+    func drafts() -> [SlotEntity]
     func addSlot(startTime: Date, endTime: Date) -> Void
     func changeTimeSlot(slotId: String, startTime: Date, endTime: Date) -> Void
     func onSubmit() -> Void
     func onClose() -> Void
     func onTapEvent(slot: SlotEntity) -> Void
-    func onDelete(slotId: String) -> Void
+    func onDeleteDraft(slotId: String) -> Void
 }
 
 struct DaySchedulerView: UIViewControllerRepresentable, DayViewControllerProtocol {
 
     var delegate: DaySchedulerProtocol
-    @State var reloadData: (() -> Void)?
+    @Binding var needUpdate: Bool
+    
+    @EnvironmentObject var slotStore: SlotStore
+    
+    //@State var reloadData: (() -> Void)?
     @State var allSots: [SlotEntity] = []
     var dayViewControllerImpl:DayViewControllerImpl = DayViewControllerImpl()
     
     func newEventTitle() -> String {
         return delegate.newSlotName()
     }
-                   
+       
+    private func syncDrafts(){
+        //Получаем инфу о черновиках
+        let drafts = delegate.drafts()
+        var needAddDraft:[SlotEntity] = []
+        for slotDraft in drafts {
+            var hasSlot = false
+            for slot in self.allSots {
+                if slot.id == slotDraft.id {
+                    hasSlot = true
+                    break
+                }
+            }
+            
+            if hasSlot == false {
+                needAddDraft.append(slotDraft)
+            }
+        }
+        if needAddDraft.count > 0 {
+            self.allSots.append(contentsOf: needAddDraft)
+            DispatchQueue.main.async {
+                self.dayViewControllerImpl.reloadData()
+            }
+        }
+    }
+    
     func eventsForDate(_ date: Date) -> [EventDescriptor] {
         //Получаем инфу о событиях дня. после создание запрашивается заново все события дня
-        
-        delegate.slotsByDay(date: date, callback: { (results: [SlotEntity]) in
+        slotStore.syncByDay(day: date) { results in
             var needAdd: [SlotEntity] = []
             
             for result in results {
@@ -64,7 +92,9 @@ struct DaySchedulerView: UIViewControllerRepresentable, DayViewControllerProtoco
                     self.dayViewControllerImpl.reloadData()
                 }
             }
-        })
+            
+            syncDrafts()
+        }
         
         var result:[EventDescriptor] = []
         for slot in allSots {
@@ -112,9 +142,10 @@ struct DaySchedulerView: UIViewControllerRepresentable, DayViewControllerProtoco
                                 id: slotId,
                                 timezone: Date().timezone)
                           
-                            SolApiService.instance?.slot.edit(req, responseFunc: { success, error, isSuccess in
-                                print(isSuccess)
-                            })
+                            slotStore
+//                            slot.edit(req, responseFunc: { success, error, isSuccess in
+//                                print(isSuccess)
+//                            })
                         }
                     }
                 }
@@ -130,6 +161,7 @@ struct DaySchedulerView: UIViewControllerRepresentable, DayViewControllerProtoco
         for slot in allSots {
             if slot.id == slotId {
                 delegate.onTapEvent(slot: slot)
+                // вот тут перезапрашиваем
             }
         }                
     }
@@ -137,7 +169,14 @@ struct DaySchedulerView: UIViewControllerRepresentable, DayViewControllerProtoco
     
             
     func updateUIViewController(_ uiViewController: UIViewController, context: Context){
-        
+        print(needUpdate)
+        if needUpdate == true {
+            needUpdate = false
+            allSots = []
+            DispatchQueue.main.async {
+                dayViewControllerImpl.reloadData()
+            }
+        }
     }
     
     func makeUIViewController(context: Context) -> UIViewController {

@@ -174,6 +174,10 @@
 		4FD2E31A265F6BD2007A20C6 /* TextFieldLoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E319265F6BD2007A20C6 /* TextFieldLoginComponent.swift */; };
 		4FD2E31D265F7339007A20C6 /* TitleLoginByEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E31C265F7339007A20C6 /* TitleLoginByEmailView.swift */; };
 		4FD2E320265F74B7007A20C6 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E31F265F74B7007A20C6 /* ButtonComponent.swift */; };
+		4FD44F81271D0EDD00827F80 /* SlotStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD44F80271D0EDD00827F80 /* SlotStore.swift */; };
+		4FD44F83271D160D00827F80 /* EditSlotUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD44F82271D160D00827F80 /* EditSlotUseCase.swift */; };
+		4FD44F85271D171200827F80 /* DeleteSlotUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD44F84271D171200827F80 /* DeleteSlotUseCase.swift */; };
+		4FD44F87271D17E000827F80 /* FindSlotTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD44F86271D17E000827F80 /* FindSlotTaskUseCase.swift */; };
 		4FE38CE92662CDAD0011E203 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE38CE82662CDAD0011E203 /* Error.swift */; };
 		4FE38CEB266397140011E203 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE38CEA266397140011E203 /* ViewState.swift */; };
 		4FE38CF22663B8320011E203 /* DefaultStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE38CF12663B8320011E203 /* DefaultStore.swift */; };
@@ -399,6 +403,10 @@
 		4FD2E319265F6BD2007A20C6 /* TextFieldLoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldLoginComponent.swift; sourceTree = "<group>"; };
 		4FD2E31C265F7339007A20C6 /* TitleLoginByEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLoginByEmailView.swift; sourceTree = "<group>"; };
 		4FD2E31F265F74B7007A20C6 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
+		4FD44F80271D0EDD00827F80 /* SlotStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotStore.swift; sourceTree = "<group>"; };
+		4FD44F82271D160D00827F80 /* EditSlotUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSlotUseCase.swift; sourceTree = "<group>"; };
+		4FD44F84271D171200827F80 /* DeleteSlotUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSlotUseCase.swift; sourceTree = "<group>"; };
+		4FD44F86271D17E000827F80 /* FindSlotTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSlotTaskUseCase.swift; sourceTree = "<group>"; };
 		4FE38CE82662CDAD0011E203 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		4FE38CEA266397140011E203 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		4FE38CF12663B8320011E203 /* DefaultStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStore.swift; sourceTree = "<group>"; };
@@ -1439,6 +1447,7 @@
 		4FA828A62696C82500540CFF /* store */ = {
 			isa = PBXGroup;
 			children = (
+				4FD44F7F271D0ED000827F80 /* slot */,
 				4F615E0C26E8645600273B1A /* task */,
 				4F615E0B26E8645100273B1A /* space */,
 				4FA828AB2696C9C600540CFF /* defaults */,
@@ -1765,6 +1774,14 @@
 			path = providers;
 			sourceTree = "<group>";
 		};
+		4FD44F7F271D0ED000827F80 /* slot */ = {
+			isa = PBXGroup;
+			children = (
+				4FD44F80271D0EDD00827F80 /* SlotStore.swift */,
+			);
+			path = slot;
+			sourceTree = "<group>";
+		};
 		4FE38CE72662912C0011E203 /* screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -1900,6 +1917,9 @@
 			children = (
 				4F71E152270AA45500A80F47 /* CreateSlotUseCase.swift */,
 				4F71E154270AA46F00A80F47 /* FindSlotByDayUseCase.swift */,
+				4FD44F82271D160D00827F80 /* EditSlotUseCase.swift */,
+				4FD44F84271D171200827F80 /* DeleteSlotUseCase.swift */,
+				4FD44F86271D17E000827F80 /* FindSlotTaskUseCase.swift */,
 			);
 			path = useCase;
 			sourceTree = "<group>";
@@ -2398,6 +2418,7 @@
 				4F2BED3226ECA4B5004D7A15 /* SpaceTitleView.swift in Sources */,
 				4F2CAF9F2702AF2D003CACA0 /* NullEncodable.swift in Sources */,
 				4F4352972713E07A00484F3D /* PlanningSlotModel.swift in Sources */,
+				4FD44F83271D160D00827F80 /* EditSlotUseCase.swift in Sources */,
 				4FE38CE92662CDAD0011E203 /* Error.swift in Sources */,
 				4FA828C82696E89500540CFF /* ReceiveReponse.swift in Sources */,
 				4F61FD7C26A363CD00D83F2D /* SettingButton.swift in Sources */,
@@ -2419,6 +2440,7 @@
 				4F2B5DAC2668B2CC005BE636 /* AddTaskTextView.swift in Sources */,
 				4FEF48F427080FE400B23BC1 /* SlotAPI.swift in Sources */,
 				4F62D52F26E7082900AA5EBB /* TaskItemSubtaskTitleView.swift in Sources */,
+				4FD44F85271D171200827F80 /* DeleteSlotUseCase.swift in Sources */,
 				4F2661D026B924A4001974BC /* SpaceRepositoryPort.swift in Sources */,
 				4F48255D26C4F9AD001ABE87 /* TaskHeaderView.swift in Sources */,
 				4FEF48E227080A3700B23BC1 /* SlotMapping.swift in Sources */,
@@ -2441,6 +2463,7 @@
 				4FEA6B2226D0EEDE00876D7C /* SpaceViewTitle.swift in Sources */,
 				4F71E153270AA45500A80F47 /* CreateSlotUseCase.swift in Sources */,
 				4FD2E320265F74B7007A20C6 /* ButtonComponent.swift in Sources */,
+				4FD44F81271D0EDD00827F80 /* SlotStore.swift in Sources */,
 				4F9307E7265E1D3C00204881 /* BaseRoutes.swift in Sources */,
 				4FC99B2B26FF59A50087FCCC /* DeadlineType.swift in Sources */,
 				4F87F7AD2658F1750094C946 /* TLSpaceComponent.swift in Sources */,
@@ -2463,6 +2486,7 @@
 				4F4C04E426EEE94B0032728C /* LoadStatus.swift in Sources */,
 				4FEA6B1C26D0EE1C00876D7C /* SpaceViewHeader.swift in Sources */,
 				4F9AFE30271BB99B00422845 /* UINotificationFeedbackGeneratorExtention.swift in Sources */,
+				4FD44F87271D17E000827F80 /* FindSlotTaskUseCase.swift in Sources */,
 				4FCB321626E1FD86003A470A /* SpacesViewAddSpace.swift in Sources */,
 				4F87F7B12658F18B0094C946 /* TLDeadlineComponent.swift in Sources */,
 				4F9307DB265E18B700204881 /* BaseApiResponse.swift in Sources */,

@@ -12,7 +12,6 @@ public class SlotsDraftModel: NSObject, ObservableObject {
     @Published var slotsDraft: [SlotEntity] = []
     
     private var disposables = Set<AnyCancellable>()
-    private let port:SlotRepositoryPort = SolApiService.api().slot
     
     
 }

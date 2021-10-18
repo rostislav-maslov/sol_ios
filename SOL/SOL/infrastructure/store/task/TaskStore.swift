@@ -13,6 +13,7 @@ public class TaskStore: ObservableObject {
     @Published var forNotifyCombine = UUID()
     
     var spaceStore: SpaceStore?
+    var slotStore: SlotStore?
     
     private var disposables = Set<AnyCancellable>()
     private let port:TaskRepositoryPort = SolApiService.api().task        
@@ -38,7 +39,7 @@ extension TaskStore {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] publisherReponse in
                 if publisherReponse.success != nil {
-                    var task = publisherReponse.success!
+                    let task = publisherReponse.success!
                     task.showSubtask = self!.tasks[taskId]!.showSubtask
                     for child in task.child {
                         self?.syncTask(taskId: child.id)
@@ -285,15 +286,7 @@ extension TaskStore {
     
     func createSlots(task: TaskEntity, slots: [SlotEntity]) {
         for slot in slots {
-            let request: SlotCreateRequest = SlotCreateRequest(
-                endTime: slot.endTime!.millisecondsSince1970,
-                startTime: slot.startTime!.millisecondsSince1970,
-                taskId: task.id,
-                timezone: slot.timezone)
-            
-            SolApiService.instance?.slot.create(request, responseFunc: { success, error, isSuccess in
-                
-            })
+           slotStore?.create(startTime: slot.startTime!, endTime: slot.endTime!, taskId: task.id)
         }
     }
 }

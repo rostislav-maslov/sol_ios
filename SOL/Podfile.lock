@@ -2,25 +2,16 @@ PODS:
   - AlertToast (1.3.7)
   - BottomSheet (1.0.6)
   - CalendarKit (1.0.13)
-  - Introspect (0.1.3)
-  - ISEmojiView (0.2.6)
-  - SwiftUIRefresh (0.0.3):
-    - Introspect (~> 0.1.0)
 
 DEPENDENCIES:
   - AlertToast
   - BottomSheet (from `https://github.com/weitieda/bottom-sheet.git`)
   - CalendarKit
-  - ISEmojiView
-  - SwiftUIRefresh
 
 SPEC REPOS:
   trunk:
     - AlertToast
     - CalendarKit
-    - Introspect
-    - ISEmojiView
-    - SwiftUIRefresh
 
 EXTERNAL SOURCES:
   BottomSheet:
@@ -35,10 +26,7 @@ SPEC CHECKSUMS:
   AlertToast: 8c9d5efb2df6ea728b32b62bce99d876ec3e5393
   BottomSheet: 0a164143e34470cc332db0ce4e55d6da202d7ac6
   CalendarKit: acdb4933842e580a87b7dce2fa3723ab445a02bd
-  Introspect: 2be020f30f084ada52bb4387fff83fa52c5c400e
-  ISEmojiView: f7cd94a6c93307f429ec5da001293d0b02247f03
-  SwiftUIRefresh: ca6ae2718d25aad5dd68bbf5d2ae36ef6ade98bf
 
-PODFILE CHECKSUM: e192c09e5f3234338b5727707eae1e15890960ba
+PODFILE CHECKSUM: f87b5299e9d81eac51676dbf093b6f1d3c4ef4b7
 
 COCOAPODS: 1.8.4

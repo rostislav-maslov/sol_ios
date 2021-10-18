@@ -39,7 +39,15 @@ extension TaskView {
                                 .listRowSeparator(Visibility.hidden)
                                 .listRowInsets(EdgeInsets())
                                 .listRowBackground(SolColor.colors().screen.background)
+                                .onDrag {
+                                    let item = NSItemProvider(object: NSString(string: task.id))
+                                    item.suggestedName = taskId
+                                    return item
+                                }
                         }
+                        .onInsert(of: ["public.utf8-plain-text"], perform: { var1, var2 in
+                            print("onInsert", var1, var2)
+                        })
                   
                         if (taskStore.tasks[self.taskId]!.child.count == 0){
                             VacuumView()

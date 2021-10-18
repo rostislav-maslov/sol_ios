@@ -46,10 +46,10 @@ struct TaskView: View {
                     model.bottomButtonType = BottomButtonType.ADD_TASK
                 })
             }
-            PlanningSlotsView(
-                delegate: self.model,
+            PlanningSlotsView(                
                 isPresented: $model.showPlanning,
-                type: PlanningType.VIEW)
+                type: PlanningType.VIEW,
+                delegate: self.model)
                 .colorScheme(ColorScheme.light)
             NavigationLink(
                 destination: TaskView(spaceId: self.spaceId, taskId: goToTaskId),

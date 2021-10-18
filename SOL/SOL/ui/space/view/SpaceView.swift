@@ -25,6 +25,7 @@ public struct SpaceView: View {
     @State var goToTaskView = false
     @State var taskId: String = ""
     @State var placeholder = "🪐"
+    @State var type = PlanningType.VIEW
     
     
     @Environment(\.presentationMode) var presentationMode
@@ -41,11 +42,12 @@ public struct SpaceView: View {
     
     public var body: some View {        
         ZStack {
-            content            
+            content
+            
             PlanningSlotsView(
-                delegate: self.model,
                 isPresented: $model.showPlanning,
-                type: PlanningType.VIEW)
+                type: PlanningType.VIEW,
+                delegate: self.model)
                 .colorScheme(ColorScheme.light)
             if model.bottomButtonType == BottomButtonType.CLOSE_ICON_FIELD {
                 DoneKeyboardButtonView(action: {

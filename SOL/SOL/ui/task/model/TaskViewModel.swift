@@ -12,6 +12,7 @@ import SwiftUI
 public class TaskViewModel: NSObject, ObservableObject, DaySchedulerProtocol {
     
     var taskStore: TaskStore?
+    var slotStore: SlotStore?
     @Published var state: ViewState = ViewState.INITIALIZATION
     
     @Published var taskId: String = ""
@@ -80,16 +81,8 @@ extension TaskViewModel {
 //        task.slots.append(slot)
     }
     
-    func slotsByDay(date: Date, callback: @escaping (([SlotEntity]) -> Void) ) {
-        SolApiService.instance?.slot.findByDate(date.millisecondsSince1970, Date().timezone, responseFunc:   { (success, error, isSuccess) in
-            var result:[SlotEntity] = []
-            if isSuccess == true && success != nil {
-                for item in success!.result.items{
-                    result.append(SlotMapping.mapping(response: item))
-                }
-            }
-            callback(result)
-        })
+    func drafts() -> [SlotEntity] {
+        return []
     }
   
     func changeTimeSlot(slotId: String, startTime: Date, endTime: Date) {
@@ -108,10 +101,7 @@ extension TaskViewModel {
         // NOTE ignore
     }
     
-    func onDelete(slotId: String) {
-        SolApiService.instance?.slot.delete(slotId, responseFunc: { success, error, isSuccess in
-            
-        })
+    func onDeleteDraft(slotId: String) {        
     }
 
 }

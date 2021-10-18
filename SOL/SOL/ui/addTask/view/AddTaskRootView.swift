@@ -46,9 +46,9 @@ struct AddTaskRootView: View {
                         }
                         if self.model.state == AddTaskState.PLANNING{
                             PlanningSlotsView(
-                                delegate: self.model,
                                 isPresented: $model.showPlanning,
-                                type: PlanningType.TASK_CREATE)
+                                type: PlanningType.TASK_CREATE,
+                                delegate: self.model)
                                 .colorScheme(ColorScheme.light)
                         }
                     }

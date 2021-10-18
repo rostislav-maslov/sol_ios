@@ -19,9 +19,9 @@ struct PlanningSlotModalView: View {
     @State var goToTaskView: Bool = false
     @State var buttonState: ViewState = ViewState.NORMAL
     
-    var onDelete: (() -> Void)
-    
     @EnvironmentObject var taskStore: TaskStore
+    
+    var onDelete: ((_ slotId: String) -> Void)
     
     var body: some View {
         VStack{
@@ -52,8 +52,7 @@ struct PlanningSlotModalView: View {
                 }
                 
                 ButtonComponent(title: "Remove Slot", state: $buttonState) {
-                    
-                    onDelete()
+                    onDelete(slotId)
                 }
                 
                 Spacer()
