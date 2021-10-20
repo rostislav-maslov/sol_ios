@@ -15,13 +15,14 @@ struct TaskView: View {
     @EnvironmentObject var taskStore: TaskStore
     @EnvironmentObject var spaceStore: SpaceStore
     @EnvironmentObject var addTaskModel: AddTaskViewModel
+    @EnvironmentObject var planningSlotsModel: PlanningSlotsModel
     
     @StateObject var model: TaskViewModel = TaskViewModel()
     
+    
     @State var goToTaskView = false
     @State var goToTaskId = ""
-    
-    
+
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
         
@@ -46,11 +47,7 @@ struct TaskView: View {
                     model.bottomButtonType = BottomButtonType.ADD_TASK
                 })
             }
-            PlanningSlotsView(                
-                isPresented: $model.showPlanning,
-                type: PlanningType.VIEW,
-                delegate: self.model)
-                .colorScheme(ColorScheme.light)
+            
             NavigationLink(
                 destination: TaskView(spaceId: self.spaceId, taskId: goToTaskId),
                 isActive: $goToTaskView,
@@ -68,6 +65,10 @@ struct TaskView: View {
             self.model.taskId = taskId
             self.model.taskStore = taskStore
             self.model.emoji = taskStore.tasks[taskId]!.icon.data
+            
+            self.model.taskStore = taskStore
+            self.planningSlotsModel.type = .TASK
+            
             self.addTaskModel.changeView(spaceId: spaceId, taskId: taskId, taskDidCreated: model.taskDidCreated)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 self.taskStore.syncTask(taskId: taskId)

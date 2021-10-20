@@ -41,8 +41,8 @@
 		4F3E568D26F18F7D0006F09A /* TaskItemSubtaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3E568C26F18F7D0006F09A /* TaskItemSubtaskView.swift */; };
 		4F4279422637C08500D71B2D /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4279412637C08500D71B2D /* NavigationBarColor.swift */; };
 		4F4352932713DE1700484F3D /* PlanningType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4352922713DE1700484F3D /* PlanningType.swift */; };
-		4F4352952713DFC800484F3D /* PlanningSlotModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4352942713DFC800484F3D /* PlanningSlotModalView.swift */; };
-		4F4352972713E07A00484F3D /* PlanningSlotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4352962713E07A00484F3D /* PlanningSlotModel.swift */; };
+		4F4352952713DFC800484F3D /* SlotModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4352942713DFC800484F3D /* SlotModalView.swift */; };
+		4F4352972713E07A00484F3D /* SlotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4352962713E07A00484F3D /* SlotModel.swift */; };
 		4F48255826C4F5E2001ABE87 /* TaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48255726C4F5E2001ABE87 /* TaskUseCase.swift */; };
 		4F48255B26C4F98C001ABE87 /* TaskPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48255A26C4F98C001ABE87 /* TaskPickerView.swift */; };
 		4F48255D26C4F9AD001ABE87 /* TaskHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48255C26C4F9AD001ABE87 /* TaskHeaderView.swift */; };
@@ -72,7 +72,6 @@
 		4F62D52B26E7046A00AA5EBB /* TaskItemContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62D52A26E7046A00AA5EBB /* TaskItemContainerView.swift */; };
 		4F62D52D26E7048F00AA5EBB /* TaskItemSubtaskCheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62D52C26E7048F00AA5EBB /* TaskItemSubtaskCheckboxView.swift */; };
 		4F62D52F26E7082900AA5EBB /* TaskItemSubtaskTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62D52E26E7082900AA5EBB /* TaskItemSubtaskTitleView.swift */; };
-		4F6B98EA269D614900B0FFC9 /* DaySchedulerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B98E9269D614900B0FFC9 /* DaySchedulerViewModel.swift */; };
 		4F6B98EC269D619700B0FFC9 /* DaySchedulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B98EB269D619700B0FFC9 /* DaySchedulerView.swift */; };
 		4F6F05A726660D150074B9D8 /* SpaceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6F05A626660D150074B9D8 /* SpaceProvider.swift */; };
 		4F6F05AE26660D970074B9D8 /* SpaceCreateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6F05AD26660D970074B9D8 /* SpaceCreateRequest.swift */; };
@@ -133,6 +132,8 @@
 		4FA0F6F726487DE900CECF24 /* IconComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0F6F626487DE900CECF24 /* IconComponent.swift */; };
 		4FA0F6FA2648806400CECF24 /* StoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0F6F92648806400CECF24 /* StoryComponent.swift */; };
 		4FA0F6FD264885CD00CECF24 /* StoriesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0F6FC264885CD00CECF24 /* StoriesComponent.swift */; };
+		4FA272D9271F539800ADB1B6 /* DaySchedulerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA272D8271F539800ADB1B6 /* DaySchedulerProtocol.swift */; };
+		4FA272DB271FC94C00ADB1B6 /* AppModalViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA272DA271FC94C00ADB1B6 /* AppModalViews.swift */; };
 		4FA5B46A2692E1000031093A /* LoginByEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA5B4692692E1000031093A /* LoginByEmailViewModel.swift */; };
 		4FA828A82696C83500540CFF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828A72696C83500540CFF /* TokenStore.swift */; };
 		4FA828AA2696C92D00540CFF /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA828A92696C92D00540CFF /* UserStore.swift */; };
@@ -264,8 +265,8 @@
 		4F3E568C26F18F7D0006F09A /* TaskItemSubtaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemSubtaskView.swift; sourceTree = "<group>"; };
 		4F4279412637C08500D71B2D /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
 		4F4352922713DE1700484F3D /* PlanningType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningType.swift; sourceTree = "<group>"; };
-		4F4352942713DFC800484F3D /* PlanningSlotModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningSlotModalView.swift; sourceTree = "<group>"; };
-		4F4352962713E07A00484F3D /* PlanningSlotModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningSlotModel.swift; sourceTree = "<group>"; };
+		4F4352942713DFC800484F3D /* SlotModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotModalView.swift; sourceTree = "<group>"; };
+		4F4352962713E07A00484F3D /* SlotModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotModel.swift; sourceTree = "<group>"; };
 		4F48255726C4F5E2001ABE87 /* TaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskUseCase.swift; sourceTree = "<group>"; };
 		4F48255A26C4F98C001ABE87 /* TaskPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPickerView.swift; sourceTree = "<group>"; };
 		4F48255C26C4F9AD001ABE87 /* TaskHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskHeaderView.swift; sourceTree = "<group>"; };
@@ -295,7 +296,6 @@
 		4F62D52A26E7046A00AA5EBB /* TaskItemContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemContainerView.swift; sourceTree = "<group>"; };
 		4F62D52C26E7048F00AA5EBB /* TaskItemSubtaskCheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemSubtaskCheckboxView.swift; sourceTree = "<group>"; };
 		4F62D52E26E7082900AA5EBB /* TaskItemSubtaskTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemSubtaskTitleView.swift; sourceTree = "<group>"; };
-		4F6B98E9269D614900B0FFC9 /* DaySchedulerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySchedulerViewModel.swift; sourceTree = "<group>"; };
 		4F6B98EB269D619700B0FFC9 /* DaySchedulerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySchedulerView.swift; sourceTree = "<group>"; };
 		4F6F05A626660D150074B9D8 /* SpaceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceProvider.swift; sourceTree = "<group>"; };
 		4F6F05AD26660D970074B9D8 /* SpaceCreateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceCreateRequest.swift; sourceTree = "<group>"; };
@@ -362,6 +362,8 @@
 		4FA0F6F626487DE900CECF24 /* IconComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconComponent.swift; sourceTree = "<group>"; };
 		4FA0F6F92648806400CECF24 /* StoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryComponent.swift; sourceTree = "<group>"; };
 		4FA0F6FC264885CD00CECF24 /* StoriesComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesComponent.swift; sourceTree = "<group>"; };
+		4FA272D8271F539800ADB1B6 /* DaySchedulerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySchedulerProtocol.swift; sourceTree = "<group>"; };
+		4FA272DA271FC94C00ADB1B6 /* AppModalViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModalViews.swift; sourceTree = "<group>"; };
 		4FA5B4692692E1000031093A /* LoginByEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginByEmailViewModel.swift; sourceTree = "<group>"; };
 		4FA828A72696C83500540CFF /* TokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStore.swift; sourceTree = "<group>"; };
 		4FA828A92696C92D00540CFF /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
@@ -654,7 +656,7 @@
 			isa = PBXGroup;
 			children = (
 				4F21D393266F3D2600459112 /* PlanningSlotsView.swift */,
-				4F4352942713DFC800484F3D /* PlanningSlotModalView.swift */,
+				4F4352942713DFC800484F3D /* SlotModalView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -663,9 +665,9 @@
 			isa = PBXGroup;
 			children = (
 				4F71E156270AAB8500A80F47 /* PlanningSlotsModel.swift */,
+				4F4352962713E07A00484F3D /* SlotModel.swift */,
 				4F71E158270AAD4E00A80F47 /* SlotsDraftModel.swift */,
 				4F4352922713DE1700484F3D /* PlanningType.swift */,
-				4F4352962713E07A00484F3D /* PlanningSlotModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -921,14 +923,6 @@
 				4F2CAFA72702BC8B003CACA0 /* TaskItemSubtaskExtention */,
 			);
 			path = TaskItemExtention;
-			sourceTree = "<group>";
-		};
-		4F6B98E8269D613700B0FFC9 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				4F6B98E9269D614900B0FFC9 /* DaySchedulerViewModel.swift */,
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 		4F6F05A526660D050074B9D8 /* space */ = {
@@ -1504,6 +1498,7 @@
 			children = (
 				4FFC218D2631222800198E4B /* AppLoadingView.swift */,
 				4F2BED2A26EB10AC004D7A15 /* SpaceViewStore.swift */,
+				4FA272DA271FC94C00ADB1B6 /* AppModalViews.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1673,7 +1668,6 @@
 		4FC973002699E78E008509F6 /* dayCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				4F6B98E8269D613700B0FFC9 /* model */,
 				4FC973032699E7D3008509F6 /* view */,
 			);
 			path = dayCalendar;
@@ -1684,6 +1678,7 @@
 			children = (
 				4FC973042699FCB5008509F6 /* DayViewControllerImpl.swift */,
 				4F6B98EB269D619700B0FFC9 /* DaySchedulerView.swift */,
+				4FA272D8271F539800ADB1B6 /* DaySchedulerProtocol.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -2324,13 +2319,13 @@
 				4FE38CFB2663EC190011E203 /* HeaderComponent.swift in Sources */,
 				4F90D00426BA7062008F0C5D /* MeResponse.swift in Sources */,
 				4F9307D5265E184000204881 /* SignUpEmailRequest.swift in Sources */,
-				4F6B98EA269D614900B0FFC9 /* DaySchedulerViewModel.swift in Sources */,
 				4F2BED2B26EB10AC004D7A15 /* SpaceViewStore.swift in Sources */,
 				4F71E155270AA46F00A80F47 /* FindSlotByDayUseCase.swift in Sources */,
 				4F71E157270AAB8500A80F47 /* PlanningSlotsModel.swift in Sources */,
 				4F9307E0265E19B500204881 /* BaseApiErrorResponse.swift in Sources */,
 				4F87F7BB2658F7F20094C946 /* TLItemComponent.swift in Sources */,
 				4FA828CF26999ED800540CFF /* UserPort.swift in Sources */,
+				4FA272D9271F539800ADB1B6 /* DaySchedulerProtocol.swift in Sources */,
 				4F61FD6326A16AF100D83F2D /* SpaceEntity.swift in Sources */,
 				4FACDFF826CB7E34004844CB /* TaskStatus.swift in Sources */,
 				4F87F7AF2658F1810094C946 /* TLTitleComponent.swift in Sources */,
@@ -2417,7 +2412,7 @@
 				4FE38CFF2664123C0011E203 /* AddSpaceView.swift in Sources */,
 				4F2BED3226ECA4B5004D7A15 /* SpaceTitleView.swift in Sources */,
 				4F2CAF9F2702AF2D003CACA0 /* NullEncodable.swift in Sources */,
-				4F4352972713E07A00484F3D /* PlanningSlotModel.swift in Sources */,
+				4F4352972713E07A00484F3D /* SlotModel.swift in Sources */,
 				4FD44F83271D160D00827F80 /* EditSlotUseCase.swift in Sources */,
 				4FE38CE92662CDAD0011E203 /* Error.swift in Sources */,
 				4FA828C82696E89500540CFF /* ReceiveReponse.swift in Sources */,
@@ -2470,7 +2465,7 @@
 				4FCB320926E0B128003A470A /* ChangeSpaceSortUseCase.swift in Sources */,
 				4F6F05B726660E710074B9D8 /* IconResponse.swift in Sources */,
 				4F2BED3026ECA4A9004D7A15 /* SpaceTitleModel.swift in Sources */,
-				4F4352952713DFC800484F3D /* PlanningSlotModalView.swift in Sources */,
+				4F4352952713DFC800484F3D /* SlotModalView.swift in Sources */,
 				4F7C4F0626BEC7780097AC65 /* DoneKeyboardButtonView.swift in Sources */,
 				4FC99B2926FF468B0087FCCC /* ATTDeadLineFastLineView.swift in Sources */,
 				4F7C4F0826BED5960097AC65 /* BottomButtonType.swift in Sources */,
@@ -2498,6 +2493,7 @@
 				4FA828E02699C03700540CFF /* TaskEntity.swift in Sources */,
 				4F4FA2AA26E9A86400872EE7 /* NavigationBarHelper.swift in Sources */,
 				4F21D394266F3D2600459112 /* PlanningSlotsView.swift in Sources */,
+				4FA272DB271FC94C00ADB1B6 /* AppModalViews.swift in Sources */,
 				4F2661CC26B92156001974BC /* AddSpaceViewModel.swift in Sources */,
 				4F61FD6D26A1722C00D83F2D /* TaskContentView.swift in Sources */,
 				4F87F7B32658F1940094C946 /* TLSubtaskButtonComponent.swift in Sources */,

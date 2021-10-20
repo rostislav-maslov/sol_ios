@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-public class SpaceViewModel: NSObject, ObservableObject, DaySchedulerProtocol{
+public class SpaceViewModel: NSObject, ObservableObject{
     var spaceId:String?
     @Published var state: ViewState = ViewState.INITIALIZATION
     var spaceStore: SpaceStore?
@@ -57,50 +57,3 @@ extension SpaceViewModel {
     }
 }
 
-//MARK: DaySchedulerProtocol
-extension SpaceViewModel {
-    func openPlanning() {
-        showPlanning = true
-    }
-    
-    func newSlotName() -> String {
-        return ""
-    }
-    
-    func addSlot(startTime: Date, endTime: Date) {
-//        let slot: SlotEntity = SlotEntity()
-//        slot.id = UUID().uuidString
-//        slot.title = task.title
-//        slot.startTime = startTime
-//        slot.endTime = endTime
-//        slot.spaceId = self.spaceId
-//        slot.slotsMilliseconds = endTime.millisecondsSince1970 - startTime.millisecondsSince1970
-//        slot.isDraft = true
-//        slot.timezone = Date().timezone
-//        task.slots.append(slot)
-    }
-    
-    func drafts () -> [SlotEntity] {
-        return []
-    }
-  
-    func changeTimeSlot(slotId: String, startTime: Date, endTime: Date) {
-        
-    }
-    
-    func onClose() {
-        showPlanning = false
-    }
-    
-    func onSubmit() {
-        showPlanning = false
-    }
-    
-    func onTapEvent(slot: SlotEntity) {
-        // NOTE ignore
-    }
-    
-    func onDeleteDraft(slotId: String) {        
-    }
-
-}

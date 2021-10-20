@@ -21,6 +21,7 @@ struct ColorsVar {
 
 struct FontColors {
     var normal: Color
+    var dangerous: Color
     var second: Color
 }
 
@@ -75,6 +76,7 @@ class SolColor{
         let colors: ColorsVar = ColorsVar(
             fontColors: FontColors(
                 normal: Color(CGColor(red: 68/255, green: 68/255, blue: 68/255, alpha: 1)),
+                dangerous: Color(CGColor(red: 127/255, green: 0/255, blue: 0/255, alpha: 1)),
                 second: Color(CGColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1))                
             ),
             textField: TextFieldColors(

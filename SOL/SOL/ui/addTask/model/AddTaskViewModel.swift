@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import SwiftUI
 
-public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, DaySchedulerProtocol {
+public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol {
     
     var taskStore: TaskStore?
     var spaceStore: SpaceStore?    
@@ -23,17 +23,15 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, Day
     @Published var task: TaskEntity = TaskEntity()
     //@Published var sheets: SheetsState = SheetsState()
     @Published var showDeadline:Bool = false
-    @Published var showPlanning:Bool = false
     @Published var buttonState: ButtonState = ButtonState()
     @Published var loadingStatus: ViewState = ViewState.NORMAL
     @Published var titleTextSize: CGFloat = 45.0
-    
-    @Published var taskInfoText: String = ""
+        
     @Published var taskInfoSize: CGFloat = 0.0
-    @Published var hasTaskInfo: Bool = false
     @Published var titleTextView: UITextView?
     @Published var showToastSuccessCreate = false
     @Published var needShowTaskCreatedToast = false
+    @Published var planningSlotsModel: PlanningSlotsModel = PlanningSlotsModel()
     
     private var disposables = Set<AnyCancellable>()
     private let port:TaskRepositoryPort = SolApiService.api().task as TaskRepositoryPort        
@@ -42,6 +40,9 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, Day
         self.spaceId = spaceId
         self.parentTaskId = taskId
         self.taskDidCreated = taskDidCreated
+        
+        planningSlotsModel.title = "When you want to work on a task?"
+        
         clean()
         touchBackground()
     }
@@ -63,16 +64,22 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, Day
     private func goToState(_ newState: AddTaskState) {
         if newState == .TEXT && state != newState {
             showDeadline = false
-            showPlanning = false
+            planningSlotsModel.isPresented = false
             state = .TEXT
             return
         }
         
         if newState == .PLANNING && state != newState {
             showDeadline = false
-            showPlanning = true
+            planningSlotsModel.newSlotTitle = task.fullTitle
+            planningSlotsModel.allSlots = []
+            planningSlotsModel.drafts = task.slots
+            planningSlotsModel.isPresented = true
             state = newState
-            
+            DispatchQueue.main.async {
+                self.planningSlotsModel.dayViewControllerImpl.reloadData()
+            }
+                                   
         }
         
         if newState == .DEADLINE  && state != newState {
@@ -86,7 +93,7 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, Day
     func touchBackground() {
         loadingStatus = .NORMAL        
         
-        showPlanning = false
+        planningSlotsModel.isPresented = false
         showDeadline = false
         if state == .TEXT {
             state = .PLACEHOLDER
@@ -109,7 +116,7 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, Day
             return
         }
         state = .PLACEHOLDER
-        showPlanning = false
+        planningSlotsModel.isPresented = false
         showDeadline = false
     }
     
@@ -120,6 +127,7 @@ public class AddTaskViewModel: ObservableObject, MultilineTextFieldProtocol, Day
 
 extension AddTaskViewModel{
     func goToText() {
+        task.reculcSlotsTime()
         refillTaskInfoText()
         goToState(.TEXT)
         
@@ -168,9 +176,7 @@ extension AddTaskViewModel {
     public func clean(){
         task = TaskEntity()
         //sheets = SheetsState()
-        buttonState = ButtonState()
-        taskInfoText = ""
-        hasTaskInfo = false
+        buttonState = ButtonState()        
         //touchBackground()
     }
     
@@ -236,9 +242,7 @@ extension AddTaskViewModel {
 extension AddTaskViewModel {
     
     func refillTaskInfoText(){
-        self.taskInfoText = task.taskInfo
-        self.hasTaskInfo = task.hasTaskInfo
-        if hasTaskInfo == true {
+        if task.hasTaskInfo == true {
             withAnimation {           
                 self.taskInfoSize = 13.5
             }            
@@ -250,6 +254,7 @@ extension AddTaskViewModel {
 
 
 //MARK: DaySchedulerProtocol
+//TODO: 
 extension AddTaskViewModel {
     func newSlotName() -> String {
         return task.fullTitle

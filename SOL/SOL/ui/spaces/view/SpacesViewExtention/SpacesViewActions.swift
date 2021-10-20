@@ -25,7 +25,7 @@ extension SpacesView {
                     iconHeight: 14,
                     iconVerticalSpace: 4,
                     subTitle: "Open calendar") {
-                        model.openPlanning()
+                        planningSlotsModel.isPresented = true
                     }
                 ActionButtonView(
                     title: "Notification",

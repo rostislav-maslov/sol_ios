@@ -19,13 +19,13 @@ public struct SpaceView: View {
     @EnvironmentObject var taskStore: TaskStore
     @EnvironmentObject var spaceStore: SpaceStore
     @EnvironmentObject var addTaskModel: AddTaskViewModel
+    @EnvironmentObject var planningSlotsModel: PlanningSlotsModel
     
     @State public var isEditable = true
     @State var isTarget = true
     @State var goToTaskView = false
     @State var taskId: String = ""
     @State var placeholder = "🪐"
-    @State var type = PlanningType.VIEW
     
     
     @Environment(\.presentationMode) var presentationMode
@@ -44,11 +44,6 @@ public struct SpaceView: View {
         ZStack {
             content
             
-            PlanningSlotsView(
-                isPresented: $model.showPlanning,
-                type: PlanningType.VIEW,
-                delegate: self.model)
-                .colorScheme(ColorScheme.light)
             if model.bottomButtonType == BottomButtonType.CLOSE_ICON_FIELD {
                 DoneKeyboardButtonView(action: {
                     spaceStore.spaces[spaceId]!.icon.data = model.emoji
@@ -79,6 +74,9 @@ public struct SpaceView: View {
         .onAppear(perform: {
             self.model.spaceId = spaceId
             self.model.emoji = spaceStore.spaces[spaceId]!.icon.data
+            
+            self.planningSlotsModel.type = .SPACE
+            
             self.addTaskModel.changeView(spaceId: spaceId, taskId: nil, taskDidCreated: model.taskDidCreated)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 self.spaceStore.sync(spaceId: self.spaceId)

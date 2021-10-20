@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct AppLoadingView: View {
-    @ObservedObject var viewModel: AppLoadingViewModel = AppLoadingViewModel()
+    @StateObject var viewModel: AppLoadingViewModel = AppLoadingViewModel()
     @State var goToState:AppLoadingState?
     
     init() {
@@ -25,31 +25,28 @@ struct AppLoadingView: View {
                         destination: LoginUIView(),
                         tag: AppLoadingState.LOGIN,
                         selection: $goToState) {
-                    }
+                        }
                     NavigationLink(
                         destination: SpacesView(),
                         tag: AppLoadingState.SPACES,
                         selection: $goToState) {
-                    }
+                        }
                     
                     ProgressView()
                 }
-                .id(viewModel.id)
                 .navigationBarHidden(true)
             }
             .navigationBarHidden(true)
             .accentColor( .black)
             
-            if goToState == .SPACES {
-                AddTaskRootView()
-            }
+            AppModalViews(goToState: $goToState)
         }
         .environmentObject(SpaceStore())
         .environmentObject(TaskStore())
         .environmentObject(EnvStore())
-        .environmentObject(EnvStore())
         .environmentObject(AddTaskViewModel())
         .environmentObject(SlotStore())
+        .environmentObject(PlanningSlotsModel())
         .onAppear(perform: {
             viewModel.refresh { result in
                 self.goToState = result

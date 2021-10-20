@@ -13,8 +13,9 @@ struct AddTaskRootView: View {
     
     @EnvironmentObject var taskStore: TaskStore
     @EnvironmentObject var spaceStore: SpaceStore
-    @State var deadlineViewDate = Date()
+    @EnvironmentObject var slotStore: SlotStore
     
+    @State var deadlineViewDate = Date()
     
     var body: some View {
         
@@ -38,22 +39,20 @@ struct AddTaskRootView: View {
                     
                     VStack {
                         Spacer()
+                        Spacer().frame(width: 0, height: 0, alignment: .center)
                         if self.model.state == AddTaskState.PLACEHOLDER {
                             PlaceholderTaskView(model: model)
                         }
                         if self.model.state == AddTaskState.TEXT && self.model.showDeadline == false{
                             AddTaskTextView(model: model)
                         }
-                        if self.model.state == AddTaskState.PLANNING{
-                            PlanningSlotsView(
-                                isPresented: $model.showPlanning,
-                                type: PlanningType.TASK_CREATE,
-                                delegate: self.model)
-                                .colorScheme(ColorScheme.light)
-                        }
+                        Spacer().frame(width: 0, height: 0, alignment: .center)
                     }
                     
-                    //PlanningSlotsView(isPdelegate: self.model).colorScheme(ColorScheme.light)
+                    PlanningSlotsView(model: model.planningSlotsModel, onClose: { drafts in
+                        model.task.slots = drafts
+                        model.goToText()
+                    })
                     
                     ChooseDeadlineView(
                         isPresented: $model.showDeadline,
@@ -72,8 +71,12 @@ struct AddTaskRootView: View {
                     )
                 }
                 .onAppear(perform: {
-                    self.model.spaceStore = spaceStore
-                    self.model.taskStore = taskStore
+                    model.spaceStore = spaceStore
+                    model.taskStore = taskStore
+                    model.planningSlotsModel.slotStore = slotStore
+                    model.planningSlotsModel.taskStore = taskStore
+                    model.planningSlotsModel.spaceStore = spaceStore
+                    model.planningSlotsModel.type = .TASK_CREATE
                 }).onDisappear {
                     
                 }

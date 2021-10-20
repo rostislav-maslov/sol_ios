@@ -105,7 +105,6 @@ extension TaskView{
     
     var planningActionView: some View {
         VStack{
-            if (model.actionPlanning == false){
                 ActionButtonView(
                     title: "Planning",
                     titleColor: SolColor.colors().checkBox.undoneBackground,
@@ -115,24 +114,8 @@ extension TaskView{
                     iconHeight: 14,
                     iconVerticalSpace: 4,
                     subTitle: "Your plan 4h"){
-                        model.actionPlanning = !model.actionPlanning
-                        model.openPlanning()
-                }
-                
-            }else {
-                ActionButtonView(
-                    title: "Planning",
-                    titleColor: SolColor.colors().checkBox.doneBackground,
-                    icon: "ic_calendar",
-                    iconColor: SolColor.colors().checkBox.doneBackground,
-                    iconWidth: 14,
-                    iconHeight: 14,
-                    iconVerticalSpace: 4,
-                    subTitle: "Tap to set time"){
-                        model.actionPlanning = !model.actionPlanning
-                        model.openPlanning()
-                }
-            }
+                        planningSlotsModel.isPresented = true
+                }                            
         }
     }
     

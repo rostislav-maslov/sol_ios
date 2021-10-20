@@ -10,6 +10,7 @@ import SwiftUI
 
 struct AddTaskTextView: View {
     @ObservedObject var model:AddTaskViewModel
+    
     @State var stateIcon: ViewState = ViewState.NORMAL
     @State private var titleIsFocused: Field = .firstName
     @State var fieldFocus = true
@@ -23,7 +24,7 @@ struct AddTaskTextView: View {
     @State var stopEditing = false
     
     init(model:AddTaskViewModel) {
-        self.model = model
+        self.model = model        
         print("AddTaskTextView - \(model.task.title)")
     }
     
@@ -33,7 +34,7 @@ struct AddTaskTextView: View {
             
             VStack{                
                 titleField
-                if model.hasTaskInfo == true {                    
+                if model.task.hasTaskInfo == true {
                     taskInfo
                 }
                 Spacer().frame(width: 0, height: 8, alignment: .center)
@@ -126,7 +127,7 @@ extension AddTaskTextView {
     var taskInfo: some View {
         HStack{
             Spacer().frame(width: 14, height: 0, alignment: .center)
-            Text(model.taskInfoText)
+            Text(model.task.taskInfo)
                 .font(SolFonts.font(size: 11, weight: Font.Weight.regular, color: SolColor.colors().fontColors.second))
                 .foregroundColor(SolColor.colors().fontColors.second)
             Spacer()

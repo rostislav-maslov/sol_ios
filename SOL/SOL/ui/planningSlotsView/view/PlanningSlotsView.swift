@@ -10,116 +10,94 @@ import EventKit
 import EventKitUI
 import UIKit
 import BottomSheet
+import Combine
 
 struct PlanningSlotsView: View{
-
-    @Binding var isPresented: Bool
-    var type: PlanningType
-    var delegate: DaySchedulerProtocol
+    
+    @ObservedObject var model: PlanningSlotsModel
     @EnvironmentObject var taskStore: TaskStore
     @EnvironmentObject var slotStore: SlotStore
+    @EnvironmentObject var spaceStore: SpaceStore
+        
+    var onClose: ((_ drafts: [SlotEntity]) -> Void)?
     
-    
-    @StateObject var model: PlanningSlotsModel = PlanningSlotsModel()
-    @StateObject var planningSlotModel: PlanningSlotModel = PlanningSlotModel(slot: SlotEntity(), task: TaskEntity())
-            
+    func close() {
+        model.onSubmit()
+        onClose?(model.drafts)
+        model.clear()
+    }
     
     var body: some View {
+        
         ZStack{
-            Text("")
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: Alignment.center)
-                .bottomSheet(
-                    isPresented: $isPresented,
-                    height: UIScreen.main.bounds.height - 50,
-                    topBarHeight: 0,
-                    topBarCornerRadius: 16,
-                    contentBackgroundColor: SolColor.colors().addTask.addTaskBackground,
-                    topBarBackgroundColor: SolColor.colors().addTask.addTaskBackground,
-                    showTopIndicator: false,
-                    content: {
-                        ZStack{
-                            //backgroundView
-                            day
-                            closeButton
-                            submitButton
-                        }
-                    })
             
-            Text("")
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: Alignment.center)
-                .bottomSheet(
-                    isPresented: $model.showPlanningSlot,
-                    height: 300) {
-                        PlanningSlotModalView(
-                            canGoToTask: $model.canGoToTask,
-                            title: $model.title,
-                            slotId: $model.slotId,
-                            spaceId: $model.spaceId,
-                            taskId: $model.taskId) { slotToDeleteId in
-                                model.deleteSlot(slotToDeleteId: slotToDeleteId)                                
-                            }
+            
+        }
+        .frame(width: nil, height: 0, alignment: Alignment.center)
+        .bottomSheet(
+            isPresented: $model.isPresented,
+            height: UIScreen.main.bounds.height - 80,
+            topBarHeight: 20,
+            topBarCornerRadius: 16,
+            contentBackgroundColor: SolColor.colors().addTask.addTaskBackground,
+            topBarBackgroundColor: SolColor.colors().addTask.addTaskBackground,
+            showTopIndicator: false) {
+                VStack{
+                    Spacer()
+                        .frame(width: 0, height: 0, alignment: .center)
+                    titleView
+                    Spacer()
+                        .frame(width: 0, height: 0, alignment: .center)
+                    day
+                    Spacer().frame(width: 0, height: 0, alignment: .center)
                 }
-        }
-        .onAppear(perform: {
-            model.slotStore = slotStore
-            model.type = type
-            model.delegate = delegate
-            model.needClose = needClose
-        })
-        .ignoresSafeArea()
-        .frame(
-            width: UIScreen.main.bounds.width,
-            height: self.isPresented ? UIScreen.main.bounds.height : 0,
-            alignment: Alignment.center)                        
-    }
-    
-    
-    func needClose() {
-        isPresented = false
-    }
-}
-
-extension PlanningSlotsView{
-    var backgroundView: some View {
-        VStack{
-            Rectangle()
-                .fill(SolColor.colors().addTask.addTaskBackground)
-                .cornerRadius(12, corners: [.topLeft, .topRight])
-                .frame(width: .infinity, height: 102, alignment: .center)
-            Spacer()
-        }
-        
+            }
+        .bottomSheet(
+            isPresented: Binding(get: {
+              return model.slotModel.isPresented
+            }, set: { newVal in
+                model.slotModel.isPresented = newVal
+                if newVal == false {
+                    model.isPresented = true
+                }                
+            }),
+                height: 300) {
+                    SlotModalView(model: model.slotModel) { slotId in
+                        model.deleteSlot(slotToDeleteId: slotId)
+                    }
+                }.onDisappear {
+                    print("did close")
+                }
+                .colorScheme(ColorScheme.light)
+                .onAppear(perform: {
+                    model.slotStore = slotStore
+                    model.taskStore = taskStore
+                    model.spaceStore = spaceStore
+                })
     }
 }
 
 extension PlanningSlotsView{
-    var backgroundBottomView: some View {
-        VStack{
-            Spacer()
-            Rectangle()
-                .fill(SolColor.colors().addTask.addTaskBackground)
-                .cornerRadius(12, corners: [.topLeft, .topRight])
-                .frame(width: .infinity, height: 102, alignment: .center)
-                
-            .ignoresSafeArea()
-        }
-        
+    var titleView: some View {
+        ZStack {           
+            Text(model.title)
+                .font(SolFonts.font(size: 18, weight: Font.Weight.regular, color: SolColor.colors().fontColors.normal))
+                .foregroundColor(SolColor.colors().fontColors.normal)
+            closeButton
+        }.frame(width: nil, height: 54, alignment: .center)
     }
+    
 }
 
 extension PlanningSlotsView{
     var day: some View {
         VStack{
             Spacer()
-                .frame(width: 0, height: 16, alignment: .center)
-            Text("Plan your work at task")
+                .frame(width: nil, height: 0, alignment: .center)
+            DaySchedulerView(model: model)
             Spacer()
-                .frame(width: 0, height: 12, alignment: .center)
-                .background(SolColor.colors().addTask.addTaskBackground)
-                .frame(width: nil, height: 24, alignment: .center)
-            Spacer()
-                .frame(width: 0, height: 0, alignment: .center)            
-            DaySchedulerView(delegate: self.model, needUpdate: $model.needUpdate)
+                .frame(width: 0, height: 0, alignment: .center)
+            bottom
             Spacer()
                 .frame(width: 0, height: 0, alignment: .center)
         }
@@ -134,13 +112,12 @@ extension PlanningSlotsView{
             HStack{
                 Spacer()
                 Button(action: {
-                    model.onClose()
+                    close()
                 }, label: {
                     ZStack{
                         Image("ic_close")
                             .frame(width: 24, height: 24, alignment: .center)
                     }
-                    
                 })
                 Spacer().frame(width: 16, height: 0, alignment: .center)
             }
@@ -151,29 +128,37 @@ extension PlanningSlotsView{
 }
 
 extension PlanningSlotsView{
-    var submitButton: some View {
+    var bottom: some View {
         VStack{
-            Spacer()
+            Spacer().frame(width: nil, height: 16, alignment: .center)
             HStack{
+                Spacer().frame(width: 16, height: 0)
+                Button {
+                    model.dayViewControllerImpl.move(to: Date())
+                } label: {
+                    Text("Today")
+                        .font(SolFonts.font(size: 16, weight: Font.Weight.regular, color: SolColor.colors().fontColors.normal))
+                        .foregroundColor(SolColor.colors().fontColors.normal)
+                }.buttonStyle(.plain)
                 Spacer()
-                    .frame(width: 16, height: 0, alignment: .center)
-                ButtonComponent(
-                    title: "Submit",
-                    state: $model.state,
-                    action: {
-                        model.onSubmit()
-                    })
-                Spacer()
-                    .frame(width: 16, height: 0, alignment: .center)
+                Button {
+                    close()
+                } label: {
+                    Text("Close")
+                        .font(SolFonts.font(size: 16, weight: Font.Weight.regular, color: SolColor.colors().fontColors.normal))
+                        .foregroundColor(SolColor.colors().fontColors.normal)
+                }.buttonStyle(.plain)
+                Spacer().frame(width: 16, height: 0)
             }
-            
-            Spacer().frame(width: 0, height: 56 , alignment: .center)
+            Spacer().frame(width: nil, height: 16, alignment: .center)
         }
+        .background(SolColor.colors().addTask.addTaskBackground)
     }
 }
 
+
 extension  PlanningSlotsView {
-   
+    
 }
 
 //struct ChooseEventTimeComponent_Previews: PreviewProvider {

@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-public class SpacesViewModel: ObservableObject, DaySchedulerProtocol {
+public class SpacesViewModel: ObservableObject {
 
     
     
@@ -41,64 +41,3 @@ extension SpacesViewModel{
 }
 
 
-//MARK: DaySchedulerProtocol
-extension SpacesViewModel {
-    func openPlanning() {
-        showPlanning = true
-    }
-    
-    func newSlotName() -> String {
-        return ""
-    }
-    
-    func addSlot(startTime: Date, endTime: Date) {
-//        let slot: SlotEntity = SlotEntity()
-//        slot.id = UUID().uuidString
-//        slot.title = task.title
-//        slot.startTime = startTime
-//        slot.endTime = endTime
-//        slot.spaceId = self.spaceId
-//        slot.slotsMilliseconds = endTime.millisecondsSince1970 - startTime.millisecondsSince1970
-//        slot.isDraft = true
-//        slot.timezone = Date().timezone
-//        task.slots.append(slot)
-    }
-    
-//    func slotsByDay(date: Date, callback: @escaping (([SlotEntity]) -> Void) ) {
-//        slotStore?.syncByDay(day: date, callback: { result in
-//            <#code#>
-//        })
-//        slot.findByDate(date.millisecondsSince1970, Date().timezone, responseFunc:   { (success, error, isSuccess) in
-//            var result:[SlotEntity] = []
-//            if isSuccess == true && success != nil {
-//                for item in success!.result.items{
-//                    result.append(SlotMapping.mapping(response: item))
-//                }
-//            }
-//            callback(result)
-//        })
-  //  }
-  
-    func changeTimeSlot(slotId: String, startTime: Date, endTime: Date) {
-        
-    }
-    
-    func onClose() {
-        showPlanning = false
-    }
-    
-    func onSubmit() {
-        showPlanning = false
-    }
-    
-    func onTapEvent(slot: SlotEntity) {
-        // NOTE ignore
-    }
-    
-    func drafts() -> [SlotEntity] {
-        return []
-    }
-    
-    func onDeleteDraft(slotId: String) {        
-    }
-}

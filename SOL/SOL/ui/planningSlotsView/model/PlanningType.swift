@@ -9,5 +9,7 @@ import Foundation
 
 public enum PlanningType{
     case TASK_CREATE
-    case VIEW
+    case TASK
+    case SPACE
+    case ALL
 }

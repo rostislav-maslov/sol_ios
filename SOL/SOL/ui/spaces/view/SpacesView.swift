@@ -13,10 +13,13 @@ struct SpacesView: View {
     
     @StateObject var model = SpacesViewModel()
     
+    
     @State var editMode: EditMode = .active
     @EnvironmentObject var spaceStore: SpaceStore
     @EnvironmentObject var taskStore: TaskStore
+    @EnvironmentObject var slotStore: SlotStore
     @EnvironmentObject var addTaskModel: AddTaskViewModel
+    @EnvironmentObject var planningSlotsModel: PlanningSlotsModel
     
     init(){
         UINavigationBar.appearance().titleTextAttributes = [
@@ -25,12 +28,7 @@ struct SpacesView: View {
     
     var body: some View {
             ZStack {
-                content                                
-                PlanningSlotsView(
-                    isPresented: $model.showPlanning,
-                    type: PlanningType.VIEW,
-                    delegate: self.model
-                ).colorScheme(ColorScheme.light)
+                content
                 
                 addSpaceSheet
                 
@@ -54,8 +52,18 @@ struct SpacesView: View {
                     spaceId: nil,
                     taskId: nil,
                     taskDidCreated: model.taskDidCreated)
+                
                 spaceStore.taskStore = taskStore
                 taskStore.spaceStore = spaceStore
+                
+                taskStore.slotStore = slotStore
+                slotStore.taskStore = taskStore
+                
+                planningSlotsModel.taskStore = taskStore
+                planningSlotsModel.spaceStore = spaceStore
+                planningSlotsModel.slotStore = slotStore
+                planningSlotsModel.type = .ALL
+                
                 spaceStore.sync()
             })
             .onDisappear {

@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import SwiftUI
 
-public class TaskViewModel: NSObject, ObservableObject, DaySchedulerProtocol {
+public class TaskViewModel: NSObject, ObservableObject {
     
     var taskStore: TaskStore?
     var slotStore: SlotStore?
@@ -23,7 +23,7 @@ public class TaskViewModel: NSObject, ObservableObject, DaySchedulerProtocol {
     @Published var actionDeadline = false
     // @Published var actionDone = false
     @Published var activeTab = 0
-    @Published var showPlanning = false
+    //@Published var showPlanning = false
     @Published var stopEditIcon = false
     @Published var emoji = ""
     @Published var placeholder = ""    
@@ -58,50 +58,3 @@ extension TaskViewModel{
 }
 
 
-//MARK: DaySchedulerProtocol
-extension TaskViewModel {
-    func openPlanning() {
-        showPlanning = true
-    }
-    
-    func newSlotName() -> String {
-        return ""
-    }
-    
-    func addSlot(startTime: Date, endTime: Date) {
-//        let slot: SlotEntity = SlotEntity()
-//        slot.id = UUID().uuidString
-//        slot.title = task.title
-//        slot.startTime = startTime
-//        slot.endTime = endTime
-//        slot.spaceId = self.spaceId
-//        slot.slotsMilliseconds = endTime.millisecondsSince1970 - startTime.millisecondsSince1970
-//        slot.isDraft = true
-//        slot.timezone = Date().timezone
-//        task.slots.append(slot)
-    }
-    
-    func drafts() -> [SlotEntity] {
-        return []
-    }
-  
-    func changeTimeSlot(slotId: String, startTime: Date, endTime: Date) {
-        
-    }
-    
-    func onClose() {
-        showPlanning = false
-    }
-    
-    func onSubmit() {
-        showPlanning = false
-    }
-    
-    func onTapEvent(slot: SlotEntity) {
-        // NOTE ignore
-    }
-    
-    func onDeleteDraft(slotId: String) {        
-    }
-
-}
