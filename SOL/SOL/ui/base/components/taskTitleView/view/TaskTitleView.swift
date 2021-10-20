@@ -38,7 +38,7 @@ struct TaskTitleView: View {
                         .checkBox
                         .undoneBackground))
             .frame(
-                width: .infinity,
+                width: nil,
                 height: titleSize,
                 alignment: .center)
             .foregroundColor(

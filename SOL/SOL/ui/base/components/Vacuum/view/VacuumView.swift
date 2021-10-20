@@ -10,7 +10,7 @@ import SwiftUI
 struct VacuumView: View {
     var body: some View {
         Text("Vacuum")
-            .frame(width: .infinity, height: 40, alignment: .center)
+            .frame(width: nil, height: 40, alignment: .center)
             .font(SolFonts.font(size: 32, weight: Font.Weight.heavy, color: SolColor.colors().fontColors.second))
             .foregroundColor(SolColor.colors().fontColors.second)
     }
