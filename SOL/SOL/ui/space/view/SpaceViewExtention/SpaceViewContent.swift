@@ -40,12 +40,10 @@ extension SpaceView {
                                 .listRowSeparator(Visibility.hidden)
                                 .listRowInsets(EdgeInsets())
                                 .listRowBackground(SolColor.colors().screen.background)
-                                .onDrag {
-                                    let item = NSItemProvider(object: NSString(string: task.id))
-                                    item.suggestedName = task.id
-                                    return item
-                                }                                                                                                               
-                            
+                                .onDrop(of:  ["public.utf8-plain-text"], isTargeted: $isTarget, perform: { providers in
+                                    print("sssss")
+                                    return false
+                                })
                         }
                     }
                     .onInsert(of: ["public.utf8-plain-text"], perform: { var1, var2 in

@@ -40,6 +40,14 @@ struct SpaceItemView: View {
                                     color: SolColor.colors().fontColors.normal)
                         )
                         .foregroundColor(SolColor.colors().fontColors.normal)
+                        .onDrop(of:  ["public.utf8-plain-text"], isTargeted: Binding(get: {
+                            return true
+                        }, set: { ddd in
+
+                        }), perform: { providers in
+                            print("sssss")
+                            return false
+                        })
                     Spacer()
                     Text(self.spaceStore.spaces[spaceId]!.countTask > 0 ? "\(self.spaceStore.spaces[spaceId]!.countTask)" : "")
                         .font(

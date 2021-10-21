@@ -28,6 +28,7 @@ extension SpacesView {
                 ForEach(spaceStore.spacesOrdered, id: \.id) { space in
                     VStack {
                         SpaceItemView(spaceId: space.id)
+                            
                         NavigationLink(
                             destination: SpaceView(spaceId: space.id)) {
                                 EmptyView()
@@ -43,6 +44,7 @@ extension SpacesView {
                         item.suggestedName = space.id
                         return item
                     }
+
                 }
                 .onInsert(of: ["public.utf8-plain-text"], perform: { (var1:Int, var2:[NSItemProvider]) in
                     if var2.count == 0 {

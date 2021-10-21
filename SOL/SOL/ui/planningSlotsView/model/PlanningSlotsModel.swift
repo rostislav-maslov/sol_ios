@@ -212,6 +212,7 @@ extension PlanningSlotsModel{
         if slotModel.slot?.isDraft == false {
             taskStore?.syncTask(taskId: slotModel.slot!.createdFromTaskId!)
             slotModel.taskId = slotModel.slot?.createdFromTaskId
+            slotModel.spaceId = slotModel.slot?.spaceId
         }
         
         slotModel.canGoToTask = (type == .TASK || type == .ALL || type == .SPACE) && (slotModel.slot?.isDraft == false)

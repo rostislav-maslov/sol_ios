@@ -688,6 +688,13 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		4F361F5F27210E6000EBE6AA /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		4F42793F2637C06100D71B2D /* extentions */ = {
 			isa = PBXGroup;
 			children = (
@@ -900,6 +907,7 @@
 		4F61FD7726A363A800D83F2D /* navigation */ = {
 			isa = PBXGroup;
 			children = (
+				4F361F5F27210E6000EBE6AA /* model */,
 				4F61FD7826A363B100D83F2D /* view */,
 			);
 			path = navigation;

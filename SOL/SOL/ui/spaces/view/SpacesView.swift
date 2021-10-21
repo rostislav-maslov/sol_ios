@@ -28,10 +28,8 @@ struct SpacesView: View {
     
     var body: some View {
             ZStack {
-                content
-                
+                content                
                 addSpaceSheet
-                
                 if model.goToLogout == true {
                     NavigationLink(
                         destination: LoginUIView(),
@@ -39,7 +37,6 @@ struct SpacesView: View {
                         EmptyView()
                     }
                 }
-                
             }
             .preferredColorScheme(.light)
             .navigationBarBackButtonHidden(true)

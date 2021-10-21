@@ -18,3 +18,5 @@ public class SlotModel: NSObject, ObservableObject {
     @Published var buttonState: ViewState = ViewState.NORMAL
 
 }
+
+

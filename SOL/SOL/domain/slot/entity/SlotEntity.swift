@@ -27,7 +27,18 @@ public class SlotEntity {
     
     var eventDescriptor:Event = Event()
     
-    func updateAndReturnDescriptor() -> EventDescriptor {        
+    
+
+}
+
+extension SlotEntity {
+    var dayInfo: String {
+        return "четверг, 21 окт 2021г"
+    }
+    var timeInfo: String {
+        return "c 9:00 до 18:00"
+    }
+    func updateAndReturnDescriptor() -> EventDescriptor {
         eventDescriptor.startDate = startTime!
         
         // Это нужно, что бы события не накладывались друг на друга
@@ -53,5 +64,4 @@ public class SlotEntity {
         
         return eventDescriptor
     }
-
 }
