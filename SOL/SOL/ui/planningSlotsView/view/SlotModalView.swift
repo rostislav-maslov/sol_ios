@@ -135,7 +135,7 @@ extension SlotModalView {
                         })
                         Spacer().frame(width: 16, height: 0, alignment: .center)
                     }.background(SolColor.colors().screen.background)
-                }                
+                }
                 Spacer().frame(width: 0, height: 4, alignment: Alignment.center)
                 HStack{
                     Spacer().frame(width: 0, height: 16, alignment: Alignment.center)
