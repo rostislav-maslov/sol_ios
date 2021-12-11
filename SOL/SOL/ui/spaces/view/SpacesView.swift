@@ -18,8 +18,10 @@ struct SpacesView: View {
     @EnvironmentObject var spaceStore: SpaceStore
     @EnvironmentObject var taskStore: TaskStore
     @EnvironmentObject var slotStore: SlotStore
+    
     @EnvironmentObject var addTaskModel: AddTaskViewModel
     @EnvironmentObject var planningSlotsModel: PlanningSlotsModel
+    
     
     init(){
         UINavigationBar.appearance().titleTextAttributes = [

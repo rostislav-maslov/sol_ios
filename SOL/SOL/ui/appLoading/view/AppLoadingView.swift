@@ -46,7 +46,8 @@ struct AppLoadingView: View {
         .environmentObject(EnvStore())
         .environmentObject(AddTaskViewModel())
         .environmentObject(SlotStore())
-        .environmentObject(PlanningSlotsModel())        
+        .environmentObject(PlanningSlotsModel())
+        .environmentObject(ViewUserStore())
         .onAppear(perform: {
             viewModel.refresh { result in
                 self.goToState = result
