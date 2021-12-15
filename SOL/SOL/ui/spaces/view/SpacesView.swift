@@ -18,6 +18,7 @@ struct SpacesView: View {
     @EnvironmentObject var spaceStore: SpaceStore
     @EnvironmentObject var taskStore: TaskStore
     @EnvironmentObject var slotStore: SlotStore
+    @EnvironmentObject var viewUserStore: ViewUserStore
     
     @EnvironmentObject var addTaskModel: AddTaskViewModel
     @EnvironmentObject var planningSlotsModel: PlanningSlotsModel
@@ -53,9 +54,11 @@ struct SpacesView: View {
                     taskDidCreated: model.taskDidCreated)
                 
                 spaceStore.taskStore = taskStore
-                taskStore.spaceStore = spaceStore
                 
+                taskStore.spaceStore = spaceStore
                 taskStore.slotStore = slotStore
+                taskStore.viewUserStore = viewUserStore
+                
                 slotStore.taskStore = taskStore
                 
                 planningSlotsModel.taskStore = taskStore
@@ -63,7 +66,10 @@ struct SpacesView: View {
                 planningSlotsModel.slotStore = slotStore
                 planningSlotsModel.type = .ALL
                 
+                viewUserStore.taskStore = taskStore
+                
                 spaceStore.sync()
+                viewUserStore.sync()
             })
             .onDisappear {
                 addTaskModel.needShowTaskCreatedToast = false

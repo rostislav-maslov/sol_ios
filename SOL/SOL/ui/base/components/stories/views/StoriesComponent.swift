@@ -14,15 +14,17 @@ struct StoriesComponent: View {
         ScrollView(.horizontal, showsIndicators: false){
             HStack{
                 Spacer().frame(width: 10, height: 10, alignment: .center)
-                ForEach(viewStore.root, id: \.id)  { viewUser in
-                    StoryComponent(viewUser.id)
+                ForEach(viewStore.root, id: \.id)  { viewUser in                    
+                    NavigationLink(
+                        destination: ViewWithTasksView(viewId: viewUser.id)) {
+                            StoryComponent(viewUser.id)
+                        }.buttonStyle(.plain)
                 }
                 Spacer()
             }
         }
         .frame(height: 90)
-        .onAppear {
-            viewStore.sync()
+        .onAppear {            
         }
     }
 }

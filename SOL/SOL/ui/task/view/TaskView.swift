@@ -16,6 +16,7 @@ struct TaskView: View {
     @EnvironmentObject var spaceStore: SpaceStore
     @EnvironmentObject var addTaskModel: AddTaskViewModel
     @EnvironmentObject var planningSlotsModel: PlanningSlotsModel
+    @EnvironmentObject var viewUserStore: ViewUserStore
     
     @StateObject var model: TaskViewModel = TaskViewModel()
     
@@ -72,6 +73,7 @@ struct TaskView: View {
             self.addTaskModel.changeView(spaceId: spaceId, taskId: taskId, taskDidCreated: model.taskDidCreated)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 self.taskStore.syncTask(taskId: taskId)
+                self.viewUserStore.syncByTask(taskId: taskId)
             }
         })
     }           

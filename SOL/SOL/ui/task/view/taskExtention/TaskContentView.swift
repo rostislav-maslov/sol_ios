@@ -17,6 +17,11 @@ extension TaskView {
                     .listRowSeparator(Visibility.hidden)
                     .listRowInsets(EdgeInsets())
                     .listRowBackground(SolColor.colors().screen.background)
+                addToViewList
+                    .listRowSeparator(Visibility.hidden)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(SolColor.colors().screen.background)
+                
                 actionsTitle
                     .listRowSeparator(Visibility.hidden)
                     .listRowInsets(EdgeInsets())
@@ -48,7 +53,7 @@ extension TaskView {
                         .onInsert(of: ["public.utf8-plain-text"], perform: { var1, var2 in
                             print("onInsert", var1, var2)
                         })
-                  
+                        
                         if (taskStore.tasks[self.taskId]!.child.count == 0){
                             VacuumView()
                                 .listRowSeparator(Visibility.hidden)
@@ -82,7 +87,7 @@ extension TaskView {
                     .listRowSeparator(Visibility.hidden)
                     .listRowInsets(EdgeInsets())
                     .listRowBackground(SolColor.colors().screen.background)
-                    
+                
             }
             .alignmentGuide(VerticalAlignment.top, computeValue: { (vd:ViewDimensions) in
                 return 0.0

@@ -16,5 +16,6 @@ public class ViewUserEntity {
     var ownerId: String?
     var view: ViewResponse?
 
+    var tasks: [TaskEntity] = []
 }
 

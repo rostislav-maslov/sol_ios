@@ -14,6 +14,7 @@ public class TaskStore: ObservableObject {
     
     var spaceStore: SpaceStore?
     var slotStore: SlotStore?
+    var viewUserStore: ViewUserStore?
     
     private var disposables = Set<AnyCancellable>()
     private let port:TaskRepositoryPort = SolApiService.api().task        
@@ -77,6 +78,18 @@ extension TaskStore {
         for task in spaceStore!.spaces[spaceId]!.tasks {
             if tasks[task.id]?.spaceId == spaceId {
                 tasks[task.id]?.showSubtask = show
+            }
+        }
+    }
+    
+    func toggleByViewId(viewId : String, show: Bool){
+        if viewUserStore!.byView[viewId] == nil {
+            return
+        }
+        
+        for viewUser:TaskInViewResponse in viewUserStore!.byView[viewId]! {
+            if tasks[viewUser.taskId!] != nil {
+                tasks[viewUser.taskId!]?.showSubtask = show
             }
         }
     }

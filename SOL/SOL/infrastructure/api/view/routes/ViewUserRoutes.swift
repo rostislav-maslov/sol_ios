@@ -10,4 +10,6 @@ import Foundation
 class ViewUserRoutes {
     static let ROOT = BaseRoutes.V1 + "/view-user"
     static let MY_ROOT = ROOT + "/root"
+    static let BY_TASK = ROOT + "/by-task"
+    static let BY_VIEW = ROOT + "/by-view"
 }

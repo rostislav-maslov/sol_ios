@@ -24,6 +24,22 @@
 		4F2661CC26B92156001974BC /* AddSpaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2661CB26B92156001974BC /* AddSpaceViewModel.swift */; };
 		4F2661CE26B92479001974BC /* CreateSpaceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2661CD26B92479001974BC /* CreateSpaceUseCase.swift */; };
 		4F2661D026B924A4001974BC /* SpaceRepositoryPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2661CF26B924A4001974BC /* SpaceRepositoryPort.swift */; };
+		4F28F5C92764594400AA16A1 /* ViewWithTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28F5C82764594400AA16A1 /* ViewWithTasksView.swift */; };
+		4F28F5CD27648EAE00AA16A1 /* ViewWithTasksViewMainInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28F5CC27648EAE00AA16A1 /* ViewWithTasksViewMainInfo.swift */; };
+		4F28F5CF27648F2C00AA16A1 /* ViewWithTasksViewTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28F5CE27648F2C00AA16A1 /* ViewWithTasksViewTitle.swift */; };
+		4F28F5D127648FD000AA16A1 /* ViewWithTasksViewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28F5D027648FD000AA16A1 /* ViewWithTasksViewContent.swift */; };
+		4F28F5D42764C07F00AA16A1 /* AddTaskToViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28F5D32764C07F00AA16A1 /* AddTaskToViewButton.swift */; };
+		4F28F5D62764C26200AA16A1 /* TaskViewAddToView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28F5D52764C26200AA16A1 /* TaskViewAddToView.swift */; };
+		4F28F5D82764C82000AA16A1 /* TaskInViewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28F5D72764C82000AA16A1 /* TaskInViewResponse.swift */; };
+		4F28F5DA2764C9B600AA16A1 /* FindByTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28F5D92764C9B600AA16A1 /* FindByTaskUseCase.swift */; };
+		4F28F5DC2764DB1800AA16A1 /* CreateTaskInViewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28F5DB2764DB1800AA16A1 /* CreateTaskInViewRequest.swift */; };
+		4F28F5DE2764DBB100AA16A1 /* CreateTaskInViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28F5DD2764DBB100AA16A1 /* CreateTaskInViewUseCase.swift */; };
+		4F28F5E02764E79900AA16A1 /* DeleteTaskInViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28F5DF2764E79900AA16A1 /* DeleteTaskInViewUseCase.swift */; };
+		4F28F5E227683E5500AA16A1 /* FindByViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28F5E127683E5400AA16A1 /* FindByViewUseCase.swift */; };
+		4F28F5E42768463100AA16A1 /* ViewWithTasksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28F5E32768463100AA16A1 /* ViewWithTasksModel.swift */; };
+		4F28F5E92769904600AA16A1 /* ViewTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28F5E82769904600AA16A1 /* ViewTitleModel.swift */; };
+		4F28F5EB2769905000AA16A1 /* ViewTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28F5EA2769905000AA16A1 /* ViewTitleView.swift */; };
+		4F28F5ED2769982A00AA16A1 /* ViewWithTasksActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28F5EC2769982A00AA16A1 /* ViewWithTasksActions.swift */; };
 		4F294408270EA5E400BC9D3D /* BaseListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F294407270EA5E400BC9D3D /* BaseListResponse.swift */; };
 		4F2B5DA62668AB4F005BE636 /* PlaceholderTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B5DA52668AB4F005BE636 /* PlaceholderTaskView.swift */; };
 		4F2B5DA92668B1FE005BE636 /* BackgroundForModalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B5DA82668B1FE005BE636 /* BackgroundForModalComponent.swift */; };
@@ -257,6 +273,22 @@
 		4F2661CB26B92156001974BC /* AddSpaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpaceViewModel.swift; sourceTree = "<group>"; };
 		4F2661CD26B92479001974BC /* CreateSpaceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSpaceUseCase.swift; sourceTree = "<group>"; };
 		4F2661CF26B924A4001974BC /* SpaceRepositoryPort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceRepositoryPort.swift; sourceTree = "<group>"; };
+		4F28F5C82764594400AA16A1 /* ViewWithTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithTasksView.swift; sourceTree = "<group>"; };
+		4F28F5CC27648EAE00AA16A1 /* ViewWithTasksViewMainInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithTasksViewMainInfo.swift; sourceTree = "<group>"; };
+		4F28F5CE27648F2C00AA16A1 /* ViewWithTasksViewTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithTasksViewTitle.swift; sourceTree = "<group>"; };
+		4F28F5D027648FD000AA16A1 /* ViewWithTasksViewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithTasksViewContent.swift; sourceTree = "<group>"; };
+		4F28F5D32764C07F00AA16A1 /* AddTaskToViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskToViewButton.swift; sourceTree = "<group>"; };
+		4F28F5D52764C26200AA16A1 /* TaskViewAddToView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewAddToView.swift; sourceTree = "<group>"; };
+		4F28F5D72764C82000AA16A1 /* TaskInViewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInViewResponse.swift; sourceTree = "<group>"; };
+		4F28F5D92764C9B600AA16A1 /* FindByTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindByTaskUseCase.swift; sourceTree = "<group>"; };
+		4F28F5DB2764DB1800AA16A1 /* CreateTaskInViewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskInViewRequest.swift; sourceTree = "<group>"; };
+		4F28F5DD2764DBB100AA16A1 /* CreateTaskInViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskInViewUseCase.swift; sourceTree = "<group>"; };
+		4F28F5DF2764E79900AA16A1 /* DeleteTaskInViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTaskInViewUseCase.swift; sourceTree = "<group>"; };
+		4F28F5E127683E5400AA16A1 /* FindByViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindByViewUseCase.swift; sourceTree = "<group>"; };
+		4F28F5E32768463100AA16A1 /* ViewWithTasksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithTasksModel.swift; sourceTree = "<group>"; };
+		4F28F5E82769904600AA16A1 /* ViewTitleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTitleModel.swift; sourceTree = "<group>"; };
+		4F28F5EA2769905000AA16A1 /* ViewTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTitleView.swift; sourceTree = "<group>"; };
+		4F28F5EC2769982A00AA16A1 /* ViewWithTasksActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithTasksActions.swift; sourceTree = "<group>"; };
 		4F294407270EA5E400BC9D3D /* BaseListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListResponse.swift; sourceTree = "<group>"; };
 		4F2B5DA52668AB4F005BE636 /* PlaceholderTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTaskView.swift; sourceTree = "<group>"; };
 		4F2B5DA82668B1FE005BE636 /* BackgroundForModalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundForModalComponent.swift; sourceTree = "<group>"; };
@@ -585,6 +617,85 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		4F28F5C5276458EA00AA16A1 /* viewWithTasks */ = {
+			isa = PBXGroup;
+			children = (
+				4F28F5C72764593100AA16A1 /* model */,
+				4F28F5C62764592600AA16A1 /* view */,
+			);
+			path = viewWithTasks;
+			sourceTree = "<group>";
+		};
+		4F28F5C62764592600AA16A1 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4F28F5C82764594400AA16A1 /* ViewWithTasksView.swift */,
+				4F28F5CB27648E6E00AA16A1 /* ViewWithTasksExtention */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4F28F5C72764593100AA16A1 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4F28F5E32768463100AA16A1 /* ViewWithTasksModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4F28F5CA27648E5500AA16A1 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				4FA0F6F92648806400CECF24 /* StoryComponent.swift */,
+				4FA0F6FC264885CD00CECF24 /* StoriesComponent.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		4F28F5CB27648E6E00AA16A1 /* ViewWithTasksExtention */ = {
+			isa = PBXGroup;
+			children = (
+				4F28F5D027648FD000AA16A1 /* ViewWithTasksViewContent.swift */,
+				4F28F5CC27648EAE00AA16A1 /* ViewWithTasksViewMainInfo.swift */,
+				4F28F5CE27648F2C00AA16A1 /* ViewWithTasksViewTitle.swift */,
+				4F28F5EC2769982A00AA16A1 /* ViewWithTasksActions.swift */,
+			);
+			path = ViewWithTasksExtention;
+			sourceTree = "<group>";
+		};
+		4F28F5D22764C06500AA16A1 /* addTaskToViewButton */ = {
+			isa = PBXGroup;
+			children = (
+				4F28F5D32764C07F00AA16A1 /* AddTaskToViewButton.swift */,
+			);
+			path = addTaskToViewButton;
+			sourceTree = "<group>";
+		};
+		4F28F5E52769901600AA16A1 /* viewTitleView */ = {
+			isa = PBXGroup;
+			children = (
+				4F28F5E72769903100AA16A1 /* view */,
+				4F28F5E62769902C00AA16A1 /* model */,
+			);
+			path = viewTitleView;
+			sourceTree = "<group>";
+		};
+		4F28F5E62769902C00AA16A1 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4F28F5E82769904600AA16A1 /* ViewTitleModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4F28F5E72769903100AA16A1 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4F28F5EA2769905000AA16A1 /* ViewTitleView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		4F2BED2726EB0B06004D7A15 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -738,6 +849,7 @@
 			children = (
 				4F61FD6C26A1722C00D83F2D /* TaskContentView.swift */,
 				4F48255C26C4F9AD001ABE87 /* TaskHeaderView.swift */,
+				4F28F5D52764C26200AA16A1 /* TaskViewAddToView.swift */,
 				4F48255E26C4F9C6001ABE87 /* TaskActionsView.swift */,
 				4F48255A26C4F98C001ABE87 /* TaskPickerView.swift */,
 				4F48256026C4F9FF001ABE87 /* TaskSubtaskView.swift */,
@@ -893,11 +1005,14 @@
 		4F61FD6E26A33B3100D83F2D /* components */ = {
 			isa = PBXGroup;
 			children = (
+				4F28F5D22764C06500AA16A1 /* addTaskToViewButton */,
+				4F28F5E52769901600AA16A1 /* viewTitleView */,
 				4F2BED2C26ECA47E004D7A15 /* spaceTitleView */,
 				4F13D3EA26EB00F600F2E947 /* taskTitleView */,
 				4F4FA2AB26E9A90900872EE7 /* helpers */,
 				4F2D875926E3BE410032177A /* Vacuum */,
 				4FEA6B2326D0F34800876D7C /* multilineTextField */,
+				4FA0F6F82648804C00CECF24 /* stories */,
 				4F7C4F0226BEC74E0097AC65 /* doneKeyboardButton */,
 				4FE38D00266413A00011E203 /* emojiTextField */,
 				4F61FD7726A363A800D83F2D /* navigation */,
@@ -1223,6 +1338,7 @@
 		4F8DF9462761AC5800D52266 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				4F28F5DB2764DB1800AA16A1 /* CreateTaskInViewRequest.swift */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -1232,6 +1348,7 @@
 			children = (
 				4F8DF94D2761ACD300D52266 /* ViewUserResponse.swift */,
 				4F8DF94F2761AD7700D52266 /* ViewResponse.swift */,
+				4F28F5D72764C82000AA16A1 /* TaskInViewResponse.swift */,
 			);
 			path = response;
 			sourceTree = "<group>";
@@ -1275,6 +1392,10 @@
 			isa = PBXGroup;
 			children = (
 				4F8DF95C2761B4C400D52266 /* GetRootViewUserUseCase.swift */,
+				4F28F5D92764C9B600AA16A1 /* FindByTaskUseCase.swift */,
+				4F28F5DD2764DBB100AA16A1 /* CreateTaskInViewUseCase.swift */,
+				4F28F5DF2764E79900AA16A1 /* DeleteTaskInViewUseCase.swift */,
+				4F28F5E127683E5400AA16A1 /* FindByViewUseCase.swift */,
 			);
 			path = useCase;
 			sourceTree = "<group>";
@@ -1487,7 +1608,6 @@
 				4F87F79C265810520094C946 /* TaskLineComponent */,
 				4F87F799265804450094C946 /* DeadLineChoose */,
 				4F0B5C9626498BCD0026FDD0 /* SpaceListComponent */,
-				4FA0F6F82648804C00CECF24 /* StoriesComponent */,
 				4FA0F6F526487DD400CECF24 /* IconComponent */,
 				4FA0F6F226487D7600CECF24 /* tastTitle */,
 			);
@@ -1510,13 +1630,12 @@
 			path = IconComponent;
 			sourceTree = "<group>";
 		};
-		4FA0F6F82648804C00CECF24 /* StoriesComponent */ = {
+		4FA0F6F82648804C00CECF24 /* stories */ = {
 			isa = PBXGroup;
 			children = (
-				4FA0F6F92648806400CECF24 /* StoryComponent.swift */,
-				4FA0F6FC264885CD00CECF24 /* StoriesComponent.swift */,
+				4F28F5CA27648E5500AA16A1 /* views */,
 			);
-			path = StoriesComponent;
+			path = stories;
 			sourceTree = "<group>";
 		};
 		4FA5B4632692E00E0031093A /* needRefactor */ = {
@@ -2198,8 +2317,9 @@
 		4FFC21A326312DEE00198E4B /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				4F615E0226E857E800273B1A /* testView */,
 				4FA5B4642692E0210031093A /* base */,
+				4F28F5C5276458EA00AA16A1 /* viewWithTasks */,
+				4F615E0226E857E800273B1A /* testView */,
 				4F61FD5926A162C700D83F2D /* spaces */,
 				4F8DCEEA26BBB45100F8CD54 /* space */,
 				4F2661C826B92082001974BC /* addSpace */,
@@ -2443,6 +2563,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FFC2196263123A600198E4B /* LoginUIView.swift in Sources */,
+				4F28F5CF27648F2C00AA16A1 /* ViewWithTasksViewTitle.swift in Sources */,
 				4F90CFFE26BA677F008F0C5D /* LoginByEmailRequest.swift in Sources */,
 				4F90D00026BA6793008F0C5D /* LoginByEmailResponse.swift in Sources */,
 				4F4FA2AF26E9A97C00872EE7 /* Device.swift in Sources */,
@@ -2450,6 +2571,7 @@
 				4FCB320E26E1FCAA003A470A /* SpacesViewMainInfo.swift in Sources */,
 				4F48256126C4F9FF001ABE87 /* TaskSubtaskView.swift in Sources */,
 				4F8DCEFB26BD112900F8CD54 /* SpaceUpdateRequest.swift in Sources */,
+				4F28F5E42768463100AA16A1 /* ViewWithTasksModel.swift in Sources */,
 				4F0B5CA1264AFB710026FDD0 /* SpacesView.swift in Sources */,
 				4FA828C62696E86500540CFF /* UseCase.swift in Sources */,
 				4F13D3ED26EB011D00F2E947 /* TaskTitleView.swift in Sources */,
@@ -2464,6 +2586,7 @@
 				4F9307E0265E19B500204881 /* BaseApiErrorResponse.swift in Sources */,
 				4F8DF95B2761B34D00D52266 /* ViewUserEntity.swift in Sources */,
 				4F87F7BB2658F7F20094C946 /* TLItemComponent.swift in Sources */,
+				4F28F5C92764594400AA16A1 /* ViewWithTasksView.swift in Sources */,
 				4FA828CF26999ED800540CFF /* UserPort.swift in Sources */,
 				4FA272D9271F539800ADB1B6 /* DaySchedulerProtocol.swift in Sources */,
 				4F61FD6326A16AF100D83F2D /* SpaceEntity.swift in Sources */,
@@ -2473,6 +2596,7 @@
 				4FA0F6F426487D9000CECF24 /* TaskTitleComponent.swift in Sources */,
 				4F615E0626E8580F00273B1A /* EnvStore.swift in Sources */,
 				4F8DF95D2761B4C400D52266 /* GetRootViewUserUseCase.swift in Sources */,
+				4F28F5CD27648EAE00AA16A1 /* ViewWithTasksViewMainInfo.swift in Sources */,
 				4F71E159270AAD4E00A80F47 /* SlotsDraftModel.swift in Sources */,
 				4FA828D92699BFEB00540CFF /* AddTaskViewModel.swift in Sources */,
 				4F0B5C9526498AEF0026FDD0 /* SpaceItemView.swift in Sources */,
@@ -2484,6 +2608,7 @@
 				4F8DCEEE26BBB47E00F8CD54 /* SpaceViewModel.swift in Sources */,
 				4F615E0826E8584C00273B1A /* TestView.swift in Sources */,
 				4F48255826C4F5E2001ABE87 /* TaskUseCase.swift in Sources */,
+				4F28F5EB2769905000AA16A1 /* ViewTitleView.swift in Sources */,
 				4F6F05B326660DF10074B9D8 /* SpaceAPI.swift in Sources */,
 				4F6F05AE26660D970074B9D8 /* SpaceCreateRequest.swift in Sources */,
 				4F615E1226E8664900273B1A /* EnvModel.swift in Sources */,
@@ -2522,6 +2647,7 @@
 				4FFBE4F526C24FB900A79D81 /* TaskMapping.swift in Sources */,
 				4F8DCEF726BBCAAF00F8CD54 /* MultilineTextFieldView.swift in Sources */,
 				4F61FD6526A16C2B00D83F2D /* IconEntity.swift in Sources */,
+				4F28F5D82764C82000AA16A1 /* TaskInViewResponse.swift in Sources */,
 				4FA828D72699BFB300540CFF /* AddTaskState.swift in Sources */,
 				4FB2C146266B34B10008CCDA /* TaskFieldButtonComponent.swift in Sources */,
 				4F87F7B82658F2B70094C946 /* SolFonts.swift in Sources */,
@@ -2534,8 +2660,10 @@
 				4FA828A82696C83500540CFF /* TokenStore.swift in Sources */,
 				4F8DCEF126BBB49400F8CD54 /* SpaceView.swift in Sources */,
 				4FFBE4EC26C1AD4000A79D81 /* TaskResponse.swift in Sources */,
+				4F28F5DE2764DBB100AA16A1 /* CreateTaskInViewUseCase.swift in Sources */,
 				4FEF48F227080EEB00B23BC1 /* SlotCreateRequest.swift in Sources */,
 				4FA828D32699A02800540CFF /* UserEntity.swift in Sources */,
+				4F28F5DC2764DB1800AA16A1 /* CreateTaskInViewRequest.swift in Sources */,
 				4F90D00826BA79ED008F0C5D /* MySpacesUseCase.swift in Sources */,
 				4F61FD7E26A363DE00D83F2D /* SolNavigationView.swift in Sources */,
 				4F62D52D26E7048F00AA5EBB /* TaskItemSubtaskCheckboxView.swift in Sources */,
@@ -2557,6 +2685,8 @@
 				4F2CAF9F2702AF2D003CACA0 /* NullEncodable.swift in Sources */,
 				4F4352972713E07A00484F3D /* SlotModel.swift in Sources */,
 				4FD44F83271D160D00827F80 /* EditSlotUseCase.swift in Sources */,
+				4F28F5E02764E79900AA16A1 /* DeleteTaskInViewUseCase.swift in Sources */,
+				4F28F5E92769904600AA16A1 /* ViewTitleModel.swift in Sources */,
 				4FE38CE92662CDAD0011E203 /* Error.swift in Sources */,
 				4FA828C82696E89500540CFF /* ReceiveReponse.swift in Sources */,
 				4F61FD7C26A363CD00D83F2D /* SettingButton.swift in Sources */,
@@ -2567,6 +2697,7 @@
 				4FA828BE2696E82400540CFF /* AuthState.swift in Sources */,
 				4F2661CE26B92479001974BC /* CreateSpaceUseCase.swift in Sources */,
 				4F8DF9602761B65B00D52266 /* ViewUserStore.swift in Sources */,
+				4F28F5E227683E5500AA16A1 /* FindByViewUseCase.swift in Sources */,
 				4F90D00B26BA7DAE008F0C5D /* SpaceMapping.swift in Sources */,
 				4F48255F26C4F9C6001ABE87 /* TaskActionsView.swift in Sources */,
 				4F2CAFA62702BC84003CACA0 /* TaskItemSubtaskTaskInfoView.swift in Sources */,
@@ -2580,6 +2711,7 @@
 				4FEF48F427080FE400B23BC1 /* SlotAPI.swift in Sources */,
 				4F62D52F26E7082900AA5EBB /* TaskItemSubtaskTitleView.swift in Sources */,
 				4FD44F85271D171200827F80 /* DeleteSlotUseCase.swift in Sources */,
+				4F28F5D62764C26200AA16A1 /* TaskViewAddToView.swift in Sources */,
 				4F2661D026B924A4001974BC /* SpaceRepositoryPort.swift in Sources */,
 				4F48255D26C4F9AD001ABE87 /* TaskHeaderView.swift in Sources */,
 				4FEF48E227080A3700B23BC1 /* SlotMapping.swift in Sources */,
@@ -2594,6 +2726,7 @@
 				4F9307D7265E188800204881 /* SignUpEmailResponse.swift in Sources */,
 				4F8DF94C2761ACC000D52266 /* ViewUserRoutes.swift in Sources */,
 				4F8DCEFD26BD121900F8CD54 /* UpdateTitleIconSpaceUseCase.swift in Sources */,
+				4F28F5DA2764C9B600AA16A1 /* FindByTaskUseCase.swift in Sources */,
 				4FC99B2626FF46250087FCCC /* ATTButtonLinesView.swift in Sources */,
 				4F294408270EA5E400BC9D3D /* BaseListResponse.swift in Sources */,
 				4F0B5C9826498BF80026FDD0 /* SpaceListCompoent.swift in Sources */,
@@ -2602,6 +2735,7 @@
 				4FFBE4EA26C1ACCB00A79D81 /* TaskCreateRequest.swift in Sources */,
 				4FCB320726DE138D003A470A /* MyView.swift in Sources */,
 				4F7C4F0126BEC6330097AC65 /* EmojiTextField.swift in Sources */,
+				4F28F5ED2769982A00AA16A1 /* ViewWithTasksActions.swift in Sources */,
 				4FEA6B2226D0EEDE00876D7C /* SpaceViewTitle.swift in Sources */,
 				4F71E153270AA45500A80F47 /* CreateSlotUseCase.swift in Sources */,
 				4FD2E320265F74B7007A20C6 /* ButtonComponent.swift in Sources */,
@@ -2613,7 +2747,9 @@
 				4F6F05B726660E710074B9D8 /* IconResponse.swift in Sources */,
 				4F2BED3026ECA4A9004D7A15 /* SpaceTitleModel.swift in Sources */,
 				4F4352952713DFC800484F3D /* SlotModalView.swift in Sources */,
+				4F28F5D127648FD000AA16A1 /* ViewWithTasksViewContent.swift in Sources */,
 				4F7C4F0626BEC7780097AC65 /* DoneKeyboardButtonView.swift in Sources */,
+				4F28F5D42764C07F00AA16A1 /* AddTaskToViewButton.swift in Sources */,
 				4FC99B2926FF468B0087FCCC /* ATTDeadLineFastLineView.swift in Sources */,
 				4F7C4F0826BED5960097AC65 /* BottomButtonType.swift in Sources */,
 				4F6F05B026660DC20074B9D8 /* SpaceRoutes.swift in Sources */,
@@ -2807,7 +2943,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_ASSET_PATHS = "\"SOL/Preview Content\"";
 				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				ENABLE_PREVIEWS = YES;
@@ -2834,7 +2970,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_ASSET_PATHS = "\"SOL/Preview Content\"";
 				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				ENABLE_PREVIEWS = YES;
