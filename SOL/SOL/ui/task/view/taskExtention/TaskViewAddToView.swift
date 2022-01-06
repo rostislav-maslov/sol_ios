@@ -16,13 +16,16 @@ extension TaskView{
                 HStack{
                     Spacer().frame(width: 40, height: 1)
                     
-                    Button("Add to view") {
+                    if viewUserStore.showAddToViewLimit >= viewUserStore.showAddToViewCount {
+                        Button("Add to view") {
+                            
+                        }
+                        .padding(0)
+                        .background(SolColor.colors().screen.background)
+                        .foregroundColor(SolColor.colors().fontColors.second)
                         
+                        Spacer().frame(width: 8, height: 1)
                     }
-                    .padding(0)
-                    .background(SolColor.colors().screen.background)
-                    .foregroundColor(SolColor.colors().fontColors.second)
-                    Spacer().frame(width: 8, height: 1)
                     
                     
                     ForEach(viewUserStore.root, id: \.id)  { viewUser in

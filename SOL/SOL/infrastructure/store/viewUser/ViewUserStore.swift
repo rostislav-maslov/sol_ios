@@ -16,6 +16,7 @@ public class ViewUserStore: ObservableObject {
     
     @Published var showAddToViewCount = 0
     @Published var showAddToViewLimit = 5
+    var keyShowAddToViewLimit = "ShowAddToViewLimit"
     
     var taskStore: TaskStore?
     
@@ -26,13 +27,19 @@ public class ViewUserStore: ObservableObject {
 //MARK: - Загрузка
 extension ViewUserStore {
     
-//    func syncShowAddToViewCount(){
-//        UserDefaults.
-//    }
-//    
-//    func addShowTo 
+    func syncShowAddToViewCount(){
+        self.showAddToViewCount = UserDefaults.standard.integer(forKey: keyShowAddToViewLimit)
+    }
+
+    func addShowToViewCount(){
+        if self.showAddToViewCount < self.showAddToViewLimit + 20 {
+            self.showAddToViewCount = self.showAddToViewCount + 1
+            UserDefaults.standard.set(self.showAddToViewCount, forKey: keyShowAddToViewLimit)
+        }
+    }
     
     func toggleTaskInView(taskId: String, viewId: String){
+        self.addShowToViewCount()
         if self.byTask[taskId] == nil {
             createTaskInView(taskId: taskId, viewId: viewId)
         }
@@ -111,11 +118,16 @@ extension ViewUserStore {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] publisherReponse in
                 if publisherReponse.success != nil {
-                    let taskInViews = publisherReponse.success!
-                    for taskInView in taskInViews {
-                        self?.taskStore?.syncTask(taskId: taskInView.taskId!, silent: true)
+                    let result = publisherReponse.success!
+                    var taskToAdd:[TaskInViewResponse] = []
+                    for taskInView in result {
+                        let task = self?.taskStore?.tasks[taskInView.taskId!]
+                        if (task?.status == TaskStatus.OPEN) {
+                            self?.taskStore?.syncTask(taskId: taskInView.taskId!, silent: true)
+                            taskToAdd.append(taskInView)
+                        }
                     }
-                    self?.byView[viewId] = taskInViews
+                    self?.byView[viewId] = taskToAdd
                 }else {
                 }
             }

@@ -9,13 +9,51 @@ import Foundation
 
 class RequestService {
     
-    internal func  requestJson<R:Encodable, T:Codable>(url:String, method: String, requestBody: R, responseFunc: @escaping ApiResponseProtocol<T>) {
+    internal func updateToken(done: @escaping () -> Void){
+        let token: String? = DefaultStore.store.token.getRefreshToken()
+        if token == nil {
+            return
+        }
+        
+        let request: RefreshTokenRequest = RefreshTokenRequest(refreshToken: token!)
+        
+        self.requestJson(url: AuthRoutes.REFRESH_TOKEN, method: "POST", requestBody: request) { (success: BaseApiResponse<RefreshTokenResponse>?, error: BaseApiErrorResponse?, isSuccess: Bool) in
+            if success != nil {
+                if success?.result.accessToken  != nil {
+                    DefaultStore.store.token.setAccessToken(success!.result.accessToken)
+                }
+                
+                if success?.result.refreshToken != nil {
+                    DefaultStore.store.token.setRefreshToken(success!.result.refreshToken)
+                }
+            }
+            
+            done()
+        }
+        
+        
+    }
+    
+    internal func  requestJson<R:Encodable, T:Codable>(
+        url:String,
+        method: String,
+        requestBody: R,
+        responseFunc: @escaping ApiResponseProtocol<T>) {
+            self.requestJson(url: url, method: method, requestBody: requestBody, responseFunc: responseFunc, stopRequesting: false)
+    }
+    
+    internal func  requestJson<R:Encodable, T:Codable>(
+        url:String,
+        method: String,
+        requestBody: R,
+        responseFunc: @escaping ApiResponseProtocol<T>,
+        stopRequesting: Bool = false) {
         // prepare json data
         let jsonData:Data? = try? JSONEncoder().encode(requestBody)
         
         // create post request
-        let url = URL(string: url)!
-        var request = URLRequest(url: url)
+        let urlObj = URL(string: url)!
+        var request = URLRequest(url: urlObj)
         request.httpMethod = method
         
         // insert json data to the request
@@ -47,6 +85,19 @@ class RequestService {
                 code = httpResponse.statusCode
             }
             
+            if code == 401 && stopRequesting == false {
+                self.updateToken {
+                    self.requestJson(
+                        url:url,
+                        method: method,
+                        requestBody: requestBody,
+                        responseFunc: responseFunc,
+                        stopRequesting: true
+                    )
+                }
+                return
+            }
+            
             let responseObj = try? JSONDecoder().decode(BaseApiResponse<T>.self, from: data)
             var errorObj:BaseApiErrorResponse? = nil
             
@@ -74,12 +125,23 @@ class RequestService {
         task.resume()
     }
     
-    internal func  requestFormUrl<T:Codable>(url:String, method: String, responseFunc: @escaping ApiResponseProtocol<T>) {
+    internal func  requestFormUrl<T:Codable>(
+        url:String,
+        method: String,
+        responseFunc: @escaping ApiResponseProtocol<T>) {
+            self.requestFormUrl(url: url, method: method, responseFunc: responseFunc, stopRequesting: false)
+    }
+    
+    internal func  requestFormUrl<T:Codable>(
+        url:String,
+        method: String,
+        responseFunc: @escaping ApiResponseProtocol<T>,
+        stopRequesting: Bool = false) {
         // prepare json data
         //let jsonData = try? JSONEncoder().encode(request)
         // create post request
-        let url = URL(string: url)!
-        var request = URLRequest(url: url)
+        let urlObj = URL(string: url)!
+        var request = URLRequest(url: urlObj)
         request.httpMethod = method
         
         // insert json data to the request
@@ -107,6 +169,13 @@ class RequestService {
                     status = true
                 }
                 code = httpResponse.statusCode
+            }
+            
+            if code == 401 && stopRequesting == false {
+                self.updateToken {
+                    self.requestFormUrl(url: url, method: method, responseFunc: responseFunc, stopRequesting: true)
+                }
+                return
             }
             
             let responseObj = try? JSONDecoder().decode(BaseApiResponse<T>.self, from: data)

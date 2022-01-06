@@ -18,7 +18,7 @@ public class ViewWithTasksModel: NSObject, ObservableObject{
     @Published var emoji: String = "🪐"
     @Published var stopEditIcon = false
     @Published var actionToggle = false
-    @Published var bottomButtonType = BottomButtonType.CLOSE_ICON_FIELD
+    @Published var bottomButtonType = BottomButtonType.ADD_TASK
 }
 
 extension ViewWithTasksModel {

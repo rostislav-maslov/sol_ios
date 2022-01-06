@@ -69,6 +69,7 @@ public struct ViewWithTasksView: View {
             self.model.spaceId = ""
             self.model.taskId = ""
             self.model.goToTaskView = false
+            self.model.bottomButtonType
 //            self.planningSlotsModel.type = .SPACE
 //            self.addTaskModel.changeView(spaceId: nil, taskId: nil, taskDidCreated: model.taskDidCreated)
 //

@@ -67,9 +67,11 @@ struct SpacesView: View {
                 planningSlotsModel.type = .ALL
                 
                 viewUserStore.taskStore = taskStore
+                viewUserStore.syncShowAddToViewCount()
                 
                 spaceStore.sync()
                 viewUserStore.sync()
+                taskStore.sync()
             })
             .onDisappear {
                 addTaskModel.needShowTaskCreatedToast = false

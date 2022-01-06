@@ -30,6 +30,23 @@ extension TaskStore {
         }
     }
     
+    func sync() {
+        SolPublisher<[TaskEntity], Bool>(useCase: TaskAllUseCase(self.port))
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] publisherReponse in
+                if publisherReponse.success != nil {
+                    let tasks = publisherReponse.success!
+                    for task in tasks {
+                        if self?.tasks[task.id] == nil {
+                            self?.tasks[task.id] = task
+                        }
+                    }
+                }else {
+                }
+            }
+            .store(in: &disposables)
+    }
+    
     func syncTask(taskId: String, silent: Bool = false){
         if tasks[taskId] == nil {
             //TODO: - 
