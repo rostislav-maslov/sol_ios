@@ -11,6 +11,20 @@ struct StoryComponent: View {
     
     @EnvironmentObject var viewStore: ViewUserStore
     var viewUserId: String
+    var size = 48.0
+    var countSize = 22.0
+    var iconSize = 24.0
+    var hasNew = AngularGradient(gradient: Gradient(colors: [
+        Color(red: 0.27, green:  0.27, blue: 0.27),
+        Color(red: 0.27, green: 0.27, blue: 0.27),
+        Color(red: 0.27, green: 0.27, blue: 0.27)])
+                    , center: .center)
+    var noNew = AngularGradient(gradient: Gradient(colors: [
+        Color(red: 0.78, green: 0.78, blue: 0.78),
+        Color(red: 0.78, green: 0.78, blue: 0.78),
+        Color(red: 0.78, green: 0.78, blue: 0.78)])
+                    , center: .center)
+    
     
     init(_ viewUserId: String) {
         self.viewUserId = viewUserId
@@ -20,33 +34,50 @@ struct StoryComponent: View {
         VStack{
             ZStack{
                 Circle()
-                    .fill(Color(CGColor(
-                                    red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
-
-                    ))
-                    .frame(width: 64, height: 64, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .fill(SolColor.colors().stories.background)
+                    .frame(width: self.size, height: self.size, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .position(x: 24.0, y: 24.0)
+                
                 Circle()
                     .strokeBorder(
                         (viewStore.all[viewUserId]!.hasTaskAdded == true || viewStore.all[viewUserId]!.hasNewTaskToAdd == true) ?
-                       
-                            AngularGradient(gradient: Gradient(colors: [
-                                Color(red:100/255, green:100/255, blue:100/255),
-                                Color(red:100/255, green:100/255, blue:100/255),
-                                Color(red:100/255, green:100/255, blue:100/255)])
-                                            , center: .center):
-                            AngularGradient(gradient: Gradient(colors: [
-                                Color(red:18/255, green:91/255, blue:233/255),
-                                Color(red:249/255, green:241/255, blue:30/255),
-                                Color(red:227/255, green:50/255, blue:93/255)])
-                                            , center: .center) 
-                        ,lineWidth: 2)
-                    .frame(width: 64, height: 64, alignment: .center)
-    
-                IconComponent(size: 24, icon: viewStore.all[viewUserId]!.view!.icon!.data!) 
-            }
-            Text("#" + viewStore.all[viewUserId]!.view!.title!)
-                .font(.system(size: 11))
+                            hasNew : noNew,
+                        lineWidth: 2)
+                    .frame(width: self.size, height: self.size, alignment: .center)
+                    .position(x: 24.0, y: 24.0)
+                
+                IconComponent(size: self.iconSize, icon: viewStore.all[viewUserId]!.view!.icon!.data!) 
+                    .position(x: 24.0, y: 24.0)
+                
+                if viewStore.all[viewUserId]!.count != nil && viewStore.all[viewUserId]!.count! > 0 {
+                    self.count.position(x: 41.0, y: 12.0)
+                }
+                
+            }.frame(width: self.size + 4, height: self.size, alignment: Alignment.center)
+            Spacer().frame(width: 1, height: 2, alignment: Alignment.center)
+            Text(viewStore.all[viewUserId]!.view!.title!)
+                .font(SolFonts.font(size: 12, weight: Font.Weight.medium, color: SolColor.colors().fontColors.normal))
+                .foregroundColor(SolColor.colors().fontColors.normal)
+                
         }
+    }
+}
+
+extension StoryComponent{
+    var count: some View {
+            ZStack{
+                Circle()
+                    .fill(
+                        (viewStore.all[viewUserId]!.hasTaskAdded == true || viewStore.all[viewUserId]!.hasNewTaskToAdd == true) ?
+                            hasNew : noNew)
+                    .frame(width: self.countSize, height: self.countSize, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                Text((viewStore.all[viewUserId]!.count != nil) ? "\(viewStore.all[viewUserId]!.count!)" : "")
+                    .font(SolFonts.font(size: 12, weight: Font.Weight.medium, color: Color.white))
+                    .foregroundColor(
+                        (viewStore.all[viewUserId]!.hasTaskAdded == true || viewStore.all[viewUserId]!.hasNewTaskToAdd == true) ?
+                        SolColor.colors().stories.countFontHasNew : SolColor.colors().stories.countFontNoNew
+                    )
+            }.frame(width: self.countSize, height: self.countSize, alignment: Alignment.center)
     }
 }
 

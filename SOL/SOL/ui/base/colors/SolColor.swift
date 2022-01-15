@@ -13,6 +13,7 @@ struct ColorsVar {
     var textField: TextFieldColors
     var button: ButtonColors
     var screen: ScreenColors
+    var stories: StoriesColors
     var addTask: AddTask
     var checkBox: CheckBox
     var actionButton:ActionButton
@@ -31,6 +32,12 @@ struct TextFieldColors {
 
 struct ScreenColors{
     var background: Color
+}
+
+struct StoriesColors{
+    var background: Color
+    var countFontHasNew: Color
+    var countFontNoNew: Color
 }
 
 struct ButtonColors {
@@ -88,7 +95,13 @@ class SolColor{
                 font: Color(CGColor(red: 243/255, green: 244/255, blue: 256/255, alpha: 1))
             ),
             
-            screen: ScreenColors(background: Color(CGColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1))),
+            screen: ScreenColors(background: Color(CGColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1))),
+            
+            stories: StoriesColors(
+                background: Color(CGColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)),
+                countFontHasNew:  Color(CGColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1)),
+                countFontNoNew:  Color(CGColor(red: 0.27, green: 0.27, blue: 0.27, alpha: 1))
+            ),
             
             addTask: AddTask(
                 placeholderBackground: Color(CGColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.8)),

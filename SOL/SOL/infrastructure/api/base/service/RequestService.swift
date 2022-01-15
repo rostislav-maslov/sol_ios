@@ -17,7 +17,8 @@ class RequestService {
         
         let request: RefreshTokenRequest = RefreshTokenRequest(refreshToken: token!)
         
-        self.requestJson(url: AuthRoutes.REFRESH_TOKEN, method: "POST", requestBody: request) { (success: BaseApiResponse<RefreshTokenResponse>?, error: BaseApiErrorResponse?, isSuccess: Bool) in
+        
+        self.requestJson(url: AuthRoutes.REFRESH_TOKEN, method: "POST", requestBody: request, responseFunc: {(success: BaseApiResponse<RefreshTokenResponse>?, error: BaseApiErrorResponse?, isSuccess: Bool) in
             if success != nil {
                 if success?.result.accessToken  != nil {
                     DefaultStore.store.token.setAccessToken(success!.result.accessToken)
@@ -29,7 +30,7 @@ class RequestService {
             }
             
             done()
-        }
+        }, stopRequesting: true)
         
         
     }

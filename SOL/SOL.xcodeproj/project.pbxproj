@@ -197,6 +197,7 @@
 		4FCB321626E1FD86003A470A /* SpacesViewAddSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB321526E1FD86003A470A /* SpacesViewAddSpace.swift */; };
 		4FCB321826E20F4B003A470A /* ChangeSortTasksRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB321726E20F4B003A470A /* ChangeSortTasksRequest.swift */; };
 		4FCB321A26E21311003A470A /* ChangeSortTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB321926E21311003A470A /* ChangeSortTaskUseCase.swift */; };
+		4FCB3AAA2793118700A6BA33 /* StoryConfigButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB3AA92793118700A6BA33 /* StoryConfigButtonComponent.swift */; };
 		4FCE2F0426A69F71009B24DA /* TaskItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE2F0326A69F71009B24DA /* TaskItemView.swift */; };
 		4FD2E31A265F6BD2007A20C6 /* TextFieldLoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E319265F6BD2007A20C6 /* TextFieldLoginComponent.swift */; };
 		4FD2E31D265F7339007A20C6 /* TitleLoginByEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E31C265F7339007A20C6 /* TitleLoginByEmailView.swift */; };
@@ -453,6 +454,7 @@
 		4FCB321526E1FD86003A470A /* SpacesViewAddSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesViewAddSpace.swift; sourceTree = "<group>"; };
 		4FCB321726E20F4B003A470A /* ChangeSortTasksRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSortTasksRequest.swift; sourceTree = "<group>"; };
 		4FCB321926E21311003A470A /* ChangeSortTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSortTaskUseCase.swift; sourceTree = "<group>"; };
+		4FCB3AA92793118700A6BA33 /* StoryConfigButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryConfigButtonComponent.swift; sourceTree = "<group>"; };
 		4FCE2F0326A69F71009B24DA /* TaskItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemView.swift; sourceTree = "<group>"; };
 		4FD2E319265F6BD2007A20C6 /* TextFieldLoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldLoginComponent.swift; sourceTree = "<group>"; };
 		4FD2E31C265F7339007A20C6 /* TitleLoginByEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLoginByEmailView.swift; sourceTree = "<group>"; };
@@ -650,6 +652,7 @@
 			children = (
 				4FA0F6F92648806400CECF24 /* StoryComponent.swift */,
 				4FA0F6FC264885CD00CECF24 /* StoriesComponent.swift */,
+				4FCB3AA92793118700A6BA33 /* StoryConfigButtonComponent.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -2704,6 +2707,7 @@
 				4F28F5E227683E5500AA16A1 /* FindByViewUseCase.swift in Sources */,
 				4F90D00B26BA7DAE008F0C5D /* SpaceMapping.swift in Sources */,
 				4F48255F26C4F9C6001ABE87 /* TaskActionsView.swift in Sources */,
+				4FCB3AAA2793118700A6BA33 /* StoryConfigButtonComponent.swift in Sources */,
 				4F2CAFA62702BC84003CACA0 /* TaskItemSubtaskTaskInfoView.swift in Sources */,
 				4FFBE4E626C1AC8A00A79D81 /* TaskRoutes.swift in Sources */,
 				4FA0F6FD264885CD00CECF24 /* StoriesComponent.swift in Sources */,
@@ -2947,7 +2951,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_ASSET_PATHS = "\"SOL/Preview Content\"";
 				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				ENABLE_PREVIEWS = YES;
@@ -2974,7 +2978,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_ASSET_PATHS = "\"SOL/Preview Content\"";
 				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				ENABLE_PREVIEWS = YES;

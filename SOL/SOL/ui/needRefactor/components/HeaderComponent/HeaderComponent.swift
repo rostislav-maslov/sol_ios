@@ -26,7 +26,7 @@ struct HeaderComponent: View {
 
 struct HeaderComponent_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderComponent(value: "username") {
+        HeaderComponent(value: "Sol.App") {
             
         }
     }

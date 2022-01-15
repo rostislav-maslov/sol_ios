@@ -19,7 +19,10 @@ struct StoriesComponent: View {
                         destination: ViewWithTasksView(viewId: viewUser.id)) {
                             StoryComponent(viewUser.id)
                         }.buttonStyle(.plain)
+                    Spacer().frame(width: 20.0, height: 1.0, alignment: Alignment.center)
                 }
+                // TODO: экран редактирования сторис
+                StoryConfigButtonComponent()
                 Spacer()
             }
         }

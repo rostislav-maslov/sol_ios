@@ -12,7 +12,7 @@ import SwiftUI
 extension SpacesView{
     var mainInfo: some View {
         VStack{
-            HeaderComponent(value: "username") {                    }
+            HeaderComponent(value: "Sol.App") {                    }
             StoriesComponent()
             Spacer()
                 .frame(width: 1, height: 16, alignment: .center)

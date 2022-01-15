@@ -15,6 +15,7 @@ public class ViewUserEntity {
     var hasTaskAdded: Bool = false
     var ownerId: String?
     var view: ViewResponse?
+    var count: Int?
 
     var tasks: [TaskEntity] = []
 }
