@@ -19,6 +19,27 @@
 		4F0B5CA1264AFB710026FDD0 /* SpacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B5CA0264AFB710026FDD0 /* SpacesView.swift */; };
 		4F0F318B26714D1C00C67852 /* ChooseDeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0F318A26714D1C00C67852 /* ChooseDeadlineView.swift */; };
 		4F13D3ED26EB011D00F2E947 /* TaskTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13D3EC26EB011D00F2E947 /* TaskTitleView.swift */; };
+		4F1960F827A86A6200894190 /* ViewWithTasksFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1960F727A86A6200894190 /* ViewWithTasksFilters.swift */; };
+		4F1960FA27A87E7300894190 /* ViewFiltersModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1960F927A87E7300894190 /* ViewFiltersModal.swift */; };
+		4F1960FC27ABC07600894190 /* ViewSortModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1960FB27ABC07500894190 /* ViewSortModal.swift */; };
+		4F1960FE27ABC0A500894190 /* ViewDisplayModeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1960FD27ABC0A500894190 /* ViewDisplayModeModel.swift */; };
+		4F19610327ABF4EA00894190 /* CustomizeViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19610227ABF4EA00894190 /* CustomizeViewPage.swift */; };
+		4F19610827AC066600894190 /* EditViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19610727AC066600894190 /* EditViewPage.swift */; };
+		4F19610B27AC13D100894190 /* EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19610A27AC13D100894190 /* EditViewModel.swift */; };
+		4F19610E27AC1EFF00894190 /* ViewTypeChooseSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19610D27AC1EFF00894190 /* ViewTypeChooseSheet.swift */; };
+		4F19611027AC1F1600894190 /* DisplayModeChooseSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19610F27AC1F1600894190 /* DisplayModeChooseSheet.swift */; };
+		4F19611227AC1F2E00894190 /* AddedTypeChooseSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19611127AC1F2E00894190 /* AddedTypeChooseSheet.swift */; };
+		4F19611427AC1F4900894190 /* SortChooseSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19611327AC1F4900894190 /* SortChooseSheet.swift */; };
+		4F19611627AC1F6200894190 /* SlotChooseSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19611527AC1F6200894190 /* SlotChooseSheet.swift */; };
+		4F19611827AC1F8300894190 /* NotificationChooseSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19611727AC1F8300894190 /* NotificationChooseSheet.swift */; };
+		4F19611A27AC1F9300894190 /* RepeatChooseSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19611927AC1F9300894190 /* RepeatChooseSheet.swift */; };
+		4F19611C27AC1FA500894190 /* OverdueChooseSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19611B27AC1FA500894190 /* OverdueChooseSheet.swift */; };
+		4F19611E27AC1FB700894190 /* TaskIdClosedChooseSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19611D27AC1FB700894190 /* TaskIdClosedChooseSheet.swift */; };
+		4F19612027AC1FCA00894190 /* DeadlineDidChangeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19611F27AC1FCA00894190 /* DeadlineDidChangeSheet.swift */; };
+		4F19612227AC1FE200894190 /* DeadlineExactDateSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19612127AC1FE200894190 /* DeadlineExactDateSheet.swift */; };
+		4F19612427AC1FF700894190 /* DeadlineRelativeChooseSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19612327AC1FF700894190 /* DeadlineRelativeChooseSheet.swift */; };
+		4F19612627AC200D00894190 /* SpaceChooseSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19612527AC200D00894190 /* SpaceChooseSheet.swift */; };
+		4F19612827AC266F00894190 /* ChooseParamSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19612727AC266F00894190 /* ChooseParamSheet.swift */; };
 		4F21D394266F3D2600459112 /* PlanningSlotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21D393266F3D2600459112 /* PlanningSlotsView.swift */; };
 		4F21D39A266F458600459112 /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 4F21D399266F458600459112 /* ElegantCalendar */; };
 		4F2661CC26B92156001974BC /* AddSpaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2661CB26B92156001974BC /* AddSpaceViewModel.swift */; };
@@ -55,6 +76,8 @@
 		4F2EA28626D4D211008A34CF /* EditTitleAndIconTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EA28526D4D211008A34CF /* EditTitleAndIconTaskRequest.swift */; };
 		4F2EA28826D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EA28726D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift */; };
 		4F3E568D26F18F7D0006F09A /* TaskItemSubtaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3E568C26F18F7D0006F09A /* TaskItemSubtaskView.swift */; };
+		4F3EA41127B65E4C00B29941 /* ChangeSortRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3EA41027B65E4C00B29941 /* ChangeSortRequest.swift */; };
+		4F3EA41427B6624A00B29941 /* SorrySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3EA41327B6624A00B29941 /* SorrySheet.swift */; };
 		4F4279422637C08500D71B2D /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4279412637C08500D71B2D /* NavigationBarColor.swift */; };
 		4F4352932713DE1700484F3D /* PlanningType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4352922713DE1700484F3D /* PlanningType.swift */; };
 		4F4352952713DFC800484F3D /* SlotModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4352942713DFC800484F3D /* SlotModalView.swift */; };
@@ -147,6 +170,8 @@
 		4F9307E7265E1D3C00204881 /* BaseRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9307E6265E1D3C00204881 /* BaseRoutes.swift */; };
 		4F9307EA265E1DAE00204881 /* AuthRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9307E9265E1DAE00204881 /* AuthRoutes.swift */; };
 		4F9307ED265E24CD00204881 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9307EC265E24CD00204881 /* RequestService.swift */; };
+		4F96B29227AD1BF6005DD4D7 /* EditViewPageTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F96B29127AD1BF6005DD4D7 /* EditViewPageTitle.swift */; };
+		4F96B29427AD1C50005DD4D7 /* EditViewPageMainParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F96B29327AD1C50005DD4D7 /* EditViewPageMainParams.swift */; };
 		4F9AFE30271BB99B00422845 /* UINotificationFeedbackGeneratorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9AFE2F271BB99B00422845 /* UINotificationFeedbackGeneratorExtention.swift */; };
 		4F9E8988262E73BF002F2B1B /* SOLApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E8987262E73BF002F2B1B /* SOLApp.swift */; };
 		4F9E898A262E73BF002F2B1B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E8989262E73BF002F2B1B /* ContentView.swift */; };
@@ -158,6 +183,9 @@
 		4FA0F6F726487DE900CECF24 /* IconComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0F6F626487DE900CECF24 /* IconComponent.swift */; };
 		4FA0F6FA2648806400CECF24 /* StoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0F6F92648806400CECF24 /* StoryComponent.swift */; };
 		4FA0F6FD264885CD00CECF24 /* StoriesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0F6FC264885CD00CECF24 /* StoriesComponent.swift */; };
+		4FA14BB727B59E5800020E96 /* HidesViewsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA14BB627B59E5800020E96 /* HidesViewsUseCase.swift */; };
+		4FA14BB927B5A94E00020E96 /* HideViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA14BB827B5A94E00020E96 /* HideViewUseCase.swift */; };
+		4FA14BBB27B5A95A00020E96 /* ShowViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA14BBA27B5A95A00020E96 /* ShowViewUseCase.swift */; };
 		4FA272D9271F539800ADB1B6 /* DaySchedulerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA272D8271F539800ADB1B6 /* DaySchedulerProtocol.swift */; };
 		4FA272DB271FC94C00ADB1B6 /* AppModalViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA272DA271FC94C00ADB1B6 /* AppModalViews.swift */; };
 		4FA5B46A2692E1000031093A /* LoginByEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA5B4692692E1000031093A /* LoginByEmailViewModel.swift */; };
@@ -199,6 +227,9 @@
 		4FCB321A26E21311003A470A /* ChangeSortTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB321926E21311003A470A /* ChangeSortTaskUseCase.swift */; };
 		4FCB3AAA2793118700A6BA33 /* StoryConfigButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB3AA92793118700A6BA33 /* StoryConfigButtonComponent.swift */; };
 		4FCE2F0426A69F71009B24DA /* TaskItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE2F0326A69F71009B24DA /* TaskItemView.swift */; };
+		4FCFAF4C27AF65F2009732CC /* EditViewChooseLineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCFAF4B27AF65F2009732CC /* EditViewChooseLineItem.swift */; };
+		4FCFAF5027AF81A6009732CC /* ViewUserConf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCFAF4F27AF81A6009732CC /* ViewUserConf.swift */; };
+		4FCFAF5227AFCB0D009732CC /* CreateViewUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCFAF5127AFCB0D009732CC /* CreateViewUserRequest.swift */; };
 		4FD2E31A265F6BD2007A20C6 /* TextFieldLoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E319265F6BD2007A20C6 /* TextFieldLoginComponent.swift */; };
 		4FD2E31D265F7339007A20C6 /* TitleLoginByEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E31C265F7339007A20C6 /* TitleLoginByEmailView.swift */; };
 		4FD2E320265F74B7007A20C6 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2E31F265F74B7007A20C6 /* ButtonComponent.swift */; };
@@ -271,6 +302,27 @@
 		4F0B5CA0264AFB710026FDD0 /* SpacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesView.swift; sourceTree = "<group>"; };
 		4F0F318A26714D1C00C67852 /* ChooseDeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDeadlineView.swift; sourceTree = "<group>"; };
 		4F13D3EC26EB011D00F2E947 /* TaskTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTitleView.swift; sourceTree = "<group>"; };
+		4F1960F727A86A6200894190 /* ViewWithTasksFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithTasksFilters.swift; sourceTree = "<group>"; };
+		4F1960F927A87E7300894190 /* ViewFiltersModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFiltersModal.swift; sourceTree = "<group>"; };
+		4F1960FB27ABC07500894190 /* ViewSortModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSortModal.swift; sourceTree = "<group>"; };
+		4F1960FD27ABC0A500894190 /* ViewDisplayModeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDisplayModeModel.swift; sourceTree = "<group>"; };
+		4F19610227ABF4EA00894190 /* CustomizeViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeViewPage.swift; sourceTree = "<group>"; };
+		4F19610727AC066600894190 /* EditViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewPage.swift; sourceTree = "<group>"; };
+		4F19610A27AC13D100894190 /* EditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModel.swift; sourceTree = "<group>"; };
+		4F19610D27AC1EFF00894190 /* ViewTypeChooseSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTypeChooseSheet.swift; sourceTree = "<group>"; };
+		4F19610F27AC1F1600894190 /* DisplayModeChooseSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayModeChooseSheet.swift; sourceTree = "<group>"; };
+		4F19611127AC1F2E00894190 /* AddedTypeChooseSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedTypeChooseSheet.swift; sourceTree = "<group>"; };
+		4F19611327AC1F4900894190 /* SortChooseSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortChooseSheet.swift; sourceTree = "<group>"; };
+		4F19611527AC1F6200894190 /* SlotChooseSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotChooseSheet.swift; sourceTree = "<group>"; };
+		4F19611727AC1F8300894190 /* NotificationChooseSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationChooseSheet.swift; sourceTree = "<group>"; };
+		4F19611927AC1F9300894190 /* RepeatChooseSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatChooseSheet.swift; sourceTree = "<group>"; };
+		4F19611B27AC1FA500894190 /* OverdueChooseSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverdueChooseSheet.swift; sourceTree = "<group>"; };
+		4F19611D27AC1FB700894190 /* TaskIdClosedChooseSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskIdClosedChooseSheet.swift; sourceTree = "<group>"; };
+		4F19611F27AC1FCA00894190 /* DeadlineDidChangeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineDidChangeSheet.swift; sourceTree = "<group>"; };
+		4F19612127AC1FE200894190 /* DeadlineExactDateSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineExactDateSheet.swift; sourceTree = "<group>"; };
+		4F19612327AC1FF700894190 /* DeadlineRelativeChooseSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineRelativeChooseSheet.swift; sourceTree = "<group>"; };
+		4F19612527AC200D00894190 /* SpaceChooseSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceChooseSheet.swift; sourceTree = "<group>"; };
+		4F19612727AC266F00894190 /* ChooseParamSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseParamSheet.swift; sourceTree = "<group>"; };
 		4F21D393266F3D2600459112 /* PlanningSlotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningSlotsView.swift; sourceTree = "<group>"; };
 		4F2661CB26B92156001974BC /* AddSpaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpaceViewModel.swift; sourceTree = "<group>"; };
 		4F2661CD26B92479001974BC /* CreateSpaceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSpaceUseCase.swift; sourceTree = "<group>"; };
@@ -306,6 +358,8 @@
 		4F2EA28526D4D211008A34CF /* EditTitleAndIconTaskRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTitleAndIconTaskRequest.swift; sourceTree = "<group>"; };
 		4F2EA28726D4D284008A34CF /* EditTitleAndIconTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTitleAndIconTaskUseCase.swift; sourceTree = "<group>"; };
 		4F3E568C26F18F7D0006F09A /* TaskItemSubtaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemSubtaskView.swift; sourceTree = "<group>"; };
+		4F3EA41027B65E4C00B29941 /* ChangeSortRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSortRequest.swift; sourceTree = "<group>"; };
+		4F3EA41327B6624A00B29941 /* SorrySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SorrySheet.swift; sourceTree = "<group>"; };
 		4F4279412637C08500D71B2D /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
 		4F4352922713DE1700484F3D /* PlanningType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningType.swift; sourceTree = "<group>"; };
 		4F4352942713DFC800484F3D /* SlotModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotModalView.swift; sourceTree = "<group>"; };
@@ -398,6 +452,8 @@
 		4F9307E6265E1D3C00204881 /* BaseRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRoutes.swift; sourceTree = "<group>"; };
 		4F9307E9265E1DAE00204881 /* AuthRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRoutes.swift; sourceTree = "<group>"; };
 		4F9307EC265E24CD00204881 /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
+		4F96B29127AD1BF6005DD4D7 /* EditViewPageTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewPageTitle.swift; sourceTree = "<group>"; };
+		4F96B29327AD1C50005DD4D7 /* EditViewPageMainParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewPageMainParams.swift; sourceTree = "<group>"; };
 		4F9AFE2F271BB99B00422845 /* UINotificationFeedbackGeneratorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINotificationFeedbackGeneratorExtention.swift; sourceTree = "<group>"; };
 		4F9E8984262E73BF002F2B1B /* SOL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F9E8987262E73BF002F2B1B /* SOLApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOLApp.swift; sourceTree = "<group>"; };
@@ -415,6 +471,9 @@
 		4FA0F6F626487DE900CECF24 /* IconComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconComponent.swift; sourceTree = "<group>"; };
 		4FA0F6F92648806400CECF24 /* StoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryComponent.swift; sourceTree = "<group>"; };
 		4FA0F6FC264885CD00CECF24 /* StoriesComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesComponent.swift; sourceTree = "<group>"; };
+		4FA14BB627B59E5800020E96 /* HidesViewsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidesViewsUseCase.swift; sourceTree = "<group>"; };
+		4FA14BB827B5A94E00020E96 /* HideViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideViewUseCase.swift; sourceTree = "<group>"; };
+		4FA14BBA27B5A95A00020E96 /* ShowViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewUseCase.swift; sourceTree = "<group>"; };
 		4FA272D8271F539800ADB1B6 /* DaySchedulerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySchedulerProtocol.swift; sourceTree = "<group>"; };
 		4FA272DA271FC94C00ADB1B6 /* AppModalViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModalViews.swift; sourceTree = "<group>"; };
 		4FA5B4692692E1000031093A /* LoginByEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginByEmailViewModel.swift; sourceTree = "<group>"; };
@@ -456,6 +515,9 @@
 		4FCB321926E21311003A470A /* ChangeSortTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSortTaskUseCase.swift; sourceTree = "<group>"; };
 		4FCB3AA92793118700A6BA33 /* StoryConfigButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryConfigButtonComponent.swift; sourceTree = "<group>"; };
 		4FCE2F0326A69F71009B24DA /* TaskItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemView.swift; sourceTree = "<group>"; };
+		4FCFAF4B27AF65F2009732CC /* EditViewChooseLineItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewChooseLineItem.swift; sourceTree = "<group>"; };
+		4FCFAF4F27AF81A6009732CC /* ViewUserConf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUserConf.swift; sourceTree = "<group>"; };
+		4FCFAF5127AFCB0D009732CC /* CreateViewUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewUserRequest.swift; sourceTree = "<group>"; };
 		4FD2E319265F6BD2007A20C6 /* TextFieldLoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldLoginComponent.swift; sourceTree = "<group>"; };
 		4FD2E31C265F7339007A20C6 /* TitleLoginByEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLoginByEmailView.swift; sourceTree = "<group>"; };
 		4FD2E31F265F74B7007A20C6 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
@@ -596,6 +658,80 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		4F1960FF27ABF48F00894190 /* customizeView */ = {
+			isa = PBXGroup;
+			children = (
+				4F19610127ABF4AC00894190 /* model */,
+				4F19610027ABF49A00894190 /* view */,
+			);
+			path = customizeView;
+			sourceTree = "<group>";
+		};
+		4F19610027ABF49A00894190 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4F19610227ABF4EA00894190 /* CustomizeViewPage.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4F19610127ABF4AC00894190 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4F19610427AC063700894190 /* editView */ = {
+			isa = PBXGroup;
+			children = (
+				4F19610527AC064600894190 /* model */,
+				4F19610627AC064B00894190 /* view */,
+			);
+			path = editView;
+			sourceTree = "<group>";
+		};
+		4F19610527AC064600894190 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4F19610A27AC13D100894190 /* EditViewModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4F19610627AC064B00894190 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4F19610727AC066600894190 /* EditViewPage.swift */,
+				4FCFAF4A27AF65D8009732CC /* components */,
+				4F96B29027AD1BB9005DD4D7 /* EditViewPageExtention */,
+				4F19610C27AC1E7C00894190 /* sheets */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4F19610C27AC1E7C00894190 /* sheets */ = {
+			isa = PBXGroup;
+			children = (
+				4F19610D27AC1EFF00894190 /* ViewTypeChooseSheet.swift */,
+				4F19610F27AC1F1600894190 /* DisplayModeChooseSheet.swift */,
+				4F19611127AC1F2E00894190 /* AddedTypeChooseSheet.swift */,
+				4F19611327AC1F4900894190 /* SortChooseSheet.swift */,
+				4F19611527AC1F6200894190 /* SlotChooseSheet.swift */,
+				4F19611727AC1F8300894190 /* NotificationChooseSheet.swift */,
+				4F19611927AC1F9300894190 /* RepeatChooseSheet.swift */,
+				4F19611B27AC1FA500894190 /* OverdueChooseSheet.swift */,
+				4F19611D27AC1FB700894190 /* TaskIdClosedChooseSheet.swift */,
+				4F19611F27AC1FCA00894190 /* DeadlineDidChangeSheet.swift */,
+				4F19612127AC1FE200894190 /* DeadlineExactDateSheet.swift */,
+				4F19612327AC1FF700894190 /* DeadlineRelativeChooseSheet.swift */,
+				4F19612527AC200D00894190 /* SpaceChooseSheet.swift */,
+				4F19612727AC266F00894190 /* ChooseParamSheet.swift */,
+				4F3EA41327B6624A00B29941 /* SorrySheet.swift */,
+			);
+			path = sheets;
+			sourceTree = "<group>";
+		};
 		4F2661C826B92082001974BC /* addSpace */ = {
 			isa = PBXGroup;
 			children = (
@@ -633,6 +769,9 @@
 		4F28F5C62764592600AA16A1 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4F1960FD27ABC0A500894190 /* ViewDisplayModeModel.swift */,
+				4F1960FB27ABC07500894190 /* ViewSortModal.swift */,
+				4F1960F927A87E7300894190 /* ViewFiltersModal.swift */,
 				4F28F5C82764594400AA16A1 /* ViewWithTasksView.swift */,
 				4F28F5CB27648E6E00AA16A1 /* ViewWithTasksExtention */,
 			);
@@ -661,6 +800,7 @@
 			isa = PBXGroup;
 			children = (
 				4F28F5D027648FD000AA16A1 /* ViewWithTasksViewContent.swift */,
+				4F1960F727A86A6200894190 /* ViewWithTasksFilters.swift */,
 				4F28F5CC27648EAE00AA16A1 /* ViewWithTasksViewMainInfo.swift */,
 				4F28F5CE27648F2C00AA16A1 /* ViewWithTasksViewTitle.swift */,
 				4F28F5EC2769982A00AA16A1 /* ViewWithTasksActions.swift */,
@@ -1344,6 +1484,8 @@
 			isa = PBXGroup;
 			children = (
 				4F28F5DB2764DB1800AA16A1 /* CreateTaskInViewRequest.swift */,
+				4FCFAF5127AFCB0D009732CC /* CreateViewUserRequest.swift */,
+				4F3EA41027B65E4C00B29941 /* ChangeSortRequest.swift */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -1401,6 +1543,9 @@
 				4F28F5DD2764DBB100AA16A1 /* CreateTaskInViewUseCase.swift */,
 				4F28F5DF2764E79900AA16A1 /* DeleteTaskInViewUseCase.swift */,
 				4F28F5E127683E5400AA16A1 /* FindByViewUseCase.swift */,
+				4FA14BB627B59E5800020E96 /* HidesViewsUseCase.swift */,
+				4FA14BB827B5A94E00020E96 /* HideViewUseCase.swift */,
+				4FA14BBA27B5A95A00020E96 /* ShowViewUseCase.swift */,
 			);
 			path = useCase;
 			sourceTree = "<group>";
@@ -1409,6 +1554,7 @@
 			isa = PBXGroup;
 			children = (
 				4F8DF95F2761B65B00D52266 /* ViewUserStore.swift */,
+				4FCFAF4F27AF81A6009732CC /* ViewUserConf.swift */,
 			);
 			path = viewUser;
 			sourceTree = "<group>";
@@ -1528,6 +1674,15 @@
 				4F9307E9265E1DAE00204881 /* AuthRoutes.swift */,
 			);
 			path = routes;
+			sourceTree = "<group>";
+		};
+		4F96B29027AD1BB9005DD4D7 /* EditViewPageExtention */ = {
+			isa = PBXGroup;
+			children = (
+				4F96B29127AD1BF6005DD4D7 /* EditViewPageTitle.swift */,
+				4F96B29327AD1C50005DD4D7 /* EditViewPageMainParams.swift */,
+			);
+			path = EditViewPageExtention;
 			sourceTree = "<group>";
 		};
 		4F9AFE2E271BB98600422845 /* notificationFeedbackGenerator */ = {
@@ -2008,6 +2163,14 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		4FCFAF4A27AF65D8009732CC /* components */ = {
+			isa = PBXGroup;
+			children = (
+				4FCFAF4B27AF65F2009732CC /* EditViewChooseLineItem.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
 		4FD2E318265F6BB4007A20C6 /* TextFieldLoginComponent */ = {
 			isa = PBXGroup;
 			children = (
@@ -2323,6 +2486,8 @@
 		4FFC21A326312DEE00198E4B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				4F19610427AC063700894190 /* editView */,
+				4F1960FF27ABF48F00894190 /* customizeView */,
 				4FA5B4642692E0210031093A /* base */,
 				4F28F5C5276458EA00AA16A1 /* viewWithTasks */,
 				4F615E0226E857E800273B1A /* testView */,
@@ -2571,20 +2736,27 @@
 				4FFC2196263123A600198E4B /* LoginUIView.swift in Sources */,
 				4F28F5CF27648F2C00AA16A1 /* ViewWithTasksViewTitle.swift in Sources */,
 				4F90CFFE26BA677F008F0C5D /* LoginByEmailRequest.swift in Sources */,
+				4F19611C27AC1FA500894190 /* OverdueChooseSheet.swift in Sources */,
 				4F90D00026BA6793008F0C5D /* LoginByEmailResponse.swift in Sources */,
 				4F4FA2AF26E9A97C00872EE7 /* Device.swift in Sources */,
 				4F9307E4265E1A4500204881 /* SolApiService.swift in Sources */,
 				4FCB320E26E1FCAA003A470A /* SpacesViewMainInfo.swift in Sources */,
+				4F19612827AC266F00894190 /* ChooseParamSheet.swift in Sources */,
 				4F48256126C4F9FF001ABE87 /* TaskSubtaskView.swift in Sources */,
 				4F8DCEFB26BD112900F8CD54 /* SpaceUpdateRequest.swift in Sources */,
 				4F28F5E42768463100AA16A1 /* ViewWithTasksModel.swift in Sources */,
+				4FA14BB727B59E5800020E96 /* HidesViewsUseCase.swift in Sources */,
+				4F19611427AC1F4900894190 /* SortChooseSheet.swift in Sources */,
 				4F0B5CA1264AFB710026FDD0 /* SpacesView.swift in Sources */,
 				4FA828C62696E86500540CFF /* UseCase.swift in Sources */,
+				4F19612227AC1FE200894190 /* DeadlineExactDateSheet.swift in Sources */,
 				4F13D3ED26EB011D00F2E947 /* TaskTitleView.swift in Sources */,
+				4F19612427AC1FF700894190 /* DeadlineRelativeChooseSheet.swift in Sources */,
 				4FEA6B1A26D0EDA000876D7C /* SpaceViewContent.swift in Sources */,
 				4F61FD5D26A1630000D83F2D /* SpacesViewModel.swift in Sources */,
 				4FE38CFB2663EC190011E203 /* HeaderComponent.swift in Sources */,
 				4F90D00426BA7062008F0C5D /* MeResponse.swift in Sources */,
+				4F19611227AC1F2E00894190 /* AddedTypeChooseSheet.swift in Sources */,
 				4F9307D5265E184000204881 /* SignUpEmailRequest.swift in Sources */,
 				4F2BED2B26EB10AC004D7A15 /* SpaceViewStore.swift in Sources */,
 				4F71E155270AA46F00A80F47 /* FindSlotByDayUseCase.swift in Sources */,
@@ -2595,8 +2767,10 @@
 				4F28F5C92764594400AA16A1 /* ViewWithTasksView.swift in Sources */,
 				4FA828CF26999ED800540CFF /* UserPort.swift in Sources */,
 				4FA272D9271F539800ADB1B6 /* DaySchedulerProtocol.swift in Sources */,
+				4FCFAF4C27AF65F2009732CC /* EditViewChooseLineItem.swift in Sources */,
 				4F61FD6326A16AF100D83F2D /* SpaceEntity.swift in Sources */,
 				4FACDFF826CB7E34004844CB /* TaskStatus.swift in Sources */,
+				4F19610327ABF4EA00894190 /* CustomizeViewPage.swift in Sources */,
 				4F87F7AF2658F1810094C946 /* TLTitleComponent.swift in Sources */,
 				4FFC21AB2637B5F500198E4B /* LoginByEmailView.swift in Sources */,
 				4FA0F6F426487D9000CECF24 /* TaskTitleComponent.swift in Sources */,
@@ -2605,6 +2779,7 @@
 				4F28F5CD27648EAE00AA16A1 /* ViewWithTasksViewMainInfo.swift in Sources */,
 				4F71E159270AAD4E00A80F47 /* SlotsDraftModel.swift in Sources */,
 				4FA828D92699BFEB00540CFF /* AddTaskViewModel.swift in Sources */,
+				4FCFAF5227AFCB0D009732CC /* CreateViewUserRequest.swift in Sources */,
 				4F0B5C9526498AEF0026FDD0 /* SpaceItemView.swift in Sources */,
 				4FA828BC2696E2BA00540CFF /* WarmUpUseCase.swift in Sources */,
 				4FA5B46A2692E1000031093A /* LoginByEmailViewModel.swift in Sources */,
@@ -2624,8 +2799,10 @@
 				4F87F7AB2658F1670094C946 /* TLCheckBoxComponent.swift in Sources */,
 				4FFBE4F226C24D9C00A79D81 /* CreateTaskUseCase.swift in Sources */,
 				4F2EA28626D4D211008A34CF /* EditTitleAndIconTaskRequest.swift in Sources */,
+				4F1960FC27ABC07600894190 /* ViewSortModal.swift in Sources */,
 				4F7C4EFF26BEC6160097AC65 /* UIEmojiTextField.swift in Sources */,
 				4FC973052699FCB5008509F6 /* DayViewControllerImpl.swift in Sources */,
+				4F3EA41427B6624A00B29941 /* SorrySheet.swift in Sources */,
 				4F2D875C26E3BE600032177A /* VacuumView.swift in Sources */,
 				4FC14AD7269DEF6000127B8D /* SlotEntity.swift in Sources */,
 				4F87F7B62658F2470094C946 /* TLIconComponent.swift in Sources */,
@@ -2633,7 +2810,10 @@
 				4F8DCEF526BBBFC600F8CD54 /* SpaceUseCase.swift in Sources */,
 				4F61FD7126A33B5200D83F2D /* CheckBoxView.swift in Sources */,
 				4F90D00626BA71B9008F0C5D /* EmptyRequest.swift in Sources */,
+				4F96B29227AD1BF6005DD4D7 /* EditViewPageTitle.swift in Sources */,
 				4F61FD6B26A1702700D83F2D /* TaskView.swift in Sources */,
+				4F19611027AC1F1600894190 /* DisplayModeChooseSheet.swift in Sources */,
+				4F96B29427AD1C50005DD4D7 /* EditViewPageMainParams.swift in Sources */,
 				4F7C4F0A26BEEDD10097AC65 /* AddTaskTextFieldView.swift in Sources */,
 				4FCE2F0426A69F71009B24DA /* TaskItemView.swift in Sources */,
 				4F4279422637C08500D71B2D /* NavigationBarColor.swift in Sources */,
@@ -2647,17 +2827,22 @@
 				4F48256526C55168001ABE87 /* MakeTaskOpenUseCase.swift in Sources */,
 				4FCB321A26E21311003A470A /* ChangeSortTaskUseCase.swift in Sources */,
 				4F0B5C8E2649780B0026FDD0 /* ActionButtonView.swift in Sources */,
+				4F19610E27AC1EFF00894190 /* ViewTypeChooseSheet.swift in Sources */,
 				4F8DF9592761B31C00D52266 /* ViewUserMapping.swift in Sources */,
 				4FA828C32696E84E00540CFF /* UseCaseProtocol.swift in Sources */,
 				4F6B98EC269D619700B0FFC9 /* DaySchedulerView.swift in Sources */,
 				4FFBE4F526C24FB900A79D81 /* TaskMapping.swift in Sources */,
 				4F8DCEF726BBCAAF00F8CD54 /* MultilineTextFieldView.swift in Sources */,
+				4F19612627AC200D00894190 /* SpaceChooseSheet.swift in Sources */,
 				4F61FD6526A16C2B00D83F2D /* IconEntity.swift in Sources */,
 				4F28F5D82764C82000AA16A1 /* TaskInViewResponse.swift in Sources */,
 				4FA828D72699BFB300540CFF /* AddTaskState.swift in Sources */,
+				4FCFAF5027AF81A6009732CC /* ViewUserConf.swift in Sources */,
 				4FB2C146266B34B10008CCDA /* TaskFieldButtonComponent.swift in Sources */,
+				4F1960FE27ABC0A500894190 /* ViewDisplayModeModel.swift in Sources */,
 				4F87F7B82658F2B70094C946 /* SolFonts.swift in Sources */,
 				4FE38CF42663CBB90011E203 /* RefreshTokenRequest.swift in Sources */,
+				4F3EA41127B65E4C00B29941 /* ChangeSortRequest.swift in Sources */,
 				4FCB321826E20F4B003A470A /* ChangeSortTasksRequest.swift in Sources */,
 				4F9307ED265E24CD00204881 /* RequestService.swift in Sources */,
 				4F069313262EE16C00D3E924 /* ActivityView.swift in Sources */,
@@ -2665,6 +2850,9 @@
 				4FCB321426E1FD5E003A470A /* SpacesViewContent.swift in Sources */,
 				4FA828A82696C83500540CFF /* TokenStore.swift in Sources */,
 				4F8DCEF126BBB49400F8CD54 /* SpaceView.swift in Sources */,
+				4F19610B27AC13D100894190 /* EditViewModel.swift in Sources */,
+				4F19611827AC1F8300894190 /* NotificationChooseSheet.swift in Sources */,
+				4FA14BBB27B5A95A00020E96 /* ShowViewUseCase.swift in Sources */,
 				4FFBE4EC26C1AD4000A79D81 /* TaskResponse.swift in Sources */,
 				4F28F5DE2764DBB100AA16A1 /* CreateTaskInViewUseCase.swift in Sources */,
 				4FEF48F227080EEB00B23BC1 /* SlotCreateRequest.swift in Sources */,
@@ -2674,6 +2862,7 @@
 				4F61FD7E26A363DE00D83F2D /* SolNavigationView.swift in Sources */,
 				4F62D52D26E7048F00AA5EBB /* TaskItemSubtaskCheckboxView.swift in Sources */,
 				4F615E1026E8646B00273B1A /* SpaceStore.swift in Sources */,
+				4F19611A27AC1F9300894190 /* RepeatChooseSheet.swift in Sources */,
 				4F2CAFA12702AF73003CACA0 /* DateMillisec.swift in Sources */,
 				4FAB2A9526A7F75900587BBD /* TaskViewModel.swift in Sources */,
 				4FFBE4EE26C24CBC00A79D81 /* TaskAPI.swift in Sources */,
@@ -2714,6 +2903,7 @@
 				4F61FD7A26A363C100D83F2D /* BackButton.swift in Sources */,
 				4FEA6B2026D0EEBF00876D7C /* SpaceViewSubtask.swift in Sources */,
 				4F2BED2926EB0B14004D7A15 /* TaskTitleModel.swift in Sources */,
+				4F19612027AC1FCA00894190 /* DeadlineDidChangeSheet.swift in Sources */,
 				4F6F05A726660D150074B9D8 /* SpaceProvider.swift in Sources */,
 				4F2B5DAC2668B2CC005BE636 /* AddTaskTextView.swift in Sources */,
 				4FEF48F427080FE400B23BC1 /* SlotAPI.swift in Sources */,
@@ -2732,6 +2922,7 @@
 				4FE38D02266413BD0011E203 /* IconFieldComponent.swift in Sources */,
 				4FE38CF72663CF580011E203 /* WarmUpScreen.swift in Sources */,
 				4F9307D7265E188800204881 /* SignUpEmailResponse.swift in Sources */,
+				4F19611627AC1F6200894190 /* SlotChooseSheet.swift in Sources */,
 				4F8DF94C2761ACC000D52266 /* ViewUserRoutes.swift in Sources */,
 				4F8DCEFD26BD121900F8CD54 /* UpdateTitleIconSpaceUseCase.swift in Sources */,
 				4F28F5DA2764C9B600AA16A1 /* FindByTaskUseCase.swift in Sources */,
@@ -2769,8 +2960,11 @@
 				4F4FA2AD26E9A92200872EE7 /* DeviceModel.swift in Sources */,
 				4FFBE4F026C24D1E00A79D81 /* TaskRepositoryPort.swift in Sources */,
 				4F9307EA265E1DAE00204881 /* AuthRoutes.swift in Sources */,
+				4F1960FA27A87E7300894190 /* ViewFiltersModal.swift in Sources */,
+				4F19611E27AC1FB700894190 /* TaskIdClosedChooseSheet.swift in Sources */,
 				4F4C04E426EEE94B0032728C /* LoadStatus.swift in Sources */,
 				4FEA6B1C26D0EE1C00876D7C /* SpaceViewHeader.swift in Sources */,
+				4F1960F827A86A6200894190 /* ViewWithTasksFilters.swift in Sources */,
 				4F9AFE30271BB99B00422845 /* UINotificationFeedbackGeneratorExtention.swift in Sources */,
 				4FD44F87271D17E000827F80 /* FindSlotTaskUseCase.swift in Sources */,
 				4FCB321626E1FD86003A470A /* SpacesViewAddSpace.swift in Sources */,
@@ -2787,9 +2981,11 @@
 				4F21D394266F3D2600459112 /* PlanningSlotsView.swift in Sources */,
 				4FA272DB271FC94C00ADB1B6 /* AppModalViews.swift in Sources */,
 				4F2661CC26B92156001974BC /* AddSpaceViewModel.swift in Sources */,
+				4F19610827AC066600894190 /* EditViewPage.swift in Sources */,
 				4F61FD6D26A1722C00D83F2D /* TaskContentView.swift in Sources */,
 				4F87F7B32658F1940094C946 /* TLSubtaskButtonComponent.swift in Sources */,
 				4FA0F6FA2648806400CECF24 /* StoryComponent.swift in Sources */,
+				4FA14BB927B5A94E00020E96 /* HideViewUseCase.swift in Sources */,
 				4F2B5DA92668B1FE005BE636 /* BackgroundForModalComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2951,7 +3147,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEVELOPMENT_ASSET_PATHS = "\"SOL/Preview Content\"";
 				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				ENABLE_PREVIEWS = YES;
@@ -2978,7 +3174,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEVELOPMENT_ASSET_PATHS = "\"SOL/Preview Content\"";
 				DEVELOPMENT_TEAM = SQ8JK5F2GW;
 				ENABLE_PREVIEWS = YES;

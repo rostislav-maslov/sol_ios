@@ -16,14 +16,18 @@ extension ViewWithTasksView {
                     .listRowSeparator(Visibility.hidden)
                     .listRowInsets(EdgeInsets())
                     .listRowBackground(SolColor.colors().screen.background)
-                actionsTitle
+                filters
                     .listRowSeparator(Visibility.hidden)
                     .listRowInsets(EdgeInsets())
                     .listRowBackground(SolColor.colors().screen.background)
-                actionsButton
-                    .listRowSeparator(Visibility.hidden)
-                    .listRowInsets(EdgeInsets())
-                    .listRowBackground(SolColor.colors().screen.background)
+//                actionsTitle
+//                    .listRowSeparator(Visibility.hidden)
+//                    .listRowInsets(EdgeInsets())
+//                    .listRowBackground(SolColor.colors().screen.background)
+//                actionsButton
+//                    .listRowSeparator(Visibility.hidden)
+//                    .listRowInsets(EdgeInsets())
+//                    .listRowBackground(SolColor.colors().screen.background)
                 //                picker
                 //                    .listRowSeparator(Visibility.hidden)
                 //                    .listRowInsets(EdgeInsets())

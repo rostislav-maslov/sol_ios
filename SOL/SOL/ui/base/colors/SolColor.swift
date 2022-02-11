@@ -18,6 +18,7 @@ struct ColorsVar {
     var checkBox: CheckBox
     var actionButton:ActionButton
     var taskLine: TaskLine
+    var filterButton: FilterButton
 }
 
 struct FontColors {
@@ -69,6 +70,11 @@ struct TaskLine{
     var container: Color
     var containerDone: Color
     var divider: Color
+}
+
+struct FilterButton{
+    var font: Color
+    var background: Color
 }
 
 class SolColor{
@@ -126,7 +132,9 @@ class SolColor{
                 container: Color(red: 246/255, green:  246/255, blue:  246/255, opacity:  1),
                 containerDone: Color(red: 96/255, green:  96/255, blue:  96/255, opacity:  1),
                 divider: Color(red: 236/255, green:  236/255, blue:  236/255, opacity:  1)
-            )
+            ),
+            
+            filterButton: FilterButton(font: Color.white, background: Color(red:68/255, green:68/255, blue:68/255, opacity: 1))
         )
         return colors
     }

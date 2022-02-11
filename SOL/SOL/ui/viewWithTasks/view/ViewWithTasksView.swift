@@ -6,8 +6,6 @@
 //
 
 import Foundation
-
-import Foundation
 import SwiftUI
 
 public struct ViewWithTasksView: View {
@@ -20,13 +18,15 @@ public struct ViewWithTasksView: View {
     @EnvironmentObject var addTaskModel: AddTaskViewModel
     @EnvironmentObject var planningSlotsModel: PlanningSlotsModel
     @EnvironmentObject var viewUserStore: ViewUserStore
+    @State var isPresented = false
+    @State var showSuggestSheet = false
     @Environment(\.presentationMode) var presentationMode
     
-//    @State public var isEditable = true
-//    @State var isTarget = true
-//    @State var goToTaskView = false
-//    @State var taskId: String = ""
-//    @State var placeholder = "🪐"
+    //    @State public var isEditable = true
+    //    @State var isTarget = true
+    //    @State var goToTaskView = false
+    //    @State var taskId: String = ""
+    //    @State var placeholder = "🪐"
     
     var emojiTextField: EmojiTextField?
     
@@ -44,10 +44,10 @@ public struct ViewWithTasksView: View {
                     model.bottomButtonType = BottomButtonType.ADD_TASK
                     addTaskModel.state = .PLACEHOLDER
                     self.model.stopEditIcon = true
-//                    spaceStore.saveTitleIcon(
-//                        spaceId: spaceId,
-//                        title: viewUserStore.all[self.viewId]!.view!.title,
-//                        data: viewUserStore.all[self.viewId]!.view!.icon.data)
+                    //                    spaceStore.saveTitleIcon(
+                    //                        spaceId: spaceId,
+                    //                        title: viewUserStore.all[self.viewId]!.view!.title,
+                    //                        data: viewUserStore.all[self.viewId]!.view!.icon.data)
                 })
             }
             
@@ -55,24 +55,46 @@ public struct ViewWithTasksView: View {
                 destination: TaskView(spaceId: self.model.spaceId, taskId: self.model.taskId),
                 isActive: $model.goToTaskView,
                 label:{
-
+                    
                 })
                 .frame(width: 0, height: 0)
                 .buttonStyle(PlainButtonStyle())
-                
+            
         }
         .navigationBarTitleDisplayMode(.inline)
         .preferredColorScheme(.light)
-        .navigationTitle(viewUserStore.all[viewId]?.view?.title ?? "")
+        .navigationTitle(viewUserStore.all[viewId]?.view?.title ?? "ыаыва")
         .navigationBarHidden(false)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    self.showSuggestSheet = true
+                } label: {
+                    Text("Suggest")
+                }.sheet(isPresented: $showSuggestSheet, onDismiss:{
+                }) {
+                    Text("Suggest")
+                }
+                .background(SolColor.colors().screen.background)
+                .preferredColorScheme(.light)
+            }
+            
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink(
+                    destination: EditViewPage(viewId: self.viewId)) {
+                        Text("Edit")                        
+                    }
+            }
+        }
         .onAppear(perform: {
             self.model.spaceId = ""
             self.model.taskId = ""
             self.model.goToTaskView = false
             self.model.bottomButtonType
-//            self.planningSlotsModel.type = .SPACE
-//            self.addTaskModel.changeView(spaceId: nil, taskId: nil, taskDidCreated: model.taskDidCreated)
-//
+            //            self.planningSlotsModel.type = .SPACE
+            //            self.addTaskModel.changeView(spaceId: nil, taskId: nil, taskDidCreated: model.taskDidCreated)
+            //
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 self.viewUserStore.syncTaskInView(viewId: viewId)
                 self.model.emoji = viewUserStore.all[self.viewId]!.view!.icon!.data!

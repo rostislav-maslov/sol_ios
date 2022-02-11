@@ -20,9 +20,12 @@ struct StoriesComponent: View {
                             StoryComponent(viewUser.id)
                         }.buttonStyle(.plain)
                     Spacer().frame(width: 20.0, height: 1.0, alignment: Alignment.center)
-                }
-                // TODO: экран редактирования сторис
-                StoryConfigButtonComponent()
+                }                                
+                NavigationLink(
+                    destination: CustomizeViewPage()) {
+                        StoryConfigButtonComponent()
+                    }.buttonStyle(.plain)
+                Spacer().frame(width: 30, height: 10)
                 Spacer()
             }
         }

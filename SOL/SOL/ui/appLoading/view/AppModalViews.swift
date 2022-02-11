@@ -18,6 +18,32 @@ struct AppModalViews: View {
             if goToState == .SPACES {
                 AddTaskRootView()
                 PlanningSlotsView(model: planningSlotsModel)
+                ViewFiltersModal()
+                ViewDisplayModeModel()
+                ViewSortModal()
+                
+                /// Edit View
+                ZStack{
+                    ZStack{
+                        ViewTypeChooseSheet()
+                        DisplayModeChooseSheet()
+                        AddedTypeChooseSheet()
+                        SortChooseSheet()
+                        SlotChooseSheet()
+                        NotificationChooseSheet()
+                    }
+                    ZStack{
+                        RepeatChooseSheet()
+                        OverdueChooseSheet()
+                        TaskIdClosedChooseSheet()
+                        DeadlineDidChangeSheet()
+                        DeadlineExactDateSheet()
+                        DeadlineRelativeChooseSheet()
+                        SpaceChooseSheet()
+                        ChooseParamSheet()
+                        SorrySheet()
+                    }
+                }
             }
         }.onAppear {
             planningSlotsModel.taskStore = taskStore

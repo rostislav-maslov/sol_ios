@@ -14,6 +14,7 @@ extension ViewWithTasksView {
     var header: some View {
         VStack(alignment: .leading, spacing: nil, content: {
             taskTitle
+            
         })
     }
 }

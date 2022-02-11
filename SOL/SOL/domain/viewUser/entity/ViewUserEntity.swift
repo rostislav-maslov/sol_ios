@@ -9,7 +9,7 @@ import Foundation
 
 public class ViewUserEntity {
     var id: String = UUID().uuidString
-    var canEdit: Bool = false
+    var canEdit: Bool = true
     var createdFromTemplateId: String?
     var hasNewTaskToAdd: Bool = false
     var hasTaskAdded: Bool = false
