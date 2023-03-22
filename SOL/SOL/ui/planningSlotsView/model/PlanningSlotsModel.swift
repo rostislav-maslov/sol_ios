@@ -121,8 +121,8 @@ extension PlanningSlotsModel {
     // MARK: Create Event
     public func createEvent(eventDescriptor: EventDescriptor) -> Void {
         // TOOD
-        let startTime = eventDescriptor.startDate,
-            endTime = eventDescriptor.endDate
+        let startTime = eventDescriptor.dateInterval.start,
+            endTime = eventDescriptor.dateInterval.end
         if type == .TASK_CREATE{
             let slot: SlotEntity = SlotEntity()
             slot.id = UUID().uuidString
@@ -148,8 +148,8 @@ extension PlanningSlotsModel {
             if let slotId:String = ev.userInfo as? String {
                 for slot in allSlots {
                     if slotId == slot.id {
-                        slot.startTime = eventDescriptor.startDate
-                        slot.endTime = eventDescriptor.endDate
+                        slot.startTime = eventDescriptor.dateInterval.start
+                        slot.endTime = eventDescriptor.dateInterval.end
                         
                         // Commit changes
                         if slot.isDraft == true {
@@ -158,8 +158,8 @@ extension PlanningSlotsModel {
                         } else {
                             //а тут обновляем в этих самых
                             let req = SlotUpdateRequest(
-                                endTime: eventDescriptor.endDate.millisecondsSince1970,
-                                startTime: eventDescriptor.startDate.millisecondsSince1970,
+                                endTime: eventDescriptor.dateInterval.end.millisecondsSince1970,
+                                startTime: eventDescriptor.dateInterval.start.millisecondsSince1970,
                                 id: slotId,
                                 timezone: Date().timezone)
                           

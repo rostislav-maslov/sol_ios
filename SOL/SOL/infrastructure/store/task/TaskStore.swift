@@ -10,7 +10,10 @@ import Combine
 
 public class TaskStore: ObservableObject {
     @Published var tasks:[String: TaskEntity] = [String: TaskEntity]()
+    /// Depricated
     @Published var forNotifyCombine = UUID()
+    
+    //тут сделать tasksForViewWithSort
     
     var spaceStore: SpaceStore?
     var slotStore: SlotStore?

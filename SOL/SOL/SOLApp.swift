@@ -6,11 +6,18 @@
 //
 
 import SwiftUI
+import ArmSdk
 
 @main
 struct SOLApp: App {
     
     init() {
+        ArmSDK.start(
+            armURL: "http://service.analytics.marketing.ftl-dev.ru",
+            app: "SOL_APP",
+            appVersion: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "")
+        получение дип сылок
+        получение уведомлений
         
     }
     

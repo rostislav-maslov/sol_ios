@@ -110,12 +110,12 @@ class DayViewControllerImpl: DayViewController {
         let startDate = Calendar.current.date(byAdding: .minute, value: -Int(CGFloat(duration) / 2), to: date)!
         let event = Event()
         
-        event.startDate = startDate
-        event.endDate = Calendar.current.date(byAdding: .minute, value: duration - 2, to: startDate)!
+        event.dateInterval.start = startDate
+        event.dateInterval.end = Calendar.current.date(byAdding: .minute, value: duration - 2, to: startDate)!
         
         var info = ""// TODO data[Int(arc4random_uniform(UInt32(data.count)))]
         
-        info.append(rangeFormatter.string(from: event.startDate, to: event.endDate))
+        info.append(rangeFormatter.string(from: event.dateInterval.start, to: event.dateInterval.end))
         event.text = eventDelegate!.newEventTitle()
         event.color = eventDelegate!.newEventColor()
         
@@ -124,7 +124,7 @@ class DayViewControllerImpl: DayViewController {
     
     override func dayView(dayView: DayView, didUpdate event: EventDescriptor) {
         print("did finish editing \(event)")
-        print("new startDate: \(event.startDate) new endDate: \(event.endDate)")
+        print("new startDate: \(event.dateInterval.start) new endDate: \(event.dateInterval.end)")
         eventDelegate?.updateEvent(eventDescriptor: event)
         event.commitEditing()
                 

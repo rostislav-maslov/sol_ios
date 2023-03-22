@@ -39,13 +39,13 @@ extension SlotEntity {
         return "c 9:00 до 18:00"
     }
     func updateAndReturnDescriptor() -> EventDescriptor {
-        eventDescriptor.startDate = startTime!
+        eventDescriptor.dateInterval.start = startTime!
         
         // Это нужно, что бы события не накладывались друг на друга
         if Calendar.current.component(.minute, from: endTime!) % 5 == 0 {
-            eventDescriptor.endDate = Calendar.current.date(byAdding: .minute, value: -2, to: endTime!)!
+            eventDescriptor.dateInterval.end = Calendar.current.date(byAdding: .minute, value: -2, to: endTime!)!
         }else{
-            eventDescriptor.endDate = endTime!
+            eventDescriptor.dateInterval.end = endTime!
         }
         
         

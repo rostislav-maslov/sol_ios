@@ -11,6 +11,8 @@ target 'SOL' do
 #  pod 'ISEmojiView'
   pod 'CalendarKit'
   pod 'BottomSheet', :git => 'https://github.com/weitieda/bottom-sheet.git'
+  pod 'ArmSdk', :git => 'https://github.com/rostislav-maslov/arm-ios-sdk.git'
+  
   
   target 'SOLTests' do
     inherit! :search_paths
